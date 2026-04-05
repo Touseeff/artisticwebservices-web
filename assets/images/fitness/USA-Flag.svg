@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="17" viewBox="0 0 25 17">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_66" data-name="Rectangle 66" width="25" height="17" rx="3" transform="translate(2574 -420)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="USA_Flag_" data-name="USA Flag " transform="translate(-2574 420)" clip-path="url(#clip-path)">
+    <g id="Group_213" data-name="Group 213" transform="translate(419.328 -626)">
+      <g id="united-states-of-america" transform="translate(2153 206)">
+        <rect id="Rectangle_59" data-name="Rectangle 59" width="26.672" height="17.781" fill="#f0f0f0"/>
+        <g id="Group_211" data-name="Group 211" transform="translate(0 2.222)">
+          <rect id="Rectangle_60" data-name="Rectangle 60" width="26.672" height="2.222" fill="#d80027"/>
+          <rect id="Rectangle_61" data-name="Rectangle 61" width="26.672" height="2.222" transform="translate(0 4.446)" fill="#d80027"/>
+          <rect id="Rectangle_62" data-name="Rectangle 62" width="26.672" height="2.222" transform="translate(0 8.89)" fill="#d80027"/>
+          <rect id="Rectangle_63" data-name="Rectangle 63" width="26.672" height="2.222" transform="translate(0 13.336)" fill="#d80027"/>
+        </g>
+        <rect id="Rectangle_64" data-name="Rectangle 64" width="13.336" height="9.575" fill="#2e52b2"/>
+        <g id="Group_212" data-name="Group 212" transform="translate(1.354 1.538)">
+          <path id="Path_1562220" data-name="Path 1562220" d="M83.272,160.624l-.215.661h-.695l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408h-.695Z" transform="translate(-79.427 -158.239)" fill="#f0f0f0"/>
+          <path id="Path_1562221" data-name="Path 1562221" d="M83.487,207.058l-.214-.661-.215.661h-.695l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408Z" transform="translate(-79.427 -201.628)" fill="#f0f0f0"/>
+          <path id="Path_1562222" data-name="Path 1562222" d="M27.125,207.058l-.214-.661-.215.661H26l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408Z" transform="translate(-26.001 -201.628)" fill="#f0f0f0"/>
+          <path id="Path_1562223" data-name="Path 1562223" d="M26.911,160.624l-.215.661H26l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408h-.695Z" transform="translate(-26.001 -158.239)" fill="#f0f0f0"/>
+          <path id="Path_1562224" data-name="Path 1562224" d="M83.272,114.85l-.215.661h-.695l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408h-.695Z" transform="translate(-79.427 -114.85)" fill="#f0f0f0"/>
+          <path id="Path_1562225" data-name="Path 1562225" d="M26.911,114.85l-.215.661H26l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408h-.695Z" transform="translate(-26.001 -114.85)" fill="#f0f0f0"/>
+          <path id="Path_1562226" data-name="Path 1562226" d="M139.634,160.624l-.215.661h-.695l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408h-.695Z" transform="translate(-132.853 -158.239)" fill="#f0f0f0"/>
+          <path id="Path_1562227" data-name="Path 1562227" d="M139.849,207.058l-.215-.661-.215.661h-.695l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408Z" transform="translate(-132.853 -201.628)" fill="#f0f0f0"/>
+          <path id="Path_1562228" data-name="Path 1562228" d="M196.212,207.058,196,206.4l-.215.661h-.695l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408Z" transform="translate(-186.28 -201.628)" fill="#f0f0f0"/>
+          <path id="Path_1562229" data-name="Path 1562229" d="M196,160.624l-.215.661h-.695l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408h-.695Z" transform="translate(-186.28 -158.239)" fill="#f0f0f0"/>
+          <path id="Path_1562230" data-name="Path 1562230" d="M139.634,114.85l-.215.661h-.695l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408h-.695Z" transform="translate(-132.853 -114.85)" fill="#f0f0f0"/>
+          <path id="Path_1562231" data-name="Path 1562231" d="M196,114.85l-.215.661h-.695l.562.408-.215.661.562-.408.562.408-.215-.661.562-.408h-.695Z" transform="translate(-186.28 -114.85)" fill="#f0f0f0"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

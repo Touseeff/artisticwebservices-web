@@ -1,0 +1,3787 @@
+/* =====================================================
+   ArtisticWebServices – Custom Fixes & Enhancements
+   Fixes: navbar overlap, dropdowns, mobile, sections
+   ===================================================== */
+
+/* ── 1. Navbar / Fixed-top overlap fix ──────────────── */
+body {
+    padding-top: 90px;
+}
+@media (max-width: 991.98px) {
+    body {
+        padding-top: 70px;
+    }
+}
+
+/* Pages that have a full-height hero section */
+.page-header,
+.banner-one,
+.main-slider,
+.hero-section,
+.slider-one,
+[class*="banner-"],
+[class*="page-header"] {
+    margin-top: 0 !important;
+}
+
+/* ── 2. Navbar styling ──────────────────────────────── */
+.navbar {
+    background-color: #fff !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08) !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.14) !important;
+}
+
+.navbar-brand img {
+    max-height: 50px;
+    width: auto;
+}
+
+/* ── 3. Global link color override — scope to content only ── */
+/* Intentionally empty — color inherits from template per-section */
+
+/* ── Nav links ──────────────────────────────────────── */
+.navbar .nav-link {
+    font-size: 15px;
+    font-weight: 500;
+    color: #222 !important;
+    padding: 8px 14px !important;
+    border-radius: 4px;
+    transition: color 0.2s ease, background 0.2s ease;
+    position: relative;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #dd0429 !important;
+    background: rgba(221, 4, 41, 0.05);
+}
+
+.navbar .nav-link.dropdown-toggle::after {
+    vertical-align: middle;
+}
+
+/* ── 4. Dropdown menus ──────────────────────────────── */
+.dropdown-menu {
+    background-color: #fff !important;
+    border: none !important;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.13) !important;
+    border-radius: 0 0 10px 10px !important;
+    margin-top: 0 !important;
+    animation: dropFadeIn 0.18s ease forwards;
+}
+
+@keyframes dropFadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-item {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333 !important;
+    padding: 8px 20px !important;
+    transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(221, 4, 41, 0.06) !important;
+    color: #dd0429 !important;
+    padding-left: 26px !important;
+}
+
+/* Mega-dropdown link items (list-group inside dropdown) */
+.dropdown-menu .list-group-item {
+    border: none !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    background: transparent !important;
+    color: #333;
+    font-size: 14px;
+    padding: 10px 12px;
+    transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+}
+
+.dropdown-menu .list-group-item:hover {
+    background-color: rgba(221, 4, 41, 0.06) !important;
+    color: #dd0429 !important;
+    padding-left: 20px;
+}
+
+.dropdown-menu .red-icon {
+    color: #dd0429;
+    font-size: 16px;
+    width: 20px;
+    flex-shrink: 0;
+}
+
+/* Mega-dropdown section headers */
+.dropdown-menu h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px !important;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #dd0429;
+    display: inline-block;
+}
+
+/* ── 5. Mobile hamburger menu ───────────────────────── */
+.navbar-toggler {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 6px 10px;
+    background: rgba(221, 4, 41, 0.08);
+    border-radius: 6px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(221, 4, 41, 0.2) !important;
+}
+
+.navbar-toggler .fa-bars {
+    font-size: 20px;
+    color: #dd0429;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: #fff;
+        border-top: 2px solid #dd0429;
+        padding: 16px;
+        max-height: 80vh;
+        overflow-y: auto;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    .navbar-nav .nav-item {
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .navbar-nav .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px 8px !important;
+        font-size: 15px;
+    }
+
+    /* Mobile dropdown trigger */
+    .navbar-nav .dropdown-toggle::after {
+        float: right;
+        margin-top: 8px;
+    }
+
+    .dropdown-menu {
+        box-shadow: none !important;
+        border: none !important;
+        border-left: 3px solid #dd0429 !important;
+        border-radius: 0 !important;
+        margin-left: 10px;
+        padding: 8px 0;
+        background: #fafafa !important;
+    }
+
+    .dropdown-menu .list-group-item {
+        font-size: 13px;
+        padding: 8px 16px;
+    }
+
+    /* Hide mega-dropdown image column on mobile */
+    .dropdown-menu .col-lg-3:first-child .services-header-img,
+    .dropdown-menu .col-lg-3:first-child p {
+        display: none;
+    }
+
+    /* Phone number in nav */
+    .main-menu-wrapper__call {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid #f0f0f0;
+    }
+}
+
+/* ── 6. Call-to-action phone number in nav ──────────── */
+.main-menu-wrapper__call {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-menu-wrapper__call-icon img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.main-menu-wrapper__call-number h5 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.nav-number {
+    color: #dd0429 !important;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-number:hover {
+    color: #b8001f !important;
+}
+
+/* ── 7. Section / page-content fixes ───────────────── */
+
+/* Ensure first section on pages isn't clipped under navbar */
+main > section:first-child,
+.page-body > section:first-child,
+section.banner-one,
+section.page-header {
+    position: relative;
+    z-index: 1;
+}
+
+/* Common section padding normalization */
+section {
+    position: relative;
+}
+
+/* ── 8. Responsive images ───────────────────────────── */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ── 9. Footer enhancements ─────────────────────────── */
+.site-footer {
+    padding-top: 30px;
+}
+
+/* Footer logo — large & clear across breakpoints */
+.footer-logo img,
+.footer-logo-img {
+    height: 150px !important;
+    width: auto !important;
+    max-width: 340px !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* Absolute bullet removal for all footer lists */
+.site-footer ul,
+.site-footer ol {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+.site-footer ul li,
+.site-footer ol li {
+    list-style: none !important;
+    list-style-type: none !important;
+    padding-left: 0 !important;
+}
+.site-footer ul li::before,
+.site-footer ul li::marker,
+.site-footer ol li::before,
+.site-footer ol li::marker {
+    display: none !important;
+    content: none !important;
+}
+
+.footer-widget__title {
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 20px !important;
+}
+
+.footer-widget__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #dd0429;
+}
+
+.footer-widget__links-list {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.footer-widget__links-list li {
+    list-style: none !important;
+    margin-bottom: 3px;
+    line-height: 26px;
+    padding-left: 0 !important;
+}
+
+.footer-widget__links-list li::before,
+.footer-widget__links-list li::marker {
+    display: none !important;
+    content: none !important;
+}
+
+.footer-widget__links-list a {
+    transition: color 0.2s, padding-left 0.15s;
+    display: inline-block;
+}
+
+.footer-widget__links-list a:hover {
+    padding-left: 6px;
+    color: #dd0429 !important;
+}
+
+/* Footer: Connect — map only inside .footer-map-visual; pin placed on the map */
+.loactions__footer__new {
+    height: auto;
+    min-height: 0;
+    padding-bottom: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-image: none !important;
+}
+
+.loactions__footer__new .footer-connect-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.loactions__footer__new .map__anchor {
+    color: #fff !important;
+}
+
+.loactions__footer__new .map__anchor:hover {
+    color: #fff !important;
+    opacity: 0.92;
+}
+
+.footer-map-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px 18px;
+    width: 100%;
+    margin-top: 4px;
+    min-width: 0;
+}
+
+.footer-map-visual {
+    position: relative;
+    flex: 0 1 46%;
+    width: 46%;
+    max-width: 200px;
+    min-width: 110px;
+    aspect-ratio: 1.15;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.04);
+    background-image: url(../images/updated-withoud-text.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 44% 48%;
+}
+
+.footer-map-visual .footer-map-pin {
+    position: absolute;
+    left: 46%;
+    top: 39%;
+    transform: translate(-50%, -88%);
+    color: #dd0429;
+    font-size: clamp(1.35rem, 4.2vw, 1.85rem);
+    line-height: 1;
+    margin: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+}
+
+.footer-location-text {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: left;
+}
+
+.loactions__footer__new .address__footers {
+    margin-top: 1.25rem !important;
+}
+
+@media (max-width: 767.98px) {
+    .loactions__footer__new .footer-widget__column > .footer-widget__title {
+        text-align: center;
+    }
+
+    .loactions__footer__new .footer-map-block {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .loactions__footer__new .footer-map-visual {
+        flex: 0 0 auto;
+        width: min(220px, 88vw);
+        max-width: none;
+    }
+
+    .loactions__footer__new .footer-location-text {
+        text-align: center;
+    }
+
+    .loactions__footer__new .footer-map-visual .footer-map-pin {
+        left: 45%;
+        top: 38%;
+    }
+}
+
+/* ── 10. Floating contact button ────────────────────── */
+.floating-contact {
+    z-index: 9998;
+}
+
+/* ── 11. Scroll-to-top button ───────────────────────── */
+.scroll-to-top {
+    background: #dd0429;
+    color: #fff !important;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(221, 4, 41, 0.4);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.scroll-to-top:hover {
+    background: #b8001f;
+    transform: translateY(-3px);
+    color: #fff !important;
+}
+
+/* ── 12. General responsive fixes ──────────────────── */
+@media (max-width: 767.98px) {
+    h1 { font-size: 28px !important; line-height: 1.3; }
+    h2 { font-size: 24px !important; }
+    h3 { font-size: 20px !important; }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Fix overflowing sections */
+    section {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 575.98px) {
+    h1 { font-size: 24px !important; }
+    h2 { font-size: 20px !important; }
+}
+
+/* ── 13. List-group items in dropdowns color fix ────── */
+.list-group-item-action:focus,
+.list-group-item-action:hover {
+    background-color: rgba(221, 4, 41, 0.06) !important;
+    color: #dd0429 !important;
+}
+
+/* ── 14. Navbar active link indicator ──────────────── */
+.navbar .nav-link.active {
+    color: #dd0429 !important;
+    font-weight: 600;
+}
+
+/* ── 15. Mobile: close dropdowns when nav collapses ─── */
+@media (max-width: 991.98px) {
+    .navbar-collapse:not(.show) .dropdown-menu {
+        display: none !important;
+    }
+}
+
+/* ── 16. Custom slider – correct background rendering ── */
+.custom-slider-section,
+.solutions-slider-section {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    transition: background-image 0.5s ease !important;
+}
+
+/* Ensure each slider item shows its own bg image on hover */
+.custom-slider-item {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* ── 17. CTA bar body padding when visible ──────────── */
+body.has-cta-bar {
+    padding-bottom: 60px;
+}
+
+/* ── 18. Navbar Call Now button spacing ─────────────── */
+.main-menu-wrapper__call {
+    margin-left: 16px;
+}
+@media (max-width: 991.98px) {
+    .main-menu-wrapper__call {
+        margin: 12px 0 0;
+        padding-top: 12px;
+        border-top: 1px solid #f0f0f0;
+    }
+}
+
+/* ── 19. Mobile footer: hide Services & Solutions columns ── */
+@media (max-width: 767.98px) {
+    .site-footer__middle-inner .row > div:nth-child(3),
+    .site-footer__middle-inner .row > div:nth-child(4) {
+        display: none !important;
+    }
+}
+
+/* ── 20. Mobile section fixes – spacing, overflow, text ── */
+@media (max-width: 767.98px) {
+
+    /* Normalize section vertical padding */
+    section {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+        overflow-x: hidden;
+    }
+
+    /* Section title text sizes */
+    .section-title__title {
+        font-size: 22px !important;
+        line-height: 1.3;
+        margin-bottom: 10px !important;
+    }
+    .section-title__paragraph {
+        font-size: 14px !important;
+        line-height: 1.6;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+    }
+
+    /* Fix full-width container overflow on mobile */
+    .container-fluid {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* Row columns stack properly */
+    .row > [class*="col-"] {
+        margin-bottom: 20px;
+    }
+
+    /* Services slider */
+    .custom-slider-section { border-radius: 0 !important; }
+
+    /* Fix req-a-qt-des paragraph padding on mobile */
+    p.req-a-qt-des {
+        padding: 0 16px !important;
+        font-size: 14px !important;
+    }
+
+    /* Fix Why Choose section */
+    .why-choose-one { padding: 40px 0 !important; }
+
+    /* Fix How It Works spacing */
+    .how-it-works { margin: 0 !important; padding: 40px 0 !important; }
+
+    /* Fix team section — no bottom padding (brand-one slider follows directly) */
+    .team-one { padding: 40px 0 0 !important; }
+    .brand-one { padding-top: 20px !important; }
+
+    /* Fix app-dev-ser section */
+    section.app-dev-ser { margin-top: 30px !important; }
+
+    /* Prevent images from overflowing */
+    img { max-width: 100% !important; height: auto !important; }
+
+    /* Cards and boxes should not overflow */
+    .card, [class*="-box"], [class*="-card"] {
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding-top: 36px !important;
+        padding-bottom: 36px !important;
+    }
+    .section-title__title { font-size: 19px !important; }
+    .section-title__paragraph { font-size: 13px !important; }
+}
+
+/* Footer email & phone inline layout */
+.three__tabs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.three__tabs .mt-0 {
+    white-space: nowrap;
+}
+
+/* ═══ AUTO-GENERATED SECTION — auto_fix_all_pages.php ═══
+   Generated: 2026-04-04 01:27
+   DO NOT EDIT — re-run auto_fix_all_pages.php to refresh.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Fix 1: Global section pattern library ──────────────────────────────── */
+.slider-controls { display: flex; gap: 12px; align-items: center; justify-content: center; margin-top: 24px; }
+.slider-dots { display: flex; gap: 8px; align-items: center; }
+.slider-dot { width: 10px; height: 10px; border-radius: 50%; background: #ccc; border: none; cursor: pointer; padding: 0; transition: background 0.2s; }
+.slider-dot.active { background: #dd0429; }
+.slider-prev, .slider-next { width: 44px; height: 44px; border-radius: 50%; background: #dd0429; color: #fff; border: none; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.slider-prev:hover, .slider-next:hover { background: #b8001f; }
+.case-slider .case-slide { display: none; }
+.case-slider .case-slide.active { display: block; }
+.view-btn { display: inline-block; padding: 12px 28px; background: #dd0429; color: #fff !important; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.3s; }
+.view-btn:hover { background: #b8001f; color: #fff !important; }
+.eco_title h5 { font-size: 17px; font-weight: 600; color: #555; text-align: center; padding: 10px; }
+.aws-field-error { color: #dd0429; font-size: 12px; display: block; margin-top: 4px; font-weight: 500; }
+input.field-error, textarea.field-error, select.field-error { border-color: #dd0429 !important; }
+/* Reset the erroneous global sticky rule from style-01.css (line 8626) that
+   makes section headings float away on scroll, leaving blank whitespace holes.
+   Restore sticky only inside blog article containers where it was intended.   */
+.section-title {
+    position: relative !important;
+    top: auto !important;
+    padding: 0 !important;
+    margin-bottom: 48px;
+}
+.blog-main-box .section-title {
+    position: sticky !important;
+    top: 80px !important;
+    padding: 15px 0 !important;
+}
+.section-title__tagline { display: inline-block; font-size: 13px; font-weight: 600; color: #dd0429; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+.section-title__title { font-size: 2rem; font-weight: 700; line-height: 1.3; color: #111; margin-bottom: 16px; }
+.section-title__paragraph { font-size: 16px; color: #555; line-height: 1.7; }
+.thm-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background-color: #dd0429 !important;
+    color: #fff !important;
+    border: 2px solid #dd0429 !important;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s, border-color 0.3s;
+    cursor: pointer;
+}
+.thm-btn:hover {
+    background-color: #b8001f !important;
+    border-color: #b8001f !important;
+    transform: translateY(-2px);
+    color: #fff !important;
+}
+
+/* Keep intentional light pills / alternates readable (override blanket .thm-btn above) */
+.cta-two__inner .thm-btn {
+    background-color: #fff !important;
+    color: #17161a !important;
+    border: 2px solid #dd0429 !important;
+}
+.cta-two__inner .thm-btn:hover {
+    background-color: #dd0429 !important;
+    color: #fff !important;
+    border-color: #dd0429 !important;
+}
+.white__main .thm-btn.abut-page__btn {
+    background-color: #fff !important;
+    color: #000 !important;
+    border: 2px solid #fff !important;
+}
+.state_btns .thm-btn.btn-white-bg {
+    background-color: #fff !important;
+    color: #d11822 !important;
+    border: 2px solid #d11822 !important;
+}
+.state_btns .thm-btn.btn-red-bg {
+    background-color: #d11822 !important;
+    color: #fff !important;
+    border: 2px solid #d31923 !important;
+}
+
+/* Hero/slider: template gives .redchange a white fill on hover — keep label visible */
+.thm-btn.redchange:hover,
+a.thm-btn.redchange:hover {
+    color: #17161a !important;
+}
+.robust-content { padding: 18px 0; border-bottom: 1px solid #eee; }
+.robust-content:last-child { border-bottom: none; }
+.robust-flex { display: flex; gap: 14px; align-items: flex-start; }
+.robust-flex h4 { font-size: 17px; font-weight: 700; color: #000; margin-bottom: 8px; }
+.tab-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+.tab-btn { padding: 10px 24px; border: 2px solid #e0e0e0; border-radius: 6px; background: #fff; color: #555; font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; }
+.tab-btn:hover, .tab-btn.active-btn { background: #dd0429; border-color: #dd0429; color: #fff; }
+.tabs-content .tab { display: none; }
+.tabs-content .tab.active-tab { display: block; }
+.accrodion { border: 1px solid #eee; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+.accrodion-title { padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+.accrodion-title h4 { margin: 0; font-size: 16px; font-weight: 600; color: #111; }
+.accrodion-content { padding: 0 20px; background: #fafafa; }
+.accrodion-content p { padding: 14px 0 18px; color: #555; line-height: 1.7; margin: 0; }
+.accrodion.active { border-color: #dd0429; }
+.accrodion.active .accrodion-title { color: #dd0429; background: #fef5f6; }
+.accrodion.active .accrodion-title h4 { color: #dd0429; }
+.metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+.metrics div { background: #f5f5f5; padding: 14px 10px; border-radius: 10px; text-align: center; border-left: 3px solid #dd0429; }
+.metrics strong { display: block; font-size: 22px; color: #dd0429; font-weight: 800; margin-bottom: 4px; }
+.metrics span { font-size: 12px; color: #666; font-weight: 500; }
+.case-content { display: flex; gap: 40px; align-items: center; background: #fff; border-radius: 16px; padding: 40px; box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+/* Home Work Showcase: flat h3 + p + .case_btn must stack, not sit in three columns (was crushing the CTA and splitting "See More"). */
+.case_studies .case-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.case_studies .case_btn a {
+    display: inline-block;
+    white-space: nowrap;
+}
+.case-left { flex: 0 0 40%; max-width: 40%; }
+.case-left img { width: 100%; border-radius: 12px; max-height: 300px; object-fit: contain; }
+.case-right { flex: 1; }
+.case-right h2 { font-size: 30px; font-weight: 800; margin-bottom: 16px; }
+.case-right p { color: #555; font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
+
+/* ── Fix 7: Bootstrap blue border / outline overrides ─────────────────────── */
+.icon-box, [class*="-box"], [class*="-card"], [class*="-item"], .service-card, .feature-box,
+.process-box, .counter-box, .team-box, .pricing-box, .testimonial-card, .robust-box {
+    outline: none !important;
+}
+.icon-box:focus, [class*="-box"]:focus, [class*="-box"]:focus-within,
+.service-card:focus, .feature-box:focus, .counter-box:focus {
+    outline: none !important; border-color: inherit !important; box-shadow: none !important;
+}
+.icon-box a:focus, .icon-box button:focus,
+[class*="-box"] a:focus, [class*="-box"] button:focus,
+[class*="-card"] a:focus, [class*="-card"] button:focus {
+    outline: none !important; box-shadow: none !important;
+}
+.select2-container--default .select2-selection--single:focus,
+.select2-container--default .select2-selection--multiple:focus {
+    outline: none !important; border-color: #dd0429 !important; box-shadow: none !important;
+}
+
+/* ── Fix 8: External CSS mobile element visibility overrides ────────────── */
+@media (max-width: 767px) {
+    [class*="icon-"]:not(.dropdown-toggle):not(.navbar-toggler-icon),
+    [class*="-icon"], .fa, .fas, .far, .fab, .fal, svg.icon {
+        display: inline-block !important; visibility: visible !important; opacity: 1 !important;
+    }
+    section, .section, [class*="-section"], [class*="-one"], [class*="-two"], [class*="-three"] {
+        display: block !important; visibility: visible !important;
+    }
+    .icon-box, [class*="-box"], [class*="-card"], .robust-box, .service-card, .feature-box {
+        display: block !important; visibility: visible !important;
+    }
+    .tab.active-tab, .tab-pane.active, .tab-panel[aria-hidden="false"] {
+        display: block !important; opacity: 1 !important; visibility: visible !important;
+    }
+}
+@media (max-width: 575px) {
+    .owl-item, .swiper-slide, .carousel-item.active, .thm-swiper__slider .swiper-slide-active {
+        display: block !important; visibility: visible !important; opacity: 1 !important;
+    }
+}
+
+/* ── Fix 11: Full Responsive — 5 breakpoints ───────────────────────────── */
+
+/* ≤1199px */
+@media (max-width: 1199px) {
+    .container { max-width: 100%; padding-left: 24px; padding-right: 24px; }
+    .hero-video-caption .slide-h2 { font-size: 2rem !important; }
+    .page-header__title, .banner-one__title { font-size: 2rem !important; }
+    .col-xl-4 { flex: 0 0 50%; max-width: 50%; }
+    .case-content { gap: 24px; }
+    .case-left { flex: 0 0 45%; max-width: 45%; }
+    .service-card, .feature-box, [class*="-box"] { margin-bottom: 24px; }
+    .seamless-mobile-solutions-content h2 { font-size: 28px !important; }
+    .shadule-metting .planing-content h3 { font-size: 24px !important; }
+    section { padding-top: 70px !important; padding-bottom: 70px !important; }
+}
+
+/* ≤991px */
+@media (max-width: 991px) {
+    body { padding-top: 70px; }
+    [class*="col-lg-"], [class*="col-xl-"] { flex: 0 0 100%; max-width: 100%; margin-bottom: 24px; }
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.75rem !important; }
+    h3 { font-size: 1.35rem !important; }
+    .hero-video-caption { width: 92%; }
+    .hero-video-caption .slide-h2 { font-size: 1.75rem !important; }
+    .case-content { flex-direction: column; padding: 24px; }
+    .case-left, .case-right { flex: 0 0 100%; max-width: 100%; }
+    .case-left img { max-height: 220px; }
+    .shadule-metting .planing-content h3 { font-size: 22px !important; }
+    section { padding-top: 60px !important; padding-bottom: 60px !important; }
+    .dropdown-menu { position: static !important; box-shadow: none !important; }
+    .welcome-three__left { padding-right: 0 !important; }
+}
+
+/* ≤767px */
+@media (max-width: 767px) {
+    body { padding-top: 65px; }
+    h1 { font-size: 1.75rem !important; line-height: 1.3; }
+    h2 { font-size: 1.5rem !important; }
+    h3 { font-size: 1.2rem !important; }
+    h4 { font-size: 1.05rem !important; }
+    .container { padding-left: 16px; padding-right: 16px; }
+    section { padding-top: 50px !important; padding-bottom: 50px !important; overflow-x: hidden; }
+    .section-title__title { font-size: 1.4rem !important; }
+    .section-title__paragraph { font-size: 14px !important; width: 100% !important; }
+    #carouselExampleDark { height: 65vh; }
+    .hero-video-caption .slide-h2 { font-size: 1.5rem !important; }
+    .hero-video-caption .slide-p { font-size: 14px !important; }
+    .case-content { padding: 20px; gap: 16px; }
+    .metrics { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .metrics strong { font-size: 18px; }
+    .case-right h2 { font-size: 22px !important; }
+    .counter__section .counter-box h3 { font-size: 36px !important; }
+    .thm-btn, .view-btn, [class*="__btn"] { padding: 12px 24px !important; font-size: 15px !important; }
+    img { max-width: 100% !important; height: auto !important; }
+    .tab-buttons { flex-wrap: wrap; gap: 8px; }
+    .tab-btn { font-size: 13px !important; padding: 8px 16px !important; }
+    .aws-form-row { flex-direction: column !important; }
+    .aws-form-group { margin-bottom: 12px; }
+    .card, [class*="-box"], [class*="-card"] { margin-bottom: 20px; }
+    .shadule-metting, .shadule-result { padding: 40px 0 !important; }
+    .planing-boxs { padding: 16px; }
+}
+
+/* ≤575px */
+@media (max-width: 575px) {
+    body { padding-top: 60px; }
+    h1 { font-size: 1.5rem !important; }
+    h2 { font-size: 1.3rem !important; }
+    h3 { font-size: 1.1rem !important; }
+    section { padding-top: 40px !important; padding-bottom: 40px !important; }
+    .section-title__title { font-size: 1.25rem !important; }
+    #carouselExampleDark { height: 100vh; min-height: 500px; }
+    .hero-video-caption { width: 96%; }
+    .hero-video-caption .slide-h2 { font-size: 1.3rem !important; }
+    .hero-video-caption .slide-p { font-size: 13px !important; }
+    .hero-video-caption .thm-btn { display: block !important; width: 100%; text-align: center; margin-bottom: 10px; }
+    .counter__section .counter-box h3 { font-size: 28px !important; }
+    .counter__section .counter-box p { font-size: 13px !important; }
+    .case-content { padding: 16px; }
+    .metrics { grid-template-columns: 1fr; }
+    .view-btn, .thm-btn { width: 100%; text-align: center; padding: 14px 20px !important; }
+    .slider-prev, .slider-next { width: 36px; height: 36px; font-size: 14px; }
+    .three__tabs { flex-direction: column; gap: 8px; }
+    .site-footer__bottom-text { font-size: 12px !important; text-align: center; }
+    input, textarea, select { font-size: 16px !important; }
+    .aws-modal-box { border-radius: 16px; }
+    .aws-modal-body { padding: 20px; }
+    .aws-modal-top { padding: 20px; }
+    .aws-modal-stats { gap: 12px; }
+    .aws-modal-stats strong { font-size: 16px; }
+    .scroll-to-top { width: 40px; height: 40px; line-height: 40px; }
+}
+
+/* ≤399px */
+@media (max-width: 399px) {
+    body { padding-top: 58px; }
+    h1 { font-size: 1.25rem !important; }
+    h2 { font-size: 1.15rem !important; }
+    h3, h4 { font-size: 1rem !important; }
+    section { padding-top: 30px !important; padding-bottom: 30px !important; }
+    .section-title__title { font-size: 1.1rem !important; }
+    .section-title__paragraph { font-size: 12px !important; }
+    .container { padding-left: 12px; padding-right: 12px; }
+    .hero-video-caption .slide-h2 { font-size: 1.15rem !important; }
+    .hero-video-caption .slide-p { font-size: 12px !important; }
+    .thm-btn, .view-btn, [class*="__btn"] { padding: 10px 16px !important; font-size: 13px !important; display: block; width: 100%; text-align: center; margin-bottom: 8px; }
+    .counter__section .counter-box h3 { font-size: 24px !important; }
+    .aws-modal-stats { flex-direction: column; gap: 8px; }
+    .aws-modal-stats > div { display: flex; gap: 8px; align-items: center; }
+    .aws-modal-stats strong { font-size: 14px; }
+    .metrics { grid-template-columns: 1fr; gap: 8px; }
+    .metrics strong { font-size: 16px; }
+    .site-footer__bottom-text { font-size: 11px !important; }
+    .aws-modal-body { padding: 16px; }
+    .navbar-brand img { max-height: 36px; }
+}
+
+/* ── Fix 3: Tailwind utility → real CSS ── */
+.bg-transparent { background-color: transparent; }
+.border { border: 1px solid #e5e7eb; }
+.border-0 { border: none; }
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-4 { gap: 1rem; }
+.hidden { display: none; }
+.inline-flex { display: inline-flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.m-0 { margin: 0; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.p-0 { padding: 0; }
+.p-4 { padding: 1rem; }
+.p-5 { padding: 1.25rem; }
+.p-6 { padding: 1.5rem; }
+.rounded { border-radius: 0.25rem; }
+.rounded-lg { border-radius: 0.5rem; }
+.rounded-2xl { border-radius: 1rem; }
+.shadow-lg { box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+.text-black { color: #000; }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-white { color: #fff; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPREHENSIVE MOBILE & MULTI-DEVICE RESPONSIVE FIXES
+   Covers: hero banners, grids, forms, cards, overlays, footer — all pages
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Global overflow guard ──────────────────────────────────────────────── */
+html, body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+* { box-sizing: border-box; }
+
+/* ── Hero / Page-banner sections with inline fixed heights ──────────────── */
+/* about-us, contact, our-story, city pages, etc. set height inline.
+   We cap them and add min-height so they never overflow on mobile.        */
+section[style*="height: 550px"],
+section[style*="height:550px"],
+.about-page,
+.our__stories-bg,
+.contact__main,
+.page-header,
+.banner-one {
+    height: auto !important;
+    min-height: 300px;
+}
+
+/* ≤991px: shrink hero banners */
+@media (max-width: 991px) {
+    section[style*="height: 550px"],
+    section[style*="height:550px"],
+    .about-page,
+    .our__stories-bg {
+        min-height: 240px !important;
+    }
+}
+
+/* ≤767px: mobile hero banners much shorter */
+@media (max-width: 767px) {
+    section[style*="height: 550px"],
+    section[style*="height:550px"],
+    .about-page,
+    .our__stories-bg,
+    .contact__main {
+        min-height: 180px !important;
+        background-position: center top !important;
+    }
+    /* Page header text inside hero */
+    .contact__content,
+    .page-header__inner,
+    .banner-one__inner {
+        padding: 24px 0 !important;
+    }
+    .contact__content h1,
+    .page-header__title {
+        font-size: 1.6rem !important;
+    }
+}
+
+/* ≤575px */
+@media (max-width: 575px) {
+    section[style*="height: 550px"],
+    section[style*="height:550px"],
+    .about-page,
+    .our__stories-bg {
+        min-height: 140px !important;
+    }
+}
+
+/* ── Negative-margin offender: why-choose-one__right.get-unprec01 ────────── */
+.why-choose-one__right.get-unprec01 {
+    margin-right: 0 !important;
+    margin-left:  0 !important;
+}
+
+/* ── Welcome-three layout ────────────────────────────────────────────────── */
+@media (max-width: 991px) {
+    .welcome-three__left,
+    .welcome-three__right { width: 100% !important; }
+    .welcome-three__right { margin-top: 30px; }
+}
+@media (max-width: 767px) {
+    .welcome-three__left  { padding-right: 0 !important; }
+    .welcome-three__features { flex-wrap: wrap; gap: 16px; }
+    .welcome-three__features-box li { width: 100%; }
+}
+
+/* ── MVP / Services grid: repeat(4,1fr) → responsive ──────────────────── */
+.mvp-services {
+    grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1199px) {
+    .mvp-services { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 991px) {
+    .mvp-services { grid-template-columns: repeat(2, 1fr); }
+    .mvp-section  { padding: 50px 20px !important; }
+}
+@media (max-width: 575px) {
+    .mvp-services { grid-template-columns: 1fr !important; }
+    .mvp-section  { padding: 36px 12px !important; }
+    .mvp-header   { font-size: 1.4rem !important; }
+}
+
+/* ── Seamless mobile solutions ───────────────────────────────────────────── */
+@media (max-width: 991px) {
+    .seamless-mobile-solutions-content { max-width: 100% !important; }
+    .seamless-mobile-solutions { min-height: auto !important; padding: 50px 0 !important; }
+    .seamless-mobile-solutions-content h2 { font-size: 1.5rem !important; }
+}
+@media (max-width: 767px) {
+    .seamless-mobile-solutions-content h2 { font-size: 1.3rem !important; }
+    .seamless-mobile-solutions-content p  { font-size: 14px !important; }
+}
+
+/* ── Testimonial box padding on mobile ──────────────────────────────────── */
+@media (max-width: 991px) {
+    .testimonial-box { padding: 30px 28px !important; }
+}
+@media (max-width: 575px) {
+    .testimonial-box { padding: 20px 16px !important; border-radius: 12px !important; }
+    .testimonial-quote { font-size: 14px !important; }
+    .testimonial-box h5 { font-size: 16px !important; }
+}
+
+/* ── Rate-box / awards grid ──────────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .rating-box-main { gap: 12px; }
+    .rate-box { min-width: 140px; padding: 18px 10px; }
+    .rate-box .awards-img { max-height: 44px; }
+    .review-rating { flex-direction: column; gap: 4px; }
+}
+
+/* ── Report section image ────────────────────────────────────────────────── */
+@media (max-width: 991px) {
+    .report-img { margin-top: 24px; }
+}
+
+/* ── Schedule Meeting / Shadule sections ────────────────────────────────── */
+@media (max-width: 767px) {
+    .shadule-metting { padding: 40px 0 !important; }
+    .shadule-metting .planing-content h3 { font-size: 1.3rem !important; }
+    .planing-img { margin-top: 20px; }
+    .planing-boxs { padding: 14px !important; }
+}
+@media (max-width: 575px) {
+    .shadule-metting .planing-content h3 { font-size: 1.1rem !important; }
+    .planing-boxs ul li { font-size: 13px !important; }
+}
+
+/* ── Contact / Comment form: col-xl-6 override for small screens ─────────── */
+/* Bootstrap col-xl-* doesn't collapse until >1200px; force collapse sooner */
+@media (max-width: 767px) {
+    .comment-form__input-box,
+    .contact-page__form .col-xl-6,
+    .contact-page__form .col-xl-12,
+    .contact-page__form [class*="col-xl-"] {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    .contact__text { font-size: 14px !important; padding: 0 8px; }
+}
+
+/* ── req-a-qt-des paragraph padding on mobile ───────────────────────────── */
+@media (max-width: 991px) {
+    p.req-a-qt-des { padding: 0 40px !important; }
+}
+@media (max-width: 767px) {
+    p.req-a-qt-des { padding: 0 16px !important; font-size: 14px !important; }
+}
+
+/* ── Case study slider ───────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .case-study-slider { padding: 36px 0; }
+    .case-content { padding: 18px !important; }
+    .case-right h2 { font-size: 1.2rem !important; }
+    .case-right p  { font-size: 14px !important; }
+    .custom-prev, .custom-next { width: 38px !important; height: 38px !important; font-size: 18px !important; }
+}
+@media (max-width: 480px) {
+    .case-content { padding: 12px !important; gap: 12px !important; }
+}
+
+/* ── Counter section ─────────────────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .counter__section .counter-box h3 { font-size: 28px !important; }
+    .counter__section .counter-box p  { font-size: 13px !important; }
+    .counter__section .counter-box    { padding: 20px 12px !important; }
+}
+
+/* ── Chose-box / feature cards equal height on mobile ───────────────────── */
+@media (max-width: 767px) {
+    .chose-box, .benefit-box, .rate-box { height: auto !important; }
+    .chose-box { padding: 22px 18px !important; }
+}
+
+/* ── Brand logo boxes ────────────────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .brand-logo-box { height: 90px !important; padding: 16px !important; }
+    .brand-logo-box img { max-height: 50px !important; }
+}
+
+/* ── Pricing cards on mobile ─────────────────────────────────────────────── */
+@media (max-width: 991px) {
+    .price-tier.featured { transform: scale(1) !important; }
+}
+@media (max-width: 767px) {
+    .app-pricing-section { padding: 40px 0 !important; }
+    .price-range { font-size: 22px !important; }
+}
+
+/* ── Modern-btn (tech stack pills) ──────────────────────────────────────── */
+@media (max-width: 575px) {
+    .modern-btn { gap: 8px !important; }
+    .modern-btn a { padding: 8px 16px !important; font-size: 13px !important; }
+}
+
+/* ── Tab buttons ─────────────────────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .tab-buttons { gap: 6px !important; }
+    .tab-btn { font-size: 12px !important; padding: 7px 12px !important; }
+}
+
+/* ── Accordion / FAQ ─────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .accrodion-title { padding: 14px 16px !important; }
+    .accrodion-title h4 { font-size: 14px !important; }
+    .accrodion-content { padding: 0 16px !important; }
+}
+
+/* ── Row gutter fix – prevent horizontal scroll on all pages ────────────── */
+@media (max-width: 767px) {
+    .row { margin-left: 0 !important; margin-right: 0 !important; }
+    .container, .container-fluid {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+}
+@media (max-width: 399px) {
+    .container, .container-fluid {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+}
+
+/* ── Footer enhancements on mobile ──────────────────────────────────────── */
+@media (max-width: 767px) {
+    .site-footer { text-align: left !important; }
+    .footer-widget__title { text-align: left !important; }
+    .footer-widget__title::after { left: 0 !important; transform: none !important; }
+    .footer-widget__links-list {
+        list-style: none !important;
+        padding: 0 !important;
+        margin-left: 0 !important;
+        float: none !important;
+        width: 100% !important;
+    }
+    .footer-widget__links-list li {
+        list-style: none !important;
+        list-style-type: none !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+    }
+    .footer-widget__links-list li::before,
+    .footer-widget__links-list li::marker { display: none !important; content: none !important; }
+    .footer-widget__links-list a { padding-left: 0 !important; text-align: left !important; }
+    .footer-widget__links-list a:hover { padding-left: 0 !important; }
+    .footer-logo img,
+    .footer-logo-img {
+        height: 120px !important;
+        width: auto !important;
+        max-width: 300px !important;
+        object-fit: contain !important;
+        display: block !important;
+    }
+    .site-footer__bottom { text-align: center !important; }
+    .site-footer__bottom-inner {
+        flex-direction: column !important;
+        gap: 8px !important;
+        text-align: center !important;
+    }
+}
+@media (max-width: 575px) {
+    .footer-widget__newsletter { padding: 24px 16px !important; }
+}
+
+/* ── Floating CTA bar on mobile ──────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .floating-contact { bottom: 10px !important; right: 10px !important; }
+    .floating-contact a { width: 46px !important; height: 46px !important; font-size: 18px !important; }
+}
+
+/* ── Form inputs full-width on mobile ────────────────────────────────────── */
+@media (max-width: 767px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="password"],
+    textarea,
+    select {
+        width: 100% !important;
+        font-size: 16px !important; /* prevents iOS zoom */
+    }
+}
+
+/* ── Table responsive ────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+    table { display: block; overflow-x: auto; white-space: nowrap; }
+}
+
+/* ── Images & iframes never overflow ─────────────────────────────────────── */
+img, video, embed, object {
+    max-width: 100% !important;
+}
+iframe:not([id^="tawk"]):not([title*="chat" i]):not([src*="tawk.to"]) {
+    max-width: 100% !important;
+}
+@media (max-width: 767px) {
+    iframe:not([id^="tawk"]):not([title*="chat" i]):not([src*="tawk.to"]) { height: auto !important; }
+    video { height: auto !important; }
+}
+
+/* ── City / Location page hero ───────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .city-hero, .location-hero,
+    [class*="mobile-app-development-in-"] section:first-of-type {
+        min-height: 180px !important;
+        padding: 40px 0 !important;
+    }
+}
+
+/* ── Insurance / App-dev service section titles ──────────────────────────── */
+@media (max-width: 767px) {
+    .insurance-title { font-size: 1.4rem !important; }
+    .insurance-description { font-size: 14px !important; padding: 0 8px !important; }
+    .lifecycle .title--black { font-size: 1.4rem !important; }
+    .lifecycle .description  { font-size: 14px !important; }
+}
+@media (max-width: 575px) {
+    .insurance-title { font-size: 1.2rem !important; }
+}
+
+/* ── How-it-works section ────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .how-it-works__content-box { text-align: center !important; }
+    .how-it-works__bottom-text { width: 100% !important; font-size: 14px !important; }
+}
+
+/* ── Blog / Insights cards ───────────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .blog-content { padding: 24px 16px !important; }
+    .blog-card    { margin-bottom: 20px; }
+}
+
+/* ── Privacy / Terms page paragraphs ─────────────────────────────────────── */
+@media (max-width: 767px) {
+    .privacy-policy-content p,
+    .terms-content p { font-size: 14px !important; line-height: 1.7; }
+}
+
+/* ── App cost calculator page ────────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .calculator-step { padding: 20px 14px !important; }
+    .calc-option-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+}
+@media (max-width: 480px) {
+    .calc-option-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── Eco title / heading section ─────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .eco_title h5 { font-size: 14px !important; padding: 8px !important; }
+    .heading__section { padding: 12px 0 0 !important; }
+}
+
+/* ── Swiper / Owl carousel overflow guard ────────────────────────────────── */
+.swiper-container, .swiper,
+.owl-carousel, .owl-stage-outer {
+    overflow: hidden !important;
+    max-width: 100% !important;
+}
+
+/* ── Utility: center-align text blocks on mobile ─────────────────────────── */
+@media (max-width: 575px) {
+    .text-center-mob {
+        text-align: center !important;
+    }
+    .mx-auto-mob {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block;
+    }
+}
+
+/* ── Button stacking on very small screens ───────────────────────────────── */
+@media (max-width: 399px) {
+    .cta-two__right { flex-direction: column !important; align-items: stretch !important; }
+    .cta-two__right .thm-btn,
+    .cta-two__right .hero-ghost-btn {
+        width: 100% !important;
+        text-align: center !important;
+        margin-left: 0 !important;
+    }
+    .hero-ghost-btn { margin-top: 8px; }
+}
+
+/* ── Col-xl-* override for all inner forms on small screens ─────────────── */
+@media (max-width: 991px) {
+    [class*="col-xl-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    /* Restore 2-col only on md+ for side-by-side form fields */
+    .col-xl-6 { flex: 0 0 100%; max-width: 100%; }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Allow 2-col form inputs on tablet */
+    .contact-page__form .col-xl-6 { flex: 0 0 50%; max-width: 50%; }
+}
+
+/* ── Process / Timeline section ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .process-step { padding: 20px 14px !important; margin-bottom: 16px; }
+    .process-number { font-size: 2rem !important; }
+}
+
+/* ── Services page: why-choose, premium, solutions slider ───────────────── */
+@media (max-width: 767px) {
+    .custom-slider-section { padding: 30px 0 !important; }
+    .solutions-slider-section { padding: 30px 0 !important; }
+    .premium-technologies { padding: 40px 0 !important; }
+    .us-services-section { padding: 40px 0 !important; }
+}
+
+/* ── Custom slider: 1 item per view on tablet/mobile ────────────────────── */
+@media (max-width: 991px) {
+    .custom-slider-item,
+    .solutions-slider-item {
+        min-width: 100% !important;
+    }
+}
+
+/* ── Alliance Partners / Team ────────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .team-one__single { margin-bottom: 24px !important; }
+    .team-one__image  { max-width: 80%; margin: 0 auto 12px; }
+}
+
+/* ── Ensure no inline-block elements break row on mobile ─────────────────── */
+@media (max-width: 575px) {
+    .welcome-three__btn,
+    .thm-btn,
+    .view-btn {
+        display: block !important;
+        width: fit-content !important;
+        min-width: 160px;
+    }
+}
+
+/* ── About-page: inline negative margin reset ────────────────────────────── */
+/* Handles inline style="margin-right: -374px" on welcome section           */
+@media (max-width: 1199px) {
+    [style*="margin-right: -"] {
+        margin-right: 0 !important;
+    }
+    [style*="margin-left: -"] {
+        margin-left: 0 !important;
+    }
+}
+
+/* ── Inline width/height overrides on mobile ─────────────────────────────── */
+@media (max-width: 767px) {
+    [style*="height: 550"] { height: auto !important; min-height: 200px; }
+    [style*="height:550"]  { height: auto !important; min-height: 200px; }
+    [style*="min-height: 380"] { min-height: auto !important; }
+    [style*="padding: 80px"] { padding: 40px 16px !important; }
+    [style*="padding: 60px"] { padding: 36px 16px !important; }
+}
+
+/* ── Print: hide non-essential ───────────────────────────────────────────── */
+@media print {
+    .navbar, .floating-contact, .scroll-to-top,
+    .aws-modal-overlay, .cta-bar { display: none !important; }
+    body { padding-top: 0 !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FINAL 10/10 POLISH — Accessibility, Performance, Visual Consistency
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Skip-to-main link for keyboard/screen-reader users ─────────────────── */
+.skip-to-main {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    z-index: 100000;
+    background: #dd0429;
+    color: #fff !important;
+    padding: 10px 18px;
+    border-radius: 0 0 6px 6px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none !important;
+    transition: top 0.2s;
+}
+.skip-to-main:focus { top: 0; }
+
+/* ── Focus visible ring for keyboard navigation ──────────────────────────── */
+:focus-visible {
+    outline: 3px solid #dd0429 !important;
+    outline-offset: 2px !important;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #dd0429 !important;
+    outline-offset: 2px !important;
+    box-shadow: none !important;
+}
+
+/* ── Smooth scroll ───────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+/* ── Partner logos & awards images consistent height ─────────────────────── */
+.awards-bg {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* ── Alliance partners card responsive grid ──────────────────────────────── */
+@media (max-width: 767px) {
+    .awards-bg { height: 110px !important; padding: 14px !important; }
+    .partners_swiper .awards-img { max-height: 80px !important; }
+    .alience_list ul li { font-size: 14px !important; padding: 4px 0; }
+}
+
+/* ── Map / global presence section height on mobile ──────────────────────── */
+@media (max-width: 767px) {
+    .map-section { height: auto !important; min-height: 300px; }
+    .map-section .address { position: static !important; margin: 8px auto !important; width: 100%; }
+    .map-section .address-wrapper { position: static !important; padding: 20px; }
+    .map-section .us-p,
+    .map-section .uae-p,
+    .map-section .pak-p { font-size: 13px !important; text-align: center; }
+}
+
+/* ── Contact form checkbox enable submit ─────────────────────────────────── */
+#submit_btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+#submit_btn {
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, opacity 0.2s;
+}
+
+/* ── Form input focus state ──────────────────────────────────────────────── */
+.comment-form__input-box input:focus,
+.comment-form__input-box textarea:focus,
+.comment-form__input-box select:focus {
+    border-color: #dd0429 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(221,4,41,0.12) !important;
+}
+
+/* ── CTA bar body-padding when visible ───────────────────────────────────── */
+body.cta-bar-visible {
+    padding-bottom: 68px;
+}
+@media (max-width: 480px) {
+    body.cta-bar-visible { padding-bottom: 56px; }
+}
+
+/* ── Consistent section heading underline (left-aligned) ─────────────────── */
+.allience__partner h2,
+.choose-container h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+}
+.allience__partner h2::after,
+.choose-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: #dd0429;
+    border-radius: 2px;
+}
+
+/* ── Swiper partner carousel consistent ─────────────────────────────────── */
+.partners_swiper { padding: 16px 0 !important; }
+.partners_swiper .swiper-slide { display: flex !important; align-items: center !important; justify-content: center !important; }
+
+/* ── Testimonial carousel arrow buttons  ─────────────────────────────────── */
+.owl-nav button.owl-prev,
+.owl-nav button.owl-next {
+    width: 44px !important;
+    height: 44px !important;
+    background: #dd0429 !important;
+    border-radius: 50% !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background 0.2s !important;
+}
+.owl-nav button.owl-prev:hover,
+.owl-nav button.owl-next:hover { background: #b8001f !important; }
+
+/* ── Scroll-to-top: sit above Tawk.to chat icon ─────────────────────────── */
+.scroll-to-target.scroll-to-top {
+    position: fixed !important;
+    bottom: 110px !important;
+    right: 20px !important;
+    z-index: 9995 !important;
+}
+@media (max-width: 575px) {
+    .scroll-to-target.scroll-to-top {
+        bottom: 100px !important;
+        right: 14px !important;
+        width: 38px !important;
+        height: 38px !important;
+        line-height: 38px !important;
+    }
+}
+
+
+/* ── Floating left contact z-index ──────────────────────────────────────── */
+.aws-float-left { z-index: 9990 !important; }
+
+/* ── Tawk.to chat widget: never clipped or collapsed ────────────────────── */
+[id^="tawk-"],
+[id^="tawk_"],
+div[class*="tawk"],
+iframe[src*="tawk.to"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+    z-index: 99999 !important;
+}
+
+/* Touch / no-hover: show expanded email label (normally only on :hover) */
+@media (hover: none) and (pointer: coarse) {
+    .aws-float-email {
+        max-width: 280px;
+        background: #222;
+    }
+    .aws-float-email span {
+        opacity: 1;
+    }
+    .aws-float-call:active {
+        background: #b8001f !important;
+    }
+}
+.aws-float-email:focus-visible {
+    max-width: 280px;
+    background: #222;
+    outline: none;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #dd0429;
+}
+.aws-float-email:focus-visible span {
+    opacity: 1;
+}
+.aws-float-call:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* ── Mobile: compact floating left tabs (icon-only, no text) ────────────── */
+@media (max-width: 575px) {
+    .aws-float-left {
+        bottom: 90px;
+        flex-direction: column;
+        gap: 2px;
+    }
+    .aws-float-email {
+        max-width: 42px !important;
+        height: 40px !important;
+        padding: 0 11px !important;
+        border-radius: 0 6px 0 0 !important;
+        transition: none !important;
+    }
+    .aws-float-email span {
+        display: none !important;
+    }
+    .aws-float-call {
+        width: 42px !important;
+        height: 40px !important;
+        border-radius: 0 0 6px 0 !important;
+        font-size: 16px !important;
+    }
+}
+
+/* ── Images / icons: no gray placeholder or backdrop (site-wide) ───────── */
+img[loading="lazy"] {
+    background: transparent !important;
+    animation: none !important;
+}
+img[loading="lazy"].loaded {
+    background: transparent !important;
+}
+
+/* Icon columns that used gray panels behind PNG/SVG icons */
+.col-md-3.bg-color-grey {
+    background-color: #fff !important;
+}
+
+/* Service list strip that mixed gray + white behind content */
+ul.ser-ul {
+    background: #fff !important;
+}
+
+/* Nav + list icons (SVG/PNG) */
+img.red-icon,
+.list-group-item img.red-icon {
+    background-color: transparent !important;
+}
+
+/* Mega-menu / header promo images */
+.services-header-img img {
+    background-color: transparent !important;
+}
+
+/* Partner / client logo rows */
+.partner__images img,
+.logo__images img,
+.custtom__logos img,
+.partners_swiper .swiper-slide img,
+.our__clients__section img,
+.brand-logo-box img,
+.brand__names img,
+.brand-one .swiper-slide img,
+.thm-swiper__slider .swiper-slide img,
+.rate-box img,
+.awards-bg img,
+.awards-img {
+    background-color: transparent !important;
+}
+
+/* Theme service cards: remove gray square behind icons (font or img) */
+.services-three_icon {
+    background-color: #fff !important;
+}
+.services-three_icon img {
+    background-color: transparent !important;
+}
+
+/* Testimonial / case study logos */
+.review-card img,
+.case-imgs img,
+.case-left img {
+    background-color: transparent !important;
+}
+
+/* Industry grid image column */
+.facilitites-images {
+    background-color: transparent !important;
+}
+
+/* Footer: template forced full grayscale on address icons */
+.footer-address-img {
+    filter: none !important;
+}
+
+/* Blog cards: drop-shadow used named "gray" */
+.blog-box img {
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.12)) !important;
+}
+
+/* ── Ensure all buttons have pointer cursor ─────────────────────────────── */
+button, [role="button"], .thm-btn, .view-btn,
+.tab-btn, .slider-prev, .slider-next, .custom-prev, .custom-next,
+.owl-prev, .owl-next { cursor: pointer; }
+
+/* ── Error / validation message styling ─────────────────────────────────── */
+small[id$="-valid"] { color: #dd0429; font-size: 12px; display: block; margin-top: 4px; }
+
+/* ── Word break for long emails/URLs in footer on mobile ─────────────────── */
+@media (max-width: 575px) {
+    .footer-widget__links-list a,
+    .site-footer a { word-break: break-word; overflow-wrap: break-word; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HEALTHCARE APP DEVELOPMENT PAGE — Section Styles & Full Responsive
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Hero / About-page banner ───────────────────────────────────────────── */
+.about-page {
+    min-height: 500px;
+    height: auto !important;
+    display: flex;
+    align-items: center;
+    padding: 100px 0 60px;
+}
+.about-page .section-title__title {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    color: #000 !important;
+}
+
+/* ── Industries page hero banner ───────────────────────────────────────── */
+.about-page.industries-bg {
+    margin-top: 90px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    min-height: 300px;
+    height: auto !important;
+}
+.about-page.industries-bg .section-title__title {
+    color: #fff !important;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.about-page p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 680px;
+}
+.state_partners {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+.state_partners .awards-img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+.state_partners .awards-img.squ {
+    height: 60px;
+}
+
+/* ── Heading / eco_title section ────────────────────────────────────────── */
+.heading__section {
+    background: #f8f8f8;
+    padding: 20px 0;
+    border-bottom: 1px solid #ececec;
+}
+
+/* ── Healthcare Services section ────────────────────────────────────────── */
+.healthcare-services {
+    background: #fff;
+    padding: 60px 0;
+}
+.healthcare-services hr {
+    margin: 10px 0;
+    border-color: #eee;
+}
+.healthcare-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 16px;
+    border-radius: 10px;
+    transition: box-shadow 0.3s;
+    height: 100%;
+}
+.healthcare-box:hover {
+    box-shadow: 0 4px 20px rgba(211, 25, 35, 0.1);
+}
+.helth-left {
+    flex: 0 0 64px;
+    width: 64px;
+}
+.helth-left img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+.helth-right h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #17161a;
+    margin-bottom: 10px;
+}
+.helth-right p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── Key Features / Tabs section ────────────────────────────────────────── */
+.key-features {
+    background: #17161a;
+    color: #fff;
+    padding: 60px 0;
+}
+.key-features-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.key-features-title h2 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+.key-features-title p {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.state-tabs .nav-tabs {
+    border-bottom: 2px solid #d31923;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.state-tabs .nav-tabs .nav-link {
+    color: #ccc;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 10px 24px;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 0;
+    transition: color 0.2s, border-color 0.2s;
+}
+.state-tabs .nav-tabs .nav-link.active,
+.state-tabs .nav-tabs .nav-link:hover {
+    color: #d31923;
+    border-bottom-color: #d31923;
+    background: transparent;
+}
+.tab-boxx {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 22px 20px;
+    margin-bottom: 20px;
+    height: 100%;
+    position: relative;
+    transition: background 0.3s;
+}
+.tab-boxx:hover {
+    background: rgba(211,25,35,0.08);
+}
+.tab-boxx h4 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 18px;
+}
+.tab-boxx h4::before {
+    position: absolute;
+    content: "";
+    background: #d31923;
+    width: 9px;
+    height: 9px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+}
+.tab-boxx p {
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ── Custom Slider / Portfolio section ──────────────────────────────────── */
+.custom_slider_section {
+    background: #f5f5f5;
+    padding: 60px 0;
+    overflow: hidden;
+}
+.best-choice-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.best-choice-title h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #17161a;
+    margin-bottom: 14px;
+}
+.best-choice-title p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.custtom___slide {
+    padding: 30px;
+    border-radius: 12px;
+}
+.cl {
+    border-radius: 12px;
+    overflow: hidden;
+}
+.cl-yellow { background: linear-gradient(135deg, #fffbee 0%, #fff8d6 100%); border: 1px solid #f0e098; }
+.cl-blue   { background: linear-gradient(135deg, #eef4ff 0%, #dceeff 100%); border: 1px solid #b8d4f8; }
+.cl-red    { background: linear-gradient(135deg, #fff0f0 0%, #ffe0e0 100%); border: 1px solid #f8c0c0; }
+.cus_slide_text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+.cus_slide_text h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #17161a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 0;
+}
+.cus_slide_text h2 img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+}
+.custtom___slide p {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.cus_btns ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    flex-wrap: wrap;
+}
+.cus_btns ul li {
+    text-align: center;
+}
+.cus_btns ul li span {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.cus_btns ul li p {
+    font-size: 16px;
+    font-weight: 700;
+    color: #17161a;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.cus_btns ul li p img {
+    height: 18px;
+    width: auto;
+}
+.social-anch ul {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.social-anch ul li a img {
+    height: 32px;
+    width: auto;
+    transition: transform 0.2s;
+}
+.social-anch ul li a:hover img {
+    transform: scale(1.1);
+}
+.cus_slide_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.cus_slide_img img {
+    max-height: 320px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+/* Slick slider fixes */
+.slider.center .slick-slide { opacity: 0.6; transform: scale(0.92); transition: all 0.3s; }
+.slider.center .slick-slide.slick-current,
+.slider.center .slick-center { opacity: 1; transform: scale(1); }
+
+/* ── Compliant Section ──────────────────────────────────────────────────── */
+.compliant-section {
+    background: #fff;
+    padding: 60px 0;
+}
+.compliant-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #17161a;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+.compliant-content p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.7;
+}
+.compliant-faqs .accordion-item {
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+.compliant-faqs .accordion-button {
+    background: transparent;
+    font-weight: 600;
+    font-size: 15px;
+    color: #17161a;
+    padding: 16px 0;
+    box-shadow: none;
+}
+.compliant-faqs .accordion-button:not(.collapsed) {
+    color: #d31923;
+    background: transparent;
+    box-shadow: none;
+}
+.compliant-faqs .accordion-button::after {
+    filter: none;
+}
+.compliant-faqs .accordion-body {
+    padding: 0 0 16px;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.7;
+}
+.compliant-faqs .col-1 {
+    font-weight: 800;
+    color: #d31923;
+    font-size: 14px;
+}
+
+/* ── Medical Compliance section ─────────────────────────────────────────── */
+.medical-compliance {
+    background: #f8f8f8;
+    padding: 60px 0;
+}
+.medical-compliance .best-choice-title h2 {
+    color: #17161a;
+}
+.medical-compliance .best-choice-title p {
+    color: #555;
+}
+.compliance-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: box-shadow 0.3s, transform 0.3s;
+    height: calc(100% - 24px);
+}
+.compliance-box:hover {
+    box-shadow: 0 6px 24px rgba(211,25,35,0.12);
+    transform: translateY(-2px);
+}
+.compliance-box img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.compliance-box h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #17161a;
+    margin-bottom: 10px;
+}
+.compliance-box p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+.medical-compliance hr {
+    border-color: transparent;
+    margin: 0;
+}
+
+/* ── Technology Stack section ───────────────────────────────────────────── */
+.technology-stack {
+    background: #fff;
+    padding: 60px 0;
+}
+.technology-stack-title h2 {
+    color: #17161a;
+}
+.technology-stack-title p {
+    color: #555;
+}
+.technology-stack-tabs .nav-pills {
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 30px !important;
+}
+.technology-stack-tabs .nav-pills .nav-link {
+    background: #f5f5f5;
+    color: #444;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 22px;
+    transition: background 0.2s, color 0.2s;
+}
+.technology-stack-tabs .nav-pills .nav-link.active,
+.technology-stack-tabs .nav-pills .nav-link:hover {
+    background: #d31923;
+    color: #fff;
+}
+.tech-imgs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+.img-tbs-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100px;
+}
+.img-tbs-text .border {
+    width: 70px !important;
+    height: 70px !important;
+    padding: 0 !important;
+    border-radius: 12px !important;
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    overflow: visible;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+.img-tbs-text:hover .border {
+    border-color: #d31923 !important;
+    box-shadow: 0 4px 12px rgba(211,25,35,0.15);
+}
+.img-tbs-text p {
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+    text-align: center;
+    margin: 0;
+}
+/* Force SVG icons to render correctly at fixed size */
+.img-tbs-text svg,
+.img-tbs-text .border svg {
+    width: 34px !important;
+    height: 34px !important;
+    display: block !important;
+    overflow: visible !important;
+    flex-shrink: 0;
+    /* Do NOT set fill here — paths have their own inline fill="#d31923" */
+}
+/* Remove the Bootstrap blue outline from border-primary */
+.img-tbs-text .border.border-primary {
+    border-color: #e8e8e8 !important;
+    outline: none !important;
+}
+
+/* ── Business Model / Why Invest section ────────────────────────────────── */
+.business-model.why-chose {
+    background: #17161a;
+    padding: 60px 0;
+}
+.business-model.why-chose .key-features-title h2 {
+    color: #fff;
+}
+.business-model.why-chose .key-features-title p {
+    color: #ccc;
+}
+.business-model-boxx {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 30px 24px;
+    height: 100%;
+    transition: background 0.3s, border-color 0.3s;
+}
+.business-model-boxx:hover {
+    background: rgba(211,25,35,0.1);
+    border-color: #d31923;
+}
+.business-model-boxx h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #d31923;
+}
+.business-model-boxx ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.business-model-boxx ul li {
+    color: #ccc;
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.business-model-boxx ul li::before {
+    content: "✓";
+    color: #d31923;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+.business-model-boxx ul li:last-child {
+    border-bottom: none;
+}
+
+/* ── Development Approach accordion ─────────────────────────────────────── */
+.ecommerce-accordien {
+    background: #f8f8f8;
+    padding: 60px 0;
+}
+.acccordien-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #17161a;
+    line-height: 1.3;
+    margin-bottom: 16px;
+}
+.acccordien-content p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+#accordionExample-v2 .accordion-item {
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    background: transparent;
+}
+#accordionExample-v2 .accordion-button {
+    background: transparent;
+    font-weight: 700;
+    font-size: 15px;
+    color: #17161a;
+    box-shadow: none;
+    padding: 18px 0;
+}
+#accordionExample-v2 .accordion-button:not(.collapsed) {
+    color: #d31923;
+    background: transparent;
+    box-shadow: none;
+}
+#accordionExample-v2 .accordion-button::after {
+    filter: none;
+}
+#accordionExample-v2 .accordion-body {
+    padding: 0 0 18px;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* ── Welcome-three / Contact section (healthcare) ───────────────────────── */
+.welcome-three {
+    background: #fff;
+    padding: 60px 0;
+}
+.welcome-three__left .get__content h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #d31923;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+.welcome-three__left .get__content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #17161a;
+    margin-bottom: 16px;
+}
+.welcome-three__left .get__content p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+.welcome-three__left .get__content strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #17161a;
+    margin-bottom: 8px;
+}
+.welcome-three__left .get__content h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #17161a;
+    margin: 20px 0 12px;
+}
+.welcome-three__left .get__content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.welcome-three__left .get__content ul li {
+    margin-bottom: 10px;
+}
+.welcome-three__left .get__content ul li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.welcome-three__left .get__content ul li a:hover { color: #d31923; }
+.welcome-three__left .get__content ul li a img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.welcome-three__right-zero .contact-page__form {
+    background: #f8f8f8;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.select2-container { width: 100% !important; }
+
+/* ── FAQs section ────────────────────────────────────────────────────────── */
+.faqs-section {
+    background: #fff;
+    padding: 60px 0;
+}
+.latest-technology-title h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+#accordionExample-v3 .accordion-item {
+    border: none;
+    border-bottom: 1px solid #eee;
+    background: transparent;
+}
+#accordionExample-v3 .accordion-button {
+    background: transparent;
+    font-weight: 600;
+    font-size: 15px;
+    color: #17161a;
+    box-shadow: none;
+    padding: 18px 0;
+}
+#accordionExample-v3 .accordion-button:not(.collapsed) {
+    color: #d31923;
+    background: transparent;
+    box-shadow: none;
+}
+#accordionExample-v3 .accordion-button::after { filter: none; }
+#accordionExample-v3 .accordion-body {
+    padding: 0 0 18px;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.7;
+}
+#accordionExample-v3 .col-1 {
+    font-weight: 800;
+    color: #d31923;
+}
+
+/* ═══ RESPONSIVE — Healthcare Page ═══════════════════════════════════════ */
+
+/* ≤1199px (Large screens) */
+@media (max-width: 1199px) {
+    .about-page { min-height: 420px; padding: 90px 0 50px; }
+    .about-page .section-title__title { font-size: 1.9rem !important; }
+    .best-choice-title h2,
+    .key-features-title h2,
+    .compliant-content h3,
+    .acccordien-content h2 { font-size: 1.75rem !important; }
+    .tech-imgs { gap: 16px; }
+    .img-tbs-text { width: 88px; }
+}
+
+/* ≤991px (Tablets) */
+@media (max-width: 991px) {
+    /* Hero */
+    .about-page { min-height: 360px; padding: 80px 0 40px; }
+    .about-page .section-title__title { font-size: 1.6rem !important; }
+    .about-page p { font-size: 15px; }
+
+    /* Healthcare boxes: side-by-side on tablet, col-md-6 handles this */
+    .healthcare-box { padding: 18px 12px; }
+
+    /* Custom slider */
+    .custtom___slide { padding: 20px; }
+    .cus_slide_img img { max-height: 240px; }
+
+    /* Compliant section: stack on tablet */
+    .compliant-content { margin-bottom: 30px; }
+    .compliant-content h3 { font-size: 1.6rem !important; }
+
+    /* Tech stack */
+    .img-tbs-text { width: 80px; }
+    .img-tbs-text .border { width: 62px; height: 62px; }
+
+    /* Business model */
+    .business-model-boxx { margin-bottom: 20px; }
+
+    /* Accordion: development approach */
+    .acccordien-content { margin-bottom: 30px; }
+    .acccordien-content h2 { font-size: 1.6rem !important; }
+
+    /* Contact section */
+    .welcome-three__left .get__content h2 { font-size: 1.8rem !important; }
+    .welcome-three__right-zero .contact-page__form { padding: 22px; }
+}
+
+/* ≤767px (Mobile landscape / small tablets) */
+@media (max-width: 767px) {
+    /* Hero */
+    .about-page {
+        min-height: 280px;
+        padding: 80px 0 36px;
+        background-position: center right !important;
+    }
+    .about-page .section-title__title { font-size: 1.4rem !important; }
+    .about-page p { font-size: 14px; }
+    .state_partners .awards-img { height: 50px; }
+    .state_partners { gap: 12px; }
+
+    /* Heading section */
+    .heading__section { padding: 12px 0 !important; }
+
+    /* Healthcare services */
+    .healthcare-services { padding: 40px 0 !important; }
+    .healthcare-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 18px 14px;
+    }
+    .helth-left { flex: none; }
+    .helth-left img { width: 52px; height: 52px; }
+    .helth-right h4 { font-size: 16px; }
+    .helth-right p { font-size: 14px; }
+
+    /* Key features */
+    .key-features { padding: 40px 0 !important; }
+    .key-features-title h2 { font-size: 1.4rem !important; }
+    .key-features-title p { font-size: 14px; }
+    .state-tabs .nav-tabs .nav-link { padding: 8px 14px; font-size: 14px; }
+    .tab-boxx { padding: 18px 16px 18px 28px; margin-bottom: 14px; }
+    .tab-boxx h4 { font-size: 15px; }
+
+    /* Custom slider */
+    .custom_slider_section { padding: 40px 0 !important; }
+    .best-choice-title h2 { font-size: 1.4rem !important; }
+    .custtom___slide { padding: 16px; }
+    .cus_slide_text h2 { font-size: 1.1rem; }
+    .cus_slide_img { margin-top: 20px; }
+    .cus_slide_img img { max-height: 200px; }
+    .cus_btns ul { gap: 12px; }
+
+    /* Compliant section */
+    .compliant-section { padding: 40px 0 !important; }
+    .compliant-content h3 { font-size: 1.4rem !important; }
+    .compliant-faqs .accordion-button { font-size: 14px; }
+
+    /* Medical compliance */
+    .medical-compliance { padding: 40px 0 !important; }
+    .compliance-box {
+        flex-direction: row;
+        gap: 14px;
+        padding: 18px;
+        margin-bottom: 16px;
+    }
+    .compliance-box img { width: 44px; height: 44px; }
+    .compliance-box h4 { font-size: 16px; }
+    .compliance-box p { font-size: 13px; }
+
+    /* Technology stack */
+    .technology-stack { padding: 40px 0 !important; }
+    .technology-stack-tabs .nav-pills { gap: 6px; }
+    .technology-stack-tabs .nav-pills .nav-link { padding: 8px 16px; font-size: 13px; }
+    .tech-imgs { gap: 12px; justify-content: flex-start; }
+    .img-tbs-text { width: 72px; }
+    .img-tbs-text .border { width: 56px; height: 56px; }
+    .img-tbs-text svg, .img-tbs-text .border svg { width: 28px !important; height: 28px !important; }
+    .img-tbs-text p { font-size: 11px; }
+
+    /* Business model */
+    .business-model.why-chose { padding: 40px 0 !important; }
+    .business-model.why-chose .key-features-title h2 { font-size: 1.4rem !important; }
+    .business-model-boxx { margin-bottom: 16px; }
+    .business-model-boxx h4 { font-size: 15px; }
+
+    /* Development approach */
+    .ecommerce-accordien { padding: 40px 0 !important; }
+    .acccordien-content h2 { font-size: 1.4rem !important; }
+
+    /* Contact section */
+    .welcome-three { padding: 40px 0 !important; }
+    .welcome-three__left .get__content h2 { font-size: 1.5rem !important; }
+    .welcome-three__right-zero { margin-top: 30px; }
+    .welcome-three__right-zero .contact-page__form { padding: 18px; }
+
+    /* FAQs */
+    .faqs-section { padding: 40px 0 !important; }
+    .latest-technology-title h2 { font-size: 1.4rem !important; }
+    #accordionExample-v3 .accordion-button { font-size: 14px; padding: 14px 0; }
+}
+
+/* ≤575px (Mobile portrait) */
+@media (max-width: 575px) {
+    /* Hero */
+    .about-page { min-height: 220px; padding: 70px 0 30px; }
+    .about-page .section-title__title { font-size: 1.2rem !important; }
+    .state_btns .thm-btn { display: block; width: 100%; text-align: center; margin-bottom: 10px; }
+    .state_partners { gap: 8px; }
+    .state_partners .awards-img { height: 40px; }
+
+    /* Healthcare services */
+    .healthcare-box { gap: 12px; padding: 14px 12px; }
+    .helth-left img { width: 44px; height: 44px; }
+
+    /* Tabs: full-width buttons */
+    .state-tabs .nav-tabs { flex-direction: column; gap: 4px; }
+    .state-tabs .nav-tabs .nav-link { width: 100%; text-align: center; }
+    .tab-boxx { padding: 16px 14px 16px 26px; }
+
+    /* Slider */
+    .custtom___slide { padding: 12px; }
+    .cus_slide_text h2 { font-size: 1rem; }
+    .cus_btns ul { flex-direction: column; gap: 8px; }
+    .cus_slide_img img { max-height: 160px; }
+    .social-anch ul li a img { height: 26px; }
+
+    /* Compliance */
+    .compliance-box { flex-direction: column; gap: 12px; }
+
+    /* Tech stack: smaller grid */
+    .tech-imgs { gap: 10px; }
+    .img-tbs-text { width: 64px; }
+    .img-tbs-text .border { width: 50px; height: 50px; }
+    .img-tbs-text svg, .img-tbs-text .border svg { width: 24px !important; height: 24px !important; }
+
+    /* Business model: stack to 1 column */
+    .business-model-boxx { padding: 22px 18px; }
+
+    /* Contact form */
+    .welcome-three__right-zero .contact-page__form { padding: 16px; border-radius: 12px; }
+
+    /* FAQs */
+    #accordionExample-v3 .col-1 { font-size: 13px; }
+}
+
+/* ≤399px (Very small phones) */
+@media (max-width: 399px) {
+    .about-page .section-title__title { font-size: 1.05rem !important; }
+    .healthcare-box { padding: 12px 10px; }
+    .helth-right h4 { font-size: 14px; }
+    .cus_slide_text h2 { font-size: 0.95rem; }
+    .tech-imgs { gap: 8px; }
+    .img-tbs-text { width: 56px; }
+    .img-tbs-text .border { width: 44px; height: 44px; }
+    .img-tbs-text svg, .img-tbs-text .border svg { width: 20px !important; height: 20px !important; }
+    .img-tbs-text p { font-size: 10px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GLOBAL MOBILE — Complete Text Centering + Button + Footer Fix (ALL PAGES)
+   Applies ≤767px — covers home, services, solutions, insights, contact pages
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+
+    /* ══ A. UNIVERSAL TYPOGRAPHY CENTER — every page ═══════════════════════ */
+
+    /* All headings site-wide */
+    h1, h2, h3, h4, h5, h6 {
+        text-align: center !important;
+    }
+
+    /* All paragraphs site-wide */
+    p {
+        text-align: center !important;
+    }
+
+    /* Section-level wrappers */
+    section,
+    section .container,
+    section .container-fluid,
+    section .row,
+    .page-wrapper > .container,
+    .page-wrapper > .container-fluid {
+        text-align: center !important;
+    }
+
+    /* Section title components */
+    .section-title,
+    .section-title__title,
+    .section-title__paragraph,
+    .section-title__tagline,
+    .section-title__text {
+        text-align: center !important;
+    }
+    .section-title {
+        margin-bottom: 32px !important;
+    }
+    .section-title__tagline {
+        display: block !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* ══ B. LISTS — keep readable, centered container ══════════════════════ */
+
+    /* Footer nav lists: center each item */
+    .footer-widget__links-list,
+    .footer-widget__links-list li,
+    .footer-widget__links-list a {
+        text-align: center !important;
+    }
+
+    /* Content ul/li inside sections — centered container, readable left text */
+    section ul:not(.footer-widget__links-list):not(.navbar-nav):not(.list-unstyled.counter-one__list) {
+        display: inline-block !important;
+        text-align: left !important;
+        max-width: 100% !important;
+        width: auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    section ul li {
+        text-align: left !important;
+    }
+
+    /* ══ C. BUTTONS — ALL pages, ALL button types ══════════════════════════ */
+
+    /* Standard theme buttons */
+    .thm-btn,
+    .view-btn,
+    a.thm-btn,
+    a.view-btn {
+        display: block !important;
+        width: fit-content !important;
+        max-width: 320px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+    }
+
+    /* Inner-page hero CTA buttons (btn-cta-modal, btn-get-touch, btn-call-now) */
+    .hero-cta-btns {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+    .hero-cta-btns a,
+    .hero-cta-btns button,
+    .btn-cta-modal {
+        display: block !important;
+        width: 100% !important;
+        max-width: 300px !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Estimate CTA bar */
+    .cta-two__inner {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 20px !important;
+    }
+    .cta-two__left {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+    .cta-two__right,
+    .hero-video-caption .cta-two__right {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+    .cta-two__title-box { text-align: center !important; }
+
+    /* State/page button groups */
+    .state_btns {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    /* Mid-section CTA button rows (used on all inner pages) */
+    .section-cta-btns {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        text-align: center !important;
+        padding: 24px 16px 10px !important;
+    }
+    .section-cta-btns .btn-cta-modal,
+    .btn-call-now,
+    .btn-get-touch {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    /* How-It-Works bottom */
+    .how-it-works__bottom-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 16px !important;
+    }
+    .how-it-works__bottom-text {
+        text-align: center !important;
+        width: 100% !important;
+        margin-bottom: 16px !important;
+    }
+
+    /* Tab buttons row */
+    .tab-buttons {
+        justify-content: center !important;
+    }
+
+    /* ══ D. INNER-PAGE HERO BANNERS (about-page, state-section-main) ═══════ */
+
+    .about-page .col-xl-7,
+    .about-page .col-xl-8,
+    .about-page .col-xl-9,
+    .state-section-main .col-xl-7,
+    .state-section-main .col-xl-8,
+    .state-section-main [class*="col-xl-"],
+    .page-header [class*="col-"],
+    .banner-one [class*="col-"] {
+        text-align: center !important;
+    }
+
+    /* Partner logos row in hero */
+    .state_partners {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    /* ══ E. SECTION CONTENT — services, solutions, insights ════════════════ */
+
+    /* Healthcare / service boxes */
+    .healthcare-box,
+    .helth-right,
+    .compliance-box,
+    .business-model-boxx {
+        text-align: center !important;
+    }
+
+    /* Feature / tab boxes */
+    .tab-boxx,
+    .tab-boxx h4,
+    .tab-boxx p,
+    .key-features-title,
+    .best-choice-title,
+    .latest-technology-title {
+        text-align: center !important;
+    }
+
+    /* Get content (welcome/contact section) */
+    .get__content,
+    .get__content h2,
+    .get__content h4,
+    .get__content p {
+        text-align: center !important;
+    }
+    .get__content ul {
+        display: inline-block !important;
+        text-align: left !important;
+    }
+
+    /* Accordion content */
+    .acccordien-content,
+    .acccordien-content h2,
+    .acccordien-content p,
+    .compliant-content h3,
+    .compliant-content p {
+        text-align: center !important;
+    }
+
+    /* Why Choose Us (all pages) */
+    .choose-card,
+    .choose-heading,
+    .choose-description {
+        text-align: center !important;
+    }
+
+    /* Services / Industries slider labels */
+    .custom-slider-text,
+    .solutions-slider-item .custom-slider-text {
+        text-align: center !important;
+    }
+
+    /* ══ F. HOME PAGE SECTIONS ══════════════════════════════════════════════ */
+
+    /* Facilitate section */
+    .facilitites-texts {
+        text-align: center !important;
+        padding: 24px 16px !important;
+    }
+    .facilitites-texts h4,
+    .facilitites-texts h6,
+    .facilitites-texts p {
+        text-align: center !important;
+    }
+    .facilities-btn {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* Work Showcase */
+    .slider-items { flex-direction: column !important; }
+    .case-content,
+    .case-content h3,
+    .case-content p { text-align: center !important; }
+    .case_btn {
+        display: flex !important;
+        justify-content: center !important;
+    }
+    .case-imgs {
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 16px !important;
+    }
+
+    /* Counter */
+    .counter-one__single { text-align: center !important; }
+    .counter-one__list {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 28px 16px !important;
+    }
+
+    /* Technologies logo swiper */
+    .brand-one .swiper-slide,
+    .thm-swiper__slider .swiper-slide {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    /* ══ G. HERO CAROUSEL (home) ════════════════════════════════════════════ */
+
+    .slide-badge {
+        box-shadow: 0 2px 12px rgba(221,4,41,0.45) !important;
+    }
+    .hero-video-caption,
+    .hero-video-caption .slide-badge,
+    .hero-video-caption .slide-trust {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .slide-trust { justify-content: center !important; gap: 8px !important; }
+
+    .hero-video-caption .thm-btn.cta-two__btn {
+        max-width: 300px !important;
+        text-align: center !important;
+        justify-content: center !important;
+        font-size: 15px !important;
+        padding: 14px 20px !important;
+        border-radius: 8px !important;
+    }
+    .hero-video-caption .hero-ghost-btn {
+        max-width: 300px !important;
+        justify-content: center !important;
+        margin-left: 0 !important;
+        font-size: 14px !important;
+        padding: 12px 20px !important;
+    }
+
+    /* ══ H. FOOTER — ALL pages (shared via footer.php) ═════════════════════ */
+
+    /* Footer outer — left-aligned on mobile */
+    .site-footer { text-align: left !important; }
+    .site-footer__middle { padding-top: 36px !important; padding-bottom: 28px !important; }
+
+    /* Logo column — centered logo, left-aligned description */
+    .footer-logo {
+        text-align: center !important;
+        margin-bottom: 18px !important;
+    }
+    .footer-logo a { display: inline-block !important; }
+    .footer-logo img,
+    .footer-logo-img {
+        height: 120px !important;
+        width: auto !important;
+        max-width: 300px !important;
+        object-fit: contain !important;
+        display: block !important;
+    }
+
+    /* Footer column description text — left on mobile */
+    .site-footer .d-flex.flex-column p,
+    .center__align p {
+        text-align: left !important;
+        font-size: 13px !important;
+        line-height: 1.65 !important;
+    }
+
+    /* Footer widget titles — left-aligned */
+    .footer-widget__title {
+        text-align: left !important;
+        margin-top: 24px !important;
+        font-size: 14px !important;
+    }
+    .footer-widget__title::after {
+        left: 0 !important;
+        transform: none !important;
+    }
+
+    /* Footer navigation lists — left-aligned, compact */
+    .footer-widget__links-list {
+        list-style: none !important;
+        padding: 0 !important;
+        margin-left: 0 !important;
+        text-align: left !important;
+        float: none !important;
+        width: 100% !important;
+    }
+    .footer-widget__links-list li {
+        list-style: none !important;
+        list-style-type: none !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+        line-height: 28px !important;
+    }
+    .footer-widget__links-list li::before,
+    .footer-widget__links-list li::marker {
+        display: none !important;
+        content: none !important;
+    }
+    .footer-widget__links-list a,
+    .footer-widget__links-list a:hover {
+        text-align: left !important;
+        padding-left: 0 !important;
+        display: block !important;
+        font-size: 13px !important;
+    }
+
+    /* 2-column grid: Quick Links + Services side by side,
+       Solutions + Connect side by side */
+    .site-footer__middle-inner .row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+    .site-footer__middle-inner .row > div {
+        text-align: left !important;
+    }
+    /* Logo column — full width */
+    .site-footer__middle-inner .row > div.center__align {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 4px !important;
+    }
+    /* Quick Links + Services: each 50% */
+    .site-footer__middle-inner .row > div:nth-child(2),
+    .site-footer__middle-inner .row > div:nth-child(3) {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        padding-right: 8px !important;
+    }
+    /* Solutions + Connect: each 50% */
+    .site-footer__middle-inner .row > div:nth-child(4),
+    .site-footer__middle-inner .row > div:nth-child(5) {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        padding-right: 8px !important;
+    }
+
+    /* Footer "Connect With Us" / contact info */
+    .loactions__footer__new,
+    .loactions__footer__new .footer-widget__column,
+    .loactions__footer__new .footer-widget__title {
+        text-align: left !important;
+    }
+    .three__tabs,
+    .three__tabs.footer-contact-inline {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        text-align: left !important;
+    }
+    .three__tabs .mt-0 { text-align: left !important; font-size: 13px !important; }
+
+    /* Footer bottom bar */
+    .site-footer__bottom { text-align: center !important; }
+    .site-footer__bottom-inner {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 8px !important;
+        text-align: center !important;
+    }
+    .site-footer__bottom-text { text-align: center !important; font-size: 13px !important; }
+}
+
+/* ── Extra small phones (≤480px) — footer single column ─────────────────── */
+@media (max-width: 480px) {
+    /* Stack all footer columns to full width on very small screens */
+    .site-footer__middle-inner .row > div:nth-child(2),
+    .site-footer__middle-inner .row > div:nth-child(3),
+    .site-footer__middle-inner .row > div:nth-child(4),
+    .site-footer__middle-inner .row > div:nth-child(5) {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        padding-right: 0 !important;
+    }
+    .footer-logo img,
+    .footer-logo-img {
+        height: 95px !important;
+        width: auto !important;
+        max-width: 260px !important;
+        object-fit: contain !important;
+        display: block !important;
+    }
+    .footer-widget__title { font-size: 13px !important; margin-top: 18px !important; }
+    .footer-widget__links-list a { font-size: 13px !important; }
+}
+
+/* ── Extra small phones (≤480px) ────────────────────────────────────────── */
+@media (max-width: 480px) {
+
+    /* Facilitate carousel images: taller on small screen */
+    .facilitites-images img {
+        min-height: 200px !important;
+        object-fit: cover !important;
+    }
+
+    /* Facilities grid: full vertical stack */
+    .facilities-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Counter: 2 × 2 grid */
+    .counter-one__single {
+        flex: 0 0 45% !important;
+        max-width: 50% !important;
+    }
+
+    /* "Why Choose Us" card spacing */
+    .choose-card { padding: 28px 14px 18px !important; }
+
+    /* Buttons: truly full-width on very small screens */
+    .thm-btn,
+    .view-btn,
+    a.thm-btn,
+    a.view-btn,
+    .btn-cta-modal {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   SECTION SPACING NORMALIZATION — Equal padding across ALL pages (all screens)
+   Fixes: Bootstrap py-*/mt-* utilities on sections, p-0/m-0 zero-padding, huge
+   inline paddings, and inconsistent desktop section gaps.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Desktop baseline: consistent 80px on all content sections ─────────────── */
+@media (min-width: 1200px) {
+    section:not(.about-page):not(.heading__section):not(.brand-one)
+           :not(.page-header):not(.banner-one):not(.hero-section)
+           :not(.location-hero):not(.slider-one):not([class*="banner-"])
+           :not(.team-one) {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}
+
+/* ── Technologies heading + brand slider: treat as one visual unit ───────────
+   team-one = heading only, brand-one = icon slider below it.
+   Collapsed section-title margin-bottom + tight padding removes the large
+   white gap that appeared between the heading and the icon row.              */
+section.team-one {
+    padding-top: 40px !important;
+    padding-bottom: 0 !important;
+}
+section.team-one .section-title {
+    position: relative !important;
+    top: auto !important;
+    z-index: auto !important;
+    padding: 0 !important;
+    margin-bottom: 10px !important;
+}
+section.brand-one {
+    border-top: none !important;
+}
+@media (max-width: 767.98px) {
+    section.team-one { padding-top: 30px !important; padding-bottom: 0 !important; }
+    section.team-one .section-title { margin-bottom: 4px !important; }
+}
+@media (max-width: 575px) {
+    section.team-one { padding-top: 24px !important; padding-bottom: 0 !important; }
+    section.team-one .section-title { margin-bottom: 0 !important; }
+}
+@media (max-width: 480px) {
+    section.team-one { padding-top: 20px !important; padding-bottom: 0 !important; }
+}
+
+/* ── Override Bootstrap py-* applied directly to <section> elements ────────── */
+/* Bootstrap py-5 = 3rem (48px) — too small vs. 80px site standard          */
+section.py-5 { padding-top: 80px !important; padding-bottom: 80px !important; }
+section.py-4 { padding-top: 70px !important; padding-bottom: 70px !important; }
+section.py-3 { padding-top: 60px !important; padding-bottom: 60px !important; }
+
+/* ── Remove Bootstrap mt-* / mb-* from sections — gaps between sections ───── */
+/* mt-4 = 24px extra top gap that breaks visual rhythm between sections.     */
+/* Exclude hero/banner sections (.about-page, .location-hero, etc.) that     */
+/* intentionally use mt-5 for correct hero positioning after the fixed nav.  */
+section.mt-1:not(.about-page):not(.location-hero):not(.banner-one):not(.page-header),
+section.mt-2:not(.about-page):not(.location-hero):not(.banner-one):not(.page-header),
+section.mt-3:not(.about-page):not(.location-hero):not(.banner-one):not(.page-header),
+section.mt-4:not(.about-page):not(.location-hero):not(.banner-one):not(.page-header),
+section.mt-5:not(.about-page):not(.location-hero):not(.banner-one):not(.page-header) {
+    margin-top: 0 !important;
+}
+section.mb-1, section.mb-2, section.mb-3, section.mb-4, section.mb-5 {
+    margin-bottom: 0 !important;
+}
+
+/* ── Fix sections with Bootstrap p-0 (zero-padding) — restore proper padding ─ */
+section.p-0 { padding-top: 60px !important; padding-bottom: 60px !important; }
+
+/* ── Normalize div.faqs-section (used as div, not section, with py-5) ──────── */
+div.faqs-section {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+}
+
+/* ── Cap inline-style over-padded sections (e.g. padding: 175px 0) ─────────── */
+/* Targets any section that has an absurdly large inline padding via attribute */
+section[style*="padding: 175px"],
+section[style*="padding:175px"],
+section[style*="padding: 150px"],
+section[style*="padding: 120px"],
+section[style*="padding: 100px"] {
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+}
+
+/* ── Button spacing inside sections — prevent huge gaps ────────────────────── */
+section .thm-btn,
+section a.thm-btn,
+section .view-btn,
+section a.view-btn,
+section .btn-cta-modal,
+section a.btn-cta-modal {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+/* ── Consistent inner container padding for work-process blocks ─────────────── */
+/* Fixes: div.work-process with pt-5 pb-5 inside a p-0 section */
+.work-process.pt-5,
+.work-process.pb-5,
+.work-process.py-5 {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}
+
+/* ── Responsive overrides (tablet/mobile already handled by existing rules) ─── */
+@media (max-width: 1199px) {
+    section.py-5,
+    section.py-4,
+    section.py-3 { padding-top: 70px !important; padding-bottom: 70px !important; }
+    div.faqs-section { padding-top: 70px !important; padding-bottom: 70px !important; }
+}
+@media (max-width: 991px) {
+    section.py-5,
+    section.py-4 { padding-top: 60px !important; padding-bottom: 60px !important; }
+    div.faqs-section { padding-top: 60px !important; padding-bottom: 60px !important; }
+}
+@media (max-width: 767px) {
+    section.py-5,
+    section.py-4,
+    section.py-3 { padding-top: 50px !important; padding-bottom: 50px !important; }
+    div.faqs-section { padding-top: 50px !important; padding-bottom: 50px !important; }
+    section.p-0 { padding-top: 50px !important; padding-bottom: 50px !important; }
+    section[style*="padding: 175px"],
+    section[style*="padding: 150px"],
+    section[style*="padding: 120px"],
+    section[style*="padding: 100px"] {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+}
+@media (max-width: 575px) {
+    section.py-5,
+    section.py-4 { padding-top: 40px !important; padding-bottom: 40px !important; }
+    div.faqs-section { padding-top: 40px !important; padding-bottom: 40px !important; }
+    section.p-0 { padding-top: 40px !important; padding-bottom: 40px !important; }
+}
+
+/* ── Location-form button styling (city pages hero form) ───────────────────── */
+/* The Submit button in hero forms uses generic .btn class — give it proper style */
+.location-form .btn[type="submit"],
+.location-form button[type="submit"] {
+    background-color: #dd0429 !important;
+    color: #fff !important;
+    border: 2px solid #dd0429 !important;
+    padding: 12px 28px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    border-radius: 6px !important;
+    width: 100%;
+    margin-top: 10px !important;
+    transition: background 0.3s, transform 0.2s !important;
+    cursor: pointer !important;
+}
+.location-form .btn[type="submit"]:hover,
+.location-form button[type="submit"]:hover {
+    background-color: #b8001f !important;
+    border-color: #b8001f !important;
+    transform: translateY(-2px) !important;
+}
+
+/* ── Location-form input focus (matches site brand) ───────────────────────── */
+.location-form input:focus,
+.location-form textarea:focus,
+.location-form select:focus {
+    border-color: #dd0429 !important;
+    box-shadow: 0 0 0 3px rgba(221, 4, 41, 0.12) !important;
+    outline: none !important;
+}
+
+/* ── END SECTION SPACING NORMALIZATION ──────────────────────────────────────── */
+
+/* ── Shared Quote Form (form-quote.php) ─────────────────────────────────── */
+.aws-qf-wrap {
+    width: 100%;
+    padding: 0;
+}
+
+.aws-qf-card {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 48px rgba(0, 0, 0, 0.11);
+    padding: 38px 36px;
+    border-top: 4px solid #ec1c22;
+    position: relative;
+    overflow: hidden;
+}
+
+.aws-qf-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ec1c22 0%, #ff6b6b 100%);
+}
+
+.aws-qf-header {
+    margin-bottom: 26px;
+    text-align: center;
+}
+
+.aws-qf-header h3 {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.aws-qf-header p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Two-column name row */
+.aws-qf-row {
+    display: flex;
+    gap: 14px;
+}
+
+.aws-qf-row .aws-qf-group {
+    flex: 1;
+    min-width: 0;
+}
+
+.aws-qf-group {
+    margin-bottom: 16px;
+}
+
+.aws-qf-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+/* Field wrapper with icon */
+.aws-qf-field-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.aws-qf-icon {
+    position: absolute;
+    left: 14px;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    pointer-events: none;
+    transition: color 0.2s;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.aws-qf-icon-top {
+    top: 16px;
+    transform: none;
+}
+
+/* All inputs and textarea */
+.aws-qf-form input[type="text"],
+.aws-qf-form input[type="email"],
+.aws-qf-form input[type="tel"],
+.aws-qf-form textarea {
+    width: 100%;
+    padding: 12px 14px 12px 38px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 0.93rem;
+    color: #374151;
+    background: #f9fafb;
+    transition: border-color 0.22s, box-shadow 0.22s, background 0.22s;
+    outline: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+}
+
+.aws-qf-form input:focus,
+.aws-qf-form textarea:focus {
+    border-color: #ec1c22 !important;
+    background: #fff !important;
+    box-shadow: 0 0 0 3px rgba(236, 28, 34, 0.09) !important;
+}
+
+.aws-qf-form input:focus + .aws-qf-icon,
+.aws-qf-form textarea:focus + .aws-qf-icon,
+.aws-qf-field-wrap:focus-within .aws-qf-icon {
+    color: #ec1c22;
+}
+
+.aws-qf-textarea-wrap {
+    align-items: flex-start;
+}
+
+.aws-qf-form textarea {
+    min-height: 105px;
+    resize: vertical;
+    padding-top: 12px;
+}
+
+/* Submit button */
+.aws-qf-submit {
+    width: 100%;
+    padding: 14px 20px;
+    background: #ec1c22;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.15s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 6px;
+    box-shadow: 0 4px 18px rgba(236, 28, 34, 0.25);
+}
+
+.aws-qf-submit:hover {
+    background: #c41118;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 24px rgba(236, 28, 34, 0.32);
+}
+
+.aws-qf-submit:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 12px rgba(236, 28, 34, 0.22);
+}
+
+.aws-qf-trust {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin: 14px 0 0;
+}
+
+.aws-qf-trust a {
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.aws-qf-trust a:hover {
+    color: #ec1c22;
+}
+
+/* validation small text */
+.aws-qf-form small {
+    display: block;
+    font-size: 0.75rem;
+    color: #ef4444;
+    margin-top: 3px;
+    min-height: 16px;
+}
+
+/* Responsive */
+@media (max-width: 575px) {
+    .aws-qf-card {
+        padding: 26px 18px;
+        border-radius: 14px;
+    }
+
+    .aws-qf-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .aws-qf-header h3 {
+        font-size: 1.35rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .aws-qf-card {
+        padding: 30px 22px;
+    }
+}
+/* ── End Shared Quote Form ───────────────────────────────────────────────── */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Brand / Technology Logo Slider — desktop & mobile sizing
+   Gives logos a consistent height so they are clearly visible on all screens.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Desktop default — tall enough to read the logo clearly */
+.brand-one .swiper-slide img,
+.thm-swiper__slider.brand-one .swiper-slide img {
+    height: 52px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Heading + brand slider: treat as one compact visual unit */
+section.heading__section {
+    padding: 18px 0 !important;
+}
+section.heading__section .eco_title h5 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+section.brand-one {
+    padding-top: 20px !important;
+    padding-bottom: 40px !important;
+}
+
+/* ── Tablet (≤991px) ─────────────────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+    .brand-one .swiper-slide img { height: 46px; }
+    section.brand-one { padding-top: 16px !important; padding-bottom: 36px !important; }
+}
+
+/* ── Small tablet (≤767px) ───────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+    .brand-one .swiper-slide img { height: 40px; }
+    section.heading__section { padding: 14px 0 !important; }
+    section.heading__section .eco_title h5 { font-size: 15px; }
+    section.brand-one { padding-top: 14px !important; padding-bottom: 30px !important; }
+}
+
+/* ── Mobile (≤575px) ─────────────────────────────────────────────────────── */
+@media (max-width: 575.98px) {
+    .brand-one .swiper-slide img { height: 36px; }
+    section.heading__section { padding: 12px 0 !important; }
+    section.heading__section .eco_title h5 { font-size: 14px; }
+    section.brand-one { padding-top: 12px !important; padding-bottom: 24px !important; }
+}
+
+/* ── Small mobile (≤480px) ───────────────────────────────────────────────── */
+@media (max-width: 480px) {
+    .brand-one .swiper-slide img { height: 32px; }
+    section.brand-one { padding-top: 10px !important; padding-bottom: 20px !important; }
+}
+
+/* ── Extra-small (≤375px) ────────────────────────────────────────────────── */
+@media (max-width: 375px) {
+    .brand-one .swiper-slide img { height: 28px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Mobile – Global Section Text Center Alignment (≤767px)
+   Centers all headings, paragraphs, labels and section text on small screens.
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    /* Section headings & body text */
+    section h1, section h2, section h3,
+    section h4, section h5, section h6,
+    section p, section span,
+    section label, section li,
+    section .lead, section small {
+        text-align: center !important;
+    }
+
+    /* Section title components */
+    .section-title,
+    .section-title__tagline,
+    .section-title__title,
+    .section-title__paragraph,
+    .section-title p,
+    .section-title h2,
+    .section-title h3 {
+        text-align: center !important;
+    }
+
+    /* Hero / slider content */
+    .main-slider__content,
+    .main-slider-two__content,
+    .main-slider-three__content,
+    .hero-section .container,
+    .banner-one__content,
+    .carousel-caption,
+    .housten-hero-content,
+    .dubia-hero-content,
+    .location-hero,
+    .fintness__contents,
+    .industry-hero {
+        text-align: center !important;
+    }
+
+    /* Common content wrappers */
+    .welcome-one__content,
+    .welcome-two__content,
+    .welcome-three__content,
+    .why-choose-one__content,
+    .why-choose-one__content-list,
+    .services-one__top-left,
+    .services-one__top-right,
+    .about-page__content,
+    .about-page__right,
+    .every-stage__content,
+    .we-build__content,
+    .we-can__content,
+    .team_work_content,
+    .governemnt-about,
+    .get__content,
+    .helth-right,
+    .overview-content,
+    .download-pera,
+    .digital-innovation-content,
+    .improvise_section,
+    .compliant-content,
+    .Delight_head,
+    .key-features-title,
+    .ecommerce-services-title,
+    .acccordien-content,
+    .percision-content,
+    .map-sec,
+    .map-sec .left-content,
+    .map-sec .right-content {
+        text-align: center !important;
+    }
+
+    /* Inline icon+text blocks – keep icons centred too */
+    .feature-one__single,
+    .services-two__single,
+    .services-three__single,
+    .how-it-works__process-single,
+    .counter-one__single,
+    .best-agency__experience,
+    .best-agency__points li,
+    .we-care__content,
+    .two-boxes__single,
+    .tab-content__bottom,
+    .business-model-boxx,
+    .ecomerce__contentsbox,
+    .achivement__box,
+    .achivement_box,
+    .left-item,
+    .right-item,
+    .trust-content,
+    .serv_box,
+    .rating-box-main > *,
+    .premium-features .tab {
+        text-align: center !important;
+    }
+
+    /* Blog & portfolio cards */
+    .blog-content,
+    .project-two__top,
+    .project-two__left .section-title,
+    .blog-one .section-title__title,
+    .blog-details__pagenation li {
+        text-align: center !important;
+    }
+
+    /* CTA sections */
+    .cta-one__inner,
+    .cta-one__left,
+    .cta-one__title-box,
+    .cta-two__inner,
+    .cta-two__left,
+    .cta-two__title-box,
+    .cta-two__title {
+        text-align: center !important;
+    }
+
+    /* Footer top */
+    .site-footer__top-inner {
+        text-align: center !important;
+    }
+
+    /* Testimonial */
+    .testimonial-one__content,
+    .testimonial-two__title,
+    .testimonial-two__text {
+        text-align: center !important;
+    }
+
+    /* Tabs */
+    .every-stage__tab-box .tab-buttons,
+    .tab__title,
+    .tabs-container h3,
+    section.custom-tabs h2 {
+        text-align: center !important;
+    }
+
+    /* Misc utility classes used across pages */
+    .text-section h2,
+    .text-section-bg p,
+    .latest-technology-title,
+    .best-choice-title,
+    .custom-testimonials-heading,
+    .custom-slider-text,
+    .slider-items,
+    .alience__content h2,
+    .allience__partner h2,
+    .services__content h4,
+    .houston__portfolio-title,
+    .premium-features-title {
+        text-align: center !important;
+    }
+
+    /* Make flex containers wrap & center on mobile */
+    .slider-items {
+        justify-content: center !important;
+    }
+}
+

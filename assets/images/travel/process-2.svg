@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <clipPath id="clip-process-2">
+      <rect width="120" height="120"/>
+    </clipPath>
+  </defs>
+  <g id="process-2" clip-path="url(#clip-process-2)">
+    <rect id="Rectangle_371" data-name="Rectangle 371" width="80" height="80" fill="#086971"/>
+    <rect id="Rectangle_373" data-name="Rectangle 373" width="80" height="80" rx="40" transform="translate(40 40)" fill="#18b879"/>
+    <rect id="Rectangle_372" data-name="Rectangle 372" width="40" height="40" transform="translate(40 40)" fill="#b5ff79"/>
+  </g>
+</svg>
