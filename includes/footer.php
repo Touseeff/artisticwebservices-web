@@ -310,6 +310,101 @@
     .aws-modal-body { padding: 18px 24px 22px; }
 }
 
+/* ── Footer Social Icons ─────────────────────────────── */
+.footer-social-wrap {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+.footer-social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.22);
+    color: #fff !important;
+    font-size: 15px;
+    text-decoration: none !important;
+    transition: background 0.25s, transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    flex-shrink: 0;
+}
+.footer-social-icon:hover {
+    color: #fff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.footer-social-icon.fb:hover  { background: #1877f2; border-color: #1877f2; }
+.footer-social-icon.li:hover  { background: #0a66c2; border-color: #0a66c2; }
+.footer-social-icon.ig:hover  { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color: #e1306c; }
+.footer-social-icon.tw:hover  { background: #000;    border-color: #000; }
+
+/* ── Footer Trust Badges ─────────────────────────────── */
+.footer-trust-section {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    margin-top: 36px;
+    padding-top: 28px;
+    padding-bottom: 4px;
+}
+.footer-trust-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+.footer-trust-badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.footer-trust-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 10px;
+    padding: 10px 22px;
+    transition: background 0.22s, transform 0.22s, border-color 0.22s;
+    text-decoration: none !important;
+}
+.footer-trust-badge:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.32);
+    transform: translateY(-3px);
+}
+.footer-trust-badge img {
+    height: 34px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.80;
+    transition: opacity 0.22s;
+}
+.footer-trust-badge:hover img { opacity: 1; }
+
+@media (max-width: 991px) {
+    .footer-trust-badges { gap: 14px; }
+    .footer-trust-badge  { padding: 9px 18px; }
+    .footer-trust-badge img { height: 30px; }
+}
+@media (max-width: 575px) {
+    .footer-social-icon  { width: 36px; height: 36px; font-size: 14px; }
+    .footer-trust-section { margin-top: 24px; padding-top: 22px; }
+    .footer-trust-badges { gap: 10px; }
+    .footer-trust-badge  { padding: 8px 14px; border-radius: 8px; }
+    .footer-trust-badge img { height: 26px; }
+}
+
 /* CTA buttons (used in sticky bar) */
 .aws-btn-call {
     display: inline-flex;
@@ -539,10 +634,43 @@
                                     <div class="mt-0"><i class="fa fa-envelope me-1" style="color:#dd0429;"></i> <a href="mailto:info@artisticwebservices.com">info@artisticwebservices.com</a></div>
                                     <div class="mt-0"><i class="fa fa-phone me-1" style="color:#dd0429;"></i> <a href="tel:+12137147176" class="nav-number nav-number-1">(213) 714-7176</a></div>
                                 </div>
+                                <!-- Social Media Icons -->
+                                <div class="footer-social-wrap">
+                                    <a href="https://www.facebook.com/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon fb" title="Facebook" aria-label="Follow us on Facebook">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon li" title="LinkedIn" aria-label="Follow us on LinkedIn">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon ig" title="Instagram" aria-label="Follow us on Instagram">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                    <a href="https://twitter.com/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon tw" title="X (Twitter)" aria-label="Follow us on X / Twitter">
+                                        <i class="fa-brands fa-x-twitter"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- ── Trust / Review Badges ─────────────────────── -->
+                <div class="footer-trust-section">
+                    <div class="footer-trust-label">Trusted &amp; Featured On</div>
+                    <div class="footer-trust-badges">
+                        <a href="https://www.bark.com/en/us/company/artistic-web-services/" target="_blank" rel="noopener noreferrer" class="footer-trust-badge" title="Bark" aria-label="View our Bark profile">
+                            <img src="<?= $B ?>/assets/images/bark.webp" alt="Bark" loading="lazy" width="100" height="34">
+                        </a>
+                        <a href="https://www.trustpilot.com/review/artisticwebservices.com" target="_blank" rel="noopener noreferrer" class="footer-trust-badge" title="Trustpilot" aria-label="View our Trustpilot reviews">
+                            <img src="<?= $B ?>/assets/images/trustpilot.webp" alt="Trustpilot" loading="lazy" width="110" height="34">
+                        </a>
+                        <a href="https://www.goodfirms.co/company/artistic-web-services" target="_blank" rel="noopener noreferrer" class="footer-trust-badge" title="GoodFirms" aria-label="View our GoodFirms profile">
+                            <img src="<?= $B ?>/assets/images/goodfirms.webp" alt="GoodFirms" loading="lazy" width="110" height="34">
+                        </a>
+                    </div>
+                </div>
+                <!-- ── /Trust Badges ──────────────────────────────── -->
+
             </div>
         </div>
     </div>
@@ -1083,7 +1211,7 @@ Tawk_API.onLoad=function(){
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
-s1.src='https://embed.tawk.to/69d1fa4e1772311c3585e1cd/1jle3jgku';
+s1.src='https://embed.tawk.to/69d18563e360ca1c3ce30384/1jld723b2';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
