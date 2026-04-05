@@ -588,7 +588,22 @@ textarea.cf-input {
                         <p class="form-section-label">Send a Message</p>
                         <h3>Submit an Inquiry</h3>
 
-                        <form id="contact" action="contact-form.php" method="post" novalidate>
+                        <?php
+                        $err = $_GET['error'] ?? '';
+                        if ($err === 'missing') {
+                            echo '<div style="background:#fff5f5;border:1.5px solid #dd0429;border-radius:10px;padding:14px 18px;margin-bottom:22px;display:flex;align-items:center;gap:12px;font-size:14px;color:#c0001c;font-weight:600;">
+                                    <i class="fas fa-exclamation-circle" style="font-size:18px;flex-shrink:0;"></i>
+                                    Please fill in your First Name and Email Address before submitting.
+                                  </div>';
+                        } elseif ($err === 'invalid_email') {
+                            echo '<div style="background:#fff5f5;border:1.5px solid #dd0429;border-radius:10px;padding:14px 18px;margin-bottom:22px;display:flex;align-items:center;gap:12px;font-size:14px;color:#c0001c;font-weight:600;">
+                                    <i class="fas fa-exclamation-circle" style="font-size:18px;flex-shrink:0;"></i>
+                                    Please enter a valid email address.
+                                  </div>';
+                        }
+                        ?>
+
+                        <form id="contact" action="contact-form" method="post" novalidate>
                             <input type="hidden" name="host" value="ArtisticWebServices">
                             <input type="hidden" name="captcha_answer" id="captcha_answer" value="10">
 
@@ -844,6 +859,17 @@ textarea.cf-input {
             email.style.borderColor = '';
         }
 
+        /* Description */
+        var desc = document.getElementById('description');
+        if (desc && !desc.value.trim()) {
+            document.getElementById('message-valid').textContent = 'Please tell us about your project.';
+            desc.style.borderColor = '#dd0429';
+            valid = false;
+        } else if (desc) {
+            document.getElementById('message-valid').textContent = '';
+            desc.style.borderColor = '';
+        }
+
         /* Services */
         var serviceInputs = document.querySelectorAll('#cf-service-inputs input');
         var projValid = document.getElementById('project-valid');
@@ -860,7 +886,7 @@ textarea.cf-input {
     });
 
     /* Live clear on text inputs */
-    ['first_name', 'email'].forEach(function (id) {
+    ['first_name', 'email', 'description'].forEach(function (id) {
         var el = document.getElementById(id);
         if (el) el.addEventListener('input', function () {
             this.style.borderColor = '';

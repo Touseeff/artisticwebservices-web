@@ -87,6 +87,7 @@ function sendMail(array $data): bool
         $mail->SMTPSecure = SMTP_SECURE;
         $mail->Port       = SMTP_PORT;
         $mail->CharSet    = 'UTF-8';
+        $mail->Timeout    = 10; // seconds — prevents script hang on slow/unreachable SMTP
 
         // ── From / To ────────────────────────────────────────────────────
         $mail->setFrom(SMTP_FROM_EMAIL, SMTP_FROM_NAME);

@@ -20,19 +20,26 @@ $last_name   = clean($src['last_name']   ?? '');
 $email       = clean($src['email']       ?? '');
 $phone       = clean($src['phone']       ?? '');
 $description = clean($src['description'] ?? $src['message'] ?? '');
-$service     = clean($src['service']     ?? '');
 $host        = clean($src['host']        ?? 'ArtisticWebServices');
 $page        = clean($src['page']        ?? $host);
+
+// Services are submitted as states[] array (multi-select custom dropdown)
+$states_raw = $src['states'] ?? [];
+if (is_array($states_raw)) {
+    $service = implode(', ', array_map('strip_tags', array_map('trim', $states_raw)));
+} else {
+    $service = clean($states_raw ?: ($src['service'] ?? ''));
+}
 
 $base = defined('SITE_BASE') ? SITE_BASE : '';
 
 // ── Validate ──────────────────────────────────────────────────────────────────
 if (empty($first_name) || empty($email)) {
-    header("Location: {$base}/contact.php?error=missing");
+    header("Location: {$base}/contact?error=missing");
     exit;
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header("Location: {$base}/contact.php?error=invalid_email");
+    header("Location: {$base}/contact?error=invalid_email");
     exit;
 }
 
@@ -54,5 +61,5 @@ sendMail([
 ]);
 
 // ── Redirect ──────────────────────────────────────────────────────────────────
-header("Location: {$base}/thank-you.php");
+header("Location: {$base}/thank-you");
 exit;
