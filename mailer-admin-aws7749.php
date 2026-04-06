@@ -154,16 +154,8 @@ function cfg(string $key, $fallback = '—'): string {
       <tr><td>From Name</td>        <td><?= cfg('SMTP_FROM_NAME') ?></td></tr>
       <tr><td>Default Recipient</td><td><?= cfg('MAIL_TO') ?></td></tr>
       <tr><td>Debug Mode</td>       <td><?= defined('SMTP_DEBUG') && SMTP_DEBUG ? '<span class="badge-no">ON</span>' : '<span class="badge-ok">OFF</span>' ?></td></tr>
-      <tr><td>PHPMailer</td>        <td><?= file_exists(__DIR__.'/vendor/autoload.php') ? '<span class="badge-ok">Installed ✓</span>' : '<span class="badge-no">Not installed — run: composer install</span>' ?></td></tr>
+      <tr><td>Mailer Engine</td>   <td><span class="badge-ok">Native PHP Socket (no Composer)</span></td></tr>
     </table>
-
-    <?php if (!file_exists(__DIR__.'/vendor/autoload.php')): ?>
-    <div class="warn">
-      <strong>PHPMailer not installed.</strong><br>
-      SSH into your Hostinger server and run:<br>
-      <code style="display:block;margin-top:6px;font-size:12px;">cd public_html &amp;&amp; composer install</code>
-    </div>
-    <?php endif; ?>
 
     <?php if (defined('SMTP_PASSWORD') && SMTP_PASSWORD === 'YOUR_EMAIL_PASSWORD_HERE'): ?>
     <div class="warn">
@@ -179,7 +171,7 @@ function cfg(string $key, $fallback = '—'): string {
     <?php if ($test_result === 'success'): ?>
       <div class="ok">✓ Test email sent successfully! Check your inbox.</div>
     <?php elseif ($test_result === 'error'): ?>
-      <div class="err">✗ Test email failed. Check your SMTP credentials and that <code>vendor/autoload.php</code> exists. See PHP error log for details.</div>
+      <div class="err">✗ Test email failed. Check your SMTP password in <code>includes/smtp-config.php</code>. See PHP error log for details.</div>
     <?php elseif ($test_result === 'invalid'): ?>
       <div class="err">Invalid recipient email address.</div>
     <?php endif; ?>
@@ -206,7 +198,7 @@ function cfg(string $key, $fallback = '—'): string {
       <tr><td>Password</td>     <td>Your email account password</td></tr>
       <tr><td>Config file</td>  <td>includes/smtp-config.php</td></tr>
       <tr><td>Mailer file</td>  <td>includes/mailer.php</td></tr>
-      <tr><td>Install cmd</td>  <td>composer install</td></tr>
+      <tr><td>Engine</td>       <td>Native PHP socket — no Composer needed</td></tr>
     </table>
   </div>
 

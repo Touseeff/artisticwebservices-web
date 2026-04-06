@@ -2,7 +2,7 @@
 /* Shared quote / contact form — included by service, solution & insight pages.
    Hidden captcha fields keep server-side validation passing without showing
    the math question to users. */
-$_fq_action = defined('SITE_URL') ? SITE_URL . '/contact-form.php' : '/contact-form.php';
+$_fq_action = defined('SITE_URL') ? SITE_URL . '/contact-form' : '/contact-form';
 ?>
 <div class="aws-qf-wrap">
   <div class="aws-qf-card">

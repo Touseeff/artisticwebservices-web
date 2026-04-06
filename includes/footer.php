@@ -316,21 +316,34 @@
     gap: 10px;
     flex-wrap: wrap;
     margin-top: 16px;
+    align-items: center;
 }
 .footer-social-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
     border-radius: 50%;
     background: rgba(255,255,255,0.1);
     border: 1.5px solid rgba(255,255,255,0.22);
     color: #fff !important;
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 1;
     text-decoration: none !important;
     transition: background 0.25s, transform 0.25s, border-color 0.25s, box-shadow 0.25s;
     flex-shrink: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.footer-social-icon i {
+    font-size: 16px;
+    line-height: 1;
+    display: block;
+    width: auto;
+    height: auto;
 }
 .footer-social-icon:hover {
     color: #fff !important;
@@ -341,6 +354,24 @@
 .footer-social-icon.li:hover  { background: #0a66c2; border-color: #0a66c2; }
 .footer-social-icon.ig:hover  { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color: #e1306c; }
 .footer-social-icon.tw:hover  { background: #000;    border-color: #000; }
+
+/* Mobile social icon fix */
+@media (max-width: 767px) {
+    .footer-social-wrap {
+        gap: 8px;
+        margin-top: 14px;
+    }
+    .footer-social-icon {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        min-height: 38px;
+        font-size: 15px;
+    }
+    .footer-social-icon i {
+        font-size: 15px;
+    }
+}
 
 /* ── Footer Trust Badges ─────────────────────────────── */
 .footer-trust-section {
@@ -398,11 +429,19 @@
     .footer-trust-badge img { height: 30px; }
 }
 @media (max-width: 575px) {
-    .footer-social-icon  { width: 36px; height: 36px; font-size: 14px; }
+    .footer-social-wrap { gap: 8px; }
+    .footer-social-icon {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        font-size: 14px;
+    }
+    .footer-social-icon i { font-size: 14px; }
     .footer-trust-section { margin-top: 24px; padding-top: 22px; }
     .footer-trust-badges { gap: 10px; }
     .footer-trust-badge  { padding: 8px 14px; border-radius: 8px; }
-    .footer-trust-badge img { height: 26px; }
+    .footer-trust-badge img { height: 26px; max-width: 90px; }
 }
 
 /* CTA buttons (used in sticky bar) */
@@ -851,7 +890,7 @@ function awsSubmitForm(e) {
     data.append('host', 'ArtisticWebServices');
 
     /* Send async (fire-and-forget — redirect regardless) */
-    fetch('https://artisticwebservices.com/contact-form.php', {
+    fetch('/contact-form.php', {
         method: 'POST',
         body: data
     }).catch(function(){});
@@ -860,7 +899,7 @@ function awsSubmitForm(e) {
     setTimeout(function() {
         var base = document.querySelector('meta[name="site-base"]');
         var b = base ? base.getAttribute('content') : '';
-        window.location.href = b + '/thank-you.php';
+        window.location.href = b + '/thank-you';
     }, 800);
 }
 

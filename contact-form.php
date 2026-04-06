@@ -2,7 +2,7 @@
 /**
  * contact-form.php — Universal contact form handler
  * Accepts POST (standard forms) and GET (legacy form-quote.php links)
- * Sends email via SMTP using PHPMailer (Hostinger shared hosting)
+ * Sends email via native PHP SMTP socket (Hostinger shared hosting)
  */
 
 require_once __DIR__ . '/includes/config.php';

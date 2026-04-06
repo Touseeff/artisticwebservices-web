@@ -63,5 +63,5 @@ sendMail([
 ]);
 
 // ── Redirect ──────────────────────────────────────────────────────────────────
-header("Location: {$base}/thank-you.php");
+header("Location: {$base}/thank-you");
 exit;
