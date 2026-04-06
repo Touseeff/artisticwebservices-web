@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company in Saudi Arabia | ArtisticWebServices';
 $page_description = 'ArtisticWebServices is a leading mobile app development company in Saudi Arabia. We build iOS, Android, and cross-platform apps tailored for Saudi Arabia and GCC markets.';

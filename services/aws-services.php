@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'AWS Services Company USA | Cloud Architecture & DevOps — ArtisticWebServices';
 $page_description = 'Certified AWS partner offering cloud architecture, DevOps, serverless development, and AWS migration services. Trusted by 200+ USA businesses.';

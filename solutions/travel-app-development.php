@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Travel App Development Company USA | Booking & Tourism Apps — ArtisticWebServices';
 $page_description = 'Launch your travel app with ArtisticWebServices. Hotel booking, flight search, tour management, and travel marketplace development for USA travel companies.';

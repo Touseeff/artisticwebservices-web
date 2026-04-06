@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Presidential Parcel Delivery App | Logistics Case Study — ArtisticWebServices';
 $page_description = 'Case study: Presidential Parcel Delivery — a logistics and delivery management app by ArtisticWebServices with real-time tracking, route optimization, and driver management.';

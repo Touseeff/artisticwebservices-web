@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Online Score Tracker App | Sports Scoring Case Study — ArtisticWebServices';
 $page_description = 'Case study: Online Score Tracker app by ArtisticWebServices — a real-time sports score platform with live updates, leaderboards, and multi-sport support.';

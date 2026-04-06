@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'AI Development Company USA | Machine Learning & AI Solutions — ArtisticWebServices';
 $page_description = "Transform your business with ArtisticWebServices' AI development services. Custom machine learning models, NLP, computer vision & generative AI solutions for enterprises.";

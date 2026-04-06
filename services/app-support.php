@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'App Support & Maintenance Services USA | 24/7 — ArtisticWebServices';
 $page_description = "Keep your app running perfectly with ArtisticWebServices' 24/7 app support and maintenance services. Bug fixes, updates, performance optimization, and monitoring.";

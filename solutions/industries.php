@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Industry-Specific Software Solutions USA | 15+ Industries — ArtisticWebServices';
 $page_description = 'ArtisticWebServices delivers tailored software solutions for 15+ industries including healthcare, fintech, education, e-commerce, real estate, sports, government, and more across USA.';

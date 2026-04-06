@@ -145,6 +145,7 @@
     display: flex;
     flex-direction: column;
     padding: 0;
+    min-height: 0;
 }
 .aws-modal-form-header {
     background: linear-gradient(135deg, #dd0429 0%, #950018 100%);
@@ -187,7 +188,7 @@
 .aws-modal-close:hover { background: rgba(255,255,255,0.38); }
 
 /* Form area */
-.aws-modal-body { padding: 22px 32px 26px; flex: 1; }
+.aws-modal-body { padding: 22px 32px 26px; flex: 1; overflow-y: auto; min-height: 0; }
 .aws-form-row { display: flex; gap: 10px; margin-bottom: 0; }
 .aws-form-row .aws-form-group { flex: 1; }
 .aws-form-group { margin-bottom: 12px; }
@@ -307,7 +308,7 @@
     .aws-modal-lady-img { max-width: 210px; }
     .aws-modal-form-header { padding: 20px 24px 16px; }
     .aws-modal-form-header h2 { font-size: 20px; }
-    .aws-modal-body { padding: 18px 24px 22px; }
+    .aws-modal-body { padding: 18px 24px 22px; overflow-y: auto; min-height: 0; }
 }
 
 /* ── Footer Social Icons ─────────────────────────────── */
@@ -890,7 +891,7 @@ function awsSubmitForm(e) {
     data.append('host', 'ArtisticWebServices');
 
     /* Send async (fire-and-forget — redirect regardless) */
-    fetch('/contact-form.php', {
+    fetch('/contact-form', {
         method: 'POST',
         body: data
     }).catch(function(){});

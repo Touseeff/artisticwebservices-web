@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Healthify Wellness App | Health Tracking Case Study — ArtisticWebServices';
 $page_description = 'Case study: Healthify wellness app by ArtisticWebServices — a comprehensive health tracking app with nutrition logging, workout planning, progress charts, and habit management.';

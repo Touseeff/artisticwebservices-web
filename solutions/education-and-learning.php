@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'EdTech & eLearning App Development USA | LMS Solutions — ArtisticWebServices';
 $page_description = 'Transform education with custom eLearning apps from ArtisticWebServices. LMS platforms, virtual classrooms, gamified learning, and K-12 & higher ed solutions.';

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'IT Consulting Services USA | Digital Strategy & Tech Advisory — ArtisticWebServices';
 $page_description = 'Strategic IT consulting from ArtisticWebServices. Technology roadmap, digital transformation, architecture review, and CTO-as-a-service for USA businesses.';

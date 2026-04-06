@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'FinTrack Financial Tracking App | FinTech Case Study — ArtisticWebServices';
 $page_description = 'Case study: FinTrack — a fintech application by ArtisticWebServices for personal finance tracking, expense management, budget planning, and investment monitoring.';

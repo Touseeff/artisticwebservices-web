@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company in Bahrain | ArtisticWebServices';
 $page_description = 'ArtisticWebServices is a top mobile app development company in Bahrain. We build scalable iOS, Android, and cross-platform apps tailored to Bahrain business goals.';

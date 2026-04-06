@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Pro Questor Consulting App | Business Intelligence Case Study — ArtisticWebServices';
 $page_description = 'Case study: Pro Questor — a consulting and business intelligence app by ArtisticWebServices combining technology and data strategy for smarter decision making.';

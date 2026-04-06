@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company in Kuwait | ArtisticWebServices';
 $page_description = 'ArtisticWebServices builds smarter user-first mobile apps in Kuwait. Our experts develop purpose-driven iOS and Android apps that fuel business growth in Kuwait and GCC.';

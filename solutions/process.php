@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Our Software Development Process | Agile 6-Step Methodology — ArtisticWebServices';
 $page_description = 'Discover ArtisticWebServices agile software development process. From discovery and design to development, QA, and deployment — transparent 6-step SDLC for on-time delivery.';

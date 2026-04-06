@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'DoorDrop Rentals App | On-Demand Rental Management — ArtisticWebServices';
 $page_description = 'Case study: DoorDrop Rentals app by ArtisticWebServices — an on-demand rental management platform simplifying property rentals, bookings, and tenant management.';

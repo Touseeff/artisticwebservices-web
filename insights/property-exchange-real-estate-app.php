@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Property Exchange Real Estate App | PropTech Case Study — ArtisticWebServices';
 $page_description = 'Case study: Property & Apartment Exchange app by ArtisticWebServices — a real estate marketplace with property listings, virtual tours, agent connections, and rental management.';

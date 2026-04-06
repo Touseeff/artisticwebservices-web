@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'eCommerce App Development USA | Online Store & Marketplace Solutions — ArtisticWebServices';
 $page_description = 'Build high-converting eCommerce platforms and trading apps with ArtisticWebServices. Custom Shopify, WooCommerce, headless commerce, and B2B/B2C marketplace development for USA businesses.';

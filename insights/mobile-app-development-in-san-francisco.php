@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company San Francisco | ArtisticWebServices';
 $page_description = 'ArtisticWebServices is a results-driven mobile app development company in San Francisco. We help startups and enterprises launch impactful, scalable mobile apps in the Bay Area.';

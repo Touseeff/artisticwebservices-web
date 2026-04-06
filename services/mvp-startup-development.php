@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'MVP Development Company USA | Launch Your Startup Fast — ArtisticWebServices';
 $page_description = 'Launch your startup with a lean, investor-ready MVP. ArtisticWebServices builds MVPs in 8—12 weeks for USA startups using agile methodology and modern tech stacks.';

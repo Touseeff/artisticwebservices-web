@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'NetFusionary Event & Networking Platform | Case Study — ArtisticWebServices';
 $page_description = 'Case study: NetFusionary — an event creation and business networking platform by ArtisticWebServices enabling professional connections, relationship management, and event discovery.';

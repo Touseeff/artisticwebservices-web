@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Bizi Business Management App | Case Study — ArtisticWebServices';
 $page_description = 'Case study: Bizi app by ArtisticWebServices — a business operations platform simplifying workflows, task management, and team collaboration for modern businesses.';

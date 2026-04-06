@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Secure VPN App Development for Android | Privacy App — ArtisticWebServices';
 $page_description = 'Case study: Secure VPN App by ArtisticWebServices — a reliable Android VPN with military-grade encryption, fast servers, no-log policy, and simple one-tap connect.';

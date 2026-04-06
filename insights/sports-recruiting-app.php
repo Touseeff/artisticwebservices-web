@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Sports Recruiting App | Athlete Discovery Case Study — ArtisticWebServices';
 $page_description = 'Case study: Sports Recruiting app by ArtisticWebServices — connecting athletes and coaches with profile showcasing, video highlights, and recruitment management tools.';

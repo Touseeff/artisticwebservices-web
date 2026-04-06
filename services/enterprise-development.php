@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Enterprise Software Development USA | ERP & Custom Solutions — ArtisticWebServices';
 $page_description = 'Build enterprise-grade ERP systems and custom business software with ArtisticWebServices. Scalable, secure solutions for Fortune 500 and mid-market USA companies.';

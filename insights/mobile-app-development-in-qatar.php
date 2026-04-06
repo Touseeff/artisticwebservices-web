@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company Qatar | ArtisticWebServices';
 $page_description = 'ArtisticWebServices is a leading mobile app development company in Qatar. We build iOS, Android, and cross-platform apps for Qatar businesses and startups in Doha.';

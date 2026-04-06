@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'ProSport Connect Sports & Athletes App | Case Study — ArtisticWebServices';
 $page_description = 'Case study: ProSport Connect — a sports and athletes mobile app by ArtisticWebServices with athlete profiles, team management, recruiting tools, and performance tracking.';

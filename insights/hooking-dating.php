@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Dating App Development | Hooking Dating App Case Study — ArtisticWebServices';
 $page_description = 'Case study: Hooking Dating app by ArtisticWebServices — a feature-rich dating platform with smart matching algorithms, user profiles, messaging, and safety features.';

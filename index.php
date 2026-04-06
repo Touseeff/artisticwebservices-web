@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once 'includes/config.php';
 $page_title       = 'ArtisticWebServices: Custom Award Winning Software Development Company USA';
 $page_keywords    = 'software development company USA, mobile app development company New York, custom software development, enterprise software development, web development company USA, app development agency New York, hire software developers USA, custom mobile app development, iOS Android app development company, software outsourcing company USA, digital transformation company, full stack development company, award winning app development company, startup software development company, best software development company USA';

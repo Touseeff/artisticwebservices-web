@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'River Island eCommerce App | Fashion Retail Case Study — ArtisticWebServices';
 $page_description = 'Case study: River Island — ArtisticWebServices enhanced online shopping with a custom eCommerce app featuring intuitive UX, personalized recommendations, and fast checkout.';

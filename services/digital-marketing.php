@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Digital Marketing Services USA | SEO, PPC & Social Media — ArtisticWebServices';
 $page_description = "Grow your business with ArtisticWebServices' data-driven digital marketing services. SEO, PPC, social media marketing, and content strategy for USA companies.";

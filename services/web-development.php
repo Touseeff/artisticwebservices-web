@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Web Development Company USA | Custom Websites & Web Apps — ArtisticWebServices';
 $page_description = 'ArtisticWebServices is a leading web development company in the USA. We build fast, SEO-optimized websites, web apps, and e-commerce platforms for businesses of all sizes.';

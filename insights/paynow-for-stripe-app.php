@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'PayNow Stripe POS App | Payment App Case Study — ArtisticWebServices';
 $page_description = 'Case study: PayNow for Stripe — a point-of-sale payment app by ArtisticWebServices integrating Stripe for seamless transactions, sales management, and payment processing.';

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Business Intelligence Services USA | Data Analytics & BI — ArtisticWebServices';
 $page_description = "Transform raw data into actionable insights with ArtisticWebServices' BI services. Custom dashboards, Power BI, Tableau, and data warehouse solutions for USA companies.";

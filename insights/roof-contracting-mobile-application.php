@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Roof Contracting Mobile App | Field Service Case Study — ArtisticWebServices';
 $page_description = 'Case study: Roof Contracting mobile app by ArtisticWebServices — real-time tracking, measurements, scheduling, documentation, and communication for roofing contractors.';

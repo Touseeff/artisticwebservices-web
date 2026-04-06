@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Augmented Reality App Development USA | AR/VR Solutions — ArtisticWebServices';
 $page_description = 'Create immersive AR/VR experiences with ArtisticWebServices. Custom augmented reality apps for retail, real estate, healthcare, and education industries in the USA.';

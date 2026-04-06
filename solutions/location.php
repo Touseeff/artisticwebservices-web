@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'App Development Company Locations USA | ArtisticWebServices Offices';
 $page_description = 'Find ArtisticWebServices office locations across USA including New York, Houston, San Francisco. Contact your nearest mobile app development and software company office.';

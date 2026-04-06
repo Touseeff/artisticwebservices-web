@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Real Estate App Development USA | Property Tech Solutions — ArtisticWebServices';
 $page_description = 'Build powerful real estate apps with ArtisticWebServices. Property search portals, virtual tours, MLS integration, and real estate CRM for USA agents and agencies.';

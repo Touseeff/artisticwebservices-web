@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'FinTech App Development USA | Banking & Finance Software — ArtisticWebServices';
 $page_description = 'Build secure, compliant FinTech solutions with ArtisticWebServices. Mobile banking apps, payment systems, investment platforms, and insurance tech for USA companies.';

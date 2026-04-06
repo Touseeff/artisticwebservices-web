@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Construction Industry App Development USA | IoT, AR & AI Solutions — ArtisticWebServices';
 $page_description = 'ArtisticWebServices builds smart construction industry applications with IoT integration, Augmented Reality (AR), and AI-powered automation for USA construction companies.';

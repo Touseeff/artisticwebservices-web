@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Blockchain Development Company USA | Smart Contracts & DApps — ArtisticWebServices';
 $page_description = 'Leading blockchain development company in the USA. We build smart contracts, DeFi platforms, NFT marketplaces, and enterprise blockchain solutions on Ethereum & more.';

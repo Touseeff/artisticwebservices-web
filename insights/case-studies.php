@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Client Case Studies & Portfolio | ArtisticWebServices';
 $page_description = 'Browse ArtisticWebServices client success stories and portfolio. 460+ projects delivered across healthcare, fintech, e-commerce, fitness, real estate, and more industries in USA.';

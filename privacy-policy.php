@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/includes/config.php';
 $page_title = 'Privacy Policy | ArtisticWebServices Software Development Company';
 $page_description = "Read ArtisticWebServices' privacy policy to understand how we collect, use, and protect your personal information.";

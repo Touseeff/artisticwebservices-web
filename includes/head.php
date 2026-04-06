@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Ensure config is loaded
 if (!defined('SITE_NAME')) {
     require_once __DIR__ . '/config.php';

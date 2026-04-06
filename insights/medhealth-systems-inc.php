@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'MedHealth Systems Healthcare Platform | Case Study — ArtisticWebServices';
 $page_description = 'Case study: MedHealth Systems Inc. — a comprehensive healthcare management platform by ArtisticWebServices with patient management, appointment scheduling, and medical records.';

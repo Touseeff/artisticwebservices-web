@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once 'includes/config.php';
 $page_title = 'About ArtisticWebServices | Top Software Development Company New York USA';
 $page_description = 'Learn about ArtisticWebServices — a leading NYC-based custom software & mobile app development firm with 10+ years experience delivering award-winning digital solutions.';

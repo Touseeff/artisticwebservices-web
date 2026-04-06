@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/includes/config.php';
 $page_title = 'Terms of Use | ArtisticWebServices — Software & App Development Services';
 $page_description = "Review the terms and conditions governing the use of ArtisticWebServices' website and software development services.";

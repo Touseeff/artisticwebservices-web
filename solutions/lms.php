@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'LMS Development Company USA | Learning Management System — ArtisticWebServices';
 $page_description = 'Build powerful Learning Management Systems with ArtisticWebServices. Custom LMS platforms with e-learning, course management, student analytics, and SCORM compliance for USA companies.';

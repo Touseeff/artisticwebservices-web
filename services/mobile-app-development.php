@@ -1,4 +1,4 @@
-﻿﻿<?php
+﻿<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company USA | iOS & Android Apps &mdash; ArtisticWebServices';
 $page_description = 'Top-rated mobile app development company in the USA. We build high-performance iOS, Android & cross-platform apps for startups and enterprises. 500+ apps delivered.';

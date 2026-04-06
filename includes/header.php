@@ -1,4 +1,4 @@
-﻿<!-- ── Page Preloader ────────────────────────────────────── -->
+<!-- ── Page Preloader ────────────────────────────────────── -->
 <style>
 #aws-preloader {
     position: fixed;

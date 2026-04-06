@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'On-Demand App Development USA | Uber-Like Apps — ArtisticWebServices';
 $page_description = 'Build powerful on-demand service apps with ArtisticWebServices. Uber-like, DoorDash-like, and TaskRabbit-like on-demand platforms for USA startups and businesses.';

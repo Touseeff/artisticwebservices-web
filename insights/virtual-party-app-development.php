@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Virtual Party App Development | Online Event Case Study — ArtisticWebServices';
 $page_description = 'Case study: Virtual Party App by ArtisticWebServices — a creative online event platform with virtual rooms, live streaming, interactive games, and real-time social features.';

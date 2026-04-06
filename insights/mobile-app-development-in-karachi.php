@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company Karachi | ArtisticWebServices Pakistan';
 $page_description = 'ArtisticWebServices is a top mobile app development company in Karachi, Pakistan. We build high-performance iOS, Android, and cross-platform apps using Flutter and React Native.';

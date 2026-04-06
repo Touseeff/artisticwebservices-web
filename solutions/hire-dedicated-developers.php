@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Hire Dedicated Developers USA | Remote Dev Teams — ArtisticWebServices';
 $page_description = 'Hire skilled dedicated developers from ArtisticWebServices. Build your remote development team with vetted iOS, Android, React, Node.js, and full-stack developers.';

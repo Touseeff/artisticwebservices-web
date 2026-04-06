@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Sports App Development USA | Sports Technology Solutions — ArtisticWebServices';
 $page_description = 'ArtisticWebServices builds cutting-edge sports apps with AI-driven analytics, athlete management, sports recruiting platforms, and fan engagement solutions for USA sports organizations.';

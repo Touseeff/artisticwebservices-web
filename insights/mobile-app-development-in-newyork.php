@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company in New York | ArtisticWebServices';
 $page_description = 'ArtisticWebServices is a top-rated mobile app development company in New York. We build innovative iOS, Android, and cross-platform apps for NYC startups and enterprises.';

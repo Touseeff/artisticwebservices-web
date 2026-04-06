@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Custom CRM Development Company USA | Salesforce & HubSpot Experts — ArtisticWebServices';
 $page_description = 'Build a custom CRM tailored to your business with ArtisticWebServices. Salesforce, HubSpot integrations, and fully bespoke CRM systems for USA enterprises.';

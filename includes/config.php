@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 define('SITE_NAME', 'ArtisticWebServices');
 define('SITE_URL', 'https://artisticwebservices.com');
 define('SITE_EMAIL', 'info@artisticwebservices.com');

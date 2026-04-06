@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Child Upbringing App Development | Parenting App — ArtisticWebServices';
 $page_description = 'Case study: ArtisticWebServices built a child upbringing and parenting app with developmental milestone tracking, activity suggestions, and expert parenting resources.';

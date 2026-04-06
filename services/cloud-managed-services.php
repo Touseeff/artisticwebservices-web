@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Cloud Managed Services USA | AWS, Azure & GCP Solutions — ArtisticWebServices';
 $page_description = 'Expert cloud managed services from ArtisticWebServices. AWS, Microsoft Azure, and Google Cloud migration, management, and optimization for USA businesses.';

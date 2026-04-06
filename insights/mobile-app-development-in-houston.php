@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company in Houston TX | ArtisticWebServices';
 $page_description = 'ArtisticWebServices is a leading mobile app development company in Houston, TX. We build innovative iOS, Android, and cross-platform apps for Houston startups and enterprises.';

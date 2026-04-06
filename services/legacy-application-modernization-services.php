@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Legacy App Modernization USA | Replatforming & Refactoring — ArtisticWebServices';
 $page_description = 'Modernize your outdated software with ArtisticWebServices. We replatform, refactor, and re-architect legacy applications to cloud-native, scalable modern systems.';

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Events App Development | Event Management Platform — ArtisticWebServices';
 $page_description = 'ArtisticWebServices builds custom event management apps with ticketing, event registration, schedule management, attendee networking, and live event features for USA organizers.';

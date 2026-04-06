@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'IoT App Development Company USA | Smart Device Solutions — ArtisticWebServices';
 $page_description = 'Build connected IoT solutions with ArtisticWebServices. From smart home apps to industrial IoT platforms — expert IoT development for USA businesses.';

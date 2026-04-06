@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Cost Calculator | Free Estimate — ArtisticWebServices';
 $page_description = 'Use our free mobile app development cost calculator to estimate your project budget. Get accurate insights based on features, complexity, platform (iOS/Android), and team size.';
@@ -1753,7 +1753,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             </div>
         </div>
     </div>
-    <form action="https://artisticwebservices.com/submit-calculator.php" method="get" id="calculatorForm" onsubmit="return validateForm()">
+    <form action="/submit-calculator" method="get" id="calculatorForm" onsubmit="return validateForm()">
         <input type="hidden" name="host" value="ArtisticWebServices">
         <div class="container py-5">
             <div class="row">

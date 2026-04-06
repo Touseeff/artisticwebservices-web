@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company Dubai | iOS & Android — ArtisticWebServices';
 $page_description = 'ArtisticWebServices is a top mobile app development company in Dubai. We offer custom iOS, Android, and cross-platform app development services in Dubai and across UAE.';

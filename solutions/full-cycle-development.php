@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Full-Cycle Software Development USA | End-to-End Product Dev — ArtisticWebServices';
 $page_description = 'From concept to launch — ArtisticWebServices provides full-cycle software product development. Discovery, design, development, QA, deployment, and maintenance.';

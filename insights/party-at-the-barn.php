@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Party at The Barn | Event Planning App Case Study — ArtisticWebServices';
 $page_description = 'Case study: Party at The Barn — an event planning and venue management app by ArtisticWebServices with booking, guest management, and event scheduling features.';

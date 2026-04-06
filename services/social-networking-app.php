@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Social Networking App Development USA | Community Platforms — ArtisticWebServices';
 $page_description = 'Build the next big social network with ArtisticWebServices. Custom social apps, community platforms, dating apps, and professional networking tools for USA startups.';

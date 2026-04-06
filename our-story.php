@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/includes/config.php';
 $page_title = 'Our Story | ArtisticWebServices — Founded in New York, Built for Innovation';
 $page_description = 'Discover the story behind ArtisticWebServices — how we grew from a startup in New York to a global software development company trusted by enterprises worldwide.';

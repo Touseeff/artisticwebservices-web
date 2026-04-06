@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Microservices Development Company USA | API & Cloud Architecture — ArtisticWebServices';
 $page_description = 'Build scalable, resilient microservices architectures with ArtisticWebServices. REST APIs, GraphQL, event-driven systems, and containerization for USA enterprises.';

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Energy Sector App Development USA | IoT & Digital Automation Solutions — ArtisticWebServices';
 $page_description = 'ArtisticWebServices delivers smart energy sector digital solutions with IoT integration, device automation, and real-time monitoring apps for USA energy companies.';

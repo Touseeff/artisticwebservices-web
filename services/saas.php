@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'SaaS Development Company USA | Cloud SaaS Platform Builder — ArtisticWebServices';
 $page_description = 'Build scalable SaaS products with ArtisticWebServices. Multi-tenant SaaS platforms, subscription billing, API integrations, and cloud-native architecture for USA startups.';

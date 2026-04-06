@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Product Management Services USA | Strategy & Roadmap Consulting — ArtisticWebServices';
 $page_description = 'ArtisticWebServices offers expert product management consulting. From product strategy and roadmap planning to launch execution and market fit analysis for USA businesses.';

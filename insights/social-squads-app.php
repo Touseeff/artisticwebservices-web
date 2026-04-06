@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Social Squads Community App | Social Networking Case Study — ArtisticWebServices';
 $page_description = 'Case study: Social Squads — a community-based social networking app by ArtisticWebServices with group creation, event planning, live streams, and member engagement tools.';

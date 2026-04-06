@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Digital Medication Management App | Features & Case Study — ArtisticWebServices';
 $page_description = 'Case study: A digital medication management app with drug interaction checks, scheduling, health records, medication reminders, and data security built by ArtisticWebServices.';

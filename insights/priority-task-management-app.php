@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Priority Task Management App | Productivity Case Study — ArtisticWebServices';
 $page_description = 'Case study: Priority Task Management app by ArtisticWebServices — a smart productivity app with task prioritization, deadline tracking, team collaboration, and progress monitoring.';

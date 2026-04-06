@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'DevOps & Security Services USA | CI/CD & Cloud Security — ArtisticWebServices';
 $page_description = "Accelerate delivery and secure your infrastructure with ArtisticWebServices' DevOps and security operations services. CI/CD pipelines, cloud security, and compliance.";

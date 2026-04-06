@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once 'includes/config.php';
 $page_title = "Software Development Services | ArtisticWebServices — USA's Leading Tech Agency";
 $page_description = "Explore ArtisticWebServices' full suite of technology services: mobile app development, web development, AI, blockchain, cloud, IoT, and more. Trusted by 500+ clients.";

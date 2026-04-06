@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Hotel Booking App Development | Travel Tech Case Study — ArtisticWebServices';
 $page_description = 'Case study: ArtisticWebServices built a hotel booking app with real-time availability, room comparison, secure payment gateway, loyalty rewards, and multi-language support.';

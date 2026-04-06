@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Progressive Web App Development USA | PWA Experts — ArtisticWebServices';
 $page_description = 'Build blazing-fast Progressive Web Apps (PWA) with ArtisticWebServices. Offline-capable, installable, and SEO-friendly PWAs for USA businesses.';

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Wedding Bells App | Wedding Planning Case Study — ArtisticWebServices';
 $page_description = 'Case study: Wedding Bells app by ArtisticWebServices — a full-featured wedding planning platform with vendor discovery, RSVP management, budget tracking, and digital invitations.';

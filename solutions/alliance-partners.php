@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Technology Alliance Partners | Software Partnership Program — ArtisticWebServices';
 $page_description = 'ArtisticWebServices technology alliance partners program. We collaborate with leading technology companies, agencies, and resellers to deliver world-class software solutions globally.';

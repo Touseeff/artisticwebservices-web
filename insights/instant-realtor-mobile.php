@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Instant Realtor Mobile App | Real Estate Connection — ArtisticWebServices';
 $page_description = 'Case study: Instant Realtor app by ArtisticWebServices — a real estate platform connecting buyers, sellers, and agents with property search, virtual tours, and instant messaging.';

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Digital Insights & Tech Blog | ArtisticWebServices';
 $page_description = 'Explore the ArtisticWebServices digital insights blog. Expert articles on mobile app development, AI, blockchain, cloud, UI/UX, and software industry trends.';

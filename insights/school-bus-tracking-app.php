@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'School Bus Tracking App | Child Safety Case Study — ArtisticWebServices';
 $page_description = 'Case study: School Bus Tracking app by ArtisticWebServices — real-time GPS tracking, parent notifications, route optimization, and driver management for safe school transportation.';

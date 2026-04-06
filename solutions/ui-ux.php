@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'UI/UX Design Company USA | Award-Winning Design — ArtisticWebServices';
 $page_description = "Elevate your product with ArtisticWebServices' award-winning UI/UX design. User-centered design, mobile app UI, web design, and design system creation for USA companies.";

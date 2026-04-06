@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once 'includes/config.php';
 $page_title       = 'Contact ArtisticWebServices | Get a Free Quote — Software Development USA';
 $page_description = 'Contact ArtisticWebServices for a free consultation on your mobile app, web, or enterprise software project. Based in New York — serving clients worldwide.';

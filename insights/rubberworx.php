@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Rubberworx Industrial Platform | B2B Case Study — ArtisticWebServices';
 $page_description = 'Case study: Rubberworx — an industrial management platform by ArtisticWebServices featuring product catalog management, order processing, and client portal with premium UI.';

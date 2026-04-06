@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Digital Health Management App | Remote Patient Monitoring — ArtisticWebServices';
 $page_description = 'Case study: ArtisticWebServices built a digital health management app with real-time tracking, medication reminders, secure consultations, and EHR integration for remote patient care.';

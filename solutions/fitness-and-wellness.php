@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Fitness & Wellness App Development USA | Health Tech Solutions — ArtisticWebServices';
 $page_description = 'ArtisticWebServices builds industry-leading fitness and wellness apps. Workout trackers, nutrition planners, wearable integrations, and wellness platforms for USA health and fitness brands.';

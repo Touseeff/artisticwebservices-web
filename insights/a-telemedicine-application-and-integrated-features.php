@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Telemedicine App Development | Real-Time Consultations & EHR — ArtisticWebServices';
 $page_description = 'Case study: A full-featured telemedicine app with real-time video consultations, secure messaging, integrated EHR access, and multi-device compatibility built by ArtisticWebServices.';

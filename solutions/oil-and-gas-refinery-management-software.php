@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Oil & Gas Refinery Management Software USA | Digital Oilfield Solutions — ArtisticWebServices';
 $page_description = 'ArtisticWebServices develops oil and gas refinery management software, digital oilfield solutions, and asset tracking apps to improve efficiency for USA energy companies.';

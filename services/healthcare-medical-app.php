@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Healthcare & Medical App Development USA | HIPAA Solutions — ArtisticWebServices';
 $page_description = 'ArtisticWebServices builds HIPAA-compliant healthcare and medical apps. Telemedicine, EHR integration, patient portals, medication management, and remote monitoring apps for USA healthcare.';

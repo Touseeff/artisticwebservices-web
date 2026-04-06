@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Fitness App Development Company USA | Health & Wellness Apps — ArtisticWebServices';
 $page_description = 'Build feature-rich fitness and wellness apps with ArtisticWebServices. Workout trackers, diet planners, personal training apps, and wearable integrations for USA market.';

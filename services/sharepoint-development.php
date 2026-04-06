@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'SharePoint Development Company USA | Microsoft 365 Experts — ArtisticWebServices';
 $page_description = 'Expert SharePoint development and Microsoft 365 solutions from ArtisticWebServices. Custom SharePoint intranets, workflows, and integrations for USA enterprises.';
