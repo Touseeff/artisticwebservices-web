@@ -559,7 +559,7 @@ textarea.cf-input {
                             <div class="info-item-icon"><i class="fas fa-phone-alt"></i></div>
                             <div class="info-item-body">
                                 <h6>Phone / WhatsApp</h6>
-                                <a href="tel:+12137147176">+92 301 286 9967</a>
+                                <a href="tel:+12137147176">(213) 714-7176</a>
                             </div>
                         </div>
 
