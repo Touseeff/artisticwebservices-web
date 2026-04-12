@@ -1,1 +1,1 @@
-<?php header('Location: /insights/presidential-parcel-delivery.php', true, 301); exit; ?>
+﻿<?php header('Location: /services/case-studies', true, 301); exit; ?>

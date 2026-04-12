@@ -491,7 +491,7 @@
                </div>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="<?= $B ?>/insights/case-studies.php" onmouseenter="closealldrp()">Case Studies</a>
+               <a class="nav-link" href="<?= $B ?>/services/case-studies" onmouseenter="closealldrp()">Case Studies</a>
             </li>
             <li class="nav-item">
                <a class="nav-link" href="<?= $B ?>/about-us.php" onmouseenter="closealldrp()">About Us</a>

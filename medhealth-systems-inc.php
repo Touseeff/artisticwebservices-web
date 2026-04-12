@@ -1,1 +1,1 @@
-<?php header('Location: /insights/medhealth-systems-inc.php', true, 301); exit; ?>
+﻿<?php header('Location: /services/case-studies', true, 301); exit; ?>

@@ -1,4 +1,4 @@
-﻿<?php $B = defined("SITE_BASE") ? SITE_BASE : ""; ?>
+<?php $B = defined("SITE_BASE") ? SITE_BASE : ""; ?>
 <style>
 /* Footer-scoped link hover only */
 .site-footer a:hover {
@@ -615,7 +615,7 @@
                             <ul class="footer-widget__links-list list-unstyled clearfix">
                                 <li><a href="<?= $B ?>/">Home</a></li>
                                 <li><a href="<?= $B ?>/about-us.php">About Us</a></li>
-                                <li><a href="<?= $B ?>/insights/case-studies.php">Case Studies</a></li>
+                                <li><a href="<?= $B ?>/services/case-studies">Case Studies</a></li>
                                 <li><a href="<?= $B ?>/solutions/alliance-partners.php">Alliances &amp; Presence</a></li>
                                 <li><a href="<?= $B ?>/solutions/consulting.php">Consulting</a></li>
                                 <li><a href="<?= $B ?>/solutions/industries.php">Industries</a></li>

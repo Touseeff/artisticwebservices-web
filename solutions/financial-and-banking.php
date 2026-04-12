@@ -23,7 +23,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <a href="<?= $B ?>/solutions/sports.php">Sports</a>
                     <a href="<?= $B ?>/services/on-demand-app-development.php">On Demand</a>
                     <a href="<?= $B ?>/solutions/travel-app-development.php">Travel</a>
-                    <a href="<?= $B ?>/insights/events-app-development.php">Events</a>
+                    <a href="<?= $B ?>/services/case-studies#work-showcase">Events</a>
                 </div>
                 <div class="row">
                     

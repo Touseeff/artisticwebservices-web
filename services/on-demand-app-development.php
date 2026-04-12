@@ -833,7 +833,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                     <div class="download-pera"><h3>Country</h3><p>USA</p></div>
                                     <div class="download-pera"><h3>Rating</h3><p>4.4/5</p></div>
                                 </div>
-                                <div class="case_btn"><a href="<?= $B ?>/insights/instant-realtor-mobile.php">See More</a></div>
+                                <div class="case_btn"><a href="<?= $B ?>/services/case-studies#work-showcase">See More</a></div>
                             </div>
                         </div>
                         <div class="slide">
@@ -848,7 +848,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                     <div class="download-pera"><h3>Country</h3><p>Saudi Arabia</p></div>
                                     <div class="download-pera"><h3>Rating</h3><p>4.4/5</p></div>
                                 </div>
-                                <div class="case_btn"><a href="<?= $B ?>/insights/roof-contracting-mobile-application.php">See More</a></div>
+                                <div class="case_btn"><a href="<?= $B ?>/services/case-studies#work-showcase">See More</a></div>
                             </div>
                         </div>
                         <div class="slide">
@@ -863,7 +863,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                     <div class="download-pera"><h3>Country</h3><p>New York</p></div>
                                     <div class="download-pera"><h3>Rating</h3><p>4.4/5</p></div>
                                 </div>
-                                <div class="case_btn"><a href="<?= $B ?>/insights/rubberworx.php">See More</a></div>
+                                <div class="case_btn"><a href="<?= $B ?>/services/case-studies#work-showcase">See More</a></div>
                             </div>
                         </div>
                         <div class="slide">
@@ -878,7 +878,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                     <div class="download-pera"><h3>Country</h3><p>USA</p></div>
                                     <div class="download-pera"><h3>Rating</h3><p>4.4/5</p></div>
                                 </div>
-                                <div class="case_btn"><a href="<?= $B ?>/insights/property-exchange-real-estate-app.php">See More</a></div>
+                                <div class="case_btn"><a href="<?= $B ?>/services/case-studies#work-showcase">See More</a></div>
                             </div>
                         </div>
                     </div>

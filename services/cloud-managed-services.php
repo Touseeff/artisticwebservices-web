@@ -242,11 +242,11 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <!--Portfolio One Single-->
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/a-telemedicine-application-and-integrated-features.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/telemedicine-thumbnail.webp" alt="Rubberworx" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/a-telemedicine-application-and-integrated-features.php">A Telemedicine Application and Integrated Features</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">A Telemedicine Application and Integrated Features</a>
                             </h3>
                             <p class="color-white">
                                 These comprehensive telemedicine experiences, enhance the patient’s care and convenience while ensuring effective communication between patients and healthcare providers.
@@ -258,11 +258,11 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <!--Portfolio One Single-->
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/digital-medication-management-app-features.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/medication-app%20thumbnail.webp" alt="Rubberworx" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/digital-medication-management-app-features.php">Digital Medication Management App Features</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">Digital Medication Management App Features</a>
                             </h3>
                             <p class="color-white">
                                A digital health management app with a focus on Medication Management, consider including the following features
@@ -274,11 +274,11 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <!--Portfolio One Single-->
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/a-digital-health-management.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/digital-health%20management-thumbnail.webp" alt="Rubberworx" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/a-digital-health-management.php">A Digital Health Management</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">A Digital Health Management</a>
                             </h3>
                             <p class="color-white">
                                 We provide a comprehensive solution for monitoring and managing patient treatment remotely, enhancing both patient care and provider efficiency.
@@ -290,11 +290,11 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <!--Portfolio One Single-->
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/rubberworx.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/work/rubberworx/Thumbnail-Rubberworx.webp" alt="Rubberworx" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/rubberworx.php">Rubberworx</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">Rubberworx</a>
                             </h3>
                             <p class="color-white">
                                 The Rubberworx Mobile App is a groundbreaking solution that blends the magic of
@@ -307,11 +307,11 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/netfusionary.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/work/netfusinory-thumbnail-2.webp" alt="NetFusionary" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/netfusionary.php">NetFusionary</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">NetFusionary</a>
                             </h3>
                             <p class="color-white">
                                 Explore how the NetFusionary platform revolutionizes efficient event creation, user account management, connecting businesses, and creating profitable relationships with ease.
@@ -323,11 +323,11 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <!--Portfolio One Single-->
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/party-at-the-barn.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/work/party/Thumbnail-Party-at-the-barn.webp" alt="Party at The Barn" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/party-at-the-barn.php">Party at The Barn</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">Party at The Barn</a>
                             </h3>
                             <p class="color-white">
                                 Party at the Barn App is your remaining accomplice for an afternoon of a laugh at the
@@ -340,11 +340,11 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <!--Portfolio One Single-->
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/pro-questor.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/work/questor/Thumbnail-Pro-Questor.webp" alt="Pro Questor" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/pro-questor.php">Pro Questor</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">Pro Questor</a>
                             </h3>
                             <p class="color-white">
                                 Discover your dream career with the ProQuestor App! This consumer-pleasant cellular
@@ -358,12 +358,12 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <!--Portfolio One Single-->
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/hooking-dating.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/work/hooking/Thumbnail-Hooking-inapp-dating.webp"
                             alt="Hooking Dating" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/hooking-dating.php">Hooking Dating</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">Hooking Dating</a>
                             </h3>
                             <p class="color-white">
                                 "Experience the future of online courting with our Hooking Dating Web App. Connect with
@@ -377,12 +377,12 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <!--Portfolio One Single-->
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/priority-task-management-app.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/work/priority-task-management/Thumbnail-Priority-Task-Management.webp"
                             alt="Priority Task Management" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/priority-task-management-app.php">Priority Task Management</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">Priority Task Management</a>
                             </h3>
                             <p class="color-white">
                                 "Priority Task Management" is your assignment and time control partner. Organize your
@@ -395,11 +395,11 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <!--Portfolio One Single-->
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/wedding-bells-app.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/work/wedding-bells/Thumbnail-Wedding-Bells.webp" alt="Wedding Bells" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/wedding-bells-app.php">Wedding Bells</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">Wedding Bells</a>
                             </h3>
                             <p class="color-white">
                                 Seamlessly manipulate the entirety with Wedding Bells! From budgets and guest lists to
@@ -413,11 +413,11 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <!--Portfolio One Single-->
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/sports-recruiting-app.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/work/sports-recruiting/Thumbnail-Sports.webp" alt="Sports Recruiting" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/sports-recruiting-app.php">Sports Recruiting</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">Sports Recruiting</a>
                             </h3>
                             <p class="color-white">
                                 Experience the future of sports activities recruiting with our present-day app. Connect
@@ -431,11 +431,11 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-4 col-lg-6 col-md-6 filter-item photo">
                 <!--Portfolio One Single-->
                 <div class="project-one__single">
-                    <a href="<?= $B ?>/insights/social-squads-app.php" class="project-one__img">
+                    <a href="<?= $B ?>/services/case-studies#work-showcase" class="project-one__img">
                         <img src="<?= $B ?>/assets/images/work/social-squad/Thumbnail-Social-Squad.webp" alt="Social Squad" />
                         <div class="project-one__hover">
                             <h3 class="project-one__title">
-                                <a href="<?= $B ?>/insights/social-squads-app.php">Social Squad</a>
+                                <a href="<?= $B ?>/services/case-studies#work-showcase">Social Squad</a>
                             </h3>
                             <p class="color-white">
                                 "Social Squad: Your Ultimate Social Hub! Connect with friends, percentage your stories,
@@ -467,7 +467,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <!--</div>-->
         </div>
         <div class="d-flex justify-content-center">
-            <a href="<?= $B ?>/insights/case-studies.php" class="thm-btn how-it-works__btn">See More</a>
+            <a href="<?= $B ?>/services/case-studies" class="thm-btn how-it-works__btn">See More</a>
         </div>
     </div>
 </section>        <!--Team One Start-->

@@ -37,7 +37,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
               </div>
               
               <div class="col-6 col-md-4 col-lg-3">
-                <a href="<?= $B ?>/insights/mobile-app-development-in-houston.php" class="location-card">
+                <a href="<?= $B ?>/services/mobile-app-development" class="location-card">
                   <div class="card h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                       <i class="bi bi-geo-alt-fill location-icon"></i>
@@ -49,7 +49,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         
         
               <div class="col-6 col-md-4 col-lg-3">
-                <a href="<?= $B ?>/insights/mobile-app-development-in-newyork.php" class="location-card">
+                <a href="<?= $B ?>/services/mobile-app-development" class="location-card">
                   <div class="card h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                       <i class="bi bi-geo-alt-fill location-icon"></i>
@@ -62,7 +62,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
        
         
               <div class="col-6 col-md-4 col-lg-3">
-                <a href="<?= $B ?>/insights/mobile-app-development-in-san-francisco.php" class="location-card">
+                <a href="<?= $B ?>/services/mobile-app-development" class="location-card">
                   <div class="card h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                       <i class="bi bi-geo-alt-fill location-icon"></i>
@@ -74,7 +74,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         
        
                 <div class="col-6 col-md-4 col-lg-3">
-                <a href="<?= $B ?>/insights/mobile-app-development-in-bahrain.php" class="location-card">
+                <a href="<?= $B ?>/services/mobile-app-development" class="location-card">
                   <div class="card h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                       <i class="bi bi-geo-alt-fill location-icon"></i>
@@ -85,7 +85,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
               </div>
         
               <div class="col-6 col-md-4 col-lg-3">
-                <a href="<?= $B ?>/insights/mobile-app-development-in-dubai.php" class="location-card">
+                <a href="<?= $B ?>/services/case-studies#work-showcase" class="location-card">
                   <div class="card h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                       <i class="bi bi-geo-alt-fill location-icon"></i>
@@ -97,7 +97,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         
         
               <div class="col-6 col-md-4 col-lg-3">
-                <a href="<?= $B ?>/insights/mobile-app-development-in-qatar.php" class="location-card">
+                <a href="<?= $B ?>/services/mobile-app-development" class="location-card">
                   <div class="card h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                       <i class="bi bi-geo-alt-fill location-icon"></i>
@@ -108,7 +108,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
               </div>
         
               <div class="col-6 col-md-4 col-lg-3">
-                <a href="<?= $B ?>/insights/mobile-app-development-company-in-saudi-arabia.php" class="location-card">
+                <a href="<?= $B ?>/services/case-studies#work-showcase" class="location-card">
                   <div class="card h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                       <i class="bi bi-geo-alt-fill location-icon"></i>
@@ -120,7 +120,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         
         
               <div class="col-6 col-md-4 col-lg-3">
-                <a href="<?= $B ?>/insights/mobile-app-development-in-kuwait.php" class="location-card">
+                <a href="<?= $B ?>/services/mobile-app-development" class="location-card">
                   <div class="card h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                       <i class="bi bi-geo-alt-fill location-icon"></i>
@@ -132,7 +132,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         
         
               <div class="col-6 col-md-4 col-lg-3">
-                <a href="<?= $B ?>/insights/mobile-app-development-in-karachi.php" class="location-card">
+                <a href="<?= $B ?>/services/mobile-app-development" class="location-card">
                   <div class="card h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                       <i class="bi bi-geo-alt-fill location-icon"></i>

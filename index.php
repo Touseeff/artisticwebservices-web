@@ -511,7 +511,7 @@ require_once 'includes/head.php';
                   </div>
                   <div class="cta-two__right mt-4 slide-btn">
                      <a href="<?= $B ?>/contact.php" class="thm-btn cta-two__btn redchange">Get a Free Quote →</a>
-                     <a href="<?= $B ?>/insights/case-studies.php" class="hero-ghost-btn">View Our Work</a>
+                     <a href="<?= $B ?>/services/case-studies" class="hero-ghost-btn">View Our Work</a>
                   </div>
                </div>
             </div>
@@ -1003,7 +1003,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Empowering Healthcare with Seamless Telemedicine Apps and Advanced Integrated Features</h3>
                      <p>These comprehensive telemedicine experiences, enhance the patient's care and convenience while ensuring effective communication between patients and healthcare providers.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/insights/a-telemedicine-application-and-integrated-features.php">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/services/case-studies#work-showcase">See More</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/showcase/telehome.webp" alt="Telemedicine App" /></div>
                </div>

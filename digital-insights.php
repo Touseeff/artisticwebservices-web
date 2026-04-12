@@ -1,1 +1,1 @@
-<?php header('Location: /insights/digital-insights.php', true, 301); exit; ?>
+﻿<?php header('Location: /services', true, 301); exit; ?>

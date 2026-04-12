@@ -1374,7 +1374,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         </div>
                      </div>
                      <div class="case_btn">
-                        <a href="<?= $B ?>/insights/instant-realtor-mobile.php">See More</a>
+                        <a href="<?= $B ?>/services/case-studies#work-showcase">See More</a>
                      </div>
                   </div>
                </div>
@@ -1400,7 +1400,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         </div>
                      </div>
                      <div class="case_btn">
-                        <a href="<?= $B ?>/insights/roof-contracting-mobile-application.php">See More</a>
+                        <a href="<?= $B ?>/services/case-studies#work-showcase">See More</a>
                      </div>
                   </div>
                </div>
@@ -1426,7 +1426,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         </div>
                      </div>
                      <div class="case_btn">
-                        <a href="<?= $B ?>/insights/rubberworx.php">See More</a>
+                        <a href="<?= $B ?>/services/case-studies#work-showcase">See More</a>
                      </div>
                   </div>
                </div>
@@ -1452,7 +1452,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         </div>
                      </div>
                      <div class="case_btn">
-                        <a href="<?= $B ?>/insights/property-exchange-real-estate-app.php">See More</a>
+                        <a href="<?= $B ?>/services/case-studies#work-showcase">See More</a>
                      </div>
                   </div>
                </div>
@@ -1478,7 +1478,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         </div>
                      </div>
                      <div class="case_btn">
-                        <a href="<?= $B ?>/insights/roof-contracting-mobile-application.php">See More</a>
+                        <a href="<?= $B ?>/services/case-studies#work-showcase">See More</a>
                      </div>
                   </div>
                </div>
@@ -1504,7 +1504,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         </div>
                      </div>
                      <div class="case_btn">
-                        <a href="<?= $B ?>/insights/rubberworx.php">See More</a>
+                        <a href="<?= $B ?>/services/case-studies#work-showcase">See More</a>
                      </div>
                   </div>
                </div>

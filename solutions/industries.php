@@ -174,7 +174,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                   <p>DoorDrop Rentals's goals are to create a continuing, steady, and user-friendly platform</p>
                                 </div>
                                 <div class="facilities-btn">
-                                    <a href="<?= $B ?>/insights/doordrop-rentals.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                    <a href="<?= $B ?>/services/case-studies#work-showcase"><i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                          </div>
