@@ -17,7 +17,8 @@ $B = SITE_BASE;
 <html lang="en">
 <head>
     <title><?php echo htmlspecialchars($page_title); ?></title>
-    <link rel="icon" type="image/x-icon" href="<?= $B ?>/assets/images/favicons/favicon.ico?v=3" />
+    <link rel="icon" type="image/x-icon" href="<?= $B ?>/assets/images/favicons/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="title" content="<?php echo htmlspecialchars($page_title); ?>">
     <meta name="description" content="<?php echo htmlspecialchars($page_description); ?>" />
     <?php if (isset($page_keywords)): ?><meta name="keywords" content="<?php echo htmlspecialchars($page_keywords); ?>"><?php endif; ?>
@@ -53,10 +54,11 @@ $B = SITE_BASE;
     <link rel="alternate" hreflang="x-default" href="<?php echo htmlspecialchars($page_canonical); ?>" />
 
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= $B ?>/assets/images/favicons/apple-touch-icon.png?v=3">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= $B ?>/assets/images/favicons/favicon-32x32.png?v=3">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= $B ?>/assets/images/favicons/favicon-16x16.png?v=3">
-    <link rel="manifest" href="<?= $B ?>/assets/images/favicons/site.webmanifest?v=3">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= $B ?>/assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?= $B ?>/assets/images/favicons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= $B ?>/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= $B ?>/assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="<?= $B ?>/assets/images/favicons/site.webmanifest">
 
     <!-- Preload critical CSS for performance -->
     <link rel="preload" href="<?= $B ?>/assets/vendors/bootstrap/css/bootstrap.min.css" as="style">

@@ -645,35 +645,13 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
 <div class="location-hero mob-app" style="background-image: url('<?= $B ?>/assets/images/mobile-app/newyork.webp'); background-size: cover; background-position: center;">
             <div class="container">
                <div class="row align-items-center">
-                  <div class="col-lg-6 col-md-12">
+                  <div class="col-lg-8 col-md-12">
                      <div class="fintness__contents">
                         <h1>Award-Winning Mobile App <span style="color: #d31923">Development Company</span> in USA</h1>
                         <p class="my-3">ArtisticWebServices is a leading mobile app development company in USA, known for delivering innovative, scalable, and user-friendly solutions for every business need. Our app developers in the United States specialize in building mobile applications for iOS, Android, and cross-platform environments. From startups to large enterprises, businesses trust us to turn their ideas into high-performing apps that drive growth and boost user engagement.</p>
                         <a href="<?= $B ?>/contact.php" class="btn btn-light rounded-2 color-primary mt-3">Discover More</a>
-                     
                      </div>
                   </div>
-                 <div class="col-lg-6 col-md-12">
-                     <div class="location-form">
-                <h2 class="text-center mb-3">Get in Touch</h2>
-                <form id="contact" action="https://artisticwebservices.com/contact-form.php" method="get" novalidate="novalidate">
-                    <input type="hidden" name="host" value="ArtisticWebServices">
-                    <input type="text" class="form-control mb-3" placeholder="First Name" name="first_name"
-                        id="first_name">
-                                        <input type="text" class="form-control mb-3" placeholder="Last Name" name="last_name"
-                        id="last_name">
-                    <small id="name-valid1"></small>
-                                        <input type="email" class="form-control mb-3" placeholder="Email Address *" name="email" id="email" required autocomplete="email">
-                    <small id="name-valid1-v2"></small>
-                                        <input type="tel" class="form-control mb-3" placeholder="Phone Number *" name="phone" id="phone"
-                        maxlength="14" autocomplete="tel">
-                    <small id="phone-valid"></small>
-                                        <textarea class="form-control" placeholder="Write Message" rows="4" name="description"></textarea>
-                    <p id="frm-result" class="text-danger" style="margin: 8px 0 0 8px;"></p>
-                    <button type="submit" id="submit_btn" class="btn">Get a free quote</button>
-                </form>
-            </div>
-                 </div>
                </div>
             </div>
          </div>

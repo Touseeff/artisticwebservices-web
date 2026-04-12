@@ -196,6 +196,18 @@ function sendMail(array $data): bool
     $from    = defined('SMTP_FROM_EMAIL') ? SMTP_FROM_EMAIL : '';
     $name    = defined('SMTP_FROM_NAME')  ? SMTP_FROM_NAME  : 'ArtisticWebServices';
 
+    // ── Local dev: write to log file instead of sending real email ────────────
+    if (defined('SMTP_LOCAL_DEV') && SMTP_LOCAL_DEV) {
+        $logDir = __DIR__ . '/../logs';
+        if (!is_dir($logDir)) { @mkdir($logDir, 0755, true); }
+        $entry  = date('[Y-m-d H:i:s]') . " TO:{$to} SUBJ:{$subject}\n";
+        foreach (($data['fields'] ?? []) as $k => $v) {
+            $entry .= "  {$k}: {$v}\n";
+        }
+        file_put_contents($logDir . '/mail-dev.log', $entry . "\n", FILE_APPEND | LOCK_EX);
+        return true;
+    }
+
     // ── Build HTML body ───────────────────────────────────────────────────────
     if (!empty($data['html'])) {
         $htmlBody  = $data['html'];

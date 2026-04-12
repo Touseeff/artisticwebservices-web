@@ -2,7 +2,10 @@
 /* Shared quote / contact form — included by service, solution & insight pages.
    Hidden captcha fields keep server-side validation passing without showing
    the math question to users. */
-$_fq_action = '/contact-form';
+if (!defined('SITE_BASE')) {
+    require_once __DIR__ . '/config.php';
+}
+$_fq_action = SITE_BASE . '/contact-form';
 ?>
 <div class="aws-qf-wrap">
   <div class="aws-qf-card">
@@ -77,7 +80,7 @@ $_fq_action = '/contact-form';
 
       <p class="aws-qf-trust">
         <i class="fa fa-lock"></i> 100% Confidential &nbsp;&bull;&nbsp;
-        <i class="fa fa-phone"></i> <a href="tel:+923012869967">+92 301 2869967</a>
+        <i class="fa fa-phone"></i> <a href="tel:+12137147176">+1 213 714 7176</a>
       </p>
 
     </form>

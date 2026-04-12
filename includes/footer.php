@@ -320,9 +320,8 @@
     align-items: center;
 }
 .footer-social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     width: 40px;
     height: 40px;
     min-width: 40px;
@@ -332,19 +331,27 @@
     border: 1.5px solid rgba(255,255,255,0.22);
     color: #fff !important;
     font-size: 16px;
-    line-height: 1;
+    line-height: 0;
     text-decoration: none !important;
     transition: background 0.25s, transform 0.25s, border-color 0.25s, box-shadow 0.25s;
     flex-shrink: 0;
-    overflow: hidden;
     box-sizing: border-box;
+    word-break: normal;
+    overflow-wrap: normal;
 }
 .footer-social-icon i {
     font-size: 16px;
     line-height: 1;
-    display: block;
-    width: auto;
-    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0;
+    padding: 0;
+}
+.footer-social-icon i::before {
+    line-height: 1;
 }
 .footer-social-icon:hover {
     color: #fff !important;
@@ -374,61 +381,6 @@
     }
 }
 
-/* ── Footer Trust Badges ─────────────────────────────── */
-.footer-trust-section {
-    border-top: 1px solid rgba(255,255,255,0.12);
-    margin-top: 36px;
-    padding-top: 28px;
-    padding-bottom: 4px;
-}
-.footer-trust-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.45);
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    text-align: center;
-    margin-bottom: 18px;
-}
-.footer-trust-badges {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.footer-trust-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.13);
-    border-radius: 10px;
-    padding: 10px 22px;
-    transition: background 0.22s, transform 0.22s, border-color 0.22s;
-    text-decoration: none !important;
-}
-.footer-trust-badge:hover {
-    background: rgba(255,255,255,0.15);
-    border-color: rgba(255,255,255,0.32);
-    transform: translateY(-3px);
-}
-.footer-trust-badge img {
-    height: 34px;
-    width: auto;
-    max-width: 120px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.80;
-    transition: opacity 0.22s;
-}
-.footer-trust-badge:hover img { opacity: 1; }
-
-@media (max-width: 991px) {
-    .footer-trust-badges { gap: 14px; }
-    .footer-trust-badge  { padding: 9px 18px; }
-    .footer-trust-badge img { height: 30px; }
-}
 @media (max-width: 575px) {
     .footer-social-wrap { gap: 8px; }
     .footer-social-icon {
@@ -439,10 +391,79 @@
         font-size: 14px;
     }
     .footer-social-icon i { font-size: 14px; }
-    .footer-trust-section { margin-top: 24px; padding-top: 22px; }
-    .footer-trust-badges { gap: 10px; }
-    .footer-trust-badge  { padding: 8px 14px; border-radius: 8px; }
-    .footer-trust-badge img { height: 26px; max-width: 90px; }
+}
+
+/* ── Scrolling Logo Strip ─────────────────────────── */
+.footer-logo-scroll {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.25);
+    padding: 20px 0;
+    overflow: hidden;
+    position: relative;
+}
+.footer-logo-scroll::before,
+.footer-logo-scroll::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 2;
+    pointer-events: none;
+}
+.footer-logo-scroll::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(20,20,20,0.95) 0%, transparent 100%);
+}
+.footer-logo-scroll::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(20,20,20,0.95) 0%, transparent 100%);
+}
+.footer-logo-scroll-track {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    width: max-content;
+    animation: footerLogoScroll 30s linear infinite;
+}
+.footer-logo-scroll-track:hover {
+    animation-play-state: paused;
+}
+@keyframes footerLogoScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.footer-scroll-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 110px;
+    height: 44px;
+}
+.footer-scroll-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.70;
+    transition: opacity 0.25s, transform 0.25s;
+    display: block;
+}
+.footer-scroll-logo img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+@media (max-width: 767px) {
+    .footer-logo-scroll { padding: 16px 0; }
+    .footer-logo-scroll-track { gap: 32px; animation-duration: 22s; }
+    .footer-scroll-logo { width: 80px; height: 34px; }
+    .footer-logo-scroll::before,
+    .footer-logo-scroll::after { width: 36px; }
+}
+@media (max-width: 479px) {
+    .footer-logo-scroll-track { gap: 24px; animation-duration: 18s; }
+    .footer-scroll-logo { width: 70px; height: 28px; }
 }
 
 /* CTA buttons (used in sticky bar) */
@@ -584,7 +605,7 @@
                            <a href="<?= $B ?>/"><img src="<?= $B ?>/assets/images/resources/artisticwebservice%20w.png" alt="ArtisticWebServices logo" class="footer-logo-img" loading="lazy" /></a>
                         </div>
                         <div class="d-flex flex-column text-align-center">
-                            <p>Based in New York, ArtisticWebServices has been at the forefront of technology innovation since 2014. We have established ourselves as a trusted Custom Software Development and IT Consulting Company that offers a wide array of expertise to ensure clients achieve sustainable competitive advantage by developing innovative and intelligent Products and Solutions for several industries.</p>
+                            <p>Based in New York, ArtisticWebServices has been at the forefront of technology innovation. We have established ourselves as a trusted Custom Software Development and IT Consulting Company that offers a wide array of expertise to ensure clients achieve sustainable competitive advantage by developing innovative and intelligent Products and Solutions for several industries.</p>
                             <p>Let's write the next chapter of success and technological innovation together ... <a href="<?= $B ?>/our-story.php" class="read__btn">Read More</a></p>
                         </div>
                     </div>
@@ -694,33 +715,36 @@
                     </div>
                 </div>
 
-                <!-- ── Trust / Review Badges ─────────────────────── -->
-                <div class="footer-trust-section">
-                    <div class="footer-trust-label">Trusted &amp; Featured On</div>
-                    <div class="footer-trust-badges">
-                        <a href="https://www.bark.com/en/us/company/artistic-web-services/" target="_blank" rel="noopener noreferrer" class="footer-trust-badge" title="Bark" aria-label="View our Bark profile">
-                            <img src="<?= $B ?>/assets/images/bark.webp" alt="Bark" loading="lazy" width="100" height="34">
-                        </a>
-                        <a href="https://www.trustpilot.com/review/artisticwebservices.com" target="_blank" rel="noopener noreferrer" class="footer-trust-badge" title="Trustpilot" aria-label="View our Trustpilot reviews">
-                            <img src="<?= $B ?>/assets/images/trustpilot.webp" alt="Trustpilot" loading="lazy" width="110" height="34">
-                        </a>
-                        <a href="https://www.goodfirms.co/company/artistic-web-services" target="_blank" rel="noopener noreferrer" class="footer-trust-badge" title="GoodFirms" aria-label="View our GoodFirms profile">
-                            <img src="<?= $B ?>/assets/images/goodfirms.webp" alt="GoodFirms" loading="lazy" width="110" height="34">
-                        </a>
-                    </div>
-                </div>
-                <!-- ── /Trust Badges ──────────────────────────────── -->
 
             </div>
         </div>
     </div>
+
+    <!-- ── Scrolling Trust Logo Strip ──────────────────── -->
+    <div class="footer-logo-scroll">
+        <div class="footer-logo-scroll-track">
+            <!-- First set -->
+            <div class="footer-scroll-logo"><img src="<?= $B ?>/assets/images/clutch.webp" alt="Clutch" loading="lazy"></div>
+            <div class="footer-scroll-logo"><img src="<?= $B ?>/assets/images/trustpilot.webp" alt="Trustpilot" loading="lazy"></div>
+            <div class="footer-scroll-logo"><img src="<?= $B ?>/assets/images/03-designrush.webp" alt="DesignRush" loading="lazy"></div>
+            <div class="footer-scroll-logo"><img src="<?= $B ?>/assets/images/glassdoor.webp" alt="Glassdoor" loading="lazy"></div>
+            <div class="footer-scroll-logo"><img src="<?= $B ?>/assets/images/bark.webp" alt="Bark" loading="lazy"></div>
+            <!-- Duplicate set for seamless infinite loop -->
+            <div class="footer-scroll-logo"><img src="<?= $B ?>/assets/images/clutch.webp" alt="Clutch" loading="lazy"></div>
+            <div class="footer-scroll-logo"><img src="<?= $B ?>/assets/images/trustpilot.webp" alt="Trustpilot" loading="lazy"></div>
+            <div class="footer-scroll-logo"><img src="<?= $B ?>/assets/images/03-designrush.webp" alt="DesignRush" loading="lazy"></div>
+            <div class="footer-scroll-logo"><img src="<?= $B ?>/assets/images/glassdoor.webp" alt="Glassdoor" loading="lazy"></div>
+            <div class="footer-scroll-logo"><img src="<?= $B ?>/assets/images/bark.webp" alt="Bark" loading="lazy"></div>
+        </div>
+    </div>
+    <!-- ── /Scrolling Trust Logo Strip ───────────────── -->
 
     <div class="site-footer__bottom">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="site-footer__bottom-inner">
-                        <p class="site-footer__bottom-text">&copy; Copyrights <span class="dynamic-year"></span> ArtisticWebServices. All rights reserved.</p>
+                        <p class="site-footer__bottom-text">&copy; Copyrights 2025 ArtisticWebServices. All rights reserved.</p>
                     </div>
                 </div>
             </div>
@@ -1251,7 +1275,7 @@ Tawk_API.onLoad=function(){
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
-s1.src='https://embed.tawk.to/69d18563e360ca1c3ce30384/1jld723b2';
+s1.src='https://embed.tawk.to/69d1fa4e1772311c3585e1cd/1jle3jgku';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);

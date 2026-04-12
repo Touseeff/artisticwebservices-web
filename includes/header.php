@@ -421,7 +421,6 @@
                         </div>
                         <div class="col-lg-3 mb-3 mb-lg-0">
                            <div class="d-flex align-items-center list-group list-group-flush">
-                              <a href="<?= $B ?>/services/aws-services.php" class="d-flex align-items-center list-group-item list-group-item-action"><i class="me-3 d-block red-icon fa-brands fa-aws"></i> AWS Services</a>
                               <a href="<?= $B ?>/services/legacy-application-modernization-services.php" class="d-flex align-items-center list-group-item list-group-item-action"><i class="me-3 d-block red-icon fa-brands fa-codepen"></i> Legacy Modernization</a>
                               <a href="<?= $B ?>/services/microservices-development.php" class="d-flex align-items-center list-group-item list-group-item-action"><i class="me-3 d-block red-icon fa-solid fa-microchip"></i> Microservices Development</a>
                               <a href="<?= $B ?>/services/enterprise-development.php"

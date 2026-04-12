@@ -1196,13 +1196,14 @@ section[style*="height:550px"],
 
 /* ── Footer enhancements on mobile ──────────────────────────────────────── */
 @media (max-width: 767px) {
-    .site-footer { text-align: left !important; }
-    .footer-widget__title { text-align: left !important; }
-    .footer-widget__title::after { left: 0 !important; transform: none !important; }
+    .site-footer { text-align: center !important; }
+    .footer-widget__title { text-align: center !important; }
+    .footer-widget__title::after { left: 50% !important; transform: translateX(-50%) !important; }
     .footer-widget__links-list {
         list-style: none !important;
         padding: 0 !important;
-        margin-left: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
         float: none !important;
         width: 100% !important;
     }
@@ -1210,11 +1211,11 @@ section[style*="height:550px"],
         list-style: none !important;
         list-style-type: none !important;
         padding-left: 0 !important;
-        text-align: left !important;
+        text-align: center !important;
     }
     .footer-widget__links-list li::before,
     .footer-widget__links-list li::marker { display: none !important; content: none !important; }
-    .footer-widget__links-list a { padding-left: 0 !important; text-align: left !important; }
+    .footer-widget__links-list a { padding-left: 0 !important; text-align: center !important; }
     .footer-widget__links-list a:hover { padding-left: 0 !important; }
     .footer-logo img,
     .footer-logo-img {
@@ -1742,7 +1743,10 @@ small[id$="-valid"] { color: #dd0429; font-size: 12px; display: block; margin-to
 /* ── Word break for long emails/URLs in footer on mobile ─────────────────── */
 @media (max-width: 575px) {
     .footer-widget__links-list a,
-    .site-footer a { word-break: break-word; overflow-wrap: break-word; }
+    .site-footer a:not(.footer-social-icon) {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -2987,11 +2991,11 @@ small[id$="-valid"] { color: #dd0429; font-size: 12px; display: block; margin-to
 
     /* ══ H. FOOTER — ALL pages (shared via footer.php) ═════════════════════ */
 
-    /* Footer outer — left-aligned on mobile */
-    .site-footer { text-align: left !important; }
-    .site-footer__middle { padding-top: 36px !important; padding-bottom: 28px !important; }
+    /* Footer outer — centered on mobile */
+    .site-footer { text-align: center !important; }
+    .site-footer__middle { padding-top: 36px !important; padding-bottom: 12px !important; }
 
-    /* Logo column — centered logo, left-aligned description */
+    /* Logo column — centered logo and description */
     .footer-logo {
         text-align: center !important;
         margin-bottom: 18px !important;
@@ -3004,33 +3008,36 @@ small[id$="-valid"] { color: #dd0429; font-size: 12px; display: block; margin-to
         max-width: 300px !important;
         object-fit: contain !important;
         display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
-    /* Footer column description text — left on mobile */
+    /* Footer column description text */
     .site-footer .d-flex.flex-column p,
     .center__align p {
-        text-align: left !important;
+        text-align: center !important;
         font-size: 13px !important;
         line-height: 1.65 !important;
     }
 
-    /* Footer widget titles — left-aligned */
+    /* Footer widget titles */
     .footer-widget__title {
-        text-align: left !important;
+        text-align: center !important;
         margin-top: 24px !important;
         font-size: 14px !important;
     }
     .footer-widget__title::after {
-        left: 0 !important;
-        transform: none !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 
-    /* Footer navigation lists — left-aligned, compact */
+    /* Footer navigation lists — centered, compact */
     .footer-widget__links-list {
         list-style: none !important;
         padding: 0 !important;
-        margin-left: 0 !important;
-        text-align: left !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
         float: none !important;
         width: 100% !important;
     }
@@ -3038,7 +3045,7 @@ small[id$="-valid"] { color: #dd0429; font-size: 12px; display: block; margin-to
         list-style: none !important;
         list-style-type: none !important;
         padding-left: 0 !important;
-        text-align: left !important;
+        text-align: center !important;
         line-height: 28px !important;
     }
     .footer-widget__links-list li::before,
@@ -3048,20 +3055,20 @@ small[id$="-valid"] { color: #dd0429; font-size: 12px; display: block; margin-to
     }
     .footer-widget__links-list a,
     .footer-widget__links-list a:hover {
-        text-align: left !important;
+        text-align: center !important;
         padding-left: 0 !important;
         display: block !important;
         font-size: 13px !important;
     }
 
-    /* 2-column grid: Quick Links + Services side by side,
-       Solutions + Connect side by side */
+    /* 2-column grid: Quick Links + Connect (Services/Solutions hidden ≤767px) */
     .site-footer__middle-inner .row {
         display: flex !important;
         flex-wrap: wrap !important;
+        align-items: flex-start !important;
     }
     .site-footer__middle-inner .row > div {
-        text-align: left !important;
+        text-align: center !important;
     }
     /* Logo column — full width */
     .site-footer__middle-inner .row > div.center__align {
@@ -3084,20 +3091,57 @@ small[id$="-valid"] { color: #dd0429; font-size: 12px; display: block; margin-to
         padding-right: 8px !important;
     }
 
-    /* Footer "Connect With Us" / contact info */
+    /* Footer "Connect With Us" / contact + social — no tall column stretch */
+    .loactions__footer__new {
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        padding-bottom: 4px !important;
+    }
+    .loactions__footer__new .footer-connect-inner {
+        align-items: center !important;
+    }
     .loactions__footer__new,
     .loactions__footer__new .footer-widget__column,
     .loactions__footer__new .footer-widget__title {
-        text-align: left !important;
+        text-align: center !important;
     }
     .three__tabs,
     .three__tabs.footer-contact-inline {
         flex-direction: column !important;
-        align-items: flex-start !important;
+        align-items: center !important;
         gap: 8px !important;
-        text-align: left !important;
+        text-align: center !important;
+        width: 100% !important;
     }
-    .three__tabs .mt-0 { text-align: left !important; font-size: 13px !important; }
+    .three__tabs .mt-0 { text-align: center !important; font-size: 13px !important; }
+
+    .footer-social-wrap {
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    /* Social icons: FA ::before glyphs — grid/WebKit can sit top-left; flex centers reliably */
+    .footer-social-wrap .footer-social-icon {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        line-height: 0 !important;
+    }
+    .footer-social-wrap .footer-social-icon i {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 1.25em !important;
+        height: 1.25em !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 0 !important;
+    }
+    .footer-social-wrap .footer-social-icon i::before {
+        line-height: 1 !important;
+    }
 
     /* Footer bottom bar */
     .site-footer__bottom { text-align: center !important; }

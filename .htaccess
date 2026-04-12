@@ -57,8 +57,10 @@ AddDefaultCharset UTF-8
     # Production domain root
     RewriteBase /
 
-    # Force HTTPS
+    # Force HTTPS (skipped on localhost / local XAMPP dev)
     RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP_HOST} !^localhost(:\d+)?$ [NC]
+    RewriteCond %{HTTP_HOST} !^127\.0\.0\.1(:\d+)?$ [NC]
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Force non-www to www (uncomment if using www as canonical)

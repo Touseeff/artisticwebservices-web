@@ -131,38 +131,56 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
 }
 .tech-card {
     background: #fff;
-    border: 1px solid #e8e8e8;
-    border-radius: 10px;
-    padding: 22px 20px;
-    margin-bottom: 24px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 28px 26px 32px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.tech-card:hover {
+    box-shadow: 0 10px 32px rgba(211,25,35,0.10);
+    transform: translateY(-5px);
+    border-color: #d31923;
 }
 .tech-card h4 {
-    font-size: 0.85rem;
-    font-weight: 700;
+    font-size: 0.78rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     color: #d31923;
-    border-bottom: 2px solid #f2f2f2;
-    padding-bottom: 10px;
-    margin-bottom: 14px;
+    background: #fff5f5;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    margin-left: -4px;
+    margin-right: -4px;
 }
 .tech-card ul {
     padding: 0;
     margin: 0;
+    flex: 1;
 }
 .tech-card ul li {
     list-style: none;
-    padding: 5px 0;
-    font-size: 0.95rem;
+    padding: 8px 0;
+    font-size: 0.93rem;
     color: #444;
-    border-bottom: 1px dashed #eee;
+    border-bottom: 1px solid #f2f2f2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.4;
 }
 .tech-card ul li:last-child { border-bottom: none; }
 .tech-card ul li::before {
-    content: '▸ ';
+    content: '▸';
     color: #d31923;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    margin-top: 1px;
 }
 
 /* =============================================
@@ -405,6 +423,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
     .mvp-tabs-custom { padding: 40px 0; }
     .welcome-three { padding: 50px 0 40px; }
     .mvp-tab-step p { padding-left: 0; }
+    .tech-card { padding: 24px 20px 28px; }
 }
 
 @media (max-width: 767px) {
@@ -431,6 +450,8 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
     .get__content h2 { font-size: 2rem; }
     .mvp-tab-step p { padding-left: 0; }
     .mvp-step-header { gap: 10px; }
+    .tech-card { padding: 20px 16px 24px; }
+    .tech-card h4 { font-size: 0.75rem; padding: 8px 12px; }
 }
 </style>
 
@@ -613,12 +634,15 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
      ============================================= -->
 <section class="mvp-technologies gray">
     <div class="container">
-        <div class="row">
+        <div class="row mb-4">
             <div class="col-12">
                 <h2>Top-Tier Tech Stack for Building MVPs</h2>
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="tech-card">
+        </div>
+        <!-- Row 1: 3 cards equal height -->
+        <div class="row gy-4 align-items-stretch mb-4">
+            <div class="col-lg-4 col-md-6 col-12 d-flex">
+                <div class="tech-card w-100">
                     <h4>Programming Languages</h4>
                     <ul>
                         <li>JavaScript</li>
@@ -633,8 +657,8 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="tech-card">
+            <div class="col-lg-4 col-md-6 col-12 d-flex">
+                <div class="tech-card w-100">
                     <h4>Frameworks &amp; Libraries</h4>
                     <ul>
                         <li>Angular</li>
@@ -648,8 +672,8 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="tech-card">
+            <div class="col-lg-4 col-md-6 col-12 d-flex">
+                <div class="tech-card w-100">
                     <h4>Data</h4>
                     <ul>
                         <li>ElasticSearch</li>
@@ -664,18 +688,24 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="tech-card">
+        </div>
+        <!-- Row 2: 3 cards equal height -->
+        <div class="row gy-4 align-items-stretch">
+            <div class="col-lg-4 col-md-6 col-12 d-flex">
+                <div class="tech-card w-100">
                     <h4>Cloud Platforms</h4>
                     <ul>
                         <li>AWS</li>
                         <li>Azure</li>
                         <li>Google Cloud</li>
+                        <li>Digital Ocean</li>
+                        <li>IBM Cloud</li>
+                        <li>Oracle Cloud</li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="tech-card">
+            <div class="col-lg-4 col-md-6 col-12 d-flex">
+                <div class="tech-card w-100">
                     <h4>Mobile</h4>
                     <ul>
                         <li>Java</li>
@@ -691,8 +721,8 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="tech-card">
+            <div class="col-lg-4 col-md-6 col-12 d-flex">
+                <div class="tech-card w-100">
                     <h4>Prototyping</h4>
                     <ul>
                         <li>Figma</li>
@@ -700,6 +730,8 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         <li>Webflow</li>
                         <li>Miro</li>
                         <li>EPAM Display</li>
+                        <li>InVision</li>
+                        <li>Sketch</li>
                         <li>and more</li>
                     </ul>
                 </div>

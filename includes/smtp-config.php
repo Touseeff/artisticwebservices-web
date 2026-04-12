@@ -29,9 +29,20 @@ define('SMTP_FROM_NAME',  'ArtisticWebServices');
 define('MAIL_TO',         'info@artisticwebservices.com');
 
 // ── Admin Panel Access Password ────────────────────────────────────────────
-// Used to protect the hidden SMTP test panel. Change this to something strong.
-define('SMTP_ADMIN_PASS', 'Aws@Smtp2026!');
+// Used to protect the hidden SMTP test panel (/mailer-admin-aws7749).
+// Set a strong value on the server after deploy — do not commit real passwords.
+define('SMTP_ADMIN_PASS', 'YOUR_SMTP_ADMIN_PASSWORD_HERE');
 
 // ── Debug Mode ─────────────────────────────────────────────────────────────
-// Set to true ONLY during troubleshooting; set back to false in production
+// Production: always false. Set true only briefly on the server when troubleshooting SMTP.
 define('SMTP_DEBUG',      false);
+
+// ── Local Development Mode ─────────────────────────────────────────────────
+// Automatically detected: on localhost/127.0.0.1, emails are written to
+// logs/mail-dev.log instead of being sent via SMTP.
+$_smtp_local_host = strtolower($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME'] ?? '');
+define('SMTP_LOCAL_DEV',
+    str_starts_with($_smtp_local_host, 'localhost') ||
+    str_starts_with($_smtp_local_host, '127.0.0.1')
+);
+unset($_smtp_local_host);

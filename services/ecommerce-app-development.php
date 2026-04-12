@@ -399,15 +399,15 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
 .ecmrc_indstrs_bx h3 { font-size: 13px; font-weight: 600; color: #444; margin: 0; text-align: center; }
 
 /* ---- Get in Touch / Contact Section ---- */
-.welcome-three { padding: 60px 0; background: linear-gradient(135deg, #1a1a2e 60%, #2d2d44); }
+.welcome-three { padding: 60px 0; background: #fff; }
 .get__content h4 { color: #d31923; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-.get__content h2 { color: #fff; font-size: 48px; font-weight: 800; margin-bottom: 16px; line-height: 1; }
-.get__content > p { color: rgba(255,255,255,0.8); font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
+.get__content h2 { color: #1a1a2e; font-size: 48px; font-weight: 800; margin-bottom: 16px; line-height: 1; }
+.get__content > p { color: #555; font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
 .get__content strong { color: #d31923; font-size: 16px; display: block; margin-bottom: 10px; }
-.get__content h3 { color: #fff; font-size: 18px; font-weight: 700; margin-top: 16px; margin-bottom: 10px; }
+.get__content h3 { color: #1a1a2e; font-size: 18px; font-weight: 700; margin-top: 16px; margin-bottom: 10px; }
 .get__content ul { list-style: none; padding: 0; }
 .get__content ul li { margin-bottom: 8px; }
-.get__content ul li a { color: rgba(255,255,255,0.85); text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 14px; transition: color 0.2s; }
+.get__content ul li a { color: #444; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 14px; transition: color 0.2s; }
 .get__content ul li a:hover { color: #d31923; }
 .get__content ul li a img { width: 20px; }
 

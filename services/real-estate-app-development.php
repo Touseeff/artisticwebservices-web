@@ -27,9 +27,9 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="col-xl-7">
                      <div class=" mt-3">
                         <div>
-                           <h1 class="section-title__title mb-3">Unlock the Future of Real Estate with Cutting-Edge App Solutions Tailored for You</h1>
+                           <h1 class="section-title__title mb-3" style="color: #e8002d;">Unlock the Future of Real Estate with Cutting-Edge App Solutions Tailored for You</h1>
                         </div>
-                        <p class="">Give your real estate business a new dimension with our real estate app development services. Our team brings you a wide and innovative collection of services that will raise the interaction with customers of the real estate application development company. Achieve customer satisfaction, and let your business reach sky-high revenue with unique mobile solutions for multiple sectors including real estate. Collaborate with our top-notch real estate developers today.</p>
+                        <p class="" style="color: #ffffff;">Give your real estate business a new dimension with our real estate app development services. Our team brings you a wide and innovative collection of services that will raise the interaction with customers of the real estate application development company. Achieve customer satisfaction, and let your business reach sky-high revenue with unique mobile solutions for multiple sectors including real estate. Collaborate with our top-notch real estate developers today.</p>
                         <div class="state_btns">
                            <a href="<?= $B ?>/contact.php" class="thm-btn abut-page__btn btn-red-bg">Get Your Free Quote</a>
                            <a href="<?= $B ?>/contact.php" class="thm-btn abut-page__btn btn-white-bg">Get Your Free Quote</a>
