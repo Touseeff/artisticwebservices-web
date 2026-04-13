@@ -3116,33 +3116,6 @@ small[id$="-valid"] { color: #dd0429; font-size: 12px; display: block; margin-to
     }
     .three__tabs .mt-0 { text-align: center !important; font-size: 13px !important; }
 
-    .footer-social-wrap {
-        justify-content: center !important;
-        width: 100% !important;
-    }
-
-    /* Social icons: FA ::before glyphs — grid/WebKit can sit top-left; flex centers reliably */
-    .footer-social-wrap .footer-social-icon {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
-        line-height: 0 !important;
-    }
-    .footer-social-wrap .footer-social-icon i {
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 1.25em !important;
-        height: 1.25em !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 0 !important;
-    }
-    .footer-social-wrap .footer-social-icon i::before {
-        line-height: 1 !important;
-    }
-
     /* Footer bottom bar */
     .site-footer__bottom { text-align: center !important; }
     .site-footer__bottom-inner {
@@ -3152,6 +3125,36 @@ small[id$="-valid"] { color: #dd0429; font-size: 12px; display: block; margin-to
         text-align: center !important;
     }
     .site-footer__bottom-text { text-align: center !important; font-size: 13px !important; }
+}
+
+/* Footer social (≤992px): center row + FA glyphs in circles — same range as footer.php */
+@media (max-width: 991.98px) {
+    .footer-social-wrap {
+        justify-content: center !important;
+        width: 100% !important;
+    }
+    .footer-social-wrap .footer-social-icon {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        line-height: 1 !important;
+    }
+    .footer-social-wrap .footer-social-icon i {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;
+        font-size: 1em !important;
+    }
+    .footer-social-wrap .footer-social-icon i::before {
+        line-height: 1 !important;
+        display: block !important;
+    }
 }
 
 /* ── Extra small phones (≤480px) — footer single column ─────────────────── */

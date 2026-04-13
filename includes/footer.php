@@ -320,8 +320,9 @@
     align-items: center;
 }
 .footer-social-icon {
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     min-width: 40px;
@@ -331,7 +332,7 @@
     border: 1.5px solid rgba(255,255,255,0.22);
     color: #fff !important;
     font-size: 16px;
-    line-height: 0;
+    line-height: 1;
     text-decoration: none !important;
     transition: background 0.25s, transform 0.25s, border-color 0.25s, box-shadow 0.25s;
     flex-shrink: 0;
@@ -340,18 +341,19 @@
     overflow-wrap: normal;
 }
 .footer-social-icon i {
-    font-size: 16px;
+    font-size: 1em;
     line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1.25em;
-    height: 1.25em;
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
 .footer-social-icon i::before {
     line-height: 1;
+    display: block;
 }
 .footer-social-icon:hover {
     color: #fff !important;
@@ -362,6 +364,14 @@
 .footer-social-icon.li:hover  { background: #0a66c2; border-color: #0a66c2; }
 .footer-social-icon.ig:hover  { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color: #e1306c; }
 .footer-social-icon.tw:hover  { background: #000;    border-color: #000; }
+
+/* Mobile / narrow columns: center the row and keep glyphs centered in circles */
+@media (max-width: 991px) {
+    .footer-social-wrap {
+        justify-content: center;
+        width: 100%;
+    }
+}
 
 /* Mobile social icon fix */
 @media (max-width: 767px) {
@@ -377,7 +387,7 @@
         font-size: 15px;
     }
     .footer-social-icon i {
-        font-size: 15px;
+        font-size: 1em;
     }
 }
 
@@ -390,7 +400,7 @@
         min-height: 36px;
         font-size: 14px;
     }
-    .footer-social-icon i { font-size: 14px; }
+    .footer-social-icon i { font-size: 1em; }
 }
 
 /* ── Scrolling Logo Strip ─────────────────────────── */
