@@ -272,13 +272,43 @@ function awsSubmitForm(e) {
     fetch('/contact-form', {
         method: 'POST',
         body: data,
-        credentials: 'same-origin'
+        credentials: 'same-origin',
+        headers: {
+            'Accept': 'application/json',
+            'X-AWS-Form': 'json'
+        }
     }).then(function(res) {
         var baseEl = document.querySelector('meta[name="site-base"]');
         var b = baseEl ? baseEl.getAttribute('content') : '';
-        if (res.ok) {
-            window.location.href = b + '/thank-you';
+        if (res.status === 429) {
+            btn.innerHTML = 'Send Message';
+            btn.disabled = false;
+            alert('Too many submissions. Please wait a minute and try again.');
             return;
+        }
+        var ct = (res.headers.get('Content-Type') || '').toLowerCase();
+        if (ct.indexOf('application/json') !== -1) {
+            return res.json().then(function(payload) {
+                if (payload && payload.ok === true) {
+                    window.location.href = b + '/thank-you';
+                    return;
+                }
+                btn.innerHTML = 'Send Message';
+                btn.disabled = false;
+                if (payload && payload.error === 'send_failed') {
+                    alert('Email could not be sent (server mail settings). Please try again later or call us directly.');
+                } else if (payload && payload.error === 'missing') {
+                    alert('Please fill in First Name and Email.');
+                } else if (payload && payload.error === 'invalid_email') {
+                    alert('Please enter a valid email address.');
+                } else {
+                    alert('Could not send your message. Please try again or use the contact page.');
+                }
+            }).catch(function() {
+                btn.innerHTML = 'Send Message';
+                btn.disabled = false;
+                alert('Could not read server response. Please try again.');
+            });
         }
         btn.innerHTML = 'Send Message';
         btn.disabled = false;

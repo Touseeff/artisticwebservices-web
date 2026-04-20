@@ -84,6 +84,15 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     $pass    = SMTP_PASSWORD;
     $timeout = 15;
 
+    if ($user === '' || $pass === '') {
+        error_log('[Mailer] SMTP_USER / SMTP_PASS are empty — check .env on the server.');
+        return false;
+    }
+    if ($from === '' || !filter_var($from, FILTER_VALIDATE_EMAIL)) {
+        error_log('[Mailer] SMTP_FROM_EMAIL is missing or invalid — check .env.');
+        return false;
+    }
+
     // Build connection address
     $address = ($secure === 'ssl') ? "ssl://{$host}:{$port}" : "tcp://{$host}:{$port}";
 
@@ -119,8 +128,16 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     // Read server greeting
     fgets($socket, 515);
 
+    // EHLO hostname — shared hosts often return a meaningless gethostname(); use mailbox/site domain
+    $ehloHost = 'localhost';
+    if ($from !== '' && strpos($from, '@') !== false) {
+        $ehloHost = substr($from, strrpos($from, '@') + 1) ?: $ehloHost;
+    } elseif (!empty($_SERVER['HTTP_HOST'])) {
+        $ehloHost = preg_replace('/:\d+$/', '', (string) $_SERVER['HTTP_HOST']) ?: $ehloHost;
+    }
+
     // EHLO
-    $ehlo = _smtp_cmd($socket, 'EHLO ' . gethostname());
+    $ehlo = _smtp_cmd($socket, 'EHLO ' . $ehloHost);
     if (!str_starts_with(trim($ehlo), '2')) {
         error_log("[Mailer] EHLO failed: {$ehlo}");
         fclose($socket);
@@ -252,6 +269,15 @@ function sendMail(array $data): bool
         }
         file_put_contents($logDir . '/mail-dev.log', $entry . "\n", FILE_APPEND | LOCK_EX);
         return true;
+    }
+
+    if (trim((string) $to) === '' || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
+        error_log('[Mailer] MAIL_TO is empty or invalid — set MAIL_TO in .env on the server.');
+        return false;
+    }
+    if (trim((string) $replyTo) === '' || !filter_var($replyTo, FILTER_VALIDATE_EMAIL)) {
+        error_log('[Mailer] reply_to is not a valid email address.');
+        return false;
     }
 
     // ── Build HTML body ───────────────────────────────────────────────────────

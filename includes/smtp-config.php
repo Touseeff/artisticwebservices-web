@@ -19,16 +19,28 @@
 // Server-set environment variables take priority over .env values.
 $_env_file = __DIR__ . '/../.env';
 if (file_exists($_env_file)) {
-    $_env_vars = parse_ini_file($_env_file);
-    if (is_array($_env_vars)) {
-        foreach ($_env_vars as $_env_key => $_env_val) {
-            // Only set if not already present in the real environment
-            if (getenv($_env_key) === false) {
-                putenv("{$_env_key}={$_env_val}");
+    $_raw = file_get_contents($_env_file);
+    if ($_raw !== false) {
+        // Strip UTF-8 BOM so the first key parses (common on Windows-saved .env files)
+        if (strncmp($_raw, "\xEF\xBB\xBF", 3) === 0) {
+            $_raw = substr($_raw, 3);
+        }
+        // INI_SCANNER_RAW keeps #, =, etc. inside values; trim avoids trailing CRLF breaking passwords
+        $_env_vars = parse_ini_string($_raw, false, INI_SCANNER_RAW);
+        if (is_array($_env_vars)) {
+            foreach ($_env_vars as $_env_key => $_env_val) {
+                $_env_key = trim((string) $_env_key);
+                if ($_env_key === '') {
+                    continue;
+                }
+                $_env_val = is_string($_env_val) ? trim($_env_val) : (string) $_env_val;
+                if (getenv($_env_key) === false) {
+                    putenv("{$_env_key}={$_env_val}");
+                }
             }
         }
     }
-    unset($_env_vars, $_env_key, $_env_val);
+    unset($_env_vars, $_env_key, $_env_val, $_raw);
 }
 unset($_env_file);
 

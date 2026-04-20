@@ -12,6 +12,22 @@ require_once __DIR__ . '/includes/csrf.php';       // csrf_verify()
 require_once __DIR__ . '/includes/rate-limit.php'; // file-based sliding-window limiter
 require_once __DIR__ . '/includes/mailer.php';
 
+/**
+ * Modal / fetch() clients send this header so we return JSON instead of 302 redirects.
+ * (Browsers follow redirects: a failed send still ends as HTTP 200 on /contact, which wrongly looked like success.)
+ */
+function contact_form_wants_json(): bool {
+    return strtolower((string) ($_SERVER['HTTP_X_AWS_FORM'] ?? '')) === 'json';
+}
+
+function contact_form_json_exit(int $httpCode, array $payload): void {
+    http_response_code($httpCode);
+    header('Content-Type: application/json; charset=UTF-8');
+    header('X-Content-Type-Options: nosniff');
+    echo json_encode($payload);
+    exit;
+}
+
 // ── Security checks (must run before any output) ──────────────────────────────
 csrf_verify();                         // 403 + exit on token mismatch
 rate_limit_check('contact_form');      // 429 + exit if over 5 req/60 s per IP
@@ -44,10 +60,16 @@ $base = defined('SITE_BASE') ? SITE_BASE : '';
 
 // ── Validate ──────────────────────────────────────────────────────────────────
 if (empty($first_name) || empty($email)) {
+    if (contact_form_wants_json()) {
+        contact_form_json_exit(422, ['ok' => false, 'error' => 'missing']);
+    }
     header("Location: {$base}/contact?error=missing");
     exit;
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (contact_form_wants_json()) {
+        contact_form_json_exit(422, ['ok' => false, 'error' => 'invalid_email']);
+    }
     header("Location: {$base}/contact?error=invalid_email");
     exit;
 }
@@ -69,8 +91,11 @@ $sent = sendMail([
     'source'   => $page,
 ]);
 
-// ── Redirect ──────────────────────────────────────────────────────────────────
+// ── Redirect (browser forms) or JSON (modal fetch) ───────────────────────────
 if ($sent) {
+    if (contact_form_wants_json()) {
+        contact_form_json_exit(200, ['ok' => true]);
+    }
     header("Location: {$base}/thank-you");
 } else {
     // Log the failed lead so no inquiry is silently lost
@@ -84,6 +109,9 @@ if ($sent) {
         'error' => 'SMTP send failed',
     ]) . "\n";
     @file_put_contents($failed_log, $log_entry, FILE_APPEND | LOCK_EX);
+    if (contact_form_wants_json()) {
+        contact_form_json_exit(503, ['ok' => false, 'error' => 'send_failed']);
+    }
     header("Location: {$base}/contact?error=send_failed");
 }
 exit;
