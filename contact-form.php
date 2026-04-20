@@ -7,9 +7,9 @@
  * Security: CSRF-protected, rate-limited (5 submissions per 60 seconds per IP).
  */
 
-require_once __DIR__ . '/includes/csrf.php';       // starts session, provides csrf_verify()
+require_once __DIR__ . '/includes/config.php';     // session + cookie params before CSRF
+require_once __DIR__ . '/includes/csrf.php';       // csrf_verify()
 require_once __DIR__ . '/includes/rate-limit.php'; // file-based sliding-window limiter
-require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/mailer.php';
 
 // ── Security checks (must run before any output) ──────────────────────────────

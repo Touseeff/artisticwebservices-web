@@ -258,25 +258,42 @@ function awsSubmitForm(e) {
         }));
     } catch (err) { /* private mode / quota */ }
 
-    /* Attach CSRF token from the meta tag injected by includes/head.php
-       (csrf_meta() outputs: <meta name="csrf-token" content="...">)     */
+    /* CSRF: meta tag from includes/head.php (same session cookie as this POST) */
     var csrfMeta = document.querySelector('meta[name="csrf-token"]');
-    if (csrfMeta) {
-        data.append('csrf_token', csrfMeta.getAttribute('content'));
+    var csrf = csrfMeta ? csrfMeta.getAttribute('content') : '';
+    if (!csrf) {
+        btn.innerHTML = 'Send Message';
+        btn.disabled = false;
+        alert('Security token missing. Please refresh the page and try again.');
+        return;
     }
+    data.append('csrf_token', csrf);
 
-    /* Send async (fire-and-forget — redirect regardless) */
     fetch('/contact-form', {
         method: 'POST',
-        body: data
-    }).catch(function(){});
-
-    /* Always redirect to thank-you after short delay */
-    setTimeout(function() {
-        var base = document.querySelector('meta[name="site-base"]');
-        var b = base ? base.getAttribute('content') : '';
-        window.location.href = b + '/thank-you';
-    }, 800);
+        body: data,
+        credentials: 'same-origin'
+    }).then(function(res) {
+        var baseEl = document.querySelector('meta[name="site-base"]');
+        var b = baseEl ? baseEl.getAttribute('content') : '';
+        if (res.ok) {
+            window.location.href = b + '/thank-you';
+            return;
+        }
+        btn.innerHTML = 'Send Message';
+        btn.disabled = false;
+        if (res.status === 403) {
+            alert('Session expired or security check failed. Please refresh the page and try again.');
+        } else if (res.status === 429) {
+            alert('Too many submissions. Please wait a minute and try again.');
+        } else {
+            alert('Could not send your message. Please try again or use the contact page.');
+        }
+    }).catch(function() {
+        btn.innerHTML = 'Send Message';
+        btn.disabled = false;
+        alert('Network error. Please check your connection and try again.');
+    });
 }
 
 /* ── Scroll events ─────────────────────────────── */

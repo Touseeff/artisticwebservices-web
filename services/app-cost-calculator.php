@@ -1754,6 +1754,12 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         </div>
     </div>
     <form action="/submit-calculator" method="post" id="calculatorForm" onsubmit="return validateForm()">
+        <?php
+        if (!function_exists('csrf_field')) {
+            require_once __DIR__ . '/../includes/csrf.php';
+        }
+        echo csrf_field();
+        ?>
         <input type="hidden" name="host" value="ArtisticWebServices">
         <div class="container py-5">
             <div class="row">

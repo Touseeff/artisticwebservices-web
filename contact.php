@@ -609,6 +609,12 @@ textarea.cf-input {
                         ?>
 
                         <form id="contact" action="contact-form" method="post" novalidate>
+                            <?php
+                            if (!function_exists('csrf_field')) {
+                                require_once __DIR__ . '/includes/csrf.php';
+                            }
+                            echo csrf_field();
+                            ?>
                             <input type="hidden" name="host" value="ArtisticWebServices">
                             <input type="hidden" name="captcha_answer" id="captcha_answer" value="10">
 
