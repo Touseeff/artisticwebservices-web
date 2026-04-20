@@ -4,8 +4,8 @@ $page_title = 'Oil & Gas Refinery Management Software USA | Digital Oilfield Sol
 $page_description = 'ArtisticWebServices develops oil and gas refinery management software, digital oilfield solutions, and asset tracking apps to improve efficiency for USA energy companies.';
 $page_keywords = 'oil gas software development USA, refinery management software, digital oilfield solutions, oil gas app development, petroleum industry software, energy sector management software';
 $page_canonical = 'https://artisticwebservices.com/solutions/oil-and-gas-refinery-management-software';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries.php'], ['name' => 'Oil & Gas', 'url' => 'https://artisticwebservices.com/solutions/oil-and-gas-refinery-management-software.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'Oil & Gas', 'url' => 'https://artisticwebservices.com/solutions/oil-and-gas-refinery-management-software']];
 $page_service_schema = ['name' => 'Oil & Gas Refinery Management Software', 'description' => 'Custom oil and gas management software and digital oilfield solutions for USA energy companies.'];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';

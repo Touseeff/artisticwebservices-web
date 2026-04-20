@@ -4,7 +4,16 @@ $page_title = 'Full-Cycle Software Development USA | End-to-End Product Dev — 
 $page_description = 'From concept to launch — ArtisticWebServices provides full-cycle software product development. Discovery, design, development, QA, deployment, and maintenance.';
 $page_keywords = 'full cycle software development USA, end to end app development, product development company, software product development USA, agile development';
 $page_canonical = 'https://artisticwebservices.com/solutions/full-cycle-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'Full-Cycle Software Development', 'url' => 'https://artisticwebservices.com/solutions/full-cycle-development']];
+$page_service_schema = ['name' => 'Full-Cycle Software Development', 'description' => 'End-to-end software product development from discovery and design through development, QA, deployment, and ongoing maintenance in the USA.'];
+$page_faq = [
+    ['q' => 'What does full-cycle software development include?', 'a' => 'Full-cycle development covers every stage of the software product lifecycle: Discovery (requirements gathering, technical scoping, feasibility analysis), UX/UI Design (wireframes, interactive prototypes, visual design), Development (frontend, backend, API, database), Quality Assurance (manual and automated testing, performance testing, security scanning), Deployment (CI/CD pipelines, cloud infrastructure, go-live), and Post-launch Support (monitoring, bug fixes, feature iterations).'],
+    ['q' => 'What is the advantage of a single full-cycle development partner?', 'a' => 'Working with one partner for the entire product lifecycle eliminates the handoff friction, communication gaps, and accountability issues that arise when different agencies handle design, development, and QA separately. ArtisticWebServices owns the entire product vision and technical execution, ensuring architectural decisions made in discovery are honored through deployment — and that post-launch support is provided by the team who built the system.'],
+    ['q' => 'How do you manage full-cycle projects to meet deadlines and budgets?', 'a' => 'We use agile project management with 2-week sprints, weekly stakeholder review calls, a dedicated project manager, and real-time project tracking in Jira. Scope changes are managed through a formal change request process so budget and timeline impacts are transparent before any change is approved. We provide weekly progress reports and a live burn-rate dashboard.'],
+    ['q' => 'Do you sign NDAs and IP assignment agreements?', 'a' => 'Yes. Every engagement begins with a mutual NDA. Upon project completion, all source code, designs, documentation, and intellectual property created during the engagement is formally transferred to you via an IP assignment agreement. ArtisticWebServices retains no rights to your product.'],
+    ['q' => 'Can you take over a partially built product?', 'a' => 'Yes. We regularly onboard projects that have been started by other teams or in-house developers. Our onboarding process includes a code quality audit, architecture review, technical debt assessment, and documentation catch-up — followed by a realistic plan to complete the product efficiently.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -78,7 +87,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

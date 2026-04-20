@@ -3,7 +3,7 @@ require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Web Development Company USA | Custom Websites & Web Apps — ArtisticWebServices';
 $page_description = 'ArtisticWebServices is a leading web development company in the USA. We build fast, SEO-optimized websites, web apps, and e-commerce platforms for businesses of all sizes.';
 $page_keywords = 'web development company USA, custom website development, web app development New York, professional web developers USA';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'Web Development', 'url' => 'https://artisticwebservices.com/services/web-development.php']];
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Web Development', 'url' => 'https://artisticwebservices.com/services/web-development']];
 $page_service_schema = ['name' => 'Web Development', 'description' => 'Custom websites, web apps, and e-commerce platforms for USA businesses of all sizes.'];
 $page_faq = [
     ['q' => 'What types of websites does ArtisticWebServices build?', 'a' => 'We build corporate websites, e-commerce stores, web applications, SaaS platforms, portals, and custom CMS-based websites using technologies like React, Next.js, Laravel, Node.js, and WordPress.'],
@@ -11,7 +11,7 @@ $page_faq = [
     ['q' => 'Do you build SEO-friendly websites?', 'a' => 'Yes. All websites built by ArtisticWebServices are SEO-optimized with fast load times, clean code, schema markup, mobile responsiveness, and proper meta tag structures.']
 ];
 $page_canonical = 'https://artisticwebservices.com/services/web-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -84,7 +84,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');
@@ -591,6 +591,117 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
   </div>
 </section>
 <!--Brand Two End-->        <!--Testimonial Two End-->
+
+<!-- AI Search Optimization — Question-based content -->
+<section class="faq-seo-section" style="padding:60px 0; background:#f8f9fa;">
+  <div class="container">
+    <h2 style="font-size:32px; font-weight:700; margin-bottom:40px; text-align:center;">
+      Web Development — Common Questions
+    </h2>
+
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:20px; font-weight:600; color:#dd0429; margin-bottom:12px;">
+          How much does a professional website cost?
+        </h3>
+        <p style="font-size:15px; line-height:1.7; color:#555;">
+          Professional website development costs range from $3,000 for a simple brochure site to $100,000+ for
+          complex web applications and enterprise platforms. A small business website typically costs $5,000–$15,000,
+          while a custom e-commerce store or SaaS platform ranges from $20,000–$80,000. ArtisticWebServices provides
+          transparent project estimates — contact us for a free, no-obligation quote tailored to your requirements.
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:20px; font-weight:600; color:#dd0429; margin-bottom:12px;">
+          How long does web development take?
+        </h3>
+        <p style="font-size:15px; line-height:1.7; color:#555;">
+          A standard business website takes 4–8 weeks from kickoff to launch. Complex web applications, e-commerce
+          platforms, or custom SaaS products typically require 3–6 months depending on the scope of features and
+          integrations required. Our agile process ensures you see progress every sprint, with regular demos and
+          feedback checkpoints built in throughout the project timeline.
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:20px; font-weight:600; color:#dd0429; margin-bottom:12px;">
+          What web technologies do you use?
+        </h3>
+        <p style="font-size:15px; line-height:1.7; color:#555;">
+          We build websites and web apps using React, Next.js, Vue.js, and Angular for modern front-end experiences.
+          On the backend, we use Node.js, Laravel (PHP), Python (Django/Flask), and Ruby on Rails. For content
+          management, we work with WordPress, Drupal, and headless CMS platforms. Our technology recommendations
+          are always driven by your project's performance, scalability, and long-term maintenance requirements.
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:20px; font-weight:600; color:#dd0429; margin-bottom:12px;">
+          Do you build mobile-responsive websites?
+        </h3>
+        <p style="font-size:15px; line-height:1.7; color:#555;">
+          Yes. Every website we develop is fully mobile-responsive by default. We use a mobile-first design approach,
+          ensuring your site looks and performs flawlessly on smartphones, tablets, and desktops. Our responsive
+          builds are also SEO-optimized with fast load times, clean semantic HTML, Core Web Vitals compliance, and
+          proper meta structures — so your site ranks well on Google from day one.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Internal Linking — Related Services -->
+<section style="padding:50px 0; background:#fff; border-top:1px solid #f0f0f0;">
+  <div class="container">
+    <h2 style="font-size:26px; font-weight:700; margin-bottom:30px; text-align:center; color:#222;">
+      Related Services
+    </h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-3 col-md-6 mb-3">
+        <a href="<?php echo $B; ?>/services/mobile-app-development" style="display:block; padding:24px 16px; border:1px solid #eee; border-radius:8px; text-decoration:none; color:#333; text-align:center; transition:box-shadow 0.3s;">
+          <i class="fas fa-mobile-alt fa-2x" style="color:#dd0429; margin-bottom:12px; display:block;" aria-hidden="true"></i>
+          <strong style="font-size:14px; display:block;">Mobile App Development</strong>
+          <span style="font-size:12px; color:#888; margin-top:4px; display:block;">iOS &amp; Android apps</span>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-3">
+        <a href="<?php echo $B; ?>/services/progressive-web-apps" style="display:block; padding:24px 16px; border:1px solid #eee; border-radius:8px; text-decoration:none; color:#333; text-align:center; transition:box-shadow 0.3s;">
+          <i class="fas fa-rocket fa-2x" style="color:#dd0429; margin-bottom:12px; display:block;" aria-hidden="true"></i>
+          <strong style="font-size:14px; display:block;">Progressive Web Apps</strong>
+          <span style="font-size:12px; color:#888; margin-top:4px; display:block;">App-like web experiences</span>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-3">
+        <a href="<?php echo $B; ?>/services/customer-experience-and-design" style="display:block; padding:24px 16px; border:1px solid #eee; border-radius:8px; text-decoration:none; color:#333; text-align:center; transition:box-shadow 0.3s;">
+          <i class="fas fa-palette fa-2x" style="color:#dd0429; margin-bottom:12px; display:block;" aria-hidden="true"></i>
+          <strong style="font-size:14px; display:block;">UI/UX Design</strong>
+          <span style="font-size:12px; color:#888; margin-top:4px; display:block;">User-centered design</span>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-3">
+        <a href="<?php echo $B; ?>/services/ecommerce-app-development" style="display:block; padding:24px 16px; border:1px solid #eee; border-radius:8px; text-decoration:none; color:#333; text-align:center; transition:box-shadow 0.3s;">
+          <i class="fas fa-shopping-cart fa-2x" style="color:#dd0429; margin-bottom:12px; display:block;" aria-hidden="true"></i>
+          <strong style="font-size:14px; display:block;">Ecommerce Apps</strong>
+          <span style="font-size:12px; color:#888; margin-top:4px; display:block;">Mobile commerce solutions</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Case Study Link -->
+    <div style="text-align:center; margin-top:30px; padding:24px; background:#fff5f5; border-radius:8px; border-left:4px solid #dd0429;">
+      <p style="margin:0 0 12px; font-size:15px; color:#555;">
+        <strong>See it in action:</strong> Explore our web development and app case studies
+      </p>
+      <a href="<?php echo $B; ?>/services/case-studies" style="display:inline-block; margin:0 8px 8px; padding:10px 24px; background:#dd0429; color:#fff; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600;">
+        View All Case Studies
+      </a>
+      <a href="<?php echo $B; ?>/contact.php" style="display:inline-block; margin:0 8px 8px; padding:10px 24px; background:transparent; color:#dd0429; border:2px solid #dd0429; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600;">
+        Get a Free Quote
+      </a>
+    </div>
+  </div>
+</section>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </div><!-- /.page-wrapper -->

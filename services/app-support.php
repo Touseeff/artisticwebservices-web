@@ -4,7 +4,16 @@ $page_title = 'App Support & Maintenance Services USA | 24/7 — ArtisticWebServ
 $page_description = "Keep your app running perfectly with ArtisticWebServices' 24/7 app support and maintenance services. Bug fixes, updates, performance optimization, and monitoring.";
 $page_keywords = 'app support maintenance USA, mobile app maintenance company, software support services, 24/7 app monitoring, app update services';
 $page_canonical = 'https://artisticwebservices.com/services/app-support';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'App Support & Maintenance', 'url' => 'https://artisticwebservices.com/services/app-support']];
+$page_service_schema = ['name' => 'App Support & Maintenance Services', 'description' => '24/7 mobile and web application support, bug fixes, performance optimization, and ongoing maintenance services for USA businesses.'];
+$page_faq = [
+    ['q' => 'What does app support and maintenance include?', 'a' => 'Our support and maintenance service covers: 24/7 bug monitoring and critical bug fixes, iOS and Android OS update compatibility, third-party API and SDK updates, performance optimization (response time, memory usage, battery drain), security patches, new feature development, and monthly health reports. SLA-backed response times are guaranteed in your support contract.'],
+    ['q' => 'How quickly do you respond to critical bugs?', 'a' => 'For clients on our Premium and Enterprise support plans, critical bugs (app crashes, payment failures, data loss) receive a response within 1 hour and a fix deployed within 24 hours. Standard bugs are addressed within 48 hours and deployed in the next maintenance window. All incidents are tracked with full transparency in a shared dashboard.'],
+    ['q' => 'Can you maintain an app that was built by another development company?', 'a' => 'Yes. We regularly take over maintenance of apps built by other agencies or in-house teams. Our onboarding process includes a comprehensive code audit, documentation of the existing architecture, setup of our monitoring tools, and a transition period where we work alongside any remaining team members to ensure knowledge transfer.'],
+    ['q' => 'What is the cost of app maintenance?', 'a' => 'App maintenance plans start at $500/month for basic monitoring and monthly update packages. Full-service support with dedicated developer hours, SLA guarantees, and feature development ranges from $2,000 to $10,000/month depending on app complexity and required response times.'],
+    ['q' => 'Do you monitor app performance proactively?', 'a' => 'Yes. We deploy application performance monitoring (APM) tools — Sentry, Datadog, New Relic, or Firebase Crashlytics — to detect crashes, slow API calls, and errors in real time. Our team triages alerts 24/7 and resolves issues before they impact your users.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>

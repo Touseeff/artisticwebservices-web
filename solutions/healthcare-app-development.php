@@ -4,7 +4,17 @@ $page_title = 'Healthcare App Development Company USA | HIPAA Compliant — Arti
 $page_description = 'HIPAA-compliant healthcare app development from ArtisticWebServices. Telemedicine, EHR integration, patient portals, and health monitoring apps for USA healthcare providers.';
 $page_keywords = 'healthcare app development USA, HIPAA compliant app development, telemedicine app development, EHR integration, health app development company';
 $page_canonical = 'https://artisticwebservices.com/solutions/healthcare-app-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'Healthcare App Development', 'url' => 'https://artisticwebservices.com/solutions/healthcare-app-development']];
+$page_service_schema = ['name' => 'Healthcare App Development', 'description' => 'HIPAA-compliant telemedicine, EHR integration, patient portal, and health monitoring app development for USA healthcare providers.'];
+$page_faq = [
+    ['q' => 'Is your healthcare app development HIPAA compliant?', 'a' => 'Yes. Every healthcare application ArtisticWebServices builds is architected for HIPAA compliance from the first line of code. This includes PHI encryption at rest (AES-256) and in transit (TLS 1.3), role-based access controls with audit logging, Business Associate Agreements (BAA) with all cloud providers, automatic session timeouts, and regular risk assessments as required by HIPAA Security Rule §164.308.'],
+    ['q' => 'What types of healthcare apps do you develop?', 'a' => 'We develop telemedicine platforms (video consultation, e-prescriptions, scheduling), EHR/EMR systems and integrations (HL7 FHIR, Epic, Cerner APIs), patient portals, remote patient monitoring apps (wearable device integration), hospital management systems, medical billing software, mental health apps, and appointment booking platforms for clinics and hospitals.'],
+    ['q' => 'Can you integrate with existing EHR systems like Epic or Cerner?', 'a' => 'Yes. ArtisticWebServices integrates with all major EHR platforms using HL7 FHIR R4 APIs. We have experience with Epic FHIR, Cerner Millennium, Allscripts, athenahealth, and NextGen APIs. We handle OAuth 2.0 SMART on FHIR authentication and ensure all data exchanges are HIPAA-compliant.'],
+    ['q' => 'How long does healthcare app development take?', 'a' => 'A HIPAA-compliant telemedicine MVP with video calling, patient scheduling, and basic EHR integration takes approximately 4–6 months. Full-featured platforms with custom EHR modules, insurance billing, and multi-provider networks take 8–18 months. We deliver in sprints so you can begin clinical pilots while development continues.'],
+    ['q' => 'Do you help with FDA regulatory submissions for digital health?', 'a' => 'We provide technical documentation support for FDA SaMD (Software as a Medical Device) submissions and 510(k) applications, including software architecture diagrams, cybersecurity documentation, and quality management system integration. We work alongside your regulatory affairs consultant to ensure the technical deliverables meet FDA requirements.']
+];
+$load_slick = true; // Sprint 2: load Slick only on pages that need it
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -1484,7 +1494,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                <div class="col-xl-6">
                   <div class="welcome-three__right welcome-three__right-zero">
                      <div class="row">
-                        <?php include __DIR__ . '/../includes/form-quote.php'; ?><script>
+                        <?php require_once __DIR__ . '/../includes/form-quote.php'; ?><script>
                            var $st = $('.pagination');
                            var $slickEl = $('.center');
                            

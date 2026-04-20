@@ -4,8 +4,8 @@ $page_title = 'App Development Company Locations USA | ArtisticWebServices Offic
 $page_description = 'Find ArtisticWebServices office locations across USA including New York, Houston, San Francisco. Contact your nearest mobile app development and software company office.';
 $page_keywords = 'app development company USA locations, software company New York office, mobile app development company offices USA, ArtisticWebServices locations, tech company USA offices';
 $page_canonical = 'https://artisticwebservices.com/solutions/location';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'About', 'url' => 'https://artisticwebservices.com/about-us.php'], ['name' => 'Locations', 'url' => 'https://artisticwebservices.com/solutions/location.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'About', 'url' => 'https://artisticwebservices.com/about-us'], ['name' => 'Locations', 'url' => 'https://artisticwebservices.com/solutions/location']];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>

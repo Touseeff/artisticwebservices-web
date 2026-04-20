@@ -4,7 +4,7 @@ $page_title = 'Client Case Studies & Portfolio | ArtisticWebServices';
 $page_description = 'Browse ArtisticWebServices client success stories and portfolio. 460+ projects delivered across healthcare, fintech, e-commerce, fitness, real estate, and more industries in USA.';
 $page_keywords = 'software development case studies, mobile app portfolio USA, client success stories, app development portfolio, software company case study, ArtisticWebServices portfolio';
 $page_canonical = 'https://artisticwebservices.com/services/case-studies';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Case Studies', 'url' => 'https://artisticwebservices.com/services/case-studies']];
 $page_article_schema = ['type' => 'WebPage', 'date' => '2024-01-01'];
 require_once __DIR__ . '/../includes/head.php';
@@ -549,6 +549,26 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
   </div>
 </section>
 <!--Brand Two End-->         <!--technologies End-->
+
+<!-- Internal Linking — Services from Case Studies Hub -->
+<section style="padding:50px 0; background:#1a1a2e;">
+  <div class="container text-center">
+    <h2 style="font-size:26px; font-weight:700; color:#fff; margin-bottom:10px;">
+      Looking for Development Services?
+    </h2>
+    <p style="color:rgba(255,255,255,0.75); margin-bottom:30px; font-size:15px;">
+      Our case studies are backed by real delivery experience across every service we offer.
+    </p>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px;">
+      <a href="<?php echo $B; ?>/services/mobile-app-development" style="padding:12px 24px; background:#dd0429; color:#fff; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600;">Mobile App Development</a>
+      <a href="<?php echo $B; ?>/services/web-development" style="padding:12px 24px; background:rgba(255,255,255,0.1); color:#fff; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600; border:1px solid rgba(255,255,255,0.3);">Web Development</a>
+      <a href="<?php echo $B; ?>/services/ecommerce-app-development" style="padding:12px 24px; background:rgba(255,255,255,0.1); color:#fff; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600; border:1px solid rgba(255,255,255,0.3);">Ecommerce Apps</a>
+      <a href="<?php echo $B; ?>/services/artificial-intelligence" style="padding:12px 24px; background:rgba(255,255,255,0.1); color:#fff; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600; border:1px solid rgba(255,255,255,0.3);">AI Development</a>
+      <a href="<?php echo $B; ?>/services/augmented-reality" style="padding:12px 24px; background:rgba(255,255,255,0.1); color:#fff; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600; border:1px solid rgba(255,255,255,0.3);">Augmented Reality</a>
+      <a href="<?php echo $B; ?>/contact.php" style="padding:12px 24px; background:#fff; color:#dd0429; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600;">Get a Free Quote &rarr;</a>
+    </div>
+  </div>
+</section>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </div><!-- /.page-wrapper -->

@@ -3,14 +3,15 @@ require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Real Estate App Development USA | Property Tech Solutions — ArtisticWebServices';
 $page_description = 'Build powerful real estate apps with ArtisticWebServices. Property search portals, virtual tours, MLS integration, and real estate CRM for USA agents and agencies.';
 $page_keywords = 'real estate app development USA, property app development, real estate software company, MLS integration development, property management app';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'Real Estate App Development', 'url' => 'https://artisticwebservices.com/services/real-estate-app-development.php']];
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Real Estate App Development', 'url' => 'https://artisticwebservices.com/services/real-estate-app-development']];
 $page_service_schema = ['name' => 'Real Estate App Development', 'description' => 'Property search portals, virtual tours, MLS integration, and real estate CRM for USA agents and agencies.'];
 $page_faq = [
     ['q' => 'What real estate app features can ArtisticWebServices build?', 'a' => 'We build property search portals, MLS integration, virtual property tours (360 degrees), agent management portals, mortgage calculators, real estate CRM, listing management, and rental management apps.'],
     ['q' => 'Can you integrate MLS data into a real estate app?', 'a' => 'Yes. ArtisticWebServices integrates IDX/MLS feeds, Zillow API, Realtor.com data, and other real estate data sources into custom property search apps.']
 ];
 $page_canonical = 'https://artisticwebservices.com/services/real-estate-app-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$load_slick = true; // Sprint 2: load Slick only on pages that need it
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -32,13 +33,13 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         <p class="" style="color: #ffffff;">Give your real estate business a new dimension with our real estate app development services. Our team brings you a wide and innovative collection of services that will raise the interaction with customers of the real estate application development company. Achieve customer satisfaction, and let your business reach sky-high revenue with unique mobile solutions for multiple sectors including real estate. Collaborate with our top-notch real estate developers today.</p>
                         <div class="state_btns">
                            <a href="<?= $B ?>/contact.php" class="thm-btn abut-page__btn btn-red-bg">Get Your Free Quote</a>
-                           <a href="<?= $B ?>/contact.php" class="thm-btn abut-page__btn btn-white-bg">Get Your Free Quote</a>
+                           <a href="<?= $B ?>/contact.php" class="thm-btn abut-page__btn btn-white-bg">Book a Call</a>
                         </div>
                      </div>
                   </div>
                   
                   <div class="col-xl-5">
-                       <img class="img-fluid awards-img w-80" src="<?= $B ?>/assets/images/real-estate.webp" alt="softwareworld">
+                       <img class="img-fluid awards-img w-80" src="<?= $B ?>/assets/images/real-estate.webp" alt="Real Estate App Development by ArtisticWebServices">
                      <!--<div class="left_state">-->
                      <!--   <div class="state_img">-->
                      <!--      <img src="<?= $B ?>/assets/images/testimonial/testimonial-one-img-3.webp" alt="Award-Winning Mobile App Development Company New York">-->
@@ -76,7 +77,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   </div>
                   <div class="col-md-9">
                      <div class="companies_img">
-                        <img class="img-fluid awards-img" src="<?= $B ?>/assets/images/trusted_logos_desktop.webp" alt="softwareworld">
+                        <img class="img-fluid awards-img" src="<?= $B ?>/assets/images/trusted_logos_desktop.webp" alt="Startups and Fortune 500 companies that trust ArtisticWebServices">
                      </div>
                   </div>
                </div>
@@ -225,24 +226,24 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                <div class="row">
                   <div class="col-md-4">
                      <div class="business-model-box">
-                        <img src="<?= $B ?>/assets/images/realstate/real-box-1.webp" alt="real-box-1">
-                        <h2>On-Demand Retail Estate App</h2>
+                        <img src="<?= $B ?>/assets/images/realstate/real-box-1.webp" alt="On-Demand Real Estate App">
+                        <h3>On-Demand Retail Estate App</h3>
                         <p>Develop a real estate app that allows users to search, reserve and pay for their desired properties, and make their property journey seamless and convenient.</p>
                         <a href="<?= $B ?>/contact.php" class="thm-btn abut-page__btn btn-red-bg">Get Your Free Quote</a>
                      </div>
                   </div>
                   <div class="col-md-4">
                      <div class="business-model-box">
-                        <img src="<?= $B ?>/assets/images/realstate/real-box-2.webp" alt="real-box-2">
-                        <h2>Properties / Real Estate Brokers</h2>
+                        <img src="<?= $B ?>/assets/images/realstate/real-box-2.webp" alt="Properties and Real Estate Brokers App">
+                        <h3>Properties / Real Estate Brokers</h3>
                         <p>Create a dynamic real estate app marketplace that provides property listings, shows opening hours along with featuring menus, and organizes your staff in all in one user-friendly solution.</p>
                         <a href="<?= $B ?>/contact.php" class="thm-btn abut-page__btn btn-red-bg">Get Your Free Quote</a>
                      </div>
                   </div>
                   <div class="col-md-4">
                      <div class="business-model-box">
-                        <img src="<?= $B ?>/assets/images/realstate/real-box-3.webp" alt="real-box-3">
-                        <h2>Real Estate Aggregators</h2>
+                        <img src="<?= $B ?>/assets/images/realstate/real-box-3.webp" alt="Real Estate Aggregators App">
+                        <h3>Real Estate Aggregators</h3>
                         <p>To simplify property searches launch your very own real estate aggregation services and makes it effecient for the property comparisons and unlock special offers while making the home-hunting experience promising and rewarding.</p>
                         <a href="<?= $B ?>/contact.php" class="thm-btn abut-page__btn btn-red-bg">Get Your Free Quote</a>
                      </div>
@@ -255,7 +256,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                <div class="row">
                   <div class="col-md-12">
                      <div class="key-features-title">
-                        <h4 class="mt-4">We are the leading real estate app development company in the region</h4>
+                        <p class="mt-4 fw-semibold text-muted">We are the leading real estate app development company in the region</p>
                         <h2>Our Complete Suite of Real Estate App Development Services</h2>
                      </div>
                   </div>
@@ -263,45 +264,45 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                <div class="row">
                   <div class="col-md-4 mt-4">
                      <div class="business-model-box mb-4">
-                        <img src="<?= $B ?>/assets/images/realstate/Real%20Estate%20Agent.png" alt="about-us" class="img-fluid">
-                        <h2>Real Estate Management App</h2>
+                        <img src="<?= $B ?>/assets/images/realstate/Real%20Estate%20Agent.png" alt="Real Estate Agent Management" class="img-fluid">
+                        <h3>Real Estate Management App</h3>
                         <p>Transform your real estate operations with our property management app development solution.  This app solution for the real estate allows you to easily manage property listings, track transactions, and promote easy communication between the parties like buyers, sellers and agents for an efficient experience.</p>
                      </div>
                   </div> 
                   <div class="col-md-4 mt-4">
                      <div class="business-model-box mb-4">
-                       <img src="<?= $B ?>/assets/images/realstate/Real%20estate%20Marketing.png" alt="about-us" class="img-fluid">
-                        <h2>Enterprising via Real Estate App Development Solutions</h2>
+                       <img src="<?= $B ?>/assets/images/realstate/Real%20estate%20Marketing.png" alt="Real Estate Marketing Solutions" class="img-fluid">
+                        <h3>Enterprising via Real Estate App Development Solutions</h3>
                         <p>Our property apps are carefully built to meet the needs of large-scale real estate firms. With our efficient and smooth software development services, we help you reach your estimates goal that drive succes to your strategic business objectives.</p>
                      </div>
                   </div>
                   <div class="col-md-4 mt-4">
                      <div class="business-model-box mb-4">
-                        <img src="<?= $B ?>/assets/images/realstate/Real%20estate%20broker.png" alt="about-us" class="img-fluid">
-                        <h2>RealEstate Web App Development</h2>
+                        <img src="<?= $B ?>/assets/images/realstate/Real%20estate%20broker.png" alt="Real Estate Broker Web App Development" class="img-fluid">
+                        <h3>RealEstate Web App Development</h3>
                         <p>Our Real estate app developers create a dynamic yet responsive software solution either web or app, that perfectly acts as a showcase of your portfolio of the properties. Our Web3 real estate app solutions levels up user engagement and captivate potential clients while ensuring your listings stand out in a competitive market.</p>
                      </div>
                   </div>
                   <div class="col-md-4 mt-4">
                      <div class="business-model-box mb-4">
-                        <img src="<?= $B ?>/assets/images/realstate/Property%20Search.png" alt="about-us" class="img-fluid">
-                       
-                        <h2>Property Search Applications</h2>
+                        <img src="<?= $B ?>/assets/images/realstate/Property%20Search.png" alt="Property Search Application" class="img-fluid">
+
+                        <h3>Property Search Applications</h3>
                         <p>Our expert developers incorporate advanced functionalities and features such as enhanced search options, voice control, interactive maps, and more into the property management app, increasing user engagement and client loyalty.</p>
                      </div>
                   </div>
                   <div class="col-md-4 mt-4">
                      <div class="business-model-box mb-4">
-                         <img src="<?= $B ?>/assets/images/realstate/Property%20valuation.png" alt="about-us" class="img-fluid">
-                         
-                        <h2>Property Valuation  Application</h2>
+                         <img src="<?= $B ?>/assets/images/realstate/Property%20valuation.png" alt="Property Valuation Application" class="img-fluid">
+
+                        <h3>Property Valuation Application</h3>
                         <p>Let's encourage your users to accurately estimate their property's market value with the use of solution provided by real estate Android development company, ArtisticWebServices. Our app consist of list of useful features and functionalities like price details, location insights, property age, and more, providing a comprehensive valuation experience.</p>
                      </div>
                   </div>
                   <div class="col-md-4 mt-4">
                      <div class="business-model-box mb-4">
-                        <img src="<?= $B ?>/assets/images/realstate/Real%20Estate%20Agent.png" alt="about-us" class="img-fluid">
-                        <h2>Real Estate Management Apps</h2>
+                        <img src="<?= $B ?>/assets/images/realstate/Real%20Estate%20Agent.png" alt="Real Estate Management Apps" class="img-fluid">
+                        <h3>Real Estate Management Apps</h3>
                         <p>The process of finding your dream home has become simpler with real estate app for any platform, either iOS or Android, which enables users to look for and search a vast variety of listings.</p>
                      </div>
                   </div>
@@ -314,7 +315,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                <div class="row">
                   <div class="col-md-12">
                      <div class="premium-features-title">
-                        <h5>Want to Close More Deals and 10X Your Profit?</h5>
+                        <p class="fw-semibold text-muted">Want to Close More Deals and 10X Your Profit?</p>
                         <h2>Empower Your <span style="color: #d51524">Real Estate Business</span> with a Robust Tech Suite and Premium Features!</h2>
                      </div>
                   </div>
@@ -478,7 +479,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                   <!-- Slide 1 -->
                                   <div class="slide active">
                                     <div class="slide-image">
-                                       <img src="<?= $B ?>/assets/images/realstate/01-slider.webp" alt="real-box-3">
+                                       <img src="<?= $B ?>/assets/images/realstate/01-slider.webp" alt="Instant Realtor - Real Estate Case Study">
                                     </div>
                                     <div class="slide-content">
                                        <h3>Instant Realtor</h3>
@@ -504,7 +505,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                   </div>
                                   <div class="slide">
                                     <div class="slide-image">
-                                     <img src="<?= $B ?>/assets/images/realstate/02-slider.webp" alt="real-box-3">
+                                     <img src="<?= $B ?>/assets/images/realstate/02-slider.webp" alt="Roof Contractor - Real Estate Case Study">
                                     </div>
                                            <div class="slide-content">
                                       <h3>Roof Contractor</h3>
@@ -530,8 +531,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                   </div>
                                   <div class="slide">
                                     <div class="slide-image">
-                                      <img src="<?= $B ?>/assets/images/realstate/03-slider.webp" alt="real-box-3">
-                                     
+                                      <img src="<?= $B ?>/assets/images/realstate/03-slider.webp" alt="Rubberworx - Real Estate Case Study">
                                     </div>
                                           <div class="slide-content">
                                       <h3>Rubberworx</h3>
@@ -557,7 +557,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                   </div>
                                   <div class="slide">
                                     <div class="slide-image">
-                                       <img src="<?= $B ?>/assets/images/realstate/04-slider.webp" alt="real-box-3">
+                                       <img src="<?= $B ?>/assets/images/realstate/04-slider.webp" alt="Property and Apartment Swaps - Real Estate Case Study">
                                     </div>
                                     <div class="slide-content">
                                        <h3>Property & Apartment Swaps</h3>
@@ -585,23 +585,23 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                 </div>
                             
                                 <!-- Navigation controls -->
-                                <button class="prev-btn"></button>
-                                <button class="next-btn"></button>
+                                <button class="prev-btn" aria-label="Previous slide"></button>
+                                <button class="next-btn" aria-label="Next slide"></button>
                                 
                                 <!-- Icons under the slider -->
 <div class="slider-icons-wrapper">
   <div class="slider-icons" style="display: flex; scroll-behavior: smooth;">
     <span class="icon active" data-slide="0">
-      <img src="<?= $B ?>/assets/images/realstate/Instant-Realtor-logo.webp" alt="real-box-3">
+      <img src="<?= $B ?>/assets/images/realstate/Instant-Realtor-logo.webp" alt="Instant Realtor">
     </span>
     <span class="icon" data-slide="1">
-      <img src="<?= $B ?>/assets/images/realstate/Horizon%20Roofing-logo.webp" alt="real-box-3">
+      <img src="<?= $B ?>/assets/images/realstate/Horizon%20Roofing-logo.webp" alt="Horizon Roofing">
     </span>
     <span class="icon" data-slide="2">
-      <img src="<?= $B ?>/assets/images/realstate/Rubberwork-logo.webp" alt="real-box-3">
+      <img src="<?= $B ?>/assets/images/realstate/Rubberwork-logo.webp" alt="Rubberworx">
     </span>
     <span class="icon" data-slide="3">
-      <img src="<?= $B ?>/assets/images/realstate/HouseSigma.webp" alt="real-box-3">
+      <img src="<?= $B ?>/assets/images/realstate/HouseSigma.webp" alt="HouseSigma">
     </span>
   </div>
 </div>
@@ -638,54 +638,54 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                      <div class="col-md-4">
                          <div class="cutting-edge-box">
                             <div class="edge-box-icon">
-                                 <img src="<?= $B ?>/assets/images/realstate/Icon_01.webp" alt="real-box-3">
+                                 <img src="<?= $B ?>/assets/images/realstate/Icon_01.webp" alt="3D Visualization icon">
                             </div>
-                             <a href="#">3D Visualiztion <i class="fa-solid fa-arrow-right"></i></a>
+                             <a href="<?= $B ?>/contact.php">3D Visualization <i class="fa-solid fa-arrow-right"></i></a>
                              <p>Tap into our expertise to craft captivating virtual property tours, giving users the ability to explore every angle of your listings.</p>
                          </div>
                      </div>
                      <div class="col-md-4">
                          <div class="cutting-edge-box">
                             <div class="edge-box-icon">
-                                <img src="<?= $B ?>/assets/images/realstate/Icon_02.webp" alt="real-box-3">
+                                <img src="<?= $B ?>/assets/images/realstate/Icon_02.webp" alt="Internet of Things icon">
                             </div>
-                             <a href="#">Internet of Things (IOT) <i class="fa-solid fa-arrow-right"></i></a>
+                             <a href="<?= $B ?>/contact.php">Internet of Things (IoT) <i class="fa-solid fa-arrow-right"></i></a>
                              <p>We develop IoT-driven software solutions that empower property buyers to take full control of their smart home features.</p>
                          </div>
                      </div>
                      <div class="col-md-4">
                          <div class="cutting-edge-box">
                             <div class="edge-box-icon">
-                                 <img src="<?= $B ?>/assets/images/realstate/Icon_03.webp" alt="real-box-3">
+                                 <img src="<?= $B ?>/assets/images/realstate/Icon_03.webp" alt="AR/VR icon">
                             </div>
-                             <a href="#">AR/VR <i class="fa-solid fa-arrow-right"></i></a>
+                             <a href="<?= $B ?>/contact.php">AR/VR <i class="fa-solid fa-arrow-right"></i></a>
                              <p>Harness our AR/VR services to create stunning virtual property tours, providing users with an immersive viewing experience that feels like a live walkthrough!</p>
                          </div>
                      </div>
                      <div class="col-md-4">
                          <div class="cutting-edge-box">
                             <div class="edge-box-icon">
-                                 <img src="<?= $B ?>/assets/images/realstate/Icon_04.webp" alt="real-box-3">
+                                 <img src="<?= $B ?>/assets/images/realstate/Icon_04.webp" alt="Big Data Analytics icon">
                             </div>
-                             <a href="#">Big Data Analytics <i class="fa-solid fa-arrow-right"></i></a>
+                             <a href="<?= $B ?>/contact.php">Big Data Analytics <i class="fa-solid fa-arrow-right"></i></a>
                              <p>Tap into your rich data to provide a customized user experience while gaining insights into market trends and property values</p>
                          </div>
                      </div>
                      <div class="col-md-4">
                          <div class="cutting-edge-box">
                             <div class="edge-box-icon">
-                                 <img src="<?= $B ?>/assets/images/realstate/Icon_05.webp" alt="real-box-3">
+                                 <img src="<?= $B ?>/assets/images/realstate/Icon_05.webp" alt="AI/ML icon">
                             </div>
-                             <a href="#">AI/ML <i class="fa-solid fa-arrow-right"></i></a>
+                             <a href="<?= $B ?>/contact.php">AI/ML <i class="fa-solid fa-arrow-right"></i></a>
                              <p>Developing AI-powered chatbots streamlines customer inquiries, offers personalized property suggestions, and enhances the experience with virtual property tours</p>
                          </div>
                      </div>
                      <div class="col-md-4">
                          <div class="cutting-edge-box">
                             <div class="edge-box-icon">
-                                 <img src="<?= $B ?>/assets/images/realstate/Icon_06.webp" alt="real-box-3">
+                                 <img src="<?= $B ?>/assets/images/realstate/Icon_06.webp" alt="Blockchain icon">
                             </div>
-                             <a href="#">Blockchain <i class="fa-solid fa-arrow-right"></i></a>
+                             <a href="<?= $B ?>/contact.php">Blockchain <i class="fa-solid fa-arrow-right"></i></a>
                              <p>Smart contracts automate property verifications, transactions, and more, revolutionizing blockchain-powered applications like ArtisticWebServices real estate app development company!</p>
                          </div>
                      </div>
@@ -712,19 +712,19 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                             <div class="platform-imgs">
                                  <ul>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/bp-tech-img-1.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/bp-tech-img-1.webp" alt="Ethereum">
                                          <p>Ethereum</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/bp-tech-img-2.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/bp-tech-img-2.webp" alt="Multichain">
                                          <p>Multichain</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/bp-tech-img-3.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/bp-tech-img-3.webp" alt="Wax">
                                          <p>Wax</p>
                                      </li>
                                      <li>
-                                          <img src="<?= $B ?>/assets/images/realstate/bp-tech-img-4.webp" alt="real-box-3">
+                                          <img src="<?= $B ?>/assets/images/realstate/bp-tech-img-4.webp" alt="Cortana">
                                          <p>Cortana</p>
                                      </li>
                                  </ul>
@@ -739,19 +739,19 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                             <div class="platform-imgs">
                                  <ul>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/ff-tech-img-1.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/ff-tech-img-1.webp" alt="React">
                                          <p>React</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/ff-tech-img-2.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/ff-tech-img-2.webp" alt="Angular">
                                          <p>Angular</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/ff-tech-img-3.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/ff-tech-img-3.webp" alt="Vue.js">
                                          <p>Vue.js</p>
                                      </li>
                                      <li>
-                                          <img src="<?= $B ?>/assets/images/realstate/ff-tech-img-4.webp" alt="real-box-3">
+                                          <img src="<?= $B ?>/assets/images/realstate/ff-tech-img-4.webp" alt="VanillaJS">
                                          <p>VanillaJs</p>
                                      </li>
                                  </ul>
@@ -766,19 +766,19 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                             <div class="platform-imgs">
                                  <ul>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/pl-tech-img-1.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/pl-tech-img-1.webp" alt="Golang">
                                          <p>Golang</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/pl-tech-img-2.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/pl-tech-img-2.webp" alt="C++">
                                          <p>C++</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/pl-tech-img-3.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/pl-tech-img-3.webp" alt="Python">
                                          <p>Python</p>
                                      </li>
                                      <li>
-                                          <img src="<?= $B ?>/assets/images/realstate/pl-tech-img-4.webp" alt="real-box-3">
+                                          <img src="<?= $B ?>/assets/images/realstate/pl-tech-img-4.webp" alt="PHP">
                                          <p>Php</p>
                                      </li>
                                  </ul>
@@ -793,19 +793,19 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                             <div class="platform-imgs">
                                  <ul>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/ns-tech-img-1.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/ns-tech-img-1.webp" alt="Ethereum">
                                          <p>Ethereum</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/ns-tech-img-2.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/ns-tech-img-2.webp" alt="dGoods">
                                          <p>dGoods</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/ns-tech-img-3.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/ns-tech-img-3.webp" alt="TRC-721">
                                          <p>TRC-721</p>
                                      </li>
                                      <li>
-                                          <img src="<?= $B ?>/assets/images/realstate/ns-tech-img-4.webp" alt="real-box-3">
+                                          <img src="<?= $B ?>/assets/images/realstate/ns-tech-img-4.webp" alt="BEP-20">
                                          <p>BEP-20</p>
                                      </li>
                                  </ul>
@@ -820,19 +820,19 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                             <div class="platform-imgs">
                                  <ul>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/cp-tech-img-1.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/cp-tech-img-1.webp" alt="AWS">
                                          <p>AWS</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/cp-tech-img-2.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/cp-tech-img-2.webp" alt="IBM Bluemix">
                                          <p>IBM Bluemix</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/cp-tech-img-3.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/cp-tech-img-3.webp" alt="ETH BAAS">
                                          <p>ETH BAAS</p>
                                      </li>
                                      <li>
-                                          <img src="<?= $B ?>/assets/images/realstate/cp-tech-img-4.webp" alt="real-box-3">
+                                          <img src="<?= $B ?>/assets/images/realstate/cp-tech-img-4.webp" alt="Kaleido Insights">
                                          <p>Kaleido Insights</p>
                                      </li>
                                  </ul>
@@ -847,19 +847,19 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                             <div class="platform-imgs">
                                  <ul>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/sp-tech-img-1.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/sp-tech-img-1.webp" alt="IPFS">
                                          <p>IPFS</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/sp-tech-img-2.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/sp-tech-img-2.webp" alt="Filecoin">
                                          <p>Filecoin</p>
                                      </li>
                                      <li>
-                                         <img src="<?= $B ?>/assets/images/realstate/sp-tech-img-3.webp" alt="real-box-3">
+                                         <img src="<?= $B ?>/assets/images/realstate/sp-tech-img-3.webp" alt="MongoDB">
                                          <p>MongoDB</p>
                                      </li>
                                      <li>
-                                          <img src="<?= $B ?>/assets/images/realstate/sp-tech-img-4.webp" alt="real-box-3">
+                                          <img src="<?= $B ?>/assets/images/realstate/sp-tech-img-4.webp" alt="CouchDB">
                                          <p>CouchDB</p>
                                      </li>
                                  </ul>
@@ -886,7 +886,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                  <div class="main-chose">
                                      <div class="chose-leftt">
                                          <div class="leftt-ico">
-                                             <span><img src="<?= $B ?>/assets/images/realstate/yello-01.webp" alt="real-box-3"></span>
+                                             <span><img src="<?= $B ?>/assets/images/realstate/yello-01.webp" alt="Scalable and Robust Solution icon"></span>
                                          </div>
                                          <div class="leftt-text">
                                              <h4>Scalable & Robust Solution</h4>
@@ -901,7 +901,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                  <div class="main-chose">
                                      <div class="chose-leftt">
                                          <div class="leftt-ico">
-                                             <span><img src="<?= $B ?>/assets/images/realstate/yello-02.webp" alt="real-box-3"></span>
+                                             <span><img src="<?= $B ?>/assets/images/realstate/yello-02.webp" alt="Source Code IP rights icon"></span>
                                          </div>
                                          <div class="leftt-text">
                                              <h4>Source Code IP rights</h4>
@@ -916,7 +916,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                  <div class="main-chose">
                                      <div class="chose-leftt">
                                          <div class="leftt-ico">
-                                             <span><img src="<?= $B ?>/assets/images/realstate/yellow-03.webp" alt="real-box-3"></span>
+                                             <span><img src="<?= $B ?>/assets/images/realstate/yellow-03.webp" alt="24/7 Dedicated Support icon"></span>
                                          </div>
                                          <div class="leftt-text">
                                             <h4>24/7 Dedicated Support</h4>
@@ -932,7 +932,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                  <div class="main-chose">
                                      <div class="chose-leftt">
                                          <div class="leftt-ico">
-                                              <span><img src="<?= $B ?>/assets/images/realstate/yello-04.webp" alt="real-box-3"></span>
+                                              <span><img src="<?= $B ?>/assets/images/realstate/yello-04.webp" alt="Get Started icon"></span>
                                          </div>
                                          <div class="leftt-text">
                                              <h4>Get Started In No Time</h4>
@@ -970,7 +970,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                      </div>
                      <div class="col-md-5">
                          <div class="planing-img">
-                             <img src="<?= $B ?>/assets/images/realstate/man-with-phone.webp" alt="real-box-3">
+                             <img src="<?= $B ?>/assets/images/realstate/man-with-phone.webp" alt="Real estate professional on phone">
                             <div class="planing-boxs">
                              <ul>
                                  <li>100% NDA-protected contract</li>
@@ -1005,7 +1005,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
          <!--    </div>-->
          <!--</section>-->
          
-        <div class="faqs-section py-5">
+        <section class="faqs-section py-5">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
@@ -1014,7 +1014,8 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   </div>
                </div>
             </div>
-            <div class="col-md-12 mt-4">
+            <div class="row mt-4">
+            <div class="col-md-12">
                <div class="accordion" id="accordionExample">
                   <div class="accordion-item">
                      <h2 class="accordion-header" id="headingOne">
@@ -1043,7 +1044,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="accordion-item">
                      <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                           data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                           data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                            <div class="row w-100">
                               <div class="col-1">02</div>
                               <div class="col-11">How long does it take to develop a real estate mobile app?
@@ -1067,7 +1068,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="accordion-item">
                      <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                           data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                           data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                            <div class="row w-100">
                               <div class="col-1">03</div>
                               <div class="col-11">What platforms should I target for my real estate app?
@@ -1075,7 +1076,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                            </div>
                         </button>
                      </h2>
-                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                            <div class="row">
@@ -1091,7 +1092,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="accordion-item">
                      <h2 class="accordion-header" id="headingFour">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                           data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                           data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                            <div class="row w-100">
                               <div class="col-1">04</div>
                               <div class="col-11">How much does it cost to develop a real estate mobile app?
@@ -1099,7 +1100,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                            </div>
                         </button>
                      </h2>
-                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                            <div class="row">
@@ -1115,7 +1116,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="accordion-item">
                      <h2 class="accordion-header" id="headingFive">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                           data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                           data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                            <div class="row w-100">
                               <div class="col-1">05</div>
                               <div class="col-11">Can I integrate third-party services into my real estate app?
@@ -1123,7 +1124,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                            </div>
                         </button>
                      </h2>
-                     <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                     <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                            <div class="row">
@@ -1139,7 +1140,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="accordion-item">
                      <h2 class="accordion-header" id="headingSix">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                           data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                           data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                            <div class="row w-100">
                               <div class="col-1">06</div>
                               <div class="col-11">How do I ensure my app is user-friendly?
@@ -1147,7 +1148,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                            </div>
                         </button>
                      </h2>
-                     <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                     <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                            <div class="row">
@@ -1163,7 +1164,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="accordion-item">
                      <h2 class="accordion-header" id="headingSeven">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                           data-bs-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                           data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                            <div class="row w-100">
                               <div class="col-1">07</div>
                               <div class="col-11">What kind of maintenance does a real estate app require?
@@ -1171,7 +1172,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                            </div>
                         </button>
                      </h2>
-                     <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                     <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                            <div class="row">
@@ -1186,16 +1187,17 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   </div>
                </div>
             </div>
-         </div>
-      </div>
-      
+            </div><!-- /.row.mt-4 -->
+         </div><!-- /.container -->
+      </section><!-- /.faqs-section -->
+
       <section class="welcome-three">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="welcome-three__left">
                            <div class="get__content">
-                               <h4>Collaborate with   </h4>
+                               <p class="fw-semibold text-muted mb-1">Collaborate with</p>
                                <h2>
                                    Our Team
                                </h2>
@@ -1204,10 +1206,10 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                    Foster Innovation with Integration
                                </strong>
                                <p>Team Up With Our Expert Real-Estate Mobile App Developers to Launch, and Grow Your Business Globally.</p>
-                               <h3>Contact Info:</h3>
+                               <p class="fw-bold mt-3">Contact Info:</p>
                                <ul>
-                                   <li><a href="mailto:info@artisticwebservices.com"> <img src="<?= $B ?>/assets/images/fitness/email.svg" > info@artisticwebservices.com</a></li>
-                                   <li> <a href="tel:+12137147176" class="nav-number nav-number-1"><img src="<?= $B ?>/assets/images/fitness/USA-Flag.svg" > (213) 714-7176</a></li>
+                                   <li><a href="mailto:info@artisticwebservices.com"><img src="<?= $B ?>/assets/images/fitness/email.svg" alt="Email"> info@artisticwebservices.com</a></li>
+                                   <li><a href="tel:+12137147176" class="nav-number nav-number-1"><img src="<?= $B ?>/assets/images/fitness/USA-Flag.svg" alt="USA"> (213) 714-7176</a></li>
                                </ul>
                                
                               
@@ -1216,7 +1218,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-xl-6">
                         <div class="welcome-three__right welcome-three__right-zero">
-                            <?php include __DIR__ . '/../includes/form-quote.php'; ?><script>
+                            <?php require_once __DIR__ . '/../includes/form-quote.php'; ?><script>
          var $st = $('.pagination');
          var $slickEl = $('.center');
          

@@ -4,7 +4,16 @@ $page_title = 'IT Consulting Services USA | Digital Strategy & Tech Advisory —
 $page_description = 'Strategic IT consulting from ArtisticWebServices. Technology roadmap, digital transformation, architecture review, and CTO-as-a-service for USA businesses.';
 $page_keywords = 'IT consulting company USA, technology consulting New York, digital transformation consulting, CTO as a service, software architecture consulting';
 $page_canonical = 'https://artisticwebservices.com/services/consulting-services';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'IT Consulting Services', 'url' => 'https://artisticwebservices.com/services/consulting-services']];
+$page_service_schema = ['name' => 'IT Consulting Services', 'description' => 'Strategic technology consulting including digital transformation roadmaps, architecture reviews, and CTO-as-a-Service for USA businesses.'];
+$page_faq = [
+    ['q' => 'What IT consulting services does ArtisticWebServices provide?', 'a' => 'We offer technology strategy consulting, digital transformation roadmapping, software architecture review, cloud migration planning, CTO-as-a-Service for startups and scale-ups, vendor selection advisory, and technical due diligence for M&A. Our consultants have deep expertise across web, mobile, cloud, AI/ML, and enterprise software.'],
+    ['q' => 'How is CTO-as-a-Service different from hiring a full-time CTO?', 'a' => 'CTO-as-a-Service gives you senior technical leadership at a fraction of the cost of a full-time executive hire. ArtisticWebServices provides a dedicated fractional CTO who attends leadership meetings, owns technology strategy, manages your dev team, and makes architecture decisions — typically 10–40 hours per month based on your needs.'],
+    ['q' => 'How long does a digital transformation engagement typically take?', 'a' => 'Digital transformation is not a single project but a phased journey. Our initial discovery and roadmap engagement is typically 4–8 weeks and produces a prioritized 12–24 month technology roadmap. Implementation phases are then executed iteratively. Most organizations see measurable ROI within 6 months of beginning execution.'],
+    ['q' => 'Do you work with startups as well as established enterprises?', 'a' => 'Yes. We work with pre-seed startups needing technical co-founder support and MVP architecture, Series A/B companies scaling their engineering org, and established mid-market enterprises modernizing legacy systems. Our consulting approach and pricing models adapt to the stage and size of each client.'],
+    ['q' => 'Can you help us choose between build vs. buy for new software?', 'a' => 'Absolutely. Our build-vs-buy analysis evaluates total cost of ownership, vendor risk, customization requirements, integration complexity, and long-term scalability. We provide an objective recommendation with supporting data — not influenced by any software vendor partnerships.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -77,7 +86,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

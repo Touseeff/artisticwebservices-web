@@ -4,11 +4,59 @@ $page_title = 'Our Software Development Process | Agile 6-Step Methodology — A
 $page_description = 'Discover ArtisticWebServices agile software development process. From discovery and design to development, QA, and deployment — transparent 6-step SDLC for on-time delivery.';
 $page_keywords = 'software development process USA, agile development methodology, SDLC process, app development process, iterative software development, agile sprint process USA';
 $page_canonical = 'https://artisticwebservices.com/solutions/process';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'About', 'url' => 'https://artisticwebservices.com/about-us.php'], ['name' => 'Our Process', 'url' => 'https://artisticwebservices.com/solutions/process.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'About', 'url' => 'https://artisticwebservices.com/about-us'], ['name' => 'Our Process', 'url' => 'https://artisticwebservices.com/solutions/process']];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Software Development Process — ArtisticWebServices 6-Step Agile Methodology",
+  "description": "ArtisticWebServices follows a proven 6-step agile software development process — from initial discovery and IP protection through design, development, QA, and post-launch support.",
+  "totalTime": "P3M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "IP Protection & NDA",
+      "text": "Every project begins with a Non-Disclosure Agreement (NDA) to protect your intellectual property and sensitive business information before any discussions begin."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Consultation & Project Discovery",
+      "text": "We conduct in-depth discovery sessions to understand your business goals, target audience, technical requirements, and project scope."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Rapid Strategy Workshop",
+      "text": "Our architects identify the optimal technical approach, review commercial and technical risks, and produce a Level of Effort (LOE) document for your approval."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "UI/UX Design",
+      "text": "Our UI/UX engineers create wireframes, prototypes, and pixel-perfect designs ensuring every screen, transition, and interaction meets the highest usability standards."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Agile Development",
+      "text": "Development runs in two-week sprints, delivering incremental builds at each milestone so you can review progress and provide feedback throughout the project."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Testing, QA & Launch",
+      "text": "Incremental quality assurance and automated testing are performed throughout development. After final UAT approval, we deploy to production and provide ongoing maintenance packages."
+    }
+  ]
+}
+</script>
 
 <body>
 <div class="page-wrapper" onmousedown="return false;" onselectstart="return false;">

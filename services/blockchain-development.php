@@ -3,14 +3,14 @@ require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Blockchain Development Company USA | Smart Contracts & DApps — ArtisticWebServices';
 $page_description = 'Leading blockchain development company in the USA. We build smart contracts, DeFi platforms, NFT marketplaces, and enterprise blockchain solutions on Ethereum & more.';
 $page_keywords = 'blockchain development company USA, smart contract development, DeFi development, NFT marketplace development, enterprise blockchain solutions';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'Blockchain Development', 'url' => 'https://artisticwebservices.com/services/blockchain-development.php']];
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Blockchain Development', 'url' => 'https://artisticwebservices.com/services/blockchain-development']];
 $page_service_schema = ['name' => 'Blockchain Development', 'description' => 'Smart contracts, DeFi platforms, NFT marketplaces, and enterprise blockchain solutions on Ethereum and other chains.'];
 $page_faq = [
     ['q' => 'What blockchain platforms does ArtisticWebServices develop on?', 'a' => 'We develop on Ethereum, Solana, Binance Smart Chain, Polygon, and Hyperledger for enterprise use cases. We build smart contracts, DApps, DeFi platforms, and NFT marketplaces.'],
     ['q' => 'How much does blockchain development cost?', 'a' => 'Blockchain development costs range from $15,000 for simple smart contracts to $200,000+ for full DeFi or NFT marketplace platforms. Contact us for a free quote.']
 ];
 $page_canonical = 'https://artisticwebservices.com/services/blockchain-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -83,7 +83,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

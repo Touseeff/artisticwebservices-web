@@ -3,14 +3,15 @@ require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Fitness App Development Company USA | Health &amp; Wellness Apps — ArtisticWebServices';
 $page_description = 'Build feature-rich fitness and wellness apps with ArtisticWebServices. Workout trackers, diet planners, personal training apps, and wearable integrations for USA market.';
 $page_keywords = 'fitness app development USA, workout app development, health tracking app, wellness app development company, personal trainer app';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'Fitness App Development', 'url' => 'https://artisticwebservices.com/services/fitness-mobile-app-development.php']];
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Fitness App Development', 'url' => 'https://artisticwebservices.com/services/fitness-mobile-app-development']];
 $page_service_schema = ['name' => 'Fitness App Development', 'description' => 'Feature-rich fitness and wellness apps with workout tracking, nutrition planning, and wearable integration for USA market.'];
 $page_faq = [
     ['q' => 'What features can be included in a fitness app?', 'a' => 'Our fitness apps can include workout tracking, meal planner, calorie counter, wearable integration (Apple Watch, Fitbit), live streaming workouts, personal trainer dashboard, in-app purchases, and social challenges.'],
     ['q' => 'Can you integrate wearable devices into a fitness app?', 'a' => 'Yes. ArtisticWebServices integrates Apple HealthKit, Google Fit, Fitbit, Garmin, and other wearable APIs into fitness and wellness mobile apps.']
 ];
 $page_canonical = 'https://artisticwebservices.com/services/fitness-mobile-app-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$load_slick = true; // Sprint 2: load Slick only on pages that need it
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -1738,7 +1739,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                   <div class="welcome-three__right welcome-three__right-zero">
                      <div class="row">
-                        <?php include __DIR__ . '/../includes/form-quote.php'; ?><script>
+                        <?php require_once __DIR__ . '/../includes/form-quote.php'; ?><script>
                            $(document).ready(function () {
                            var $st = $('.pagination');
                            var $slickEl = $('.center');

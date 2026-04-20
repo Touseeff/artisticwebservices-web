@@ -15,6 +15,10 @@ AddDefaultCharset UTF-8
     AddOutputFilterByType DEFLATE application/json application/xml
     AddOutputFilterByType DEFLATE image/svg+xml
     AddOutputFilterByType DEFLATE font/woff font/woff2 application/x-font-woff
+    AddOutputFilterByType DEFLATE application/manifest+json
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE text/cache-manifest
 </IfModule>
 
 # ─── Browser Caching ────────────────────────────────
@@ -49,7 +53,18 @@ AddDefaultCharset UTF-8
     <FilesMatch "\.(webp|png|jpg|jpeg|gif|svg|ico|woff|woff2|css|js)$">
         Header set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
+
+    # Disable ETags (prevents cache invalidation issues on shared hosting)
+    Header unset ETag
+
+    # Prevent indexing of form handlers and admin pages
+    <FilesMatch "^(contact-form|submit-calculator|thank-you|mailer-admin-aws7749)\.php$">
+        Header set X-Robots-Tag "noindex, nofollow"
+    </FilesMatch>
 </IfModule>
+
+# ─── ETag ────────────────────────────────────────────
+FileETag None
 
 # ─── Rewrite Rules ──────────────────────────────────
 <IfModule mod_rewrite.c>
@@ -90,7 +105,7 @@ AddDefaultCharset UTF-8
     DirectoryIndex index.php index.html
 
     # Block access to sensitive files and directories
-    RewriteRule ^(includes|prompt|vendor)/.*$ - [F,L]
+    RewriteRule ^(includes|prompt|vendor|logs)/.*$ - [F,L]
     RewriteRule ^convert_to_php\.py$ - [F,L]
     RewriteRule ^cleanup_tracking\.py$ - [F,L]
     RewriteRule ^generate_sitemap\.py$ - [F,L]
@@ -99,6 +114,6 @@ AddDefaultCharset UTF-8
 </IfModule>
 
 # ─── Custom Error Pages ──────────────────────────────
-ErrorDocument 404 /index.php
-ErrorDocument 403 /index.php
-ErrorDocument 500 /index.php
+ErrorDocument 404 /404.php
+ErrorDocument 403 /404.php
+ErrorDocument 500 /404.php

@@ -9,5 +9,20 @@
 .DS_Store
 Thumbs.db
 
-# Local dev email logs
+# Environment — contains real credentials, NEVER commit
+.env
+
+# Logs (may contain PII / email content)
+logs/mail-dev.log
+logs/mail-failed.log
+logs/rate-limit/
+
+# Keep .htaccess files that protect the logs directory
+!logs/.htaccess
+!logs/rate-limit/.htaccess
+
+# Local dev email logs (legacy entry kept for compatibility)
 logs/
+
+# Composer vendor directory
+vendor/

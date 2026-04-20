@@ -3,14 +3,14 @@ require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Digital Marketing Services USA | SEO, PPC & Social Media — ArtisticWebServices';
 $page_description = "Grow your business with ArtisticWebServices' data-driven digital marketing services. SEO, PPC, social media marketing, and content strategy for USA companies.";
 $page_keywords = 'digital marketing company USA, SEO services New York, PPC management USA, social media marketing company, digital marketing agency';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'Digital Marketing', 'url' => 'https://artisticwebservices.com/services/digital-marketing.php']];
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Digital Marketing', 'url' => 'https://artisticwebservices.com/services/digital-marketing']];
 $page_service_schema = ['name' => 'Digital Marketing Services', 'description' => 'Data-driven SEO, PPC, social media marketing, and content strategy for USA businesses.'];
 $page_faq = [
     ['q' => 'What digital marketing services does ArtisticWebServices offer?', 'a' => 'We offer SEO, PPC advertising (Google Ads, Meta Ads), social media marketing, content marketing, email marketing, app store optimization (ASO), and conversion rate optimization (CRO).'],
     ['q' => 'How long does SEO take to show results?', 'a' => 'SEO typically takes 3–6 months to show measurable results. Technical SEO improvements can be seen within weeks, while content-driven rankings take longer to build authority.']
 ];
 $page_canonical = 'https://artisticwebservices.com/services/digital-marketing';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>

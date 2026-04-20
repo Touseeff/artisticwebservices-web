@@ -3,14 +3,14 @@ require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Cloud Managed Services USA | AWS, Azure & GCP Solutions — ArtisticWebServices';
 $page_description = 'Expert cloud managed services from ArtisticWebServices. AWS, Microsoft Azure, and Google Cloud migration, management, and optimization for USA businesses.';
 $page_keywords = 'cloud managed services USA, AWS cloud services, Azure managed services, cloud migration company New York, cloud consulting USA';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'Cloud Managed Services', 'url' => 'https://artisticwebservices.com/services/cloud-managed-services.php']];
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Cloud Managed Services', 'url' => 'https://artisticwebservices.com/services/cloud-managed-services']];
 $page_service_schema = ['name' => 'Cloud Managed Services', 'description' => 'AWS, Azure, and Google Cloud migration, management, and optimization for USA businesses.'];
 $page_faq = [
     ['q' => 'Which cloud platforms does ArtisticWebServices manage?', 'a' => 'We manage AWS (Amazon Web Services), Microsoft Azure, and Google Cloud Platform (GCP). Services include migration, infrastructure management, cost optimization, security monitoring, and 24/7 support.'],
     ['q' => 'Can ArtisticWebServices migrate my on-premise system to cloud?', 'a' => 'Yes. We handle full cloud migration projects including lift-and-shift, re-platforming, and re-architecting from on-premise to AWS, Azure, or GCP with minimal downtime.']
 ];
 $page_canonical = 'https://artisticwebservices.com/services/cloud-managed-services';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>

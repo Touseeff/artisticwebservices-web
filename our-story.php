@@ -4,7 +4,7 @@ $page_title = 'Our Story | ArtisticWebServices — Founded in New York, Built fo
 $page_description = 'Discover the story behind ArtisticWebServices — how we grew from a startup in New York to a global software development company trusted by enterprises worldwide.';
 $page_keywords = 'ArtisticWebServices story, software company history New York, tech company founding story USA';
 $page_canonical = 'https://artisticwebservices.com/our-story';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>

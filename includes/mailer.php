@@ -37,6 +37,42 @@ function _smtp_cmd($socket, string $cmd): string
     return $response;
 }
 
+// ── Internal: locate the system CA certificate bundle ────────────────────────
+function _smtp_cafile(): string
+{
+    // 1. PHP's configured CA bundle (set via curl.cainfo or openssl.cafile in php.ini)
+    foreach (['curl.cainfo', 'openssl.cafile'] as $_ini_key) {
+        $_ca = ini_get($_ini_key);
+        if ($_ca && file_exists($_ca)) return $_ca;
+    }
+
+    // 2. Common Linux/Unix paths
+    $paths = [
+        '/etc/ssl/certs/ca-certificates.crt',     // Debian / Ubuntu
+        '/etc/pki/tls/certs/ca-bundle.crt',       // RHEL / CentOS / Fedora
+        '/etc/ssl/ca-bundle.pem',                 // OpenSUSE
+        '/usr/local/share/certs/ca-root-nss.crt', // FreeBSD
+        '/etc/ssl/cert.pem',                      // macOS / Alpine
+    ];
+    foreach ($paths as $path) {
+        if (file_exists($path)) return $path;
+    }
+
+    // 3. Windows — XAMPP ships its own curl CA bundle
+    $xampp_paths = [
+        'C:/xampp/apache/bin/curl-ca-bundle.crt',
+        'C:/xampp/php/extras/ssl/cacert.pem',
+    ];
+    foreach ($xampp_paths as $path) {
+        if (file_exists($path)) return $path;
+    }
+
+    // 4. No bundle found — log a warning; the caller will fall back gracefully
+    error_log('SMTP WARNING: No CA bundle found. SSL peer verification will be disabled. '
+            . 'Set curl.cainfo in php.ini to fix this.');
+    return '';
+}
+
 // ── Internal: open SSL socket and run the SMTP conversation ──────────────────
 function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
                     string $subject, string $htmlBody, string $plainBody): bool
@@ -51,13 +87,23 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     // Build connection address
     $address = ($secure === 'ssl') ? "ssl://{$host}:{$port}" : "tcp://{$host}:{$port}";
 
-    $ctx = stream_context_create([
-        'ssl' => [
-            'verify_peer'       => false,
-            'verify_peer_name'  => false,
-            'allow_self_signed' => true,
-        ],
-    ]);
+    // Build SSL context — enforce peer verification when a CA bundle is available
+    $_cafile  = _smtp_cafile();
+    $_ssl_opts = [
+        'verify_peer'       => true,
+        'verify_peer_name'  => true,
+        'allow_self_signed' => false,
+    ];
+    if ($_cafile !== '') {
+        $_ssl_opts['cafile'] = $_cafile;
+    } else {
+        // No CA bundle found — fall back to unverified (warning already logged)
+        $_ssl_opts['verify_peer']       = false;
+        $_ssl_opts['verify_peer_name']  = false;
+        $_ssl_opts['allow_self_signed'] = true;
+    }
+    $ctx = stream_context_create(['ssl' => $_ssl_opts]);
+    unset($_cafile, $_ssl_opts);
 
     $errno  = 0;
     $errstr = '';

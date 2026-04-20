@@ -4,9 +4,9 @@ $page_title = 'Energy Sector App Development USA | IoT & Digital Automation Solu
 $page_description = 'ArtisticWebServices delivers smart energy sector digital solutions with IoT integration, device automation, and real-time monitoring apps for USA energy companies.';
 $page_keywords = 'energy sector app development USA, IoT energy management software, digital energy solutions, smart grid app development, energy automation software, oil gas digital solutions';
 $page_canonical = 'https://artisticwebservices.com/solutions/energy-sector-digital';
-$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries.php'], ['name' => 'Energy Sector', 'url' => 'https://artisticwebservices.com/solutions/energy-sector-digital.php']];
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'Energy Sector', 'url' => 'https://artisticwebservices.com/solutions/energy-sector-digital']];
 $page_service_schema = ['name' => 'Energy Sector Digital Solutions', 'description' => 'IoT-integrated mobile applications and digital automation for the energy sector in USA.'];
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -350,7 +350,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                      style="visibility: visible; animation-duration: 2500ms; animation-delay: 100ms; animation-name: slideInRight;">
                      <div class="welcome-three__right ">
                         <div class="row">
-                           <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                           <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

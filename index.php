@@ -1,6 +1,6 @@
 <?php
 require_once 'includes/config.php';
-$page_title       = 'ArtisticWebServices: Custom Award Winning Software Development Company USA';
+$page_title       = 'Award-Winning Software Development Company USA | AWS';
 $page_keywords    = 'software development company USA, mobile app development company New York, custom software development, enterprise software development, web development company USA, app development agency New York, hire software developers USA, custom mobile app development, iOS Android app development company, software outsourcing company USA, digital transformation company, full stack development company, award winning app development company, startup software development company, best software development company USA';
 $page_description = 'ArtisticWebServices is an award-winning custom software development company in New York, USA. We build high-performance mobile apps, web platforms, AI solutions, and enterprise software for startups and Fortune 500 companies. 460+ projects delivered.';
 $page_breadcrumbs = [];
@@ -13,7 +13,7 @@ $page_faq = [
     ['q' => 'Where is ArtisticWebServices located?', 'a' => 'Our headquarters is at 26 Broadway, Suite 934, New York, NY 10004, USA. We serve clients across the USA, UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, and Pakistan.']
 ];
 $page_canonical   = SITE_URL . '/';
-$page_og_image    = SITE_URL . '/assets/images/resources/artisticwebservice w.png';
+$page_og_image    = SITE_URL . '/assets/images/resources/artisticwebservices-og.png';
 require_once 'includes/head.php';
 ?>
    <style>
@@ -489,9 +489,27 @@ require_once 'includes/head.php';
 
       <div id="carouselExampleDark" class="carousel carousel-dark home__page">
          <!-- Single shared video plays behind every slide -->
-         <video class="hero-video-bg" autoplay muted loop playsinline>
+         <!-- Sprint 2: id added for prefers-reduced-motion JS; aria-hidden prevents screen-reader noise -->
+         <video class="hero-video-bg" id="hero-bg-video" autoplay muted loop playsinline aria-hidden="true">
             <source src="<?= $B ?>/assets/images/vecteezy_united-states-flag-waving-gently-against-a-bright-blue-sky_71755534.mp4" type="video/mp4">
          </video>
+         <!-- Sprint 2 Task 6: prefers-reduced-motion guard
+              Users who have requested reduced motion in their OS settings
+              should not be subjected to an auto-playing looping video.
+              This script runs immediately (IIFE) so the pause happens
+              before the first frame is decoded, avoiding any flash of motion. -->
+         <script>
+         (function () {
+            'use strict';
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+               var v = document.getElementById('hero-bg-video');
+               if (v) {
+                  v.pause();
+                  v.removeAttribute('autoplay');
+               }
+            }
+         })();
+         </script>
          <div class="carousel-overlay"></div>
 
          <div class="carousel-inner" onmousedown='return false;' onselectstart='return false;'>

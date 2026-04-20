@@ -4,7 +4,17 @@ $page_title = 'Travel App Development Company USA | Booking & Tourism Apps — A
 $page_description = 'Launch your travel app with ArtisticWebServices. Hotel booking, flight search, tour management, and travel marketplace development for USA travel companies.';
 $page_keywords = 'travel app development USA, hotel booking app development, flight booking app, tourism app development company, travel software USA';
 $page_canonical = 'https://artisticwebservices.com/solutions/travel-app-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'Travel App Development', 'url' => 'https://artisticwebservices.com/solutions/travel-app-development']];
+$page_service_schema = ['name' => 'Travel App Development', 'description' => 'Hotel booking, flight search, tour management, and travel marketplace app development for USA travel and tourism companies.'];
+$page_faq = [
+    ['q' => 'What types of travel apps does ArtisticWebServices develop?', 'a' => 'We develop hotel and vacation rental booking platforms, flight and multi-modal travel search engines, tour and activity marketplace apps, travel itinerary planners, corporate travel management systems, travel loyalty and rewards programs, tour operator management software, and airport/transportation companion apps — for both B2C consumer products and B2B travel trade platforms.'],
+    ['q' => 'Which GDS and travel APIs do you integrate with?', 'a' => 'We integrate with Amadeus, Sabre, Travelport (Galileo/Worldspan), Expedia Partner Solutions, Booking.com affiliate APIs, Airbnb APIs, Viator (GetYourGuide) for tours and activities, Stripe and Braintree for payments, and Google Hotels / Google Flights APIs for search. We also build custom direct-connect integrations with hotel property management systems.'],
+    ['q' => 'How do you handle multi-currency and international payments in travel apps?', 'a' => 'We implement Stripe or Adyen as the payment gateway with automatic multi-currency support, dynamic currency conversion at checkout, local payment methods by region (SEPA, PayNow, GrabPay), fraud detection rules optimized for travel\'s high-ticket transactions, and PCI-DSS compliant card storage using tokenization.'],
+    ['q' => 'How long does it take to build a travel booking app?', 'a' => 'A focused travel app (e.g., hotel booking only with Amadeus integration) takes 3–5 months for an MVP. A full OTA (online travel agency) platform with flights, hotels, activities, and package deals takes 9–18 months. We recommend launching with a focused MVP on one travel vertical first, then expanding based on real user traction.'],
+    ['q' => 'Can you build apps that work offline for travelers?', 'a' => 'Yes. We implement offline-first architectures using service workers, IndexedDB, and smart data sync strategies so travelers can access their bookings, itineraries, maps, and check-in documents without an internet connection. When connectivity is restored, changes sync automatically.']
+];
+$load_slick = true; // Sprint 2: load Slick only on pages that need it
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -1221,7 +1231,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                      <div class="col-xl-6">
                         <div class="welcome-three__right welcome-three__right-zero">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?><script>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?><script>
          var $st = $('.pagination');
          var $slickEl = $('.center');
          

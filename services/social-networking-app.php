@@ -4,7 +4,7 @@ $page_title = 'Social Networking App Development USA | Community Platforms — A
 $page_description = 'Build the next big social network with ArtisticWebServices. Custom social apps, community platforms, dating apps, and professional networking tools for USA startups.';
 $page_keywords = 'social networking app development USA, social media app development company, community platform development, dating app development, social app USA';
 $page_canonical = 'https://artisticwebservices.com/services/social-networking-app';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -203,7 +203,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         style="visibility: visible; animation-duration: 2500ms; animation-delay: 100ms; animation-name: slideInRight;">
                         <div class="welcome-three__right ">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

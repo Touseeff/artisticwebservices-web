@@ -3,7 +3,7 @@ require_once __DIR__ . '/../includes/config.php';
 $page_title = 'On-Demand App Development USA | Uber-Like Apps — ArtisticWebServices';
 $page_description = 'Build powerful on-demand service apps with ArtisticWebServices. Uber-like, DoorDash-like, and TaskRabbit-like on-demand platforms for USA startups and businesses.';
 $page_keywords = 'on-demand app development USA, on-demand delivery app, ride-sharing app development, service marketplace app, on-demand platform development';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'On-Demand App Development', 'url' => 'https://artisticwebservices.com/services/on-demand-app-development.php']];
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'On-Demand App Development', 'url' => 'https://artisticwebservices.com/services/on-demand-app-development']];
 $page_service_schema = ['name' => 'On-Demand App Development', 'description' => 'Uber-like, DoorDash-like, and TaskRabbit-like on-demand platforms for USA startups and businesses.'];
 $page_faq = [
     ['q' => 'What is on-demand mobile app development?', 'a' => 'On-demand mobile app development involves creating applications that provide services or products instantly, based on user requests, through a seamless digital experience.'],
@@ -12,10 +12,15 @@ $page_faq = [
     ['q' => 'How long does it take to develop an on-demand mobile app?', 'a' => 'The development time varies based on the app\'s complexity and features. On average, it can take anywhere from 2 to 6 months to develop a fully functional on-demand app.']
 ];
 $page_canonical = 'https://artisticwebservices.com/services/on-demand-app-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$load_slick = true; // load Slick on this page (case-study slider)
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
+
+<body>
+<div class="page-wrapper" onmousedown="return false;" onselectstart="return false;">
+<?php require_once __DIR__ . '/../includes/header.php'; ?>
 
 <style>
 /* ================================================
@@ -212,12 +217,8 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
 }
 </style>
 
-<body>
-<div class="page-wrapper" onmousedown="return false;" onselectstart="return false;">
-<?php require_once __DIR__ . '/../includes/header.php'; ?>
-
 <!-- ═══════════════════ HERO ═══════════════════ -->
-<div class="od-hero" style="background-image: url('<?= $B ?>/assets/images/ondemand/banner-demand.webp'); background-size: cover; background-position: center;">
+<section class="od-hero" style="background-image: url('<?= $B ?>/assets/images/ondemand/banner-demand.webp'); background-size: cover; background-position: center;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7">
@@ -226,8 +227,8 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <p>ArtisticWebServices, a top-tier development company which offers on demand app development services to help you turn your ideas into reality. We offer apps that are distinctive, scalable, and feature-rich, tailored to your specific company requirements.</p>
                     <ul>
                         <li><i class="fa-solid fa-circle-check"></i> Custom On-Demand Platform Development</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Real-Time Tracking & Payment Integration</li>
-                        <li><i class="fa-solid fa-circle-check"></i> B2B & B2C On-Demand Solutions for Any Industry</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Real-Time Tracking &amp; Payment Integration</li>
+                        <li><i class="fa-solid fa-circle-check"></i> B2B &amp; B2C On-Demand Solutions for Any Industry</li>
                     </ul>
                     <a href="<?= $B ?>/contact.php" class="btn btn-danger rounded-2 me-3 mt-2 px-4 py-2 fw-bold">Get Your Free Quote</a>
                     <a href="<?= $B ?>/contact.php" class="btn btn-outline-light rounded-2 mt-2 px-4 py-2 fw-bold">Book a Call</a>
@@ -248,7 +249,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <!-- ═══════════════════ ACHIEVEMENTS STRIP ═══════════════════ -->
 <section class="od-achievements">
@@ -882,8 +883,8 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                             </div>
                         </div>
                     </div>
-                    <button class="prev-btn"></button>
-                    <button class="next-btn"></button>
+                    <button class="prev-btn" aria-label="Previous slide"></button>
+                    <button class="next-btn" aria-label="Next slide"></button>
                     <div class="slider-icons-wrapper">
                         <div class="slider-icons" style="display: flex; scroll-behavior: smooth;">
                             <span class="icon active" data-slide="0"><img src="<?= $B ?>/assets/images/realstate/Instant-Realtor-logo.webp" alt="Instant Realtor"></span>
@@ -1157,7 +1158,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         <div class="row align-items-center">
             <div class="col-xl-6 mb-4 mb-xl-0">
                 <div class="od-contact-left">
-                    <h4>Collaborate with</h4>
+                    <p class="fw-semibold text-muted mb-1" style="font-size:15px;letter-spacing:0.5px;">Collaborate with</p>
                     <h2>Our Team</h2>
                     <p>Want to find out how on-demand app development can be helpful for your business? Looking forward to hearing from you.</p>
                     <strong>Foster Innovation with Integration</strong>
@@ -1172,7 +1173,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-xl-6">
                 <div class="od-contact-form">
                     <div class="row">
-                        <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                        <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
                     </div>
                 </div>
             </div>

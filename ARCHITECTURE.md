@@ -1,691 +1,512 @@
 # Artastic Web Services — Site Architecture
 
-> Last audited: April 2026  
-> Stack: PHP (no framework) · Bootstrap 5 · jQuery · Apache / XAMPP
+> Last audited: April 2026
+> Stack: PHP (no framework) · Bootstrap 5 · jQuery 3.6 · Apache / XAMPP
 
 ---
 
 ## Table of Contents
 
 1. [Project Overview](#1-project-overview)
-2. [Directory Structure](#2-directory-structure)
-3. [Shared Includes & Layout System](#3-shared-includes--layout-system)
-4. [Routing & URL Rewriting](#4-routing--url-rewriting)
-5. [Page Inventory](#5-page-inventory)
-6. [Navigation Structure](#6-navigation-structure)
-7. [Form Handling & Lead Pipeline](#7-form-handling--lead-pipeline)
-8. [Mailer & SMTP](#8-mailer--smtp)
-9. [Frontend Stack](#9-frontend-stack)
-10. [SEO Architecture](#10-seo-architecture)
-11. [Structured Data (JSON-LD)](#11-structured-data-json-ld)
-12. [Security & HTTP Headers](#12-security--http-headers)
-13. [Third-Party Integrations](#13-third-party-integrations)
-14. [Assets & Performance](#14-assets--performance)
+2. [Technology Stack](#2-technology-stack)
+3. [Directory Structure](#3-directory-structure)
+4. [Page System & Template Pattern](#4-page-system--template-pattern)
+5. [Routing](#5-routing)
+6. [Includes / Shared Modules](#6-includes--shared-modules)
+7. [Form & Lead Pipeline](#7-form--lead-pipeline)
+8. [Email System (SMTP)](#8-email-system-smtp)
+9. [SEO & Structured Data](#9-seo--structured-data)
+10. [Frontend Assets](#10-frontend-assets)
+11. [Navigation System](#11-navigation-system)
+12. [Third-Party Integrations](#12-third-party-integrations)
+13. [Security & HTTP Headers](#13-security--http-headers)
+14. [Performance Optimizations](#14-performance-optimizations)
 15. [Known Issues & Tech Debt](#15-known-issues--tech-debt)
+16. [File Count Summary](#16-file-count-summary)
 
 ---
 
 ## 1. Project Overview
 
-**Artastic Web Services** is a PHP-based marketing website for a software development agency. It has no CMS, no Composer-managed dependencies, and no build pipeline — all PHP files are served directly by Apache with clean-URL rewrites handled by `.htaccess`.
+Artastic Web Services is a **static marketing website** for a software development agency. It has no database, no CMS, and no backend framework. All page content is hardcoded in PHP files. The site is designed for:
 
-| Property | Value |
-|---|---|
-| Primary domain | `https://artisticwebservices.com` |
-| Server | Apache (Hostinger production), XAMPP local |
-| Language | PHP (procedural, no framework) |
-| Dependency management | None (Composer absent; vendors bundled in `assets/vendors/`) |
-| CSS framework | Bootstrap 5 |
-| JS libraries | jQuery 3.6.0 + many jQuery plugins (see §9) |
-| Email | Native PHP SSL sockets → Hostinger SMTP (port 465) |
-| Live chat | Tawk.to |
+- Lead generation (contact forms, quote modals, app cost calculator)
+- SEO (structured data, geo-targeted landing pages, clean URLs)
+- Service/solution showcase (~100+ pages)
+
+**Deployment targets**: Local XAMPP (development) → Hostinger shared hosting (production).
 
 ---
 
-## 2. Directory Structure
+## 2. Technology Stack
+
+| Layer | Technology | Version / Notes |
+|---|---|---|
+| Language | PHP (procedural) | No framework (no Laravel, Symfony, etc.) |
+| Web Server | Apache | mod_rewrite, mod_deflate, mod_expires |
+| CSS Framework | Bootstrap | 5.x (bundled in `/assets/vendors/bootstrap/`) |
+| JS Library | jQuery | 3.6.0 |
+| Package Manager | Composer | Minimal — only lists PHPMailer but uses custom SMTP instead |
+| Email | Custom native PHP SMTP | Raw SSL socket to Hostinger SMTP, no PHPMailer library used |
+| Live Chat | Tawk.to | JS embed in footer |
+| Fonts | Google Fonts (Rubik, Federo) + local custom fonts | Preconnect hints in head |
+| Icons | Font Awesome 6.7.2 (CDN) + custom `mibooz-icons` font | |
+| Build Pipeline | None | No Webpack, Vite, or asset compiler |
+
+---
+
+## 3. Directory Structure
 
 ```
 artasticwebservices-web/
 │
 ├── index.php                        # Home page
-├── about-us.php                     # Company overview
-├── our-story.php                    # Brand story
-├── services.php                     # Services hub (grid)
-├── contact.php                      # Contact page (UI)
-├── contact-form.php                 # Form handler (POST/GET)
-├── contact-us.php                   # 301 → /contact
-├── blog.php                         # 301 → /insights/digital-insights
+├── about-us.php                     # About page
+├── our-story.php                    # Company story
+├── services.php                     # Services hub
+├── contact.php                      # Contact page
+├── contact-form.php                 # Form handler (POST + GET)
+├── submit-calculator.php            # Calculator form handler
 ├── thank-you.php                    # Post-submission confirmation
-├── submit-calculator.php            # App cost calculator handler
 ├── privacy-policy.php
 ├── terms-of-use.php
-├── mailer-admin-aws7749.php         # SMTP test panel (password-protected)
-├── robots.txt
-├── sitemap.xml
+├── mailer-admin-aws7749.php         # SMTP test panel (admin only)
 │
-├── mobile-app-development*.php      # Regional redirect stubs (9 files)
-│   ├── mobile-app-development.php
-│   ├── mobile-app-development-in-dubai.php
-│   ├── mobile-app-development-in-bahrain.php
-│   ├── mobile-app-development-in-houston.php
-│   ├── mobile-app-development-in-karachi.php
-│   ├── mobile-app-development-in-kuwait.php
-│   ├── mobile-app-development-in-newyork.php
-│   ├── mobile-app-development-in-qatar.php
-│   ├── mobile-app-development-in-san-francisco.php
-│   └── mobile-app-development-company-in-saudi-arabia.php
+├── [geo-redirect pages]             # mobile-app-development-in-{city}.php (root-level, 9 files)
+├── [service-redirect pages]         # artificial-intelligence.php, augmented-reality.php, etc.
+├── [solution-redirect pages]        # alliance-partners.php, aws-services.php, etc. (25 files)
 │
-├── includes/                        # Shared layout & logic
-│   ├── config.php                   # Constants, SITE_BASE computation
-│   ├── head.php                     # <head>, all meta, JSON-LD
-│   ├── header.php                   # Nav, preloader, mega-menus
-│   ├── footer.php                   # Footer, scripts, lead modal, Tawk.to
-│   ├── form-quote.php               # Reusable quote strip (GET form)
-│   ├── mailer.php                   # sendMail() implementation (raw SMTP)
-│   ├── smtp-config.php              # SMTP credentials & feature flags
-│   └── social-share.php            # Empty placeholder (removed)
-│
-├── services/                        # 32 service detail pages
+├── services/                        # 33 service detail pages
 │   ├── mobile-app-development.php
 │   ├── web-development.php
 │   ├── ecommerce-app-development.php
 │   ├── progressive-web-apps.php
 │   ├── augmented-reality.php
 │   ├── custom-crm-development-services.php
-│   ├── mvp-startup-development.php
-│   ├── digital-marketing.php
-│   ├── iot-app-development.php
-│   ├── blockchain-development.php
-│   ├── sharepoint-development.php
-│   ├── business-intelligence.php
-│   ├── consulting-services.php
-│   ├── artificial-intelligence.php
-│   ├── legacy-application-modernization-services.php
-│   ├── microservices-development.php
-│   ├── enterprise-development.php
-│   ├── app-support.php
-│   ├── customer-experience-and-design.php
-│   ├── cloud-managed-services.php
-│   ├── security-operations-services.php
-│   ├── aws-services.php
-│   ├── saas.php
-│   ├── healthcare-medical-app.php
-│   ├── fitness-mobile-app-development.php
-│   ├── on-demand-app-development.php
-│   ├── real-estate-app-development.php
-│   ├── social-networking-app.php
-│   ├── app-cost-calculator.php      # Interactive pricing tool
-│   └── ... (duplicates/variants)
+│   ├── ai.php, blockchain.php, iot.php, saas.php …
+│   └── app-cost-calculator.php      # Interactive pricing calculator
 │
 ├── solutions/                       # 25 solution/industry pages
 │   ├── alliance-partners.php
-│   ├── location.php
-│   ├── process.php
-│   ├── lms.php
-│   ├── startup.php / startups.php
-│   ├── enterprise.php
-│   ├── healthcare.php
-│   ├── educations.php
-│   ├── fintech.php
-│   ├── travel.php
-│   ├── oil-and-gas.php
-│   ├── real-estate.php
-│   └── ...
+│   ├── consulting.php
+│   ├── full-cycle-development.php
+│   ├── lms.php, startup.php, enterprise.php
+│   ├── healthcare.php, education.php, fintech.php, travel.php
+│   ├── oil-and-gas.php, real-estate.php, construction.php
+│   ├── location.php, process.php, industries.php …
 │
 ├── insights/                        # 43 content pages
-│   ├── case-studies.php             # Case studies hub
+│   ├── case-studies.php             # Hub (redirects to /services/case-studies)
 │   ├── digital-insights.php         # Blog hub
-│   ├── [individual case studies].php
-│   └── mobile-app-development-in-*.php  # Geo SEO articles
+│   ├── bizi-app.php, fintrack.php, healthify-app.php …  # Individual case studies
+│   └── mobile-app-development-in-{city}.php             # Geo-SEO articles (9 files)
 │
-└── assets/
-    ├── css/
-    │   ├── style-01.css@v=1.1.css   # Main theme CSS
-    │   ├── mibooz-responsive.css    # Responsive overrides
-    │   └── custom-fixes.css         # 3,700+ lines of custom overrides
-    ├── js/
-    │   └── mibooz.js                # Custom site JS (interactions, modals, counters)
-    ├── images/                      # All site imagery
-    │   └── services/, solutions/, insights/, ...
-    └── vendors/                     # Bundled third-party libraries (offline copies)
-        ├── bootstrap/
-        ├── jquery/
-        ├── swiper/
-        ├── owl-carousel/
-        ├── wow/
-        └── ...
+├── includes/                        # Shared layout & logic
+│   ├── config.php                   # Global constants, dynamic SITE_BASE
+│   ├── head.php                     # HTML <head>, all meta tags, JSON-LD
+│   ├── header.php                   # Navigation bar, preloader (511 lines)
+│   ├── footer.php                   # Footer, lead modal, scripts (1,364 lines)
+│   ├── form-quote.php               # Reusable quote form strip
+│   ├── mailer.php                   # Native PHP SMTP implementation
+│   ├── smtp-config.php              # SMTP credentials and flags
+│   └── social-share.php            # Empty placeholder (outputs nothing)
+│
+├── assets/
+│   ├── css/
+│   │   ├── style-01.css@v=1.1.css           # Main theme (207 KB)
+│   │   ├── mibooz-responsive.css@v=1.1.css  # Responsive overrides (85 KB)
+│   │   └── custom-fixes.css                 # Ad-hoc overrides layer (126 KB, 3,700+ lines)
+│   ├── js/
+│   │   └── mibooz.js                        # Custom site interactions (minified, 13.6 KB)
+│   ├── images/                              # 500+ images (WebP primary, PNG/JPG fallback)
+│   │   ├── services/, solutions/, insights/ # Section-organized assets
+│   │   ├── resources/, favicons/, og/
+│   ├── images-new/                          # Newer image assets
+│   └── vendors/                            # 28 bundled JS/CSS libraries (no CDN for most)
+│
+├── bootstrap/4.0.0/                 # Legacy Bootstrap copy (unused — Bootstrap 5 in vendors/)
+├── logs/                            # Mail debug logs (local dev mode)
+├── .htaccess                        # Apache rewrite rules + security headers (105 lines)
+├── .gitignore
+├── composer.json                    # PHPMailer listed; not actually loaded
+├── robots.txt
+└── sitemap.xml                      # URL index (13.5 KB)
 ```
 
 ---
 
-## 3. Shared Includes & Layout System
+## 4. Page System & Template Pattern
 
-Every page follows the same template pattern:
+Every page follows the same procedural pattern:
 
 ```php
 <?php
-// 1. Set per-page SEO variables
-$page_title       = '...';
-$page_description = '...';
-$page_canonical   = SITE_BASE . '/services/example';
-$page_og_image    = SITE_BASE . '/assets/images/og/example.jpg';
-$page_breadcrumbs = [...];   // optional — triggers BreadcrumbList JSON-LD
-$page_faq         = [...];   // optional — triggers FAQPage JSON-LD
-$page_service_schema = [...]; // optional — triggers Service JSON-LD
+// 1. Set page-specific variables
+$page_title       = "Service Name | Artastic";
+$page_description = "Meta description for this page.";
+$page_breadcrumbs = [["Home","https://…"], ["Services","…"], ["This Page","…"]];
+$page_faq         = [["Question?", "Answer."], …];     // optional
+$page_service_schema = […];                            // optional
 
-require_once '../includes/config.php';
-require_once '../includes/head.php';   // outputs <head>...</head>
-require_once '../includes/header.php'; // outputs <header> + nav
+// 2. Load shared config
+require_once 'includes/config.php';
+
+// 3. Output <head> + navbar
+require_once 'includes/head.php';
+require_once 'includes/header.php';
 ?>
 
-<!-- page-specific HTML content -->
-<div class="page-wrapper">
-    <!-- hero, sections, etc. -->
-    <?php include '../includes/form-quote.php'; ?>
-</div>
+<!-- 4. Page-specific HTML content -->
+<section>…</section>
 
-<?php require_once '../includes/footer.php'; // outputs <footer> + all scripts ?>
+<?php
+// 5. Output footer + all scripts
+require_once 'includes/footer.php';
+?>
 ```
+
+There is no template engine (no Twig, Blade, or Smarty). PHP itself is the template layer.
+
+---
+
+## 5. Routing
+
+Routing is handled **entirely by Apache `.htaccess`** — there is no PHP router.
+
+### Rewrite Rules (`.htaccess`)
+
+| Rule | Trigger | Result |
+|---|---|---|
+| HTTPS redirect | HTTP request (non-localhost) | 301 → HTTPS |
+| `.html` strip | `/page.html` | 301 → `/page` |
+| `index.php` strip | `/index.php` | 301 → `/` |
+| `.php` strip (external) | `/page.php` in URL | 301 → `/page` |
+| Extensionless serve (internal) | `/page` (no file exists) | Internally serves `/page.php` |
+| Soft 404 | No matching `.php` file | Serves `/index.php` with HTTP 200 |
+
+### Protected Paths (403 Forbidden)
+
+- `/includes/` — hides SMTP credentials
+- `/vendor/`, `/prompt/`
+- `*.py` files, `.env`, `composer.json`, `composer.lock`
+
+### Example URL Flow
+
+```
+Browser: GET /services/mobile-app-development
+  → Apache: no file at that exact path
+  → .htaccess rule 5: internally serve services/mobile-app-development.php
+  → PHP outputs HTML → 200 OK
+
+Browser: GET /nonexistent-page
+  → No matching .php file
+  → ErrorDocument 404 → /index.php → 200 OK (soft 404, SEO risk)
+```
+
+---
+
+## 6. Includes / Shared Modules
 
 ### `includes/config.php`
+- Computes `SITE_BASE` dynamically based on `$_SERVER['HTTP_HOST']`
+- Works on `localhost/artasticwebservices-web/` (subfolder) and `artasticwebservices.com` (root) without code changes
+- Defines global site-wide constants
 
-Defines all global constants. `SITE_BASE` is dynamically computed so the site works both on `localhost/artasticwebservices-web/` (XAMPP) and on `https://artisticwebservices.com/` without code changes.
+### `includes/head.php` (~200 lines)
+- Outputs full `<html><head>` block
+- Embeds: charset, viewport, favicon, Open Graph, Twitter Card
+- Loads all CSS (Bootstrap → vendor plugins → theme → responsive → custom-fixes)
+- Emits JSON-LD structured data (see Section 9)
+- Preconnects to Google Fonts, CDNs
 
-| Constant | Value |
-|---|---|
-| `SITE_NAME` | `"Artastic Web Services"` |
-| `SITE_URL` | Production domain |
-| `SITE_BASE` | Computed from `HTTP_HOST` + `SCRIPT_NAME` (strips `/services/`, `/solutions/`, `/insights/`) |
-| `SMTP_*` | See §8 |
-| `MAIL_TO` | Recipient address for all lead emails |
+### `includes/header.php` (511 lines)
+- Preloader overlay
+- Desktop mega-menu navbar (Services + Solutions dropdowns)
+- Mobile accordion navigation
+- "Call Now" CTA button
+- Requires jQuery (already loaded in `<head>`)
 
-### `includes/head.php`
+### `includes/footer.php` (1,364 lines)
+- Footer columns (links, contact info, social links)
+- Lead capture modal (fetch POST to `/contact-form`)
+- Session-storage flag to suppress modal re-open in same session
+- Tawk.to live chat embed
+- All vendor JS files in correct load order
+- `mibooz.js` (last)
+- Emits additional JSON-LD for `/services/` and `/solutions/` URLs (see Section 9)
 
-- Emits the full `<head>` block.
-- Reads all `$page_*` PHP variables set by the calling page.
-- Loads all vendor CSS (`bootstrap`, `font-awesome`, theme files, `custom-fixes.css`).
-- Outputs **four possible JSON-LD blocks**: Organization/LocalBusiness, WebPage/WebSite, BreadcrumbList (if `$page_breadcrumbs` set), FAQPage (if `$page_faq` set), Service (if `$page_service_schema` set).
+### `includes/form-quote.php`
+- Reusable quote-request strip embedded on most service/solution pages
+- Submits via GET to `/contact-form`
 
-### `includes/header.php`
+### `includes/mailer.php` (~300 lines)
+- Custom raw PHP SMTP implementation (no PHPMailer)
+- See Section 8
 
-- CSS-animated preloader (fades out on `window.load`).
-- Sticky navbar with desktop **hover mega-menus** (`servicedrp()` / `solutiondrp()` JS functions).
-- Mobile accordion-style dropdowns (`mobileDrpToggle`).
-- "Call Now" button triggers `openLeadModal()`.
-
-### `includes/footer.php`
-
-- Footer columns: Services, Solutions, Company, Connect (social).
-- Trust logo horizontal scroller.
-- All vendor JS `<script>` tags + `mibooz.js`.
-- **Lead modal** with `fetch()` POST to `/contact-form`; always redirects to `/thank-you` after 800 ms.
-- **Auto-open modal** after 60 seconds, once per session (`sessionStorage` flag).
-- Floating email + call buttons.
-- **Tawk.to** live chat embed.
-- Emits additional **BreadcrumbList + Service JSON-LD** for any URL under `/services/` or `/solutions/` — can duplicate markup already emitted by `head.php` if those variables are also set.
-
----
-
-## 4. Routing & URL Rewriting
-
-All routing is done in `.htaccess` — there is no PHP router.
-
-```
-Browser request: /services/mobile-app-development
-  → Apache RewriteRule: serves services/mobile-app-development.php internally
-  → PHP file outputs HTML
-
-Browser request: /contact-form  (POST from form submit)
-  → Apache: serves contact-form.php internally
-  → PHP processes, then header("Location: /thank-you")
-```
-
-### Key rewrite rules (`.htaccess`)
-
-| Rule | Effect |
-|---|---|
-| `http://` → `https://` | HTTPS enforcement (skips `localhost` / `127.0.0.1`) |
-| `*.html` → extensionless | Legacy `.html` URL redirect |
-| `index.php` → `/` | Canonical home |
-| `*.php` → extensionless (301) | Clean URL redirect for external requests |
-| Extensionless → `*.php` (internal) | Serve PHP file when it exists |
-| `DirectoryIndex index.php index.html` | Default file |
-| Error 404/403/500 → `/index.php` | Soft 404 (home page fallback) |
-
-### Blocked paths (403 Forbidden)
-
-- `/includes/` — protects config, mailer, SMTP credentials
-- `/prompt/`, `/vendor/` — internal/Composer paths
-- `*.py` files — Python utilities blocked
-- `.env`, `composer.json`, `composer.lock`
+### `includes/smtp-config.php`
+- Hostinger SMTP credentials
+- `SMTP_LOCAL_DEV` flag (controls log-to-file vs. send mode)
 
 ---
 
-## 5. Page Inventory
+## 7. Form & Lead Pipeline
 
-### Root pages
+Three entry points all converge on `contact-form.php`:
 
-| URL | File | Description |
+```
+1. /contact page form          → POST  → /contact-form
+2. Quote strip (form-quote.php) → GET  → /contact-form
+3. Lead modal (footer)         → fetch POST → /contact-form
+4. App calculator              → GET  → /submit-calculator → /contact-form
+                                                 ↓
+                                        contact-form.php
+                                        (sanitize, validate)
+                                                 ↓
+                                        sendMail() via SMTP
+                                                 ↓
+                                        Redirect → /thank-you
+```
+
+### Standard Form Fields
+
+| Field | Required | Notes |
 |---|---|---|
-| `/` | `index.php` | Home — hero video, counters, services grid, FAQ schema |
-| `/about-us` | `about-us.php` | Company overview |
-| `/our-story` | `our-story.php` | Brand narrative |
-| `/services` | `services.php` | Services hub grid |
-| `/contact` | `contact.php` | Contact form (UI) |
-| `/contact-form` | `contact-form.php` | Form POST/GET handler |
-| `/thank-you` | `thank-you.php` | Post-submission confirmation |
-| `/submit-calculator` | `submit-calculator.php` | Calculator form handler |
-| `/privacy-policy` | `privacy-policy.php` | Legal |
-| `/terms-of-use` | `terms-of-use.php` | Legal |
-| `/contact-us` | `contact-us.php` | 301 → `/contact` |
-| `/blog` | `blog.php` | 301 → `/insights/digital-insights` |
-
-### Services (32 pages under `/services/`)
-
-| URL slug | Topic |
-|---|---|
-| `mobile-app-development` | Mobile apps |
-| `web-development` | Web dev |
-| `ecommerce-app-development` | E-commerce |
-| `progressive-web-apps` | PWA |
-| `augmented-reality` | AR/VR |
-| `custom-crm-development-services` | CRM |
-| `mvp-startup-development` | MVP / startup |
-| `digital-marketing` | Digital marketing |
-| `iot-app-development` | IoT |
-| `blockchain-development` | Blockchain |
-| `sharepoint-development` | SharePoint |
-| `business-intelligence` | BI & analytics |
-| `consulting-services` | Tech consulting |
-| `artificial-intelligence` | AI/ML |
-| `legacy-application-modernization-services` | Legacy modernization |
-| `microservices-development` | Microservices |
-| `enterprise-development` | Enterprise software |
-| `app-support` | App maintenance |
-| `customer-experience-and-design` | UX/CX |
-| `cloud-managed-services` | Cloud |
-| `security-operations-services` | DevSecOps |
-| `aws-services` | AWS |
-| `saas` | SaaS |
-| `healthcare-medical-app` | HealthTech |
-| `fitness-mobile-app-development` | FitTech |
-| `on-demand-app-development` | On-demand |
-| `real-estate-app-development` | PropTech |
-| `social-networking-app` | Social |
-| `app-cost-calculator` | Pricing tool |
-
-### Solutions (25 pages under `/solutions/`)
-
-Consulting, Industries (healthcare, education, fintech, travel, oil & gas, real estate), process, alliance partners, LMS, startup, enterprise.
-
-### Insights (43 pages under `/insights/`)
-
-Case studies hub, blog hub (`digital-insights.php`), individual case studies, geo-targeted SEO articles (`mobile-app-development-in-*.php`).
+| `first_name` | Yes | |
+| `email` | Yes | Validated with `filter_var(FILTER_VALIDATE_EMAIL)` |
+| `last_name` | No | |
+| `phone` | No | |
+| `description` | No | Free text |
+| `states[]` | No | Multi-select: services of interest |
+| `host` | Hidden | Submitting page hostname (tracking) |
+| `page` | Hidden | Source URL (tracking) |
+| `service` | Hidden | Single service name (tracking) |
 
 ---
 
-## 6. Navigation Structure
+## 8. Email System (SMTP)
 
-### Primary (desktop hover, mobile accordion)
+**File**: `includes/mailer.php`
+**Dependency**: None (no PHPMailer, no Composer autoloader)
+
+### Connection Flow
 
 ```
-Startups          → /services/mvp-startup-development
-Enterprise        → /services/enterprise-development
-
-Services ▼        (mega-dropdown — columns)
-  ├─ Mobile App Development
-  ├─ Progressive Web Apps
-  ├─ Web Development
-  ├─ Ecommerce Development
-  ├─ Augmented Reality
-  ├─ Custom CRM
-  ├─ MVP / Startup
-  ├─ Digital Marketing
-  ├─ DevOps & Security
-  ├─ IoT
-  ├─ Blockchain
-  ├─ SharePoint
-  ├─ Business Intelligence
-  ├─ Consulting
-  ├─ AI / ML
-  ├─ Legacy Modernization
-  ├─ Microservices
-  ├─ ERP / Enterprise
-  ├─ App Support
-  ├─ CX & Design
-  └─ Cloud Managed Services
-
-Solutions ▼       (mega-dropdown — two groups)
-  Consulting:
-  ├─ Full-Cycle Development
-  ├─ Product Management
-  ├─ UI/UX Design
-  ├─ Startup Consulting
-  ├─ Enterprise Consulting
-  └─ Hire Developers
-  Industries:
-  ├─ Healthcare
-  ├─ Education
-  ├─ Fintech
-  ├─ Travel
-  ├─ Oil & Gas
-  ├─ Fitness / Sports / Social / Real Estate / E-commerce / On-demand
-
-Case Studies      → /insights/case-studies
-About Us          → /about-us
-Contact Us        → /contact
-[Call Now]        → openLeadModal() (JS)
+stream_socket_client("ssl://smtp.hostinger.com:465")
+  → EHLO handshake
+  → AUTH LOGIN (base64-encoded credentials)
+  → MAIL FROM
+  → RCPT TO (admin email)
+  → DATA: MIME multipart (text/plain + text/html)
+  → Dot-stuffing for SMTP protocol compliance
+  → QUIT
 ```
 
-### Footer quick links
+### Local Dev Mode
 
-Home · About · Case Studies · Alliances · Consulting · Industries · Services · Locations · Contact · Privacy Policy · Terms of Use
+If `SMTP_LOCAL_DEV = true` in `smtp-config.php`:
+- Email is NOT sent
+- Full MIME message is written to `logs/mail-dev.log`
+
+> **Warning**: This flag is set in PHP source code. Risk of shipping `true` to production. Should be moved to an environment variable (`.env`).
 
 ---
 
-## 7. Form Handling & Lead Pipeline
+## 9. SEO & Structured Data
 
-There are four entry points that all ultimately call `sendMail()`:
+### Always-emitted JSON-LD (head.php)
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                      Lead Entry Points                       │
-├────────────────────┬────────────────────┬────────────────────┤
-│   Contact Page     │   Quote Strip      │   Lead Modal       │
-│   /contact         │   form-quote.php   │   (footer modal)   │
-│   method="post"    │   method="get"     │   fetch() POST     │
-│   action=contact-  │   action=contact-  │   → /contact-form  │
-│   form             │   form             │                    │
-└────────────────────┴────────────────────┴────────────────────┘
-                              │
-                              ▼
-                    contact-form.php
-                  (POST or GET handler)
-                              │
-                    ┌─────────┴─────────┐
-                    │   Validation      │
-                    │ • first_name req  │
-                    │ • email required  │
-                    │ • FILTER_VALIDATE │
-                    └─────────┬─────────┘
-                              │
-                    sendMail($data)
-                              │
-                    ┌─────────┴─────────┐
-                    │  Success          │  Failure
-                    │  redirect         │  redirect
-                    │  → /thank-you     │  → /contact?error=
-                    └───────────────────┘
+- `Organization` + `LocalBusiness` + `ProfessionalService`
+- `WebSite` with `SearchAction` (sitelinks searchbox)
+- `hreflang` alternates for 8 regions (all currently point to same URL — no true i18n)
 
-     App Calculator:
-     /services/app-cost-calculator → submit-calculator.php → sendMail() → /thank-you
-```
+### Optional Per-Page JSON-LD
 
-### Form fields
+Set PHP variables before `require 'includes/head.php'`:
 
-| Field | Source | Notes |
+| Variable | Schema Type | Usage |
 |---|---|---|
-| `first_name` | All forms | Required |
-| `last_name` | All forms | Optional |
-| `email` | All forms | Required, validated |
-| `phone` | All forms | Optional |
-| `description` / `message` | All forms | Optional |
-| `states[]` | Contact page | Multi-select services |
-| `service` | Quote strip | Single hidden field |
-| `host` | Hidden field | Page hostname |
-| `page` | Hidden field | Source page path |
-| `source` | Modal | `"modal-popup"` (note: not mapped to `$page` variable — minor tracking gap) |
+| `$page_breadcrumbs` | `BreadcrumbList` | Breadcrumb trail |
+| `$page_faq` | `FAQPage` | FAQ accordion answers |
+| `$page_service_schema` | `Service` | Service detail pages |
+| `$page_article_schema` | `NewsArticle` | Blog/insight pages |
+
+### Footer Auto-Emit (footer.php)
+
+For URLs matching `/services/` or `/solutions/`, the footer **automatically emits** `BreadcrumbList` and `Service` JSON-LD.
+
+> **Issue**: If a page already sets `$page_breadcrumbs` or `$page_service_schema`, this creates **duplicate structured data** — Google may flag it.
 
 ---
 
-## 8. Mailer & SMTP
+## 10. Frontend Assets
 
-### Configuration (`includes/smtp-config.php`)
+### CSS Load Order
 
-| Setting | Value |
-|---|---|
-| `SMTP_HOST` | `smtp.hostinger.com` |
-| `SMTP_PORT` | `465` |
-| `SMTP_SECURE` | `'ssl'` |
-| `SMTP_USERNAME` | Set via constant (not committed) |
-| `SMTP_PASSWORD` | Set via constant (not committed) |
-| `SMTP_FROM` | Sender address |
-| `SMTP_FROM_NAME` | Sender display name |
-| `MAIL_TO` | Lead recipient inbox |
-| `SMTP_ADMIN_PASS` | Admin panel password |
-| `SMTP_LOCAL_DEV` | `true` on localhost/127.0.0.1 — logs to `logs/mail-dev.log` instead of sending |
+```
+1. Bootstrap 5              (assets/vendors/bootstrap/…)
+2. Font Awesome 6.7.2       (CDN — cdnjs.cloudflare.com)
+3. Vendor plugins CSS       (wow, swiper, owl, slick, bxSlider, magnific-popup, etc.)
+4. style-01.css@v=1.1.css   (main theme — 207 KB)
+5. mibooz-responsive.css    (responsive overrides — 85 KB)
+6. custom-fixes.css         (ad-hoc override layer — 126 KB, 3,700+ lines)
+```
 
-### Implementation (`includes/mailer.php`)
+### JS Load Order
 
-- **No PHPMailer/Composer** — raw socket implementation using `stream_socket_client()`.
-- MIME multipart: `text/html` + `text/plain` parts.
-- `AUTH LOGIN` with base64-encoded credentials.
-- `ssl://smtp.hostinger.com:465` for SSL, `tcp://...:587` for STARTTLS.
-- `verify_peer` is **disabled** on the SSL context (`'verify_peer' => false`) — acceptable on Hostinger shared hosting but worth reviewing for production hardening.
+```
+1. jQuery 3.6.0             (loaded in <head> for early availability)
+2. Bootstrap Bundle          (includes Popper.js)
+3. Vendor plugins (~20)      (swiper, owl-carousel, WOW, isotope, nouislider, etc.)
+4. mibooz.js                (custom site logic — loaded last)
+```
 
-### Admin SMTP test panel
-
-`/mailer-admin-aws7749.php` — password-protected (session + `SMTP_ADMIN_PASS` / daily rotating token). POST `test_to` field → calls `sendMail()` → shows debug output.
-
----
-
-## 9. Frontend Stack
-
-### CSS
-
-| File | Role |
-|---|---|
-| `assets/vendors/bootstrap/bootstrap.min.css` | Grid, components |
-| `assets/css/style-01.css@v=1.1.css` | Main theme |
-| `assets/css/mibooz-responsive.css` | Responsive overrides |
-| `assets/css/custom-fixes.css` | 3,700+ lines of project-specific overrides |
-| Font Awesome 6.7.2 | Icon font (CDN) |
-| Google Fonts | Rubik, Federo (CDN) |
-| Local fonts | `mibooz-icons`, `the-sayinistic-font` |
-
-### JavaScript (loaded in `footer.php`)
+### Vendor Libraries (assets/vendors/)
 
 | Library | Purpose |
 |---|---|
-| jQuery 3.6.0 | Core (loaded in `<head>`) |
-| Bootstrap Bundle | Dropdowns, modals |
-| WOW.js | Scroll-triggered animations |
-| Swiper | Touch sliders |
-| Owl Carousel | Content carousels |
-| Slick | Additional slider |
-| bxSlider | Legacy slider |
-| Isotope | Grid filtering |
-| Magnific Popup | Lightbox |
-| jQuery Validate | Client-side form validation |
-| AjaxChimp | Newsletter (if used) |
-| noUiSlider | Range inputs (calculator) |
-| Select2 (jsDelivr CDN) | Enhanced `<select>` |
-| tiny-slider | Lightweight slider |
+| bootstrap | Grid + components |
+| jquery | DOM / AJAX |
+| swiper | Touch carousel |
+| owl-carousel | Feature carousel |
+| slick, bxSlider, tiny-slider | Legacy carousels (partially redundant) |
+| wow + animate | Scroll-triggered animations |
 | jarallax | Parallax backgrounds |
-| jquery.countdown | Countdown timers |
-| circle-progress | Circular progress bars |
 | jquery-ui | UI widgets |
-| bootstrap-select | Bootstrap-styled selects |
-| `assets/js/mibooz.js` | All custom site logic |
+| nouislider + wnumb | Range slider (app calculator) |
+| isotope | Filterable grid |
+| jquery-magnific-popup | Lightbox |
+| jquery-validate | Client-side form validation |
+| odometer | Number counter animation |
+| bootstrap-select | Enhanced `<select>` dropdowns |
+| circle-progress | SVG progress circles |
+| jquery-ajaxchimp | Newsletter subscribe |
+| countdown | Timer widget |
+| mibooz-icons | Custom icon font |
+| the-sayinistic-font | Custom display font |
 
-### `mibooz.js` responsibilities
+### Images
 
-- Preloader dismiss on window load
-- Sticky nav scroll behavior
-- Mega-menu open/close (`servicedrp`, `solutiondrp`)
-- Mobile nav accordion (`mobileDrpToggle`)
-- Animated counters (stat sections)
-- Lead modal: `openLeadModal()`, auto-open timer (60 s, once/session)
-- Float buttons visibility
-- Scroll-to-top button
-
----
-
-## 10. SEO Architecture
-
-### Per-page variables (set before `require head.php`)
-
-```php
-$page_title       = 'Page Title | Artastic Web Services';
-$page_description = '150–160 char description';
-$page_keywords    = 'comma, separated, keywords';  // optional
-$page_canonical   = SITE_BASE . '/services/example';
-$page_og_image    = SITE_BASE . '/assets/images/og/example.jpg';
-$page_robots      = 'index, follow';   // default; override to noindex if needed
-$page_breadcrumbs = [                  // optional — triggers BreadcrumbList
-    ['name' => 'Home',    'url' => SITE_BASE],
-    ['name' => 'Services', 'url' => SITE_BASE . '/services'],
-    ['name' => 'Example', 'url' => SITE_BASE . '/services/example'],
-];
-$page_faq = [                          // optional — triggers FAQPage
-    ['q' => '...', 'a' => '...'],
-];
-$page_service_schema = [...];          // optional — triggers Service JSON-LD
-```
-
-### Meta tags emitted by `head.php`
-
-- `<title>`
-- `meta name="description"` / `keywords`
-- `meta name="robots"` with `max-snippet:-1, max-image-preview:large, max-video-preview:-1`
-- `link rel="canonical"`
-- Open Graph: `og:title`, `og:description`, `og:url`, `og:image`, `og:type`
-- Twitter Card: `summary_large_image`
-- **hreflang** alternates for `en-us`, `en-ae`, `en-sa`, `en-gb`, `en-au`, `en-ca`, `en-pk`, `x-default` — all currently point to the **same canonical URL** (regional pages do not have separate URLs per locale)
-
-### Sitemap & Robots
-
-- `sitemap.xml` — clean URLs, no trailing slash
-- `robots.txt` — disallows `/includes/`, `/contact-form.php`, `/thank-you.php`, Python utilities, `*.py`
+- **Primary format**: WebP (lossless, best compression)
+- **Fallback**: PNG / JPG where WebP unavailable
+- **Organization**: `/assets/images/{services,solutions,insights,resources,favicons,og}/`
+- **Lazy loading**: `loading="lazy"` attribute on non-hero images
 
 ---
 
-## 11. Structured Data (JSON-LD)
+## 11. Navigation System
 
-### Always output (`head.php`)
+### Desktop
+- Sticky top navbar
+- **Services mega-menu**: 20+ services arranged in columns; triggered on hover via CSS + `servicedrp()` JS function
+- **Solutions mega-menu**: Consulting group + Industries group; `solutiondrp()` JS function
+- Primary links: Startups, Enterprise, Case Studies, About, Contact
+- CTA: "Get a Quote" button → opens lead modal; "Call Now" button
 
-```json
-// 1. Organization + LocalBusiness + ProfessionalService
-{
-  "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
-  "name": "Artastic Web Services",
-  "aggregateRating": {...},
-  "hasOfferCatalog": {...},
-  "sameAs": ["facebook", "linkedin", "twitter", "instagram", "youtube", "github",
-             "clutch", "goodfirms", "upwork", "glassdoor"]
-}
-
-// 2. WebPage + WebSite with SearchAction
-{
-  "@type": "WebSite",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://artisticwebservices.com/?s={search_term_string}"
-  }
-}
-```
-
-### Conditional (`head.php`)
-
-| Variable set | Schema type emitted |
-|---|---|
-| `$page_breadcrumbs` | `BreadcrumbList` |
-| `$page_faq` | `FAQPage` |
-| `$page_service_schema` | `Service` |
-| `$page_article_schema` | `Article` / `NewsArticle` |
-
-### Footer also emits (`footer.php`)
-
-For any URL containing `/services/` or `/solutions/`:
-- Additional `BreadcrumbList`
-- Additional `Service` block
-
-> **Warning:** If a service page sets both `$page_breadcrumbs`/`$page_service_schema` **and** the footer auto-emits the same types, Google may see duplicate structured data for the same page.
+### Mobile
+- Hamburger toggle button
+- Accordion-style expandable menus for Services and Solutions
+- All links accessible without JavaScript for accessibility fallback
 
 ---
 
-## 12. Security & HTTP Headers
+## 12. Third-Party Integrations
 
-All set in `.htaccess`:
-
-| Header | Value / Purpose |
-|---|---|
-| `X-Content-Type-Options` | `nosniff` |
-| `X-Frame-Options` | `SAMEORIGIN` |
-| `X-XSS-Protection` | `1; mode=block` |
-| `Referrer-Policy` | `strict-origin-when-cross-origin` |
-| `Permissions-Policy` | Restricts camera, mic, geolocation |
-| `Strict-Transport-Security` | `max-age=31536000; includeSubDomains` (HSTS) |
-| `Content-Security-Policy` | Allows self, inline scripts/styles, jsDelivr, cdnjs, Tawk.to, Google Fonts |
-
-### Other hardening
-
-- `Options -Indexes` — directory listing disabled
-- `ServerSignature Off`
-- `/includes/` directory forbidden (403) — protects SMTP credentials
-- `.env`, `composer.json/lock` forbidden
+| Service | Integration Method | File(s) | Purpose |
+|---|---|---|---|
+| Tawk.to | JS embed snippet | `includes/footer.php` | Live chat widget |
+| Hostinger SMTP | Raw TCP/SSL socket | `includes/mailer.php` | Email delivery |
+| Google Fonts | `<link>` CDN with preconnect | `includes/head.php` | Rubik + Federo fonts |
+| Font Awesome 6.7.2 | CDN `<link>` (cdnjs) | `includes/head.php` | Icon set |
+| jsDelivr | CDN for Select2 | `includes/footer.php` | Enhanced dropdowns |
+| No analytics | — | — | No GA4, GTM, Mixpanel, or Pixel detected |
 
 ---
 
-## 13. Third-Party Integrations
+## 13. Security & HTTP Headers
 
-| Service | Integration method | Files |
+All security headers are set in `.htaccess`:
+
+| Header | Value | Purpose |
 |---|---|---|
-| **Tawk.to** (live chat) | JS embed in footer | `includes/footer.php` |
-| **Hostinger SMTP** | Raw SSL socket | `includes/mailer.php`, `includes/smtp-config.php` |
-| **Google Fonts** | `<link>` CDN | `includes/head.php` |
-| **Font Awesome 6.7.2** | `<link>` CDN (cdnjs) | `includes/head.php` |
-| **Select2** | `<script>` CDN (jsDelivr) | `includes/footer.php` |
-| **Social profiles** | Links only (no tracking pixels found) | `includes/footer.php`, schema |
-| **Google Maps** | Link only (embed commented out) | `includes/footer.php` |
-| **Analytics** | None detected in PHP source | — |
+| `X-Content-Type-Options` | `nosniff` | Prevent MIME-sniffing |
+| `X-Frame-Options` | `SAMEORIGIN` | Clickjacking protection |
+| `X-XSS-Protection` | `1; mode=block` | Legacy XSS filter |
+| `Referrer-Policy` | `strict-origin-when-cross-origin` | Privacy control |
+| `Permissions-Policy` | `camera=(), microphone=(), geolocation=(self)` | Feature access control |
+| `Strict-Transport-Security` | `max-age=31536000; includeSubDomains; preload` | Force HTTPS (HSTS) |
+| `Content-Security-Policy` | `default-src 'self'`; inline scripts allowed; jsDelivr/cdnjs/Tawk.to whitelisted | XSS + data exfiltration prevention |
+
+### Directory Protections (403)
+
+- `/includes/` — SMTP credentials hidden from web access
+- `/vendor/`, `/prompt/`
+- `*.py`, `.env`, `composer.json`, `composer.lock`
+
+### Known Security Gaps
+
+- **No CSRF tokens** on any form — open to cross-site form submission attacks
+- **`verify_peer=false`** in SMTP SSL context — disables cert verification (acceptable on Hostinger shared hosting but worth reviewing)
 
 ---
 
-## 14. Assets & Performance
+## 14. Performance Optimizations
 
-### Compression (`.htaccess` mod_deflate)
+Configured in `.htaccess`:
 
-Compressed: `text/html`, `text/css`, `application/javascript`, `application/json`, `image/svg+xml`, `application/xml`, web fonts.
+### Compression (mod_deflate)
+- Gzip enabled for: HTML, CSS, JS, JSON, SVG, XML, web fonts
 
-### Caching (`.htaccess` mod_expires)
-
-| Asset type | Cache duration |
+### Browser Caching (mod_expires)
+| Asset Type | Cache Duration |
 |---|---|
-| Images, fonts, favicons | 1 year |
-| CSS, JS | 1 month |
-| HTML | 1 day (or no-cache) |
+| Images (WebP, PNG, JPG, SVG) | 1 year |
+| Fonts (WOFF, WOFF2, TTF) | 1 year |
+| CSS / JS | 1 month |
+| HTML | 1 day (or `no-cache`) |
 
-### CSS load order (`head.php`)
-
-1. Bootstrap
-2. Font Awesome
-3. Vendor CSS (WOW, Swiper, Slick, Owl, etc.)
-4. `style-01.css` (theme)
-5. `mibooz-responsive.css`
-6. `custom-fixes.css`
-
-### JS load order (`footer.php`)
-
-1. jQuery (loaded in `<head>` for early availability)
-2. Bootstrap bundle
-3. All plugin JS
-4. `mibooz.js` (custom, last)
+### Other
+- `<link rel="preconnect">` for Google Fonts and CDNs in `head.php`
+- WebP as primary image format
+- Deferred JS loading (vendor scripts at end of `<body>`)
+- Minified `mibooz.js` (single-line output)
 
 ---
 
 ## 15. Known Issues & Tech Debt
 
-| # | Issue | Location | Severity |
+| Severity | Issue | Location | Notes |
 |---|---|---|---|
-| 1 | **Duplicate JSON-LD** — BreadcrumbList/Service emitted in both `head.php` and `footer.php` for service/solution pages | `head.php`, `footer.php` | Medium |
-| 2 | **`verify_peer => false`** on SMTP SSL context | `includes/mailer.php` | Medium |
-| 3 | **Modal `source` field not mapped** to email `$page` variable — lead source tracking gap for modal submissions | `contact-form.php` | Low |
-| 4 | **Typo duplicate** service file: `fintness-mobile-app-development.php` | `services/` | Low |
-| 5 | **`social-share.php` is empty** — included by pages but outputs nothing | `includes/social-share.php` | Low |
-| 6 | **hreflang all point to same URL** — does not provide true per-locale alternate pages | `includes/head.php` | Low |
-| 7 | **No CSRF protection** on contact forms | `contact-form.php`, `submit-calculator.php` | Medium |
-| 8 | **Soft 404** — all 404/403/500 errors serve `index.php` with a 200 status | `.htaccess` | Medium |
-| 9 | **No Composer / autoloader** — vendor JS/CSS bundled manually in `assets/vendors/` | `assets/vendors/` | Low |
-| 10 | **`custom-fixes.css` is 3,700+ lines** — accumulation of ad-hoc overrides makes theming hard to maintain | `assets/css/custom-fixes.css` | Low |
-| 11 | **`SMTP_LOCAL_DEV` flag** is code-level, not environment-variable-driven — risk of shipping `true` to production | `includes/smtp-config.php` | Medium |
+| Medium | **Duplicate JSON-LD** | `head.php` + `footer.php` | BreadcrumbList/Service emitted twice for service/solution pages |
+| Medium | **No CSRF protection** | All forms | Add CSRF token validation to `contact-form.php` |
+| Medium | **`SMTP_LOCAL_DEV` in source code** | `smtp-config.php` | Risk of shipping `true` to prod; move to `.env` |
+| Medium | **`verify_peer=false` on SMTP** | `mailer.php` | Disables SSL cert verification |
+| Low | **`custom-fixes.css` bloat** | `assets/css/custom-fixes.css` | 3,700+ lines of ad-hoc overrides; hard to maintain |
+| Low | **Redundant slider libraries** | `assets/vendors/` | Owl, Swiper, Slick, bxSlider — likely only 1–2 actually used |
+| Low | **`social-share.php` empty** | `includes/social-share.php` | Included but outputs nothing; remove include or implement |
+| Low | **hreflang all same URL** | `head.php` | Regional hreflang tags don't support true locale pages |
+| Low | **Soft 404 returns HTTP 200** | `.htaccess` | All 404s serve home page — Google may not detect broken links |
+| Low | **Typo in filename** | Root | `fintness-mobile-app-development.php` should be `fitness-…` |
+| Low | **Legacy Bootstrap 4 copy** | `bootstrap/4.0.0/` | Unused; Bootstrap 5 is in `assets/vendors/` |
+| Low | **No analytics** | Entire site | No GA4 or GTM — no traffic/conversion data |
+
+---
+
+## 16. File Count Summary
+
+| Location | Files | Type |
+|---|---|---|
+| Root `.php` | ~113 | Pages (service redirects, geo pages, handlers) |
+| `services/` | 33 | Service detail pages |
+| `solutions/` | 25 | Industry / solution pages |
+| `insights/` | 43 | Case studies + blog + geo articles |
+| `includes/` | 8 | Shared layout modules |
+| `assets/css/` | 3 | Stylesheets (theme + responsive + fixes) |
+| `assets/js/` | 1 | Custom JS (minified) |
+| `assets/vendors/` | 28 | Bundled JS/CSS libraries |
+| `assets/images/` | 500+ | Image assets (WebP primary) |
+
+**Approximate total site size**: ~500 MB (dominated by images and bundled vendor libraries)
+
+---
+
+*Architecture document auto-generated from full codebase audit — April 2026.*

@@ -4,7 +4,16 @@ $page_title = 'Business Intelligence Services USA | Data Analytics & BI — Arti
 $page_description = "Transform raw data into actionable insights with ArtisticWebServices' BI services. Custom dashboards, Power BI, Tableau, and data warehouse solutions for USA companies.";
 $page_keywords = 'business intelligence company USA, data analytics services, Power BI development, Tableau consulting, BI solutions New York';
 $page_canonical = 'https://artisticwebservices.com/services/business-intelligence';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Business Intelligence', 'url' => 'https://artisticwebservices.com/services/business-intelligence']];
+$page_service_schema = ['name' => 'Business Intelligence Services', 'description' => 'Custom BI dashboards, Power BI and Tableau implementation, data warehouse design, and analytics solutions for USA companies.'];
+$page_faq = [
+    ['q' => 'What BI tools does ArtisticWebServices work with?', 'a' => 'We implement solutions across all major BI platforms: Microsoft Power BI, Tableau, Looker, Qlik Sense, Google Data Studio, and Apache Superset. We also build custom BI dashboards using React, D3.js, and ECharts for organizations that need fully branded or embedded analytics without vendor lock-in.'],
+    ['q' => 'How long does a BI implementation take?', 'a' => 'A Power BI or Tableau implementation with standard data connectors and pre-built reports typically takes 4–8 weeks. A full data warehouse build with ETL pipelines, dimensional modeling, and custom dashboards takes 3–6 months. We follow an iterative delivery approach, releasing usable dashboards in the first 2–3 weeks.'],
+    ['q' => 'Can you connect BI to our existing systems?', 'a' => 'Yes. We connect BI platforms to all common data sources: SQL Server, PostgreSQL, MySQL, Snowflake, Redshift, BigQuery, Salesforce, Dynamics 365, SAP, HubSpot, Google Analytics, and flat files (Excel/CSV). Custom API connectors are built when native connectors are unavailable.'],
+    ['q' => 'What is the difference between a BI dashboard and a data warehouse?', 'a' => 'A BI dashboard is the visualization layer your team uses to explore KPIs and trends. A data warehouse is the structured storage layer that aggregates and cleans data from multiple source systems. For accurate, fast dashboards at scale you need both — ArtisticWebServices designs the full stack from ETL pipelines through to end-user reports.'],
+    ['q' => 'Do you offer ongoing BI support?', 'a' => 'Yes. We offer monthly BI support retainers covering new report development, data model changes, user onboarding, performance optimization, and platform upgrades. Many clients also engage us for quarterly analytics reviews to ensure KPIs remain aligned with evolving business goals.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -83,7 +92,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

@@ -1,15 +1,52 @@
+/* ============================================================
+   CSS Custom Properties — Artastic Web Services
+   ============================================================ */
+:root {
+  /* Brand Colors */
+  --color-brand-red: #dd0429;        /* Primary — use this everywhere */
+  --color-brand-red-dark: #d31923;   /* Healthcare/mobile-app sections */
+  --color-brand-red-accent: #ec1c22; /* Quote form accent */
+  --color-brand-red-hover: #b8021f;  /* Hover states */
+
+  /* Text Colors */
+  --color-text-primary: #222222;
+  --color-text-secondary: #666666;
+  --color-text-light: #999999;
+  --color-text-white: #ffffff;
+
+  /* Background Colors */
+  --color-bg-light: #f8f9fa;
+  --color-bg-dark: #1a1a2e;
+
+  /* Spacing Scale */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --spacing-xl: 80px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Transition */
+  --transition-base: 0.3s ease;
+}
+
 /* =====================================================
    ArtisticWebServices – Custom Fixes & Enhancements
    Fixes: navbar overlap, dropdowns, mobile, sections
    ===================================================== */
 
 /* ── 1. Navbar / Fixed-top overlap fix ──────────────── */
+/* Navbar height: logo 50px + py-2 (8px top + 8px bottom) = ~66px total    */
 body {
-    padding-top: 90px;
+    padding-top: 68px;
 }
 @media (max-width: 991.98px) {
     body {
-        padding-top: 70px;
+        padding-top: 60px;
     }
 }
 
@@ -25,11 +62,10 @@ body {
 }
 
 /* ── 2. Navbar styling ──────────────────────────────── */
+/* py-2 class on <nav> controls padding (Bootstrap !important wins) */
 .navbar {
     background-color: #fff !important;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08) !important;
-    padding-top: 10px;
-    padding-bottom: 10px;
     transition: box-shadow 0.3s ease;
 }
 
@@ -37,9 +73,15 @@ body {
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.14) !important;
 }
 
+/* Navbar logo — slimmer navbar height (50px logo, py-2 padding = ~66px total) */
 .navbar-brand img {
     max-height: 50px;
     width: auto;
+}
+@media (max-width: 991.98px) {
+    .navbar-brand img {
+        max-height: 42px;
+    }
 }
 
 /* ── 3. Global link color override — scope to content only ── */
@@ -47,13 +89,39 @@ body {
 
 /* ── Nav links ──────────────────────────────────────── */
 .navbar .nav-link {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     color: #222 !important;
-    padding: 8px 14px !important;
     border-radius: 4px;
     transition: color 0.2s ease, background 0.2s ease;
     position: relative;
+    white-space: nowrap;
+}
+/* Desktop default (1200px+): full padding */
+@media (min-width: 1200px) {
+    .navbar .nav-link {
+        padding: 0 12px;
+        line-height: 50px;
+    }
+}
+/* Narrow desktop (992-1199px): compressed to prevent overflow.
+   7 nav links + Call Now button need ~858px; container only gives ~760px.
+   Reducing padding/font brings total to ~720px which fits. */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .navbar .nav-link {
+        padding: 0 7px;
+        font-size: 13px;
+        line-height: 50px;
+    }
+    .main-menu-wrapper__call .aws-call-now-btn {
+        padding: 7px 14px;
+        font-size: 12.5px;
+    }
+}
+@media (max-width: 991.98px) {
+    .navbar .nav-link {
+        padding: 10px 6px;
+    }
 }
 
 .navbar .nav-link:hover,
@@ -64,6 +132,32 @@ body {
 
 .navbar .nav-link.dropdown-toggle::after {
     vertical-align: middle;
+}
+
+/* Mibooz theme sets .main-menu-wrapper__call { margin-right: -110px; margin-left: 70px; }
+   for a legacy wide header — inside Bootstrap navbar it pulls the CTA past the container. */
+.navbar .main-menu-wrapper__call {
+    margin-right: 0 !important;
+    margin-left: 12px !important;
+}
+@media (min-width: 992px) {
+    .navbar-collapse {
+        min-width: 0;
+    }
+    .navbar-expand-lg .navbar-nav {
+        flex-shrink: 1;
+    }
+}
+
+/* Hide fixed navbar on scroll down; show on scroll up (class toggled in header.php). */
+.navbar.aws-site-nav {
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.32s ease;
+    will-change: transform;
+}
+.navbar.aws-site-nav.aws-nav--hidden {
+    transform: translateY(-102%);
+    box-shadow: none;
+    pointer-events: none;
 }
 
 /* ── 4. Dropdown menus ──────────────────────────────── */
@@ -207,6 +301,19 @@ body {
         margin-top: 16px;
         padding-top: 16px;
         border-top: 1px solid #f0f0f0;
+    }
+}
+
+/* ── Desktop: reset any mobile collapse styles ─────── */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+        border-radius: 0 !important;
     }
 }
 
@@ -530,15 +637,24 @@ body.has-cta-bar {
     padding-bottom: 60px;
 }
 
-/* ── 18. Navbar Call Now button spacing ─────────────── */
+/* ── 18. Navbar Call Now button — desktop alignment ─── */
+/* Desktop: collapse is a flex row managed by header.php inline style.
+   Only override what the inline style cannot set (button sizing, mobile). */
 .main-menu-wrapper__call {
-    margin-left: 16px;
+    flex-shrink: 0;
+}
+@media (min-width: 992px) {
+    .main-menu-wrapper__call {
+        margin-left: 12px !important;
+    }
+    .aws-call-now-btn {
+        padding: 8px 20px;
+        font-size: 13.5px;
+    }
 }
 @media (max-width: 991.98px) {
     .main-menu-wrapper__call {
-        margin: 12px 0 0;
-        padding-top: 12px;
-        border-top: 1px solid #f0f0f0;
+        display: none; /* hidden on mobile — mobile uses .aws-mob-callnow in header-logo */
     }
 }
 
@@ -823,7 +939,8 @@ a.thm-btn.redchange:hover {
 /* ≤991px */
 @media (max-width: 991px) {
     body { padding-top: 70px; }
-    [class*="col-lg-"], [class*="col-xl-"] { flex: 0 0 100%; max-width: 100%; margin-bottom: 24px; }
+    /* REMOVED: nuclear column override — was forcing ALL col-lg-* and col-xl-* to 100% width.
+       Targeted full-width stacking is handled below for specific sections only. */
     h1 { font-size: 2rem !important; }
     h2 { font-size: 1.75rem !important; }
     h3 { font-size: 1.35rem !important; }
@@ -836,6 +953,35 @@ a.thm-btn.redchange:hover {
     section { padding-top: 60px !important; padding-bottom: 60px !important; }
     .dropdown-menu { position: static !important; box-shadow: none !important; }
     .welcome-three__left { padding-right: 0 !important; }
+}
+
+/* ── Targeted tablet column stacking (replaces removed nuclear override) ────
+   Only stack full-width the sections that genuinely need it at ≤991px.
+   Bootstrap's natural responsive grid handles everything else.              */
+@media (max-width: 991px) {
+    /* Hero content columns */
+    .hero-section [class*="col-lg-"],
+    .hero-section [class*="col-xl-"],
+    .banner-one [class*="col-lg-"],
+    .banner-one [class*="col-xl-"],
+    .page-header [class*="col-lg-"],
+    .page-header [class*="col-xl-"],
+    /* Service/feature card wrappers */
+    .service-card-wrap [class*="col-lg-"],
+    .service-card-wrap [class*="col-xl-"],
+    /* About / welcome split layouts */
+    .welcome-three__left-col,
+    .welcome-three__right-col,
+    /* Scheduler / meeting section */
+    .shadule-metting [class*="col-lg-"],
+    .shadule-metting [class*="col-xl-"],
+    /* Case study layout */
+    .case-left,
+    .case-right {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 24px;
+    }
 }
 
 /* ≤767px */
@@ -955,7 +1101,14 @@ a.thm-btn.redchange:hover {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ── Global overflow guard ──────────────────────────────────────────────── */
-html, body {
+/* overflow-x:hidden on <html> breaks position:sticky and can clip absolutely-
+   positioned mega-menu dropdowns on viewports wider than the container.
+   Scoped to <body> only so mega-menus (position:absolute inside .navbar) remain
+   fully visible at 1200px+. The <html> element keeps normal scroll behaviour. */
+html {
+    -webkit-overflow-scrolling: touch;
+}
+body {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
@@ -1441,22 +1594,6 @@ iframe:not([id^="tawk"]):not([title*="chat" i]):not([src*="tawk.to"]) {
    FINAL 10/10 POLISH — Accessibility, Performance, Visual Consistency
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── Skip-to-main link for keyboard/screen-reader users ─────────────────── */
-.skip-to-main {
-    position: absolute;
-    top: -100px;
-    left: 16px;
-    z-index: 100000;
-    background: #dd0429;
-    color: #fff !important;
-    padding: 10px 18px;
-    border-radius: 0 0 6px 6px;
-    font-weight: 700;
-    font-size: 14px;
-    text-decoration: none !important;
-    transition: top 0.2s;
-}
-.skip-to-main:focus { top: 0; }
 
 /* ── Focus visible ring for keyboard navigation ──────────────────────────── */
 :focus-visible {
@@ -1715,6 +1852,23 @@ img.red-icon,
 .case-imgs img,
 .case-left img {
     background-color: transparent !important;
+}
+
+/* ── Review card .info: remove red box from style-01.css ─────────────────── */
+/* style-01.css sets background:#dd0429, position:absolute, left:-40px on
+   .review-card .info — creates an overflowing red box below each card.
+   Override to clean inline text styling with no background or overflow.     */
+.review-card .info {
+    position: static !important;
+    background: transparent !important;
+    color: #4b5563 !important;
+    padding: 10px 0 0 !important;
+    width: 100% !important;
+    left: auto !important;
+    margin-top: 8px !important;
+    border-radius: 0 !important;
+    font-size: 0.85rem;
+    text-align: center;
 }
 
 /* Industry grid image column */
@@ -3125,6 +3279,132 @@ small[id$="-valid"] { color: #dd0429; font-size: 12px; display: block; margin-to
         text-align: center !important;
     }
     .site-footer__bottom-text { text-align: center !important; font-size: 13px !important; }
+
+    /* ══ I. NAMED CONTENT WRAPPERS — merged from second mobile block ════════ */
+
+    /* Hero / slider content */
+    .main-slider__content,
+    .main-slider-two__content,
+    .main-slider-three__content,
+    .hero-section .container,
+    .banner-one__content,
+    .carousel-caption,
+    .housten-hero-content,
+    .dubia-hero-content,
+    .location-hero,
+    .fintness__contents,
+    .industry-hero {
+        text-align: center !important;
+    }
+
+    /* Common content wrappers */
+    .welcome-one__content,
+    .welcome-two__content,
+    .welcome-three__content,
+    .why-choose-one__content,
+    .why-choose-one__content-list,
+    .services-one__top-left,
+    .services-one__top-right,
+    .about-page__content,
+    .about-page__right,
+    .every-stage__content,
+    .we-build__content,
+    .we-can__content,
+    .team_work_content,
+    .governemnt-about,
+    .overview-content,
+    .download-pera,
+    .digital-innovation-content,
+    .improvise_section,
+    .compliant-content,
+    .Delight_head,
+    .key-features-title,
+    .ecommerce-services-title,
+    .acccordien-content,
+    .percision-content,
+    .map-sec,
+    .map-sec .left-content,
+    .map-sec .right-content {
+        text-align: center !important;
+    }
+
+    /* Inline icon+text blocks — keep icons centred too */
+    .feature-one__single,
+    .services-two__single,
+    .services-three__single,
+    .how-it-works__process-single,
+    .best-agency__experience,
+    .best-agency__points li,
+    .we-care__content,
+    .two-boxes__single,
+    .tab-content__bottom,
+    .ecomerce__contentsbox,
+    .achivement__box,
+    .achivement_box,
+    .left-item,
+    .right-item,
+    .trust-content,
+    .serv_box,
+    .rating-box-main > *,
+    .premium-features .tab {
+        text-align: center !important;
+    }
+
+    /* Blog & portfolio cards */
+    .blog-content,
+    .project-two__top,
+    .project-two__left .section-title,
+    .blog-one .section-title__title,
+    .blog-details__pagenation li {
+        text-align: center !important;
+    }
+
+    /* CTA sections */
+    .cta-one__inner,
+    .cta-one__left,
+    .cta-one__title-box,
+    .cta-two__title {
+        text-align: center !important;
+    }
+
+    /* Footer top */
+    .site-footer__top-inner {
+        text-align: center !important;
+    }
+
+    /* Testimonial */
+    .testimonial-one__content,
+    .testimonial-two__title,
+    .testimonial-two__text {
+        text-align: center !important;
+    }
+
+    /* Tabs */
+    .every-stage__tab-box .tab-buttons,
+    .tab__title,
+    .tabs-container h3,
+    section.custom-tabs h2 {
+        text-align: center !important;
+    }
+
+    /* Misc utility classes used across pages */
+    .text-section h2,
+    .text-section-bg p,
+    .latest-technology-title,
+    .best-choice-title,
+    .custom-testimonials-heading,
+    .alience__content h2,
+    .allience__partner h2,
+    .services__content h4,
+    .houston__portfolio-title,
+    .premium-features-title {
+        text-align: center !important;
+    }
+
+    /* Make flex containers wrap & center on mobile */
+    .slider-items {
+        justify-content: center !important;
+    }
 }
 
 /* Footer social (≤992px): center row + FA glyphs in circles — same range as footer.php */
@@ -3559,12 +3839,12 @@ section a.btn-cta-modal {
 .aws-qf-trust {
     text-align: center;
     font-size: 0.8rem;
-    color: #9ca3af;
+    color: #6b7280; /* was #9ca3af (2.85:1 contrast) → #6b7280 passes WCAG AA (4.6:1) */
     margin: 14px 0 0;
 }
 
 .aws-qf-trust a {
-    color: #6b7280;
+    color: #4b5563; /* was #6b7280 → darker for better contrast on link text */
     text-decoration: none;
     font-weight: 600;
 }
@@ -3672,163 +3952,1342 @@ section.brand-one {
     .brand-one .swiper-slide img { height: 28px; }
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   Mobile – Global Section Text Center Alignment (≤767px)
-   Centers all headings, paragraphs, labels and section text on small screens.
-   ═══════════════════════════════════════════════════════════════════════════ */
+/* NOTE: The second @media (max-width: 767px) block that was here
+   ("Mobile – Global Section Text Center Alignment") has been merged
+   into the consolidated block above (section ══ I ══). */
+
+/* === Extracted from footer.php — Footer Link Hover === */
+.site-footer a:hover {
+    color: #dd0429 !important;
+}
+
+/* === Extracted from footer.php — Modal === */
+.aws-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,30,0.75);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+.aws-modal-overlay.active { display: flex; animation: awsFadeIn 0.3s ease; }
+@keyframes awsFadeIn { from{opacity:0} to{opacity:1} }
+
+/* Two-column modal box */
+.aws-modal-box {
+    background: #fff;
+    border-radius: 20px;
+    max-width: 860px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    animation: awsScaleIn 0.38s cubic-bezier(0.34,1.56,0.64,1);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.35);
+    max-height: 92vh;
+}
+@keyframes awsScaleIn { from{opacity:0;transform:scale(0.8) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
+
+/* Left image panel */
+.aws-modal-image-panel {
+    width: 42%;
+    flex-shrink: 0;
+    background: linear-gradient(160deg, #8b0015 0%, #b8001f 40%, #dd0429 75%, #ff2244 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: 0;
+}
+.aws-modal-image-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 105%, rgba(255,80,80,0.45) 0%, transparent 60%),
+        radial-gradient(ellipse at 85% 15%, rgba(255,255,255,0.12) 0%, transparent 50%);
+    z-index: 0;
+}
+.aws-modal-left-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 28px 20px 0;
+}
+.aws-modal-left-badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+}
+.aws-modal-left-heading {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.3;
+    margin: 0 0 8px;
+}
+.aws-modal-left-heading span { color: #ffd700; }
+.aws-modal-left-sub {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    text-align: center;
+    margin: 0 0 20px;
+    line-height: 1.6;
+}
+.aws-modal-stats {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.aws-modal-stats > div {
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 12px;
+    padding: 8px 14px;
+    min-width: 66px;
+}
+.aws-modal-stats strong {
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffd700;
+    line-height: 1.1;
+}
+.aws-modal-stats span {
+    font-size: 11px;
+    color: rgba(255,255,255,0.82);
+    white-space: nowrap;
+    font-weight: 500;
+}
+.aws-modal-lady-img {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    object-fit: contain;
+    object-position: bottom;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Right form panel */
+.aws-modal-form-panel {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    min-height: 0;
+}
+.aws-modal-form-header {
+    background: linear-gradient(135deg, #dd0429 0%, #950018 100%);
+    padding: 24px 32px 20px;
+    position: relative;
+}
+.aws-modal-form-header h2 {
+    color: #fff;
+    font-size: 23px;
+    font-weight: 800;
+    margin: 0 0 6px;
+    padding-right: 38px;
+    line-height: 1.25;
+}
+.aws-modal-form-header p {
+    color: rgba(255,255,255,0.88);
+    font-size: 14px;
+    margin: 0;
+}
+.aws-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    transition: background 0.2s;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.aws-modal-close:hover { background: rgba(255,255,255,0.38); }
+
+/* Form area */
+.aws-modal-body { padding: 22px 32px 26px; flex: 1; overflow-y: auto; min-height: 0; }
+.aws-form-row { display: flex; gap: 10px; margin-bottom: 0; }
+.aws-form-row .aws-form-group { flex: 1; }
+.aws-form-group { margin-bottom: 12px; }
+.aws-form-group input,
+.aws-form-group select,
+.aws-form-group textarea {
+    width: 100%;
+    border: 1.5px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 15px;
+    color: #333;
+    background: #f8f9fb;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    outline: none;
+    box-sizing: border-box;
+}
+.aws-form-group input:focus,
+.aws-form-group select:focus,
+.aws-form-group textarea:focus {
+    border-color: #dd0429;
+    box-shadow: 0 0 0 3px rgba(221,4,41,0.1);
+    background: #fff;
+}
+.aws-form-group textarea { resize: none; min-height: 72px; }
+.aws-form-group select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23999' d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+
+.aws-form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #dd0429 0%, #950018 100%);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 20px rgba(221,4,41,0.35);
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: 0.4px;
+}
+.aws-form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(221,4,41,0.45); }
+.aws-form-submit:active { transform: translateY(0); }
+
+.aws-modal-footer-note {
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+    margin-top: 12px;
+    line-height: 1.6;
+}
+.aws-modal-footer-note i { color: #dd0429; margin-right: 3px; }
+.aws-modal-footer-note a { color: #dd0429; text-decoration: none; font-weight: 600; }
+
+/* Responsive: mobile — form only, no image */
+@media (max-width: 640px) {
+    .aws-modal-overlay {
+        padding: 10px;
+        align-items: flex-end;
+    }
+    .aws-modal-box {
+        flex-direction: column;
+        max-height: 96vh;
+        border-radius: 20px 20px 16px 16px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .aws-modal-image-panel {
+        display: none;
+    }
+    .aws-modal-form-panel {
+        width: 100%;
+        border-radius: 20px 20px 16px 16px;
+        overflow: hidden;
+    }
+    .aws-modal-form-header {
+        padding: 22px 22px 16px;
+        background: linear-gradient(135deg, #dd0429 0%, #8b0015 100%);
+    }
+    .aws-modal-form-header h2 {
+        font-size: 20px;
+        padding-right: 36px;
+    }
+    .aws-modal-form-header p { font-size: 13px; }
+    .aws-modal-body {
+        padding: 18px 18px 22px;
+        overflow-y: auto;
+    }
+    .aws-form-row { flex-direction: column; gap: 0; }
+    .aws-form-group { margin-bottom: 10px; }
+    .aws-form-group input,
+    .aws-form-group select,
+    .aws-form-group textarea {
+        font-size: 15px;
+        padding: 12px 14px;
+        border-radius: 10px;
+    }
+    .aws-form-group textarea { min-height: 60px; }
+    .aws-form-submit {
+        padding: 14px;
+        font-size: 16px;
+        border-radius: 50px;
+    }
+    .aws-modal-footer-note { font-size: 12px; }
+}
+
+/* Tablet: narrow two-column */
+@media (min-width: 641px) and (max-width: 780px) {
+    .aws-modal-box { max-width: 680px; }
+    .aws-modal-image-panel { width: 38%; }
+    .aws-modal-left-heading { font-size: 18px; }
+    .aws-modal-lady-img { max-width: 210px; }
+    .aws-modal-form-header { padding: 20px 24px 16px; }
+    .aws-modal-form-header h2 { font-size: 20px; }
+    .aws-modal-body { padding: 18px 24px 22px; overflow-y: auto; min-height: 0; }
+}
+
+/* === Extracted from footer.php — Footer Social Icons === */
+.footer-social-wrap {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    align-items: center;
+}
+.footer-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.22);
+    color: #fff !important;
+    font-size: 16px;
+    line-height: 1;
+    text-decoration: none !important;
+    transition: background 0.25s, transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+.footer-social-icon i {
+    font-size: 1em;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.footer-social-icon i::before {
+    line-height: 1;
+    display: block;
+}
+.footer-social-icon:hover {
+    color: #fff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.footer-social-icon.fb:hover  { background: #1877f2; border-color: #1877f2; }
+.footer-social-icon.li:hover  { background: #0a66c2; border-color: #0a66c2; }
+.footer-social-icon.ig:hover  { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color: #e1306c; }
+.footer-social-icon.tw:hover  { background: #000;    border-color: #000; }
+
+@media (max-width: 991px) {
+    .footer-social-wrap {
+        justify-content: center;
+        width: 100%;
+    }
+}
 @media (max-width: 767px) {
-
-    /* Section headings & body text */
-    section h1, section h2, section h3,
-    section h4, section h5, section h6,
-    section p, section span,
-    section label, section li,
-    section .lead, section small {
-        text-align: center !important;
+    .footer-social-wrap {
+        gap: 8px;
+        margin-top: 14px;
     }
-
-    /* Section title components */
-    .section-title,
-    .section-title__tagline,
-    .section-title__title,
-    .section-title__paragraph,
-    .section-title p,
-    .section-title h2,
-    .section-title h3 {
-        text-align: center !important;
+    .footer-social-icon {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        min-height: 38px;
+        font-size: 15px;
     }
-
-    /* Hero / slider content */
-    .main-slider__content,
-    .main-slider-two__content,
-    .main-slider-three__content,
-    .hero-section .container,
-    .banner-one__content,
-    .carousel-caption,
-    .housten-hero-content,
-    .dubia-hero-content,
-    .location-hero,
-    .fintness__contents,
-    .industry-hero {
-        text-align: center !important;
+    .footer-social-icon i {
+        font-size: 1em;
     }
-
-    /* Common content wrappers */
-    .welcome-one__content,
-    .welcome-two__content,
-    .welcome-three__content,
-    .why-choose-one__content,
-    .why-choose-one__content-list,
-    .services-one__top-left,
-    .services-one__top-right,
-    .about-page__content,
-    .about-page__right,
-    .every-stage__content,
-    .we-build__content,
-    .we-can__content,
-    .team_work_content,
-    .governemnt-about,
-    .get__content,
-    .helth-right,
-    .overview-content,
-    .download-pera,
-    .digital-innovation-content,
-    .improvise_section,
-    .compliant-content,
-    .Delight_head,
-    .key-features-title,
-    .ecommerce-services-title,
-    .acccordien-content,
-    .percision-content,
-    .map-sec,
-    .map-sec .left-content,
-    .map-sec .right-content {
-        text-align: center !important;
+}
+@media (max-width: 575px) {
+    .footer-social-wrap { gap: 8px; }
+    .footer-social-icon {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        font-size: 14px;
     }
+    .footer-social-icon i { font-size: 1em; }
+}
 
-    /* Inline icon+text blocks – keep icons centred too */
-    .feature-one__single,
-    .services-two__single,
-    .services-three__single,
-    .how-it-works__process-single,
-    .counter-one__single,
-    .best-agency__experience,
-    .best-agency__points li,
-    .we-care__content,
-    .two-boxes__single,
-    .tab-content__bottom,
-    .business-model-boxx,
-    .ecomerce__contentsbox,
-    .achivement__box,
-    .achivement_box,
-    .left-item,
-    .right-item,
-    .trust-content,
-    .serv_box,
-    .rating-box-main > *,
-    .premium-features .tab {
-        text-align: center !important;
+/* === Extracted from footer.php — Scrolling Logo Strip === */
+.footer-logo-scroll {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.25);
+    padding: 20px 0;
+    overflow: hidden;
+    position: relative;
+}
+.footer-logo-scroll::before,
+.footer-logo-scroll::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 2;
+    pointer-events: none;
+}
+.footer-logo-scroll::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(20,20,20,0.95) 0%, transparent 100%);
+}
+.footer-logo-scroll::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(20,20,20,0.95) 0%, transparent 100%);
+}
+.footer-logo-scroll-track {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    width: max-content;
+    animation: footerLogoScroll 30s linear infinite;
+}
+.footer-logo-scroll-track:hover {
+    animation-play-state: paused;
+}
+@keyframes footerLogoScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.footer-scroll-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 110px;
+    height: 44px;
+}
+.footer-scroll-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.70;
+    transition: opacity 0.25s, transform 0.25s;
+    display: block;
+}
+.footer-scroll-logo img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+@media (max-width: 767px) {
+    .footer-logo-scroll { padding: 16px 0; }
+    .footer-logo-scroll-track { gap: 32px; animation-duration: 22s; }
+    .footer-scroll-logo { width: 80px; height: 34px; }
+    .footer-logo-scroll::before,
+    .footer-logo-scroll::after { width: 36px; }
+}
+@media (max-width: 479px) {
+    .footer-logo-scroll-track { gap: 24px; animation-duration: 18s; }
+    .footer-scroll-logo { width: 70px; height: 28px; }
+}
+
+/* === Extracted from footer.php — CTA Buttons (sticky bar) === */
+.aws-btn-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #dd0429;
+    color: #fff !important;
+    padding: 12px 26px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 16px rgba(221,4,41,0.3);
+    border: none;
+    cursor: pointer;
+}
+.aws-btn-call:hover { background:#b8001f; color:#fff !important; transform:translateY(-2px); }
+.aws-btn-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: #dd0429 !important;
+    padding: 11px 26px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none !important;
+    border: 2px solid #dd0429;
+    transition: all 0.2s;
+}
+.aws-btn-contact:hover { background:#dd0429; color:#fff !important; transform:translateY(-2px); }
+
+/* === Extracted from footer.php — Floating Left Contact === */
+.aws-float-left {
+    position: fixed;
+    left: 0;
+    bottom: 120px;
+    z-index: 9990;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.aws-float-email {
+    display: flex;
+    align-items: center;
+    background: #333;
+    color: #fff !important;
+    text-decoration: none !important;
+    height: 44px;
+    padding: 0 14px 0 12px;
+    border-radius: 0 8px 0 0;
+    overflow: hidden;
+    max-width: 44px;
+    transition: max-width 0.35s ease, background 0.2s;
+    white-space: nowrap;
+    gap: 10px;
+}
+.aws-float-email:hover {
+    max-width: 280px;
+    background: #222;
+    color: #fff !important;
+}
+.aws-float-email i {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+.aws-float-email span {
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.2s 0.1s;
+}
+.aws-float-email:hover span {
+    opacity: 1;
+}
+.aws-float-call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dd0429;
+    color: #fff !important;
+    text-decoration: none !important;
+    width: 44px;
+    height: 44px;
+    border-radius: 0 0 8px 0;
+    font-size: 18px;
+    position: relative;
+    transition: background 0.2s;
+}
+.aws-float-call:hover { background: #b8001f; color: #fff !important; }
+.aws-float-call::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 0 0 12px 0;
+    border: 2px solid #dd0429;
+    animation: awsPulse 1.8s infinite;
+    opacity: 0;
+}
+@keyframes awsPulse {
+    0%   { transform: scale(0.95); opacity: 0.7; }
+    70%  { transform: scale(1.15); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* === Extracted from footer.php — Call Now Nav Button === */
+.aws-call-now-btn {
+    background: #dd0429;
+    color: #fff !important;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 14px rgba(221,4,41,0.3);
+}
+.aws-call-now-btn:hover {
+    background: #b8001f;
+    transform: translateY(-1px);
+}
+
+/* === Extracted from footer.php — Tawk.to Widget Positioning === */
+.tawk-min-container {
+    left: 0 !important;
+    right: auto !important;
+}
+.tawk-min-container .tawk-button,
+.tawk-min-container .tawk-button-circle {
+    border-radius: 0 50% 50% 0 !important;
+}
+@media (max-width: 767px) {
+    .tawk-min-container {
+        left: 0 !important;
+        right: auto !important;
+        bottom: 16px !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
+}
 
-    /* Blog & portfolio cards */
-    .blog-content,
-    .project-two__top,
-    .project-two__left .section-title,
-    .blog-one .section-title__title,
-    .blog-details__pagenation li {
-        text-align: center !important;
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESP-2 Tablet Fixes — 768px–1199px
+   Audit date: 2026-04-16
+   Scope: layout/sizing only — no visual design changes.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── RESP-2-T1: Navbar brand image height alignment at tablet ────────────────
+   Logo is 42px at tablet (header.php inline style). Navbar ~58px total.
+   Body padding-top 60px (from global mobile rule) is correct. ──────────── */
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-brand img {
+        height: 42px !important;
+        max-height: 42px !important;
     }
+}
 
-    /* CTA sections */
-    .cta-one__inner,
-    .cta-one__left,
-    .cta-one__title-box,
-    .cta-two__inner,
-    .cta-two__left,
-    .cta-two__title-box,
-    .cta-two__title {
-        text-align: center !important;
+/* ── RESP-2-T2: Hero carousel padding at 768px–1199px ───────────────────────
+   carousel-item has inline padding: 105px 0 48px for desktop. At tablet
+   this adds excessive whitespace. Reduce top padding. Clamp slide-h2 to
+   a comfortable 36–40px range (target: 36–48px for tablet). ────────────── */
+@media (min-width: 768px) and (max-width: 1199px) {
+    #carouselExampleDark .carousel-item,
+    #carouselExampleDark .carousel-item.active {
+        padding-top: 90px;
+        padding-bottom: 40px;
     }
-
-    /* Footer top */
-    .site-footer__top-inner {
-        text-align: center !important;
+    #carouselExampleDark .hero-video-caption .slide-h2 {
+        font-size: clamp(2rem, 4vw, 2.5rem) !important;
     }
-
-    /* Testimonial */
-    .testimonial-one__content,
-    .testimonial-two__title,
-    .testimonial-two__text {
-        text-align: center !important;
+    #carouselExampleDark .carousel-caption.hero-video-caption {
+        width: 92%;
     }
+}
 
-    /* Tabs */
-    .every-stage__tab-box .tab-buttons,
-    .tab__title,
-    .tabs-container h3,
-    section.custom-tabs h2 {
-        text-align: center !important;
+/* ── RESP-2-T3: section-title__title smoothed at 768px–991px ────────────────
+   mibooz-responsive.css sets .section-title__title to 34px at 768–991px.
+   custom-fixes Fix 11 overrides h2 globally to 1.75rem (28px) at ≤991px,
+   creating a conflict. Explicit 30px bridges the two. ──────────────────── */
+@media (min-width: 768px) and (max-width: 991px) {
+    .section-title__title {
+        font-size: 30px !important;
+        line-height: 1.3 !important;
     }
-
-    /* Misc utility classes used across pages */
-    .text-section h2,
-    .text-section-bg p,
-    .latest-technology-title,
-    .best-choice-title,
-    .custom-testimonials-heading,
-    .custom-slider-text,
-    .slider-items,
-    .alience__content h2,
-    .allience__partner h2,
-    .services__content h4,
-    .houston__portfolio-title,
-    .premium-features-title {
-        text-align: center !important;
+    p.section-title__paragraph {
+        font-size: 16px !important;
+        width: 100% !important;
     }
+}
 
-    /* Make flex containers wrap & center on mobile */
-    .slider-items {
+/* ── RESP-2-T4: Footer columns at lg tablet (992px–1199px) ──────────────────
+   Footer uses col-xl-3/col-xl-2/col-lg-4. At lg, col-lg-4 renders 3-across,
+   causing 2 columns to wrap onto a second row awkwardly. Rebalance to
+   a 40/30/30 first row then 50/50 second row. ──────────────────────────── */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .site-footer__middle-inner .row > div:nth-child(1) {
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+    .site-footer__middle-inner .row > div:nth-child(2),
+    .site-footer__middle-inner .row > div:nth-child(3) {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+    .site-footer__middle-inner .row > div:nth-child(4),
+    .site-footer__middle-inner .row > div:nth-child(5) {
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-top: 24px;
+    }
+}
+
+/* ── RESP-2-T5: Footer columns at md tablet (768px–991px) ───────────────────
+   At md, col-lg-4 falls back to full-width, so all 5 footer columns stack
+   individually. Give link/solution/connect cols a 2-across layout. ──────── */
+@media (min-width: 768px) and (max-width: 991px) {
+    .site-footer__middle-inner .row > div:nth-child(1) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 24px;
+    }
+    .site-footer__middle-inner .row > div:nth-child(2),
+    .site-footer__middle-inner .row > div:nth-child(3),
+    .site-footer__middle-inner .row > div:nth-child(4),
+    .site-footer__middle-inner .row > div:nth-child(5) {
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-bottom: 20px;
+    }
+    .footer-widget__links {
+        padding-right: 16px;
+    }
+}
+
+/* ── RESP-2-T6: Footer contact inline overflow at 768px–991px ───────────────
+   .three__tabs uses flex-direction:row gap:30px. At 768px a long email
+   address can cause overflow. Allow wrap. ───────────────────────────────── */
+@media (min-width: 768px) and (max-width: 991px) {
+    .footer-contact-inline.three__tabs {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+/* ── RESP-2-T7: Mega-menu item density at 992px–1199px ──────────────────────
+   The 4-column mega-menu is cramped at ~992px. Reduce list-group-item
+   padding and column gutters to prevent text wrapping and overflow. ──────── */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .dropdown-menu .list-group-item {
+        font-size: 13px !important;
+        padding: 8px 10px !important;
+    }
+    .dropdown-menu .col-lg-3 {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+    .dropdown-menu.w-100 {
+        overflow-x: hidden;
+    }
+}
+
+/* ── RESP-2-T8: Desktop Call Now button in collapsed nav at tablet ────────────
+   Inside hamburger-expanded nav at 768–991px, the .aws-call-now-btn sits in
+   a flex wrapper. Stretch to fill available width for usability. ────────── */
+@media (min-width: 768px) and (max-width: 991px) {
+    .main-menu-wrapper__call .aws-call-now-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ── RESP-2-T9: Inline section padding overrides at tablet ───────────────────
+   Sections with inline style="padding: 120px 0" etc. are not caught by the
+   generic `section` selector in Fix 11. Add attribute-value selectors. ─── */
+@media (min-width: 768px) and (max-width: 1199px) {
+    section[style*="padding: 175px"],
+    section[style*="padding: 150px"],
+    section[style*="padding: 120px"],
+    section[style*="padding: 100px"] {
+        padding-top: 70px !important;
+        padding-bottom: 70px !important;
+    }
+    section[style*="padding-top: 175px"],
+    section[style*="padding-top: 150px"],
+    section[style*="padding-top: 120px"] {
+        padding-top: 70px !important;
+    }
+    section[style*="padding-bottom: 120px"],
+    section[style*="padding-bottom: 150px"] {
+        padding-bottom: 70px !important;
+    }
+}
+
+/* ── RESP-2-T10: Body text base size at 768px–991px ─────────────────────────
+   No explicit body/p font-size is set for the tablet range. Set 15px. ─── */
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    p {
+        font-size: 15px;
+    }
+}
+
+/* ── RESP-2-T11: Nested @media fallback (mibooz-responsive.css bug) ─────────
+   Lines 876–1004 of mibooz-responsive.css contain @media blocks nested
+   inside an outer @media block. Duplicate critical rules at top level as
+   a safe fallback for parsers that do not support CSS nesting. ─────────── */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .similar-work .project-one__hover {
+        padding: 31px 25px 29px;
+    }
+    .similar-work .project-one__tagline:before {
+        left: -40px;
+    }
+    .location__text {
+        font-size: 15px;
+    }
+}
+
+/* ── RESP-2-T12: Global image safety at 768px–1199px ────────────────────────
+   The ≤767px block forces max-width:100%/height:auto on all images.
+   Extend this protection to the tablet range to prevent fixed-px images
+   overflowing their containers on narrower viewports. ───────────────────── */
+@media (min-width: 768px) and (max-width: 1199px) {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* ── RESP-2-T13: Hero CTA button pair at 768px–991px ────────────────────────
+   thm-btn + hero-ghost-btn are inline. At narrow tablet the pair with
+   margin-left:12px on ghost btn can be cramped. Add bottom margin for
+   graceful wrapping. Also compact trust-chip pills slightly. ─────────────── */
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-video-caption .thm-btn,
+    .hero-video-caption .hero-ghost-btn {
+        margin-bottom: 8px;
+    }
+    .slide-trust {
+        gap: 8px;
+    }
+    .slide-trust span {
+        font-size: 12px;
+        padding: 4px 12px;
+    }
+}
+
+/* ── RESP-2-T14: .col-xl-4 scope correction at lg tablet (992px–1199px) ─────
+   Fix 11 (≤1199px) forces ALL .col-xl-4 to 50%, breaking service grids
+   that should be 3-col (33.333%) at 992px+. Restore 3-col. ─────────────── */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .row .col-xl-4 {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+    }
+    /* Case-study side-by-side: keep at 50% */
+    .case-content .col-xl-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* ── RESP-2-T15: .col-xl-6 restoration for 2-col grids at 768px–991px ───────
+   The ≤991px block forces all [class*="col-xl-"] to 100%. On tablet
+   (768–991px) pairs of col-xl-6 columns legitimately stay 2-across.
+   Restore 50% for col-xl-6 except in hero/banner sections. ─────────────── */
+@media (min-width: 768px) and (max-width: 991px) {
+    .row .col-xl-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    /* Hero and banner columns must remain full-width (already stacked by
+       the targeted stacking rule from Sprint 2). */
+    .hero-section .col-xl-6,
+    .banner-one .col-xl-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESP-3 Mobile Fixes — 320px–767px audit
+   Applied: 2026-04-16
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── RESP-3-1: iOS input zoom fix — quote form inputs (0.93rem ≈ 14.9px) ── */
+/* The global @media (max-width: 767px) block covers bare inputs, but
+   .aws-qf-form input has a more-specific rule (font-size: 0.93rem) that
+   wins on older WebKit. Explicit !important here guarantees 16px on iOS.  */
+@media (max-width: 767px) {
+    .aws-qf-form input[type="text"],
+    .aws-qf-form input[type="email"],
+    .aws-qf-form input[type="tel"],
+    .aws-qf-form textarea {
+        font-size: 16px !important; /* Prevents iOS auto-zoom */
+        min-height: 44px;           /* WCAG 2.5.5 touch target */
+    }
+    .aws-qf-form textarea {
+        min-height: 100px; /* restore textarea to usable height */
+    }
+}
+
+/* ── RESP-3-2: Mobile Call Now button — raise to 44px touch target ──────── */
+/* Current padding (7px 14px) produces ~30px button height. WCAG 2.5.5 = 44px */
+@media (max-width: 991px) {
+    .aws-mob-callnow {
+        padding: 10px 16px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+/* ── RESP-3-3: Nav links — ensure 44px tap target on mobile ────────────── */
+@media (max-width: 991px) {
+    .navbar-nav .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* ── RESP-3-4: Hero video — hide on mobile to save bandwidth ────────────── */
+/* index.php sets .hero-video-bg { display: block !important } globally.
+   On mobile the carousel background colour/overlay is still visible so
+   slides remain legible; video just doesn't download on 4G/LTE.            */
+@media (max-width: 767px) {
+    .hero-video-bg,
+    #hero-bg-video {
+        display: none !important;
+    }
+}
+
+/* ── RESP-3-4b: Hero video — hide on tablet (768–991px) for bandwidth ──────
+   Tablet users are commonly on WiFi or LTE. The video is an autoplay loop
+   that can consume 5–20MB per session. The carousel poster image covers the
+   background adequately. Hiding the video element prevents the browser
+   network request entirely (the <source> never loads once display:none).    */
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-video-bg,
+    #hero-bg-video {
+        display: none !important;
+    }
+}
+
+/* ── RESP-3-5: three__tabs nowrap — allow wrapping on small phones ───────── */
+/* .three__tabs .mt-0 has white-space: nowrap — on 320px the email address
+   can overflow the footer column at full screen width.                      */
+@media (max-width: 575px) {
+    .three__tabs .mt-0 {
+        white-space: normal;
+    }
+    .three__tabs {
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+    }
+}
+
+/* ── RESP-3-6: Hamburger toggler — guarantee 44×44px touch target ───────── */
+@media (max-width: 991px) {
+    .navbar-toggler {
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* ── RESP-3-7: Footer logo — cap height on 320px screens ────────────────── */
+/* Default is 120–150px; on 320px this consumes too much vertical space.     */
+@media (max-width: 399px) {
+    .footer-logo img,
+    .footer-logo-img {
+        height: 90px !important;
+        max-width: 200px !important;
+        margin: 0 auto;
+    }
+}
+
+/* ── RESP-3-8: Submit button minimum touch height ───────────────────────── */
+@media (max-width: 767px) {
+    .aws-qf-submit,
+    button[type="submit"],
+    input[type="submit"] {
+        min-height: 44px;
+    }
+}
+
+/* ── END RESP-3 Mobile Fixes ─────────────────────────────────────────────── */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DESKTOP LAYOUT FIXES — 1200px+
+   Audit: RESP-1-DESKTOP — April 2026
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── D1. Navbar: reinforce fixed-top z-index above custom section z-indices ── */
+/* Bootstrap .fixed-top sets z-index:1030 by default. Some theme sections use
+   z-index:1+ which is fine, but this guard prevents any future accidental
+   override from stacking content over the sticky navbar on wide screens.    */
+.navbar.fixed-top {
+    z-index: 1030;
+}
+
+/* ── D2. Navbar container: cap width on ultra-wide screens (1400px+) ─────── */
+/* Without a cap, the navbar container spans the full viewport on 1600px+
+   screens, leaving nav links spread across a huge empty bar. 1320px matches
+   the Bootstrap xxl container standard.                                     */
+@media (min-width: 1200px) {
+    .navbar > .container {
+        max-width: 1320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ── D3. Mega-menu: guarantee viewport-width cap on large desktops ────────── */
+/* The mega-menus are position:absolute, w-100 (100% of .navbar viewport).
+   Adding max-width:100vw + explicit left/right:0 prevents any sub-pixel
+   rounding from producing a horizontal scrollbar on wide viewports.         */
+@media (min-width: 992px) {
+    .navbar .dropdown-menu.w-100 {
+        max-width: 100vw;
+        left: 0 !important;
+        right: 0 !important;
+    }
+}
+
+/* ── D4. Hero carousel: enforce full-viewport height on large desktops ────── */
+@media (min-width: 1200px) {
+    #carouselExampleDark {
+        min-height: 100vh;
+    }
+}
+
+/* ── D5. Hero headline: allow larger size at 1400px+ viewports ───────────── */
+/* clamp(2rem, 3.2vw, 2.9rem) caps at 2.9rem (46.4px) which is under the
+   recommended 48–72px range for desktop heroes. Lift the cap at xl+ so the
+   heading scales comfortably on larger screens without going over 56px.     */
+@media (min-width: 1400px) {
+    #carouselExampleDark .hero-video-caption .slide-h2 {
+        font-size: clamp(2.9rem, 3.6vw, 3.5rem) !important;
+    }
+}
+
+/* ── D6. Footer desktop multi-column: reinforce 5-column grid ────────────── */
+/* footer-html.php correctly uses col-xl-3/col-xl-2. This rule prevents any
+   rogue !important override from collapsing columns on desktop.             */
+@media (min-width: 1200px) {
+    .site-footer__middle-inner .row > .col-xl-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .site-footer__middle-inner .row > .col-xl-2 {
+        flex: 0 0 16.6667%;
+        max-width: 16.6667%;
+    }
+}
+
+/* ── D7. Desktop typography baseline ─────────────────────────────────────── */
+/* Ensures heading sizes stay in the 36px–52px comfortable reading range for
+   1200px+ viewports. The mobile !important overrides in earlier rules only
+   fire at max-width breakpoints and do not affect these min-width rules.    */
+@media (min-width: 1200px) {
+    body {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+    h1 { font-size: 52px; line-height: 1.15; }
+    h2 { font-size: 36px; line-height: 1.25; }
+    h3 { font-size: 26px; line-height: 1.3; }
+}
+
+/* ═══ END DESKTOP LAYOUT FIXES (RESP-1-DESKTOP) ═══════════════════════════ */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESP-4 Cross-device Interactive Component Fixes
+   Audit date: 2026-04-16 | Sprint RESP-4
+   Covers: Lead Modal, App Cost Calculator, Quote Form, Floating Contact Bar,
+           Tawk.to chat widget positioning
+   DO NOT change visual design — layout/responsive breakage only.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── RESP-4-1: Lead Modal — close button 44×44px touch target ───────────── */
+/* Before (custom-fixes.css ~4037): width:30px; height:30px
+   Fails WCAG 2.5.5 (44×44px minimum for touch targets).
+   After: 44×44px. top/right adjusted so the larger button stays within the
+   header area and does not clip the h2 title text.                            */
+.aws-modal-close {
+    width:      44px !important;
+    height:     44px !important;
+    min-width:  44px !important;
+    min-height: 44px !important;
+    top:   10px !important;
+    right: 10px !important;
+    line-height: 44px !important;
+}
+
+/* ── RESP-4-2: Lead Modal — extend single-column layout from ≤640px to ≤767px */
+/* Before (custom-fixes.css ~4173): tablet override (641–780px) kept the
+   image+form two-panel layout at widths where the image panel was too narrow.
+   On phones 641–767px the form was squeezed by the left image column.
+   After: hide image panel and use form-only layout up to 767px.               */
+@media (min-width: 641px) and (max-width: 767px) {
+    .aws-modal-box {
+        flex-direction: column;
+        max-height: 96vh;
+        width: calc(100% - 24px);
+        max-width: 540px;
+    }
+    .aws-modal-image-panel {
+        display: none;
+    }
+    .aws-modal-form-panel {
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    .aws-modal-form-header {
+        padding: 22px 22px 16px;
+        background: linear-gradient(135deg, #dd0429 0%, #8b0015 100%);
+    }
+    .aws-modal-form-header h2 {
+        font-size: 20px;
+        padding-right: 48px; /* clear the 44px close button + gap */
+    }
+    .aws-modal-body {
+        padding: 18px 22px 22px;
+        overflow-y: auto;
+    }
+    .aws-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* ── RESP-4-3: Lead Modal — 16px input font-size (iOS zoom prevention) ──── */
+/* Before (custom-fixes.css ~4158): mobile override set font-size:15px.
+   iOS Safari auto-zooms into any focused input with font-size < 16px.
+   After: enforce 16px on all modal form inputs at ≤640px.                    */
+@media (max-width: 640px) {
+    .aws-form-group input,
+    .aws-form-group select,
+    .aws-form-group textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* ── RESP-4-4: Lead Modal — full-viewport bottom sheet on ≤400px ────────── */
+/* Before (custom-fixes.css ~4122): padding:10px on overlay still created a
+   20px gap on each side on 320px screens (box constrained to ~340px space).
+   After: zero-padding sheet style, box anchored to bottom of viewport.        */
+@media (max-width: 400px) {
+    .aws-modal-overlay {
+        padding: 0 !important;
+        align-items: flex-end !important;
+    }
+    .aws-modal-box {
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 20px 20px 0 0 !important;
+    }
+}
+
+/* ── RESP-4-5: App Cost Calculator — checkbox negative-margin overflow fix ── */
+/* Before (services/app-cost-calculator.php line ~257): .checkbox-wrapper-16
+   at ≤550px used margin-left:-50px, causing a horizontal scrollbar on
+   320px devices (layout width exceeded 100vw).
+   After: reset margin-left:0 using higher-specificity rule in this file.      */
+@media (max-width: 550px) {
+    .checkbox-wrapper-16 {
+        margin-left: 0 !important;
         justify-content: center !important;
     }
 }
 
+/* ── RESP-4-6: App Cost Calculator — Swiper wrappers full-width on mobile ── */
+/* Before (app-cost-calculator.php line ~246): .swiper-wrapper { width:90% }
+   applied in the page <style> block, leaving a 10% gap on the right edge on
+   all screen sizes. Especially visible on ≤767px.
+   After: override to 100% for all 6 calculator Swiper instances on ≤767px.   */
+@media (max-width: 767px) {
+    .mySwiperPlatform .swiper-wrapper,
+    .mySwiperProject .swiper-wrapper,
+    .mySwiperUi .swiper-wrapper,
+    .mySwiperSignup .swiper-wrapper,
+    .mySwiperScreen .swiper-wrapper,
+    .mySwiperFunctionality .swiper-wrapper {
+        width: 100% !important;
+    }
+}
+
+/* ── RESP-4-7: App Cost Calculator — submit button full-width + tappable ── */
+/* Before: #submit_btn.btn was sized by inline style only; no responsive rule.
+   On mobile it rendered auto-width (content-sized) and was ~30px tall.
+   After: full-width block, min-height 50px, 16px font on ≤767px.             */
+@media (max-width: 767px) {
+    #submit_btn.btn {
+        width: 100% !important;
+        min-height: 50px !important;
+        font-size: 16px !important;
+        padding: 14px 20px !important;
+        display: block !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* ── RESP-4-8: Quote Form — card padding + submit reinforcement on mobile ── */
+/* Before (custom-fixes.css ~3778): .aws-qf-card at ≤575px had padding:
+   26px 18px; no rule for the 576–767px range. .aws-qf-submit padding/font
+   could be overridden by iOS flex container behaviour.
+   After: tighter card padding and explicit submit sizing at ≤767px.           */
+@media (max-width: 767px) {
+    .aws-qf-card {
+        padding: 24px 16px !important;
+    }
+    .aws-qf-submit {
+        width: 100% !important;
+        min-height: 50px !important;
+        padding: 15px !important;
+        font-size: 16px !important;
+    }
+}
+
+/* ── RESP-4-9: Floating Left Contact Bar — 44px minimum touch targets ────── */
+/* Before (custom-fixes.css ~1707): .aws-float-email 42×40px; .aws-float-call
+   42×40px — both below the WCAG 2.5.5 44×44px minimum touch target size.
+   After: raise icon buttons to 44×44px. Push bar to 110px from bottom so it
+   clears the Tawk.to chat button sitting at bottom:16px.                      */
+@media (max-width: 575px) {
+    .aws-float-email {
+        max-width:  44px !important;
+        height:     44px !important;
+        min-height: 44px !important;
+        padding: 0 12px !important;
+    }
+    .aws-float-call {
+        width:      44px !important;
+        height:     44px !important;
+        min-height: 44px !important;
+    }
+    /* Raise bar above the Tawk.to chat button (which sits at bottom:16px) */
+    .aws-float-left {
+        bottom: 110px !important;
+    }
+}
+
+/* ── RESP-4-10: Tawk.to widget — prevent overlap with .aws-float-left ────── */
+/* Before (custom-fixes.css ~4496): only .tawk-min-container had bottom:16px.
+   The full Tawk.to chat iframe had no bottom rule. On some devices it could
+   sit behind or overlap the floating contact bar.
+   After: explicit bottom:16px on iframe. RESP-4-9 raises .aws-float-left to
+   110px, leaving 94px of clear vertical space between the two elements.       */
+@media (max-width: 575px) {
+    iframe[title*="chat" i],
+    iframe[src*="tawk.to"] {
+        bottom: 16px !important;
+    }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   END RESP-4 Cross-device Interactive Component Fixes
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESP-5 — Open Design Decisions Resolved
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── R5-1: Hero 100vh → 80vh on tablet (landscape) ─────────────────────────
+   100vh on tablet landscape (~768–1199px) means users must scroll immediately
+   on a short-screen device. 80vh keeps the hero visually dominant while
+   revealing the first content section above the fold.                        */
+@media (min-width: 768px) and (max-width: 1199px) {
+    #carouselExampleDark,
+    .hero-section,
+    .main-slider,
+    .slider-one {
+        min-height: 80vh !important;
+    }
+}
+/* Extra constraint for landscape orientation specifically */
+@media (min-width: 768px) and (max-width: 1199px) and (orientation: landscape) {
+    #carouselExampleDark,
+    .hero-section,
+    .main-slider,
+    .slider-one {
+        min-height: 75vh !important;
+    }
+}
+
+/* ── R5-2: body padding-top — align to actual navbar height ────────────────
+   Navbar actual rendered height is ~72–75px at desktop. The 90px padding
+   creates a 15px gap of white space below the nav. Reducing to 78px closes
+   the gap without any risk of content hiding behind the sticky bar.
+   RESP-1 reduced body > html overflow-x fix; this resolves the padding gap. */
+@media (min-width: 992px) {
+    body:not(.page-header) {
+        padding-top: 68px;
+    }
+}
+
+/* ── R5-3: Mega-menu decorative image column — hide at 992px–1100px ─────────
+   At exactly 992–1100px the 4-column mega-menu is still cramped even after
+   RESP-2-T7 font/padding reduction. The first .col-lg-3 is purely decorative
+   (image + short blurb). Hiding it at this narrow-desktop range gives the
+   remaining 3 service columns full usable width with no content loss.        */
+@media (min-width: 992px) and (max-width: 1100px) {
+    #navbarNav .dropdown-menu .col-lg-3.cs-border:first-child,
+    #navbarNav .dropdown-menu .services-header-img {
+        display: none !important;
+    }
+    /* Expand remaining service columns to fill the recovered space */
+    #navbarNav .dropdown-menu .col-lg-3:not(:first-child) {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+    }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   END RESP-5 Open Design Decisions
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Visible breadcrumb bar ─────────────────────────────────────────────── */
+.aws-breadcrumb-bar {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    padding: 8px 0;
+    font-size: 13px;
+}
+.aws-breadcrumb-bar .breadcrumb {
+    background: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+.aws-breadcrumb-bar .breadcrumb-item a {
+    color: #dd0429;
+    text-decoration: none;
+}
+.aws-breadcrumb-bar .breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+.aws-breadcrumb-bar .breadcrumb-item.active {
+    color: #6c757d;
+}
+.aws-breadcrumb-bar .breadcrumb-item + .breadcrumb-item::before {
+    color: #adb5bd;
+}
+@media (max-width: 575px) {
+    .aws-breadcrumb-bar { font-size: 12px; padding: 6px 0; }
+}

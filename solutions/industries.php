@@ -4,8 +4,8 @@ $page_title = 'Industry-Specific Software Solutions USA | 15+ Industries — Art
 $page_description = 'ArtisticWebServices delivers tailored software solutions for 15+ industries including healthcare, fintech, education, e-commerce, real estate, sports, government, and more across USA.';
 $page_keywords = 'industry specific software development USA, vertical software solutions, enterprise industry applications, custom software by industry, healthcare fintech education software USA, industry solutions';
 $page_canonical = 'https://artisticwebservices.com/solutions/industries';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries']];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>

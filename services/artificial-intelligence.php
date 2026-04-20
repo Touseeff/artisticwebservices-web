@@ -3,7 +3,7 @@ require_once __DIR__ . '/../includes/config.php';
 $page_title = 'AI Development Company USA | Machine Learning & AI Solutions — ArtisticWebServices';
 $page_description = "Transform your business with ArtisticWebServices' AI development services. Custom machine learning models, NLP, computer vision & generative AI solutions for enterprises.";
 $page_keywords = 'AI development company USA, machine learning development, artificial intelligence services, AI solutions New York, ML app development';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'Artificial Intelligence', 'url' => 'https://artisticwebservices.com/services/artificial-intelligence.php']];
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Artificial Intelligence', 'url' => 'https://artisticwebservices.com/services/artificial-intelligence']];
 $page_service_schema = ['name' => 'AI Development Services', 'description' => 'Custom machine learning models, NLP, computer vision, and generative AI solutions for USA enterprises.'];
 $page_faq = [
     ['q' => 'What AI services does ArtisticWebServices offer?', 'a' => 'We offer custom AI development including machine learning models, natural language processing (NLP), computer vision, generative AI, AI chatbots, predictive analytics, and AI-powered mobile and web apps.'],
@@ -11,7 +11,7 @@ $page_faq = [
     ['q' => 'How long does it take to develop an AI solution?', 'a' => 'Simple AI integrations take 4–8 weeks. Custom ML models typically take 2–4 months depending on data availability, model complexity, and training requirements.']
 ];
 $page_canonical = 'https://artisticwebservices.com/services/artificial-intelligence';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -85,7 +85,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');
@@ -776,6 +776,52 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
   </div>
 </section>
 <!--Brand Two End-->        <!--Testimonial Two End-->
+
+<!-- AI Search Optimization — Question-based content for AEO/GEO -->
+<section style="padding:60px 0; background:#f8f9fa;">
+  <div class="container">
+    <h2 style="font-size:32px; font-weight:700; margin-bottom:10px; text-align:center; color:#222;">
+      AI Development Services — Common Questions
+    </h2>
+    <p style="text-align:center; color:#666; margin-bottom:40px; font-size:15px;">
+      Everything you need to know about AI software development
+    </p>
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:19px; font-weight:600; color:#dd0429; margin-bottom:10px;">
+          What AI development services do you offer?
+        </h3>
+        <p style="font-size:15px; line-height:1.75; color:#555;">
+          Artastic Web Services offers end-to-end AI development services including machine learning model development, natural language processing (NLP), computer vision, predictive analytics, AI-powered chatbots and virtual assistants, recommendation engines, automated document processing (OCR + classification), and AI integration into existing business applications. We work with TensorFlow, PyTorch, OpenAI APIs, and custom model training pipelines.
+        </p>
+      </div>
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:19px; font-weight:600; color:#dd0429; margin-bottom:10px;">
+          How much does AI software development cost?
+        </h3>
+        <p style="font-size:15px; line-height:1.75; color:#555;">
+          AI development costs vary widely based on complexity. AI chatbot integration using existing APIs (OpenAI, Gemini) costs $8,000–$25,000. Custom machine learning models with training data pipelines range from $40,000 to $150,000+. Full AI product development including data infrastructure, model training, and production deployment typically costs $80,000–$500,000 for enterprise systems. Proof-of-concept projects start from $15,000.
+        </p>
+      </div>
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:19px; font-weight:600; color:#dd0429; margin-bottom:10px;">
+          How long does AI application development take?
+        </h3>
+        <p style="font-size:15px; line-height:1.75; color:#555;">
+          Simple AI integrations (adding ChatGPT/Claude APIs to existing apps) take 4–8 weeks. Custom ML model development including data preparation, training, validation, and deployment takes 3–9 months. The timeline is heavily influenced by data availability and quality — clean, labeled training data can reduce development time by 40–60%. We offer rapid prototyping to validate AI concepts within 4–6 weeks before full investment.
+        </p>
+      </div>
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:19px; font-weight:600; color:#dd0429; margin-bottom:10px;">
+          What AI technologies and frameworks do you work with?
+        </h3>
+        <p style="font-size:15px; line-height:1.75; color:#555;">
+          Our AI team works with TensorFlow and PyTorch for deep learning, scikit-learn for classical ML, Hugging Face Transformers for NLP, OpenCV for computer vision, LangChain for LLM application development, and OpenAI, Anthropic, and Google Gemini APIs for generative AI features. For MLOps, we use MLflow for experiment tracking, Docker for containerization, and AWS SageMaker or Google Vertex AI for scalable model deployment.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </div><!-- /.page-wrapper -->

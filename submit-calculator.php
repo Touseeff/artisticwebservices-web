@@ -1,12 +1,20 @@
 <?php
 /**
  * submit-calculator.php — App Cost Calculator form handler
- * Accepts GET submissions from services/app-cost-calculator.php
+ * Accepts POST submissions from services/app-cost-calculator.php
  * Sends a detailed HTML email via SMTP (Hostinger)
+ *
+ * Security: CSRF-protected, rate-limited (5 submissions per 60 seconds per IP).
  */
 
+require_once __DIR__ . '/includes/csrf.php';       // starts session, provides csrf_verify()
+require_once __DIR__ . '/includes/rate-limit.php'; // file-based sliding-window limiter
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/mailer.php';
+
+// ── Security checks (must run before any output) ──────────────────────────────
+csrf_verify();                              // 403 + exit on token mismatch
+rate_limit_check('calculator_form');        // 429 + exit if over 5 req/60 s per IP
 
 $base = defined('SITE_BASE') ? SITE_BASE : '';
 
@@ -18,17 +26,17 @@ function cleanArr(array $arr): array {
     return array_map(fn($v) => htmlspecialchars(strip_tags(trim($v))), $arr);
 }
 
-// ── Collect fields (form uses GET) ────────────────────────────────────────────
-$name        = cleanVal($_GET['username']          ?? '');
-$email       = cleanVal($_GET['user-email']        ?? '');
-$phone       = cleanVal($_GET['user-number']       ?? '');
-$platforms   = cleanArr($_GET['platforms']         ?? []);
-$proj_type   = cleanVal($_GET['project-type']      ?? '');
-$ui_type     = cleanVal($_GET['ui-type']           ?? '');
-$sign_types  = cleanArr($_GET['signup-types']      ?? []);
-$screens     = cleanVal($_GET['number-of-screens'] ?? '');
-$funcs       = cleanArr($_GET['functionalities']   ?? []);
-$description = cleanVal($_GET['app-description']   ?? '');
+// ── Collect fields (form uses POST) ──────────────────────────────────────────
+$name        = cleanVal($_POST['username']          ?? '');
+$email       = cleanVal($_POST['user-email']        ?? '');
+$phone       = cleanVal($_POST['user-number']       ?? '');
+$platforms   = cleanArr($_POST['platforms']         ?? []);
+$proj_type   = cleanVal($_POST['project-type']      ?? '');
+$ui_type     = cleanVal($_POST['ui-type']           ?? '');
+$sign_types  = cleanArr($_POST['signup-types']      ?? []);
+$screens     = cleanVal($_POST['number-of-screens'] ?? '');
+$funcs       = cleanArr($_POST['functionalities']   ?? []);
+$description = cleanVal($_POST['app-description']   ?? '');
 
 // ── Validate required fields ──────────────────────────────────────────────────
 if (empty($name) || empty($email)) {
@@ -55,7 +63,7 @@ $fields = array_filter([
 ]);
 
 // ── Send via SMTP ─────────────────────────────────────────────────────────────
-sendMail([
+$sent = sendMail([
     'reply_to' => $email,
     'subject'  => "App Cost Calculator Submission — $name",
     'fields'   => $fields,
@@ -63,5 +71,20 @@ sendMail([
 ]);
 
 // ── Redirect ──────────────────────────────────────────────────────────────────
-header("Location: {$base}/thank-you");
+if ($sent) {
+    header("Location: {$base}/thank-you");
+} else {
+    // Log the failed lead so no calculator submission is silently lost
+    $failed_log = __DIR__ . '/logs/mail-failed.log';
+    $log_entry  = json_encode([
+        'time'  => date('Y-m-d H:i:s'),
+        'name'  => $name,
+        'email' => $email,
+        'phone' => $phone,
+        'page'  => $_POST['page'] ?? $_SERVER['HTTP_REFERER'] ?? 'App Cost Calculator',
+        'error' => 'SMTP send failed',
+    ]) . "\n";
+    @file_put_contents($failed_log, $log_entry, FILE_APPEND | LOCK_EX);
+    header("Location: {$base}/contact?error=send_failed");
+}
 exit;

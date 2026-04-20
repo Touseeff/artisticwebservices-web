@@ -4,7 +4,16 @@ $page_title = 'Enterprise Software Development USA | ERP & Custom Solutions — 
 $page_description = 'Build enterprise-grade ERP systems and custom business software with ArtisticWebServices. Scalable, secure solutions for Fortune 500 and mid-market USA companies.';
 $page_keywords = 'enterprise software development USA, ERP development company, custom enterprise solutions, large scale software development, enterprise app development';
 $page_canonical = 'https://artisticwebservices.com/services/enterprise-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Enterprise Software Development', 'url' => 'https://artisticwebservices.com/services/enterprise-development']];
+$page_service_schema = ['name' => 'Enterprise Software Development', 'description' => 'Scalable, secure ERP systems and custom enterprise application development for Fortune 500 and mid-market companies in the USA.'];
+$page_faq = [
+    ['q' => 'What types of enterprise software does ArtisticWebServices build?', 'a' => 'We develop custom ERP systems, CRM platforms, HRMS, supply chain management tools, warehouse management systems (WMS), enterprise portals, workflow automation platforms, and system integration middleware. All solutions are built for high availability, role-based access, and audit compliance from the ground up.'],
+    ['q' => 'How do you handle security and compliance for enterprise applications?', 'a' => 'Security is architected at every layer: AES-256 encryption at rest, TLS 1.3 in transit, OAuth 2.0/SAML SSO, granular RBAC, comprehensive audit logging, and regular penetration testing. For regulated industries we implement HIPAA (healthcare), SOC 2 (SaaS), PCI-DSS (payments), and GDPR (EU data) compliance controls.'],
+    ['q' => 'Can you integrate custom software with our existing ERP or legacy systems?', 'a' => 'Yes. ArtisticWebServices has deep integration experience with SAP, Oracle, Dynamics 365, Salesforce, Workday, and custom legacy platforms. We use REST APIs, GraphQL, SOAP, EDI, and custom middleware adapters to connect systems reliably — with retry logic, error handling, and monitoring built in.'],
+    ['q' => 'How is enterprise development priced?', 'a' => 'Enterprise projects are typically priced on a time-and-materials or fixed-scope basis after a detailed discovery phase. Most custom enterprise platforms range from $150,000 to $1M+ depending on module count, integration complexity, user volume, and compliance requirements. We provide a detailed SOW with milestones and payment tied to deliverables.'],
+    ['q' => 'How do you manage large enterprise development projects?', 'a' => 'We use a dedicated project management structure with a Solution Architect, Project Manager, QA Lead, and cross-functional development squads. We hold weekly stakeholder reviews, maintain a living requirements document, track progress in Jira, and provide real-time reporting dashboards so you always know project status and burn rate.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -81,7 +90,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

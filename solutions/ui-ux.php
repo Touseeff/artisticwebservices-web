@@ -4,7 +4,16 @@ $page_title = 'UI/UX Design Company USA | Award-Winning Design — ArtisticWebSe
 $page_description = "Elevate your product with ArtisticWebServices' award-winning UI/UX design. User-centered design, mobile app UI, web design, and design system creation for USA companies.";
 $page_keywords = 'UI UX design company USA, user interface design, user experience agency, mobile app UI design, web UX design New York';
 $page_canonical = 'https://artisticwebservices.com/solutions/ui-ux';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'UI/UX Design', 'url' => 'https://artisticwebservices.com/solutions/ui-ux']];
+$page_service_schema = ['name' => 'UI/UX Design Services', 'description' => 'User-centered UI/UX design including user research, wireframing, Figma prototyping, and design system creation for app and web products in the USA.'];
+$page_faq = [
+    ['q' => 'What is your UI/UX design process?', 'a' => 'Our design process follows five phases: Discovery (stakeholder interviews, user research, competitor analysis), Information Architecture (user flows, site mapping, navigation design), Wireframing (low-fi sketches to high-fi wireframes), Prototyping (interactive Figma prototypes for user testing), and Visual Design (final UI with design system, component library, and developer-ready Figma specs). Each phase includes client review and feedback rounds.'],
+    ['q' => 'Do you create design systems?', 'a' => 'Yes. We build comprehensive design systems in Figma including typography scales, color token libraries (with light/dark mode support), component libraries (buttons, forms, cards, navigation), spacing and grid systems, icon libraries, and interactive component states. Design systems dramatically speed up future development and ensure brand consistency across every screen.'],
+    ['q' => 'How do you approach accessibility in UI design?', 'a' => 'Accessibility is built into every design from the start. We follow WCAG 2.1 AA standards: minimum 4.5:1 color contrast ratios for text, touch target sizes of at least 44×44px, keyboard-navigable interfaces, ARIA label specifications in design handoff, focus state design for all interactive elements, and testing with screen reader simulations during the prototype phase.'],
+    ['q' => 'Can you redesign an existing product without breaking it?', 'a' => 'Yes. Our evolution-over-revolution approach means we audit the current product, identify the highest-impact usability problems, and redesign incrementally — maintaining familiar patterns for existing users while modernizing the visual language. For large redesigns we create a phased rollout plan to minimize user disruption and allow A/B testing of new designs.'],
+    ['q' => 'Do you hand off designs to developers?', 'a' => 'Yes. We use Figma Dev Mode for handoff, providing developers with precise spacing, typography, and color values, interactive component states, responsive breakpoint specs, exported assets (SVG, PNG, WebP), and a written component usage guide. We also stay available during development to answer design questions and review implemented screens against the original spec.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -77,7 +86,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

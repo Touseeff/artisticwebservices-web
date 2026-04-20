@@ -1,0 +1,58 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy via FTP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create .env from GitHub secrets
+        run: |
+          # Prefer SMTP_USER / SMTP_PASS (matches .env.example); fall back to legacy secret names.
+          SMTP_USER_VAL="${{ secrets.SMTP_USER }}"
+          [ -z "$SMTP_USER_VAL" ] && SMTP_USER_VAL="${{ secrets.SMTP_USERNAME }}"
+          SMTP_PASS_VAL="${{ secrets.SMTP_PASS }}"
+          [ -z "$SMTP_PASS_VAL" ] && SMTP_PASS_VAL="${{ secrets.SMTP_PASSWORD }}"
+          cat > .env << EOF
+          SMTP_HOST=${{ secrets.SMTP_HOST }}
+          SMTP_PORT=${{ secrets.SMTP_PORT }}
+          SMTP_SECURE=${{ secrets.SMTP_SECURE }}
+          SMTP_USER=${SMTP_USER_VAL}
+          SMTP_PASS=${SMTP_PASS_VAL}
+          SMTP_FROM_EMAIL=${{ secrets.SMTP_FROM_EMAIL }}
+          SMTP_FROM_NAME=${{ secrets.SMTP_FROM_NAME }}
+          MAIL_TO=${{ secrets.MAIL_TO }}
+          SMTP_ADMIN_PASS=${{ secrets.SMTP_ADMIN_PASS }}
+          SMTP_DEBUG=false
+          SMTP_LOCAL_DEV=false
+          APP_ENV=production
+          EOF
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /public_html/
+          local-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/reports/**
+            **/.env.example
+            **/logs/mail-dev.log
+            **/logs/mail-failed.log
+            **/logs/rate-limit/**
+            **/composer.lock
+            **/*.py
+            **/prompt.md

@@ -1,9 +1,9 @@
 ﻿<?php
 require_once __DIR__ . '/../includes/config.php';
-$page_title = 'Mobile App Development Company USA | iOS & Android Apps &mdash; ArtisticWebServices';
+$page_title = 'Mobile App Development Company USA | ArtisticWebServices';
 $page_description = 'Top-rated mobile app development company in the USA. We build high-performance iOS, Android & cross-platform apps for startups and enterprises. 500+ apps delivered.';
 $page_keywords = 'mobile app development company USA, iOS app development, Android app development, cross-platform app development, mobile app developers New York';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'Mobile App Development', 'url' => 'https://artisticwebservices.com/services/mobile-app-development.php']];
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Mobile App Development', 'url' => 'https://artisticwebservices.com/services/mobile-app-development']];
 $page_service_schema = ['name' => 'Mobile App Development', 'description' => 'Top-rated iOS, Android, and cross-platform mobile app development for startups and enterprises in USA.'];
 $page_faq = [
     ['q' => 'How much does it cost to develop a mobile app in the USA?', 'a' => 'Mobile app development costs in the USA range from $10,000 for a basic app to $250,000+ for complex enterprise apps. Factors include features, platforms (iOS/Android), and team size. Use our free App Cost Calculator for a precise estimate.'],
@@ -13,7 +13,8 @@ $page_faq = [
     ['q' => 'Do you provide post-launch app support?', 'a' => 'Yes. We offer 24/7 app support and maintenance services including bug fixes, performance optimization, iOS/Android updates, and feature enhancements.']
 ];
 $page_canonical = 'https://artisticwebservices.com/services/mobile-app-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$load_slick = true; // Sprint 2: load Slick only on pages that need it
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -1854,7 +1855,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                   <div class="welcome-three__right welcome-three__right-zero">
                      <div class="row">
-                        <?php include __DIR__ . '/../includes/form-quote.php'; ?><script>
+                        <?php require_once __DIR__ . '/../includes/form-quote.php'; ?><script>
                            var $st = $('.pagination');
                            var $slickEl = $('.center');
                            
@@ -2078,6 +2079,64 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 </div>
             </div>
         </section>
+
+<!-- AI Search Optimization — Question-based content -->
+<section class="faq-seo-section" style="padding:60px 0; background:#f8f9fa;">
+  <div class="container">
+    <h2 style="font-size:32px; font-weight:700; margin-bottom:40px; text-align:center;">
+      Mobile App Development — Common Questions
+    </h2>
+
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:20px; font-weight:600; color:#dd0429; margin-bottom:12px;">
+          How much does mobile app development cost?
+        </h3>
+        <p style="font-size:15px; line-height:1.7; color:#555;">
+          Mobile app development costs typically range from $15,000 to $150,000+ depending on complexity,
+          platform (iOS, Android, or both), features, and design requirements. A basic MVP app starts around
+          $15,000–$30,000, while enterprise-grade applications with custom integrations can exceed $100,000.
+          Artastic Web Services provides transparent pricing with a free cost estimate through our App Cost Calculator.
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:20px; font-weight:600; color:#dd0429; margin-bottom:12px;">
+          How long does it take to develop a mobile app?
+        </h3>
+        <p style="font-size:15px; line-height:1.7; color:#555;">
+          A typical mobile app takes 3–9 months to develop from concept to launch. Simple apps with 5–10 screens
+          can be completed in 3–4 months. Complex apps with custom backends, third-party integrations, and advanced
+          features typically require 6–12 months. Our agile development process delivers working prototypes within
+          the first 4–6 weeks.
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:20px; font-weight:600; color:#dd0429; margin-bottom:12px;">
+          What technologies do you use for mobile app development?
+        </h3>
+        <p style="font-size:15px; line-height:1.7; color:#555;">
+          We build mobile apps using React Native and Flutter for cross-platform development, Swift for native iOS,
+          and Kotlin for native Android. For backends, we use Node.js, PHP, Python, and cloud platforms including
+          AWS, Google Cloud, and Firebase. Our technology choices are tailored to your app's specific performance
+          and scalability requirements.
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <h3 style="font-size:20px; font-weight:600; color:#dd0429; margin-bottom:12px;">
+          Do you provide post-launch support and maintenance?
+        </h3>
+        <p style="font-size:15px; line-height:1.7; color:#555;">
+          Yes. All mobile apps we develop come with a 3-month post-launch warranty covering bug fixes at no additional
+          cost. We also offer ongoing maintenance packages covering OS updates, security patches, performance monitoring,
+          and feature enhancements. Our support team is available 24/7 for critical issues.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
           <div class="faqs-section py-5">
              <div class="container">
@@ -2332,6 +2391,58 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
     });
 })();
 </script>
+
+<!-- Internal Linking — Related Services -->
+<section style="padding:50px 0; background:#fff; border-top:1px solid #f0f0f0;">
+  <div class="container">
+    <h2 style="font-size:26px; font-weight:700; margin-bottom:30px; text-align:center; color:#222;">
+      Related Services
+    </h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-3 col-md-6 mb-3">
+        <a href="<?php echo $B; ?>/services/web-development" style="display:block; padding:24px 16px; border:1px solid #eee; border-radius:8px; text-decoration:none; color:#333; text-align:center; transition:box-shadow 0.3s;">
+          <i class="fas fa-code fa-2x" style="color:#dd0429; margin-bottom:12px; display:block;" aria-hidden="true"></i>
+          <strong style="font-size:14px; display:block;">Web Development</strong>
+          <span style="font-size:12px; color:#888; margin-top:4px; display:block;">Custom web solutions</span>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-3">
+        <a href="<?php echo $B; ?>/services/progressive-web-apps" style="display:block; padding:24px 16px; border:1px solid #eee; border-radius:8px; text-decoration:none; color:#333; text-align:center; transition:box-shadow 0.3s;">
+          <i class="fas fa-rocket fa-2x" style="color:#dd0429; margin-bottom:12px; display:block;" aria-hidden="true"></i>
+          <strong style="font-size:14px; display:block;">Progressive Web Apps</strong>
+          <span style="font-size:12px; color:#888; margin-top:4px; display:block;">App-like web experiences</span>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-3">
+        <a href="<?php echo $B; ?>/services/ecommerce-app-development" style="display:block; padding:24px 16px; border:1px solid #eee; border-radius:8px; text-decoration:none; color:#333; text-align:center; transition:box-shadow 0.3s;">
+          <i class="fas fa-shopping-cart fa-2x" style="color:#dd0429; margin-bottom:12px; display:block;" aria-hidden="true"></i>
+          <strong style="font-size:14px; display:block;">Ecommerce Apps</strong>
+          <span style="font-size:12px; color:#888; margin-top:4px; display:block;">Mobile commerce solutions</span>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-3">
+        <a href="<?php echo $B; ?>/services/customer-experience-and-design" style="display:block; padding:24px 16px; border:1px solid #eee; border-radius:8px; text-decoration:none; color:#333; text-align:center; transition:box-shadow 0.3s;">
+          <i class="fas fa-palette fa-2x" style="color:#dd0429; margin-bottom:12px; display:block;" aria-hidden="true"></i>
+          <strong style="font-size:14px; display:block;">UI/UX Design</strong>
+          <span style="font-size:12px; color:#888; margin-top:4px; display:block;">User-centered design</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Case Study Link -->
+    <div style="text-align:center; margin-top:30px; padding:24px; background:#fff5f5; border-radius:8px; border-left:4px solid #dd0429;">
+      <p style="margin:0 0 12px; font-size:15px; color:#555;">
+        <strong>See it in action:</strong> Read our mobile app development case studies
+      </p>
+      <a href="<?php echo $B; ?>/services/case-studies" style="display:inline-block; margin:0 8px 8px; padding:10px 24px; background:#dd0429; color:#fff; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600;">
+        View All Case Studies
+      </a>
+      <a href="<?php echo $B; ?>/contact.php" style="display:inline-block; margin:0 8px 8px; padding:10px 24px; background:transparent; color:#dd0429; border:2px solid #dd0429; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600;">
+        Get a Free Quote
+      </a>
+    </div>
+  </div>
+</section>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </div><!-- /.page-wrapper -->

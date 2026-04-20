@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 define('SITE_NAME', 'ArtisticWebServices');
 define('SITE_URL', 'https://artisticwebservices.com');
 define('SITE_EMAIL', 'info@artisticwebservices.com');
@@ -6,7 +9,7 @@ define('SITE_PHONE', '(213) 714-7176');
 define('SITE_PHONE_HREF', '+12137147176');
 define('SITE_ADDRESS', '26 Broadway, Suite 934, New York, NY 10004, USA');
 define('SITE_LOGO', 'assets/images/resources/aws-light-logo.webp');
-define('SITE_LOGO_DARK', 'assets/images/resources/artisticwebservice w.png');
+define('SITE_LOGO_DARK', 'assets/images/resources/artisticwebservices-og.png');
 
 // ── Dynamic base URL: works on localhost subfolder AND production ─────────────
 if (!defined('SITE_BASE')) {
@@ -27,4 +30,3 @@ if (!defined('SITE_BASE')) {
     define('SITE_BASE', $__protocol . $__host . $__base_path);
     unset($__protocol, $__host, $__script, $__folder, $__pos, $__base_path);
 }
-?>

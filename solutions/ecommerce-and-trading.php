@@ -4,9 +4,15 @@ $page_title = 'eCommerce App Development USA | Online Store & Marketplace Soluti
 $page_description = 'Build high-converting eCommerce platforms and trading apps with ArtisticWebServices. Custom Shopify, WooCommerce, headless commerce, and B2B/B2C marketplace development for USA businesses.';
 $page_keywords = 'ecommerce app development USA, online store development company, trading platform development, marketplace app development, ecommerce website development New York, B2B ecommerce solutions';
 $page_canonical = 'https://artisticwebservices.com/solutions/ecommerce-and-trading';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries.php'], ['name' => 'E-commerce & Trading', 'url' => 'https://artisticwebservices.com/solutions/ecommerce-and-trading.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'E-commerce & Trading', 'url' => 'https://artisticwebservices.com/solutions/ecommerce-and-trading']];
 $page_service_schema = ['name' => 'E-commerce App Development', 'description' => 'Custom eCommerce platforms, online stores, and trading marketplaces for USA businesses.'];
+$page_faq = [
+    ['q' => 'How does ArtisticWebServices differentiate itself in the app development market?', 'a' => 'ArtisticWebServices stands apart through advanced solutions, global credibility, and agile approaches. We leverage cutting-edge technologies and unique design to craft seamless user experiences and automate business operations through AI-driven automation.'],
+    ['q' => 'How do you ensure compliance with local regulations and customer preferences?', 'a' => 'We emphasize local compliance and user preference by holding extensive market insights about New York. Our apps align with local regulations and cater to diverse clientele needs, refined through regular feedback sessions.'],
+    ['q' => 'What types of apps are most profitable?', 'a' => 'Profitability depends on strategy and objectives. ArtisticWebServices excels across gaming, eCommerce, on-demand, and enterprise app development — crafting feature-rich solutions aligned with current market trends.'],
+    ['q' => 'How long does it take to complete an application?', 'a' => 'Estimated development time is typically 4–6 weeks for standard apps. Complex applications with advanced features may require extended timelines.'],
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -40,8 +46,8 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         </div>
                     </div>
 
-                    <div class="col-xl-6 col-lg-7 d-flex flex-column justify-content-end">
-                        <img src="<?= $B ?>/assets/images/ecommrce-app.webp" class="img-fluid" alt="eCommrce App">
+                    <div class="col-xl-6 col-lg-6 d-flex flex-column justify-content-end">
+                        <img src="<?= $B ?>/assets/images/ecommrce-app.webp" class="img-fluid" alt="eCommerce App">
                     </div>
                 </div>
             </div>
@@ -331,6 +337,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         <!--    </div>-->
         <!--</div>-->
         <div class="industry-counter-section">
+            <div class="container-fluid px-0">
             <div class="row mx-0">
                 <div class="col-lg-6">
                     <img src="<?= $B ?>/assets/images/industries/counter-image.webp" class="img-fluid" width="80%" alt="TradeHunt">
@@ -363,6 +370,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                 </div>
             </div>
+            </div><!-- /.container-fluid -->
         </div>
         <section class="how-it-works my-4">
     <div class="container">
@@ -483,7 +491,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 <div class="row w-100">
                                     <div class="col-1">02</div>
                                     <div class="col-11">How do you ensure compliance with local regulations and customer
@@ -513,7 +521,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 <div class="row w-100">
                                     <div class="col-1">03</div>
                                     <div class="col-11">What types of apps are most profitable?
@@ -522,7 +530,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                 </div>
                             </button>
                         </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <div class="row">
@@ -543,7 +551,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 <div class="row w-100">
                                     <div class="col-1">04</div>
                                     <div class="col-11">How long does it take to complete an application?
@@ -552,7 +560,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                 </div>
                             </button>
                         </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <div class="row">

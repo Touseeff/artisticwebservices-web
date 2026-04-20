@@ -4,7 +4,16 @@ $page_title = 'Legacy App Modernization USA | Replatforming & Refactoring — Ar
 $page_description = 'Modernize your outdated software with ArtisticWebServices. We replatform, refactor, and re-architect legacy applications to cloud-native, scalable modern systems.';
 $page_keywords = 'legacy application modernization USA, software replatforming, legacy system migration, application modernization company, mainframe migration';
 $page_canonical = 'https://artisticwebservices.com/services/legacy-application-modernization-services';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Legacy Application Modernization', 'url' => 'https://artisticwebservices.com/services/legacy-application-modernization-services']];
+$page_service_schema = ['name' => 'Legacy Application Modernization', 'description' => 'Replatforming, refactoring, and re-architecting legacy software to cloud-native, scalable modern systems for USA enterprises.'];
+$page_faq = [
+    ['q' => 'What modernization strategies does ArtisticWebServices use?', 'a' => 'We use all six modernization patterns from the Gartner 6R framework: Rehost (lift-and-shift to cloud), Replatform (migrate to managed services), Refactor (code restructuring without architecture change), Re-architect (redesign using microservices or event-driven patterns), Rebuild (rewrite from scratch), and Replace (move to COTS/SaaS). The right strategy depends on your system complexity, business criticality, and timeline.'],
+    ['q' => 'How do you modernize without disrupting current operations?', 'a' => 'We use the Strangler Fig pattern — gradually replacing legacy components with modern equivalents while keeping the existing system running. New modules are built and routed traffic incrementally. This allows parallel operation with zero downtime, with full rollback capability at each phase until the legacy system is fully decommissioned.'],
+    ['q' => 'Can you modernize mainframe or COBOL applications?', 'a' => 'Yes. ArtisticWebServices has experience migrating mainframe workloads and COBOL applications to modern Java, .NET, or Node.js platforms. We analyze the existing business logic, create a functional specification, and rebuild the system with modern architecture — preserving all business rules while eliminating the maintenance burden of legacy infrastructure.'],
+    ['q' => 'How long does legacy modernization take?', 'a' => 'Simple rehosting projects can be completed in 4–8 weeks. Full re-architecture and rebuild projects for complex enterprise systems typically take 6–18 months, delivered in phases. We establish an initial modernization roadmap during a 4-week discovery engagement so you know exactly what to expect before committing to the full project.'],
+    ['q' => 'What are the ROI benefits of legacy modernization?', 'a' => 'Organizations typically see 30–60% reduction in infrastructure costs after cloud migration, 50–80% decrease in time-to-market for new features (due to modern CI/CD), significant reduction in security vulnerabilities, improved developer productivity, and ability to attract top engineering talent who refuse to work with outdated technology stacks.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>

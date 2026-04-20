@@ -1,11 +1,11 @@
 <?php
 require_once __DIR__ . '/../includes/config.php';
-$page_title = 'Digital Transformation Consulting USA | IT Strategy & Advisory — ArtisticWebServices';
-$page_description = 'ArtisticWebServices provides expert digital transformation consulting, IT strategy advisory, and technology roadmap planning to help USA businesses modernize and scale effectively.';
+$page_title = 'Digital Transformation Consulting USA | ArtisticWebServices';
+$page_description = 'Expert digital transformation consulting & IT strategy advisory helping USA businesses modernize, plan technology roadmaps, and scale effectively.';
 $page_keywords = 'digital transformation consulting USA, IT strategy consulting, technology advisory services, digital consulting company New York, CTO advisory services, technology roadmap consulting';
 $page_canonical = 'https://artisticwebservices.com/solutions/consulting';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries.php'], ['name' => 'Consulting', 'url' => 'https://artisticwebservices.com/solutions/consulting.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'Consulting', 'url' => 'https://artisticwebservices.com/solutions/consulting']];
 $page_service_schema = ['name' => 'Digital Transformation Consulting', 'description' => 'IT strategy, digital transformation advisory, and technology roadmap consulting for USA businesses.'];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
@@ -24,7 +24,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         <div class=" mt-3">
                             <div>
                                 <!--  <img style=" width: 100px; height:100px;" class="img-fluid mb-2" src="<?= $B ?>/assets/images/project/vpn-port/vpn-anrid-icon.svg" alt="layout styles"> -->
-                                <h1 class="section-title__title mb-3">Consulting</h1>
+                                <h1 class="section-title__title mb-3">Digital Transformation Consulting Services</h1>
                             </div>
                            
                          

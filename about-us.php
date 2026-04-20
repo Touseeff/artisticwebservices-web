@@ -4,7 +4,7 @@ $page_title = 'About ArtisticWebServices | Top Software Development Company New 
 $page_description = 'Learn about ArtisticWebServices — a leading NYC-based custom software & mobile app development firm with 10+ years experience delivering award-winning digital solutions.';
 $page_keywords = 'about ArtisticWebServices, software company New York, top rated app development company USA, award winning software company';
 $page_canonical   = SITE_URL . '/about-us';
-$page_og_image    = SITE_URL . '/assets/images/resources/artisticwebservice w.png';
+$page_og_image    = SITE_URL . '/assets/images/resources/artisticwebservices-og.png';
 require_once 'includes/head.php';
 ?>
    <style>

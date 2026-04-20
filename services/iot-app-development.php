@@ -4,7 +4,16 @@ $page_title = 'IoT App Development Company USA | Smart Device Solutions — Arti
 $page_description = 'Build connected IoT solutions with ArtisticWebServices. From smart home apps to industrial IoT platforms — expert IoT development for USA businesses.';
 $page_keywords = 'IoT development company USA, Internet of Things app development, smart device development, industrial IoT solutions, connected device apps';
 $page_canonical = 'https://artisticwebservices.com/services/iot-app-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'IoT App Development', 'url' => 'https://artisticwebservices.com/services/iot-app-development']];
+$page_service_schema = ['name' => 'IoT App Development', 'description' => 'Custom Internet of Things solutions including smart home apps, industrial IoT platforms, and connected device applications for USA businesses.'];
+$page_faq = [
+    ['q' => 'What IoT platforms and protocols does ArtisticWebServices support?', 'a' => 'We develop IoT solutions on AWS IoT Core, Azure IoT Hub, Google Cloud IoT, and on-premise MQTT brokers. We support communication protocols including MQTT, CoAP, HTTP/REST, WebSockets, BLE, Zigbee, Z-Wave, and LoRaWAN depending on your device requirements and network environment.'],
+    ['q' => 'How much does IoT app development cost?', 'a' => 'IoT development costs depend on the number of device types, data volume, cloud infrastructure, and dashboard complexity. A basic smart device companion app starts at $20,000. An industrial IoT platform with real-time analytics, alerting, and device management can range from $80,000 to $300,000+. Contact us for a free scoping session.'],
+    ['q' => 'Can you develop both the device firmware and the mobile/web app?', 'a' => 'Yes. ArtisticWebServices offers full-stack IoT development covering embedded firmware (Arduino, ESP32, Raspberry Pi), cloud backend (APIs, data pipelines, storage), and consumer-facing mobile or web applications — all from a single development team for seamless integration.'],
+    ['q' => 'How do you ensure IoT device security?', 'a' => 'Security is built in from day one: TLS/SSL encryption for all device-to-cloud communications, certificate-based device authentication, firmware signing, OTA update security, and role-based access control on the management dashboard. We follow OWASP IoT security guidelines throughout development.'],
+    ['q' => 'Can you integrate IoT with existing enterprise software?', 'a' => 'Yes. We integrate IoT data streams with ERP systems (SAP, Oracle), CRM platforms (Salesforce), BI tools (Power BI, Tableau), and custom databases via REST APIs and webhooks, enabling real-time operational intelligence inside your existing workflows.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>

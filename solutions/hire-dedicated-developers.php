@@ -4,7 +4,16 @@ $page_title = 'Hire Dedicated Developers USA | Remote Dev Teams — ArtisticWebS
 $page_description = 'Hire skilled dedicated developers from ArtisticWebServices. Build your remote development team with vetted iOS, Android, React, Node.js, and full-stack developers.';
 $page_keywords = 'hire dedicated developers USA, remote development team, hire iOS developers, hire Android developers, dedicated software team USA';
 $page_canonical = 'https://artisticwebservices.com/solutions/hire-dedicated-developers';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'Hire Dedicated Developers', 'url' => 'https://artisticwebservices.com/solutions/hire-dedicated-developers']];
+$page_service_schema = ['name' => 'Hire Dedicated Developers', 'description' => 'Hire vetted dedicated software developers for iOS, Android, React, Node.js, and full-stack development from ArtisticWebServices USA.'];
+$page_faq = [
+    ['q' => 'What developer roles can I hire through ArtisticWebServices?', 'a' => 'You can hire iOS developers (Swift, Objective-C), Android developers (Kotlin, Java), React Native developers, Flutter developers, frontend developers (React, Angular, Vue.js), backend developers (Node.js, Python, PHP, Java, .NET), full-stack developers, DevOps engineers (AWS, Docker, Kubernetes), QA engineers, UI/UX designers, and technical project managers.'],
+    ['q' => 'How quickly can I onboard a dedicated developer?', 'a' => 'Developers are typically ready to start within 5–10 business days after your requirements are finalized. This includes candidate screening, technical assessment, cultural fit interview, contract signing, and onboarding to your tools and repositories. For urgent starts, we can often accommodate within 48–72 hours from a pre-vetted talent pool.'],
+    ['q' => 'How does the dedicated team model work?', 'a' => 'Dedicated developers work exclusively on your project during contracted hours (full-time or part-time). They attend your standups, use your project management tools (Jira, Linear, Asana), communicate in your team channels (Slack, Teams), and report directly to your product or engineering manager. You get full control and visibility — we handle HR, payroll, and benefits.'],
+    ['q' => 'What are the cost savings compared to hiring locally in the USA?', 'a' => 'Hiring a senior developer locally in New York or San Francisco typically costs $150,000–$200,000+/year in salary alone, plus benefits, recruiting fees (15–25% of salary), and management overhead. ArtisticWebServices dedicated developers provide equivalent expertise at 40–65% cost savings, with no recruiting fees, benefits administration, or employment risk.'],
+    ['q' => 'What is the minimum engagement period?', 'a' => 'The minimum engagement is 3 months. Most clients engage dedicated developers for 6–24 months as they become deeply embedded in product development. We also offer flex scaling — you can add or reduce developer capacity with 30 days notice as your project phases change.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -77,7 +86,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

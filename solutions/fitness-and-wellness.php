@@ -4,8 +4,8 @@ $page_title = 'Fitness & Wellness App Development USA | Health Tech Solutions â€
 $page_description = 'ArtisticWebServices builds industry-leading fitness and wellness apps. Workout trackers, nutrition planners, wearable integrations, and wellness platforms for USA health and fitness brands.';
 $page_keywords = 'fitness app development USA, wellness app development company, health and fitness software, workout tracking app, wellness platform development, personal trainer app USA';
 $page_canonical = 'https://artisticwebservices.com/solutions/fitness-and-wellness';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries.php'], ['name' => 'Fitness & Wellness', 'url' => 'https://artisticwebservices.com/solutions/fitness-and-wellness.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'Fitness & Wellness', 'url' => 'https://artisticwebservices.com/solutions/fitness-and-wellness']];
 $page_service_schema = ['name' => 'Fitness & Wellness App Development', 'description' => 'Custom fitness and wellness mobile apps with wearable integration for USA health brands.'];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';

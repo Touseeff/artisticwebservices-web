@@ -4,8 +4,8 @@ $page_title = 'Product Management Services USA | Strategy & Roadmap Consulting â
 $page_description = 'ArtisticWebServices offers expert product management consulting. From product strategy and roadmap planning to launch execution and market fit analysis for USA businesses.';
 $page_keywords = 'product management services USA, product strategy consulting, product roadmap development, agile product management, software product management company, product owner services USA';
 $page_canonical = 'https://artisticwebservices.com/solutions/product-management';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries.php'], ['name' => 'Product Management', 'url' => 'https://artisticwebservices.com/solutions/product-management.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'Product Management', 'url' => 'https://artisticwebservices.com/solutions/product-management']];
 $page_service_schema = ['name' => 'Product Management Services', 'description' => 'Expert product strategy, roadmap, and management consulting for USA businesses.'];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
@@ -79,7 +79,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

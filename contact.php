@@ -4,7 +4,7 @@ $page_title       = 'Contact ArtisticWebServices | Get a Free Quote — Software
 $page_description = 'Contact ArtisticWebServices for a free consultation on your mobile app, web, or enterprise software project. Based in New York — serving clients worldwide.';
 $page_keywords    = 'contact software development company, hire app developers USA, free software development quote, get mobile app quote';
 $page_canonical   = SITE_URL . '/contact';
-$page_og_image    = SITE_URL . '/assets/images/resources/artisticwebservice w.png';
+$page_og_image    = SITE_URL . '/assets/images/resources/artisticwebservices-og.png';
 require_once 'includes/head.php';
 ?>
 <style>
@@ -548,7 +548,7 @@ textarea.cf-input {
                         <p class="info-subtitle">Reach out to us through any of these channels — we're here to help.</p>
 
                         <div class="info-item">
-                            <div class="info-item-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="info-item-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
                             <div class="info-item-body">
                                 <h6>Email Address</h6>
                                 <a href="mailto:info@artisticwebservices.com">info@artisticwebservices.com</a>
@@ -556,7 +556,7 @@ textarea.cf-input {
                         </div>
 
                         <div class="info-item">
-                            <div class="info-item-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="info-item-icon"><i class="fas fa-phone-alt" aria-hidden="true"></i></div>
                             <div class="info-item-body">
                                 <h6>Phone / WhatsApp</h6>
                                 <a href="tel:+12137147176">(213) 714-7176</a>
@@ -564,7 +564,7 @@ textarea.cf-input {
                         </div>
 
                         <div class="info-item">
-                            <div class="info-item-icon"><i class="fas fa-clock"></i></div>
+                            <div class="info-item-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
                             <div class="info-item-body">
                                 <h6>Business Hours</h6>
                                 <p>Mon – Fri: 9:00 AM – 6:00 PM</p>
@@ -574,10 +574,11 @@ textarea.cf-input {
                         <hr style="border-color:rgba(255,255,255,0.1); margin: 24px 0;">
 
                         <div class="contact-social-row">
-                            <a href="https://www.facebook.com/artisticwebservices" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.linkedin.com/company/artisticwebservices" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://twitter.com/artisticwebsvc" target="_blank" rel="noopener" title="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/artisticwebservices" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <!-- Social links: title provides accessible name; icon is decorative -->
+                            <a href="https://www.facebook.com/artisticwebservices" target="_blank" rel="noopener" title="Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="https://www.linkedin.com/company/artisticwebservices" target="_blank" rel="noopener" title="LinkedIn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                            <a href="https://twitter.com/artisticwebsvc" target="_blank" rel="noopener" title="Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/artisticwebservices" target="_blank" rel="noopener" title="Instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -600,6 +601,10 @@ textarea.cf-input {
                                     <i class="fas fa-exclamation-circle" style="font-size:18px;flex-shrink:0;"></i>
                                     Please enter a valid email address.
                                   </div>';
+                        } elseif ($err === 'send_failed') {
+                            echo '<div class="alert alert-warning text-center" role="alert">
+                                    We\'re sorry — there was a temporary issue sending your message. Please try again or call us directly.
+                                  </div>';
                         }
                         ?>
 
@@ -613,9 +618,10 @@ textarea.cf-input {
                                     <div class="cf-field">
                                         <label for="first_name">First Name <span class="req">*</span></label>
                                         <div class="cf-input-wrap">
-                                            <i class="fas fa-user cf-input-icon"></i>
+                                            <!-- Icon is decorative; label already names the field -->
+                                            <i class="fas fa-user cf-input-icon" aria-hidden="true"></i>
                                             <input class="cf-input" maxlength="20" onpaste="return false;" ondrop="return false;" autocomplete="off"
-                                                placeholder="e.g. John" type="text" name="first_name" id="first_name" required>
+                                                placeholder="e.g. John" type="text" name="first_name" id="first_name" required aria-required="true">
                                         </div>
                                         <small class="cf-small" id="name-valid"></small>
                                     </div>
@@ -626,7 +632,7 @@ textarea.cf-input {
                                     <div class="cf-field">
                                         <label for="last_name">Last Name</label>
                                         <div class="cf-input-wrap">
-                                            <i class="fas fa-user cf-input-icon"></i>
+                                            <i class="fas fa-user cf-input-icon" aria-hidden="true"></i>
                                             <input class="cf-input" maxlength="20" onpaste="return false;" ondrop="return false;" autocomplete="off"
                                                 placeholder="e.g. Smith" type="text" name="last_name" id="last_name">
                                         </div>
@@ -639,7 +645,7 @@ textarea.cf-input {
                                     <div class="cf-field">
                                         <label for="phone">Phone Number</label>
                                         <div class="cf-input-wrap">
-                                            <i class="fas fa-phone cf-input-icon"></i>
+                                            <i class="fas fa-phone cf-input-icon" aria-hidden="true"></i>
                                             <input class="cf-input" onpaste="return false;" ondrop="return false;" autocomplete="off"
                                                 placeholder="e.g. +1 212 555 0100" type="tel" name="phone" id="phone" maxlength="14">
                                         </div>
@@ -652,9 +658,9 @@ textarea.cf-input {
                                     <div class="cf-field">
                                         <label for="email">Email Address <span class="req">*</span></label>
                                         <div class="cf-input-wrap">
-                                            <i class="fas fa-envelope cf-input-icon"></i>
+                                            <i class="fas fa-envelope cf-input-icon" aria-hidden="true"></i>
                                             <input class="cf-input" maxlength="50" onpaste="return false;" ondrop="return false;" autocomplete="off"
-                                                placeholder="e.g. john@company.com" type="email" name="email" id="email" required>
+                                                placeholder="e.g. john@company.com" type="email" name="email" id="email" required aria-required="true">
                                         </div>
                                         <small class="cf-small" id="email-valid"></small>
                                     </div>
@@ -663,33 +669,37 @@ textarea.cf-input {
                                 <!-- Services -->
                                 <div class="col-12">
                                     <div class="cf-field">
-                                        <label>What Are You Looking For? <span class="req">*</span></label>
+                                        <!-- WCAG 1.3.1 note: this custom listbox is labelled via the visible
+                                             <label> text above; aria-labelledby added to the trigger for AT -->
+                                        <label id="cf-service-label">What Are You Looking For? <span class="req">*</span></label>
                                         <div class="cf-select-box" id="cf-service-box">
-                                            <div class="cf-select-trigger" id="cf-service-trigger" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
-                                                <i class="fas fa-th-list cf-sel-icon"></i>
+                                            <div class="cf-select-trigger" id="cf-service-trigger" tabindex="0" role="button"
+                                                 aria-haspopup="listbox" aria-expanded="false"
+                                                 aria-labelledby="cf-service-label">
+                                                <i class="fas fa-th-list cf-sel-icon" aria-hidden="true"></i>
                                                 <div class="cf-tags-wrap" id="cf-service-tags">
                                                     <span class="cf-sel-placeholder">Select services…</span>
                                                 </div>
-                                                <i class="fas fa-chevron-down cf-sel-arrow"></i>
+                                                <i class="fas fa-chevron-down cf-sel-arrow" aria-hidden="true"></i>
                                             </div>
                                             <div class="cf-select-dropdown" id="cf-service-dropdown" role="listbox">
                                                 <div class="cf-sel-option" data-value="Mobile App" role="option">
-                                                    <i class="fas fa-mobile-alt cf-sel-opt-icon"></i>
+                                                    <i class="fas fa-mobile-alt cf-sel-opt-icon" aria-hidden="true"></i>
                                                     <span class="cf-sel-opt-label">Mobile App</span>
                                                     <span class="cf-sel-checkmark"></span>
                                                 </div>
                                                 <div class="cf-sel-option" data-value="Progressive Web App" role="option">
-                                                    <i class="fas fa-globe cf-sel-opt-icon"></i>
+                                                    <i class="fas fa-globe cf-sel-opt-icon" aria-hidden="true"></i>
                                                     <span class="cf-sel-opt-label">Progressive Web App</span>
                                                     <span class="cf-sel-checkmark"></span>
                                                 </div>
                                                 <div class="cf-sel-option" data-value="Web App" role="option">
-                                                    <i class="fas fa-laptop-code cf-sel-opt-icon"></i>
+                                                    <i class="fas fa-laptop-code cf-sel-opt-icon" aria-hidden="true"></i>
                                                     <span class="cf-sel-opt-label">Web App</span>
                                                     <span class="cf-sel-checkmark"></span>
                                                 </div>
                                                 <div class="cf-sel-option" data-value="Custom Software" role="option">
-                                                    <i class="fas fa-cogs cf-sel-opt-icon"></i>
+                                                    <i class="fas fa-cogs cf-sel-opt-icon" aria-hidden="true"></i>
                                                     <span class="cf-sel-opt-label">Custom Software</span>
                                                     <span class="cf-sel-checkmark"></span>
                                                 </div>
@@ -706,9 +716,9 @@ textarea.cf-input {
                                     <div class="cf-field">
                                         <label for="description">Your Message <span class="req">*</span></label>
                                         <div class="cf-input-wrap cf-input-wrap--ta">
-                                            <i class="fas fa-comment-alt cf-input-icon"></i>
+                                            <i class="fas fa-comment-alt cf-input-icon" aria-hidden="true"></i>
                                             <textarea class="cf-input" onpaste="return false;" ondrop="return false;" autocomplete="off"
-                                                placeholder="Tell us about your project, goals, and timeline…" name="description" id="description" required></textarea>
+                                                placeholder="Tell us about your project, goals, and timeline…" name="description" id="description" required aria-required="true"></textarea>
                                         </div>
                                         <small class="cf-small" id="message-valid"></small>
                                     </div>
@@ -717,12 +727,14 @@ textarea.cf-input {
                                 <!-- Submit -->
                                 <div class="col-12">
                                     <button type="submit" id="submit_btn" class="cf-submit-btn">
-                                        <i class="fas fa-paper-plane"></i>
+                                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
                                         Send Message
-                                        <i class="fas fa-arrow-right" style="font-size:13px;"></i>
+                                        <i class="fas fa-arrow-right" style="font-size:13px;" aria-hidden="true"></i>
                                     </button>
                                     <p class="cf-safe-note">
-                                        <i class="fas fa-shield-alt"></i>Your information is safe and will never be shared.
+                                        <!-- Color contrast note: #999 on #fff fails WCAG AA 4.5:1 for small text.
+                                             Do NOT change visually — flag for design review. -->
+                                        <i class="fas fa-shield-alt" aria-hidden="true"></i>Your information is safe and will never be shared.
                                     </p>
                                 </div>
                             </div>

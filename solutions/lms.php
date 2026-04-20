@@ -4,8 +4,8 @@ $page_title = 'LMS Development Company USA | Learning Management System — Arti
 $page_description = 'Build powerful Learning Management Systems with ArtisticWebServices. Custom LMS platforms with e-learning, course management, student analytics, and SCORM compliance for USA companies.';
 $page_keywords = 'LMS development company USA, learning management system development, eLearning platform development, custom LMS software, SCORM LMS development, online course platform USA';
 $page_canonical = 'https://artisticwebservices.com/solutions/lms';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries.php'], ['name' => 'LMS Development', 'url' => 'https://artisticwebservices.com/solutions/lms.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'LMS Development', 'url' => 'https://artisticwebservices.com/solutions/lms']];
 $page_service_schema = ['name' => 'LMS Development', 'description' => 'Custom Learning Management System development with eLearning and course management for USA businesses.'];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
@@ -79,7 +79,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

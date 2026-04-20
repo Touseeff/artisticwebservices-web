@@ -4,8 +4,8 @@ $page_title = 'Mobile App Development Cost Calculator | Free Estimate — Artist
 $page_description = 'Use our free mobile app development cost calculator to estimate your project budget. Get accurate insights based on features, complexity, platform (iOS/Android), and team size.';
 $page_keywords = 'mobile app development cost calculator, app development cost estimate, how much does app development cost, app budget calculator, iOS Android app cost, software development cost USA';
 $page_canonical = 'https://artisticwebservices.com/services/app-cost-calculator';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'App Cost Calculator', 'url' => 'https://artisticwebservices.com/services/app-cost-calculator.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'App Cost Calculator', 'url' => 'https://artisticwebservices.com/services/app-cost-calculator']];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -1753,7 +1753,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             </div>
         </div>
     </div>
-    <form action="/submit-calculator" method="get" id="calculatorForm" onsubmit="return validateForm()">
+    <form action="/submit-calculator" method="post" id="calculatorForm" onsubmit="return validateForm()">
         <input type="hidden" name="host" value="ArtisticWebServices">
         <div class="container py-5">
             <div class="row">
@@ -2507,5 +2507,66 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </div><!-- /.page-wrapper -->
+
+<script>
+/* ===== Calculator form validation ===== */
+function validateForm() {
+    var valid = true;
+    // Validate required fields: username (name), user-email minimum
+    var nameField  = document.querySelector('[name="username"]');
+    var emailField = document.querySelector('[name="user-email"]');
+
+    if (nameField && nameField.value.trim() === '') {
+        nameField.classList.add('is-invalid');
+        valid = false;
+    } else if (nameField) {
+        nameField.classList.remove('is-invalid');
+    }
+
+    if (emailField && emailField.value.trim() === '') {
+        emailField.classList.add('is-invalid');
+        valid = false;
+    } else if (emailField) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailField.value.trim())) {
+            emailField.classList.add('is-invalid');
+            valid = false;
+        } else {
+            emailField.classList.remove('is-invalid');
+        }
+    }
+
+    return valid;
+}
+
+/* ===== reCAPTCHA callback stub ===== */
+function validateRecaptcha() { return true; }
+
+/* ===== Calculator Swiper initialization ===== */
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Swiper === 'undefined') { return; }
+
+    var swiperConfig = {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        },
+        breakpoints: {
+            320:  { slidesPerView: 1 },
+            768:  { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+        }
+    };
+
+    var mySwiperPlatform     = document.querySelector('.mySwiperPlatform')     ? new Swiper('.mySwiperPlatform',     swiperConfig) : null;
+    var mySwiperProject      = document.querySelector('.mySwiperProject')      ? new Swiper('.mySwiperProject',      swiperConfig) : null;
+    var mySwiperUi           = document.querySelector('.mySwiperUi')           ? new Swiper('.mySwiperUi',           swiperConfig) : null;
+    var mySwiperSignup       = document.querySelector('.mySwiperSignup')       ? new Swiper('.mySwiperSignup',       swiperConfig) : null;
+    var mySwiperScreen       = document.querySelector('.mySwiperScreen')       ? new Swiper('.mySwiperScreen',       swiperConfig) : null;
+    var mySwiperFunctionality = document.querySelector('.mySwiperFunctionality') ? new Swiper('.mySwiperFunctionality', swiperConfig) : null;
+});
+</script>
 </body>
 </html>

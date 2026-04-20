@@ -4,9 +4,9 @@ $page_title = 'Construction Industry App Development USA | IoT, AR & AI Solution
 $page_description = 'ArtisticWebServices builds smart construction industry applications with IoT integration, Augmented Reality (AR), and AI-powered automation for USA construction companies.';
 $page_keywords = 'construction app development USA, construction industry software, IoT construction solutions, AR in construction, AI construction management app, building management software';
 $page_canonical = 'https://artisticwebservices.com/solutions/construction-industry';
-$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries.php'], ['name' => 'Construction Industry', 'url' => 'https://artisticwebservices.com/solutions/construction-industry.php']];
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'Construction Industry', 'url' => 'https://artisticwebservices.com/solutions/construction-industry']];
 $page_service_schema = ['name' => 'Construction Industry App Development', 'description' => 'IoT, AR, and AI-integrated mobile applications for the construction industry in USA.'];
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -315,7 +315,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                      style="visibility: visible; animation-duration: 2500ms; animation-delay: 100ms; animation-name: slideInRight;">
                      <div class="welcome-three__right ">
                         <div class="row">
-                           <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                           <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

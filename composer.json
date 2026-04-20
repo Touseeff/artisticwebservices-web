@@ -1,11 +1,16 @@
 {
-    "name": "artisticwebservices/website",
-    "description": "ArtisticWebServices main website",
+    "name": "artastic/artasticwebservices-web",
+    "description": "Artastic Web Services — Marketing Website",
+    "type": "project",
     "require": {
-        "phpmailer/phpmailer": "^6.9"
+        "php": ">=7.4"
     },
+    "require-dev": {},
     "config": {
-        "optimize-autoloader": true,
-        "vendor-dir": "vendor"
+        "optimize-autoloader": true
+    },
+    "scripts": {},
+    "extra": {
+        "note": "This project uses a native PHP SMTP implementation. PHPMailer is not used. See includes/mailer.php."
     }
 }

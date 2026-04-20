@@ -4,7 +4,16 @@ $page_title = 'UI/UX Design & Customer Experience USA | ArtisticWebServices';
 $page_description = "Create exceptional user experiences with ArtisticWebServices' UI/UX design team. User research, wireframing, prototyping, and pixel-perfect UI design for apps and websites.";
 $page_keywords = 'UI UX design company USA, user experience design, customer experience design New York, app UI design, website UX design';
 $page_canonical = 'https://artisticwebservices.com/services/customer-experience-and-design';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'UI/UX Design & Customer Experience', 'url' => 'https://artisticwebservices.com/services/customer-experience-and-design']];
+$page_service_schema = ['name' => 'UI/UX Design & Customer Experience', 'description' => 'User research, wireframing, prototyping, and pixel-perfect UI design for apps and websites by ArtisticWebServices in the USA.'];
+$page_faq = [
+    ['q' => 'What UX design services does ArtisticWebServices provide?', 'a' => 'We provide the full UX design lifecycle: user research and persona development, competitor analysis, information architecture, user journey mapping, wireframing (low and high fidelity), interactive prototyping (Figma), visual UI design with design systems, usability testing, and handoff to development with pixel-perfect Figma specs and component documentation.'],
+    ['q' => 'What design tools do you use?', 'a' => 'Our primary design tool is Figma, which supports real-time collaboration, interactive prototyping, auto-layout components, and design tokens. We also use FigJam for design workshops, Maze and Hotjar for usability testing, Principle for micro-interaction prototypes, and Zeplin or Figma Dev Mode for developer handoff.'],
+    ['q' => 'How long does a UI/UX design project take?', 'a' => 'A focused feature or screen design (3–10 screens) takes 2–4 weeks. A complete app or product design from discovery through final UI takes 6–16 weeks depending on scope and number of revision rounds. Design systems for large products with component libraries take 8–20 weeks.'],
+    ['q' => 'Do you conduct user research and usability testing?', 'a' => 'Yes. Research-led design is the foundation of our UX process. We conduct user interviews, contextual inquiries, competitive analysis, and analytics review in the discovery phase. Prototypes are tested with real users via moderated sessions or unmoderated tools (Maze, UserTesting) before any code is written — dramatically reducing expensive development rework.'],
+    ['q' => 'Can you redesign an existing app while maintaining continuity for current users?', 'a' => 'Yes. We specialize in evolutionary redesigns that improve usability and modernize aesthetics without jarring existing users. Our process includes a UX audit of the current product, user retention risk mapping, a phased rollout strategy, and A/B testing of new designs alongside the existing experience where possible.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -81,7 +90,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

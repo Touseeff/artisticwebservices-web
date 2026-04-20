@@ -4,7 +4,16 @@ $page_title = 'Microservices Development Company USA | API & Cloud Architecture 
 $page_description = 'Build scalable, resilient microservices architectures with ArtisticWebServices. REST APIs, GraphQL, event-driven systems, and containerization for USA enterprises.';
 $page_keywords = 'microservices development USA, API development company, cloud-native architecture, Docker Kubernetes development, microservices architecture';
 $page_canonical = 'https://artisticwebservices.com/services/microservices-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Microservices Development', 'url' => 'https://artisticwebservices.com/services/microservices-development']];
+$page_service_schema = ['name' => 'Microservices Development', 'description' => 'Scalable REST API and microservices architecture design, development, and containerization using Docker and Kubernetes for USA enterprises.'];
+$page_faq = [
+    ['q' => 'What is microservices architecture and when should I use it?', 'a' => 'Microservices architecture decomposes a system into small, independently deployable services — each responsible for a single business capability. It is ideal when you need independent scaling of components, multiple teams deploying in parallel, polyglot technology stacks, or high availability with isolated failure domains. For small applications or early-stage startups, a well-structured monolith is often more appropriate. ArtisticWebServices assesses your context before recommending an architecture.'],
+    ['q' => 'What technologies do you use for microservices development?', 'a' => 'We build microservices in Node.js, Go, Java Spring Boot, Python (FastAPI/Django), and .NET Core depending on service requirements. Service communication uses REST, gRPC, or event-driven messaging (Kafka, RabbitMQ, AWS SQS). Orchestration uses Kubernetes (EKS, GKE, AKS) with Helm charts. Service mesh options include Istio and Linkerd for advanced traffic management.'],
+    ['q' => 'How do you handle data consistency across microservices?', 'a' => 'We use established distributed systems patterns: Saga pattern for distributed transactions, CQRS (Command Query Responsibility Segregation) for read/write separation, event sourcing for audit trails, and idempotent API design to handle retries safely. Each service owns its own database (Database-per-Service pattern) to ensure loose coupling.'],
+    ['q' => 'Can you break our existing monolith into microservices?', 'a' => 'Yes. We use domain-driven design (DDD) to identify bounded contexts within your monolith, then extract services incrementally using the Strangler Fig pattern. This avoids a risky "big bang" rewrite and allows continuous feature delivery during the decomposition process.'],
+    ['q' => 'How much does microservices architecture development cost?', 'a' => 'A greenfield microservices platform with 5–10 services, API gateway, CI/CD pipelines, and Kubernetes deployment typically costs $80,000–$250,000. Monolith-to-microservices decomposition projects vary widely based on existing codebase size and complexity. We provide a detailed estimate after a technical discovery workshop.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>

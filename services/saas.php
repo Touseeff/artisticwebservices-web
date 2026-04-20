@@ -3,14 +3,14 @@ require_once __DIR__ . '/../includes/config.php';
 $page_title = 'SaaS Development Company USA | Cloud SaaS Platform Builder — ArtisticWebServices';
 $page_description = 'Build scalable SaaS products with ArtisticWebServices. Multi-tenant SaaS platforms, subscription billing, API integrations, and cloud-native architecture for USA startups.';
 $page_keywords = 'SaaS development company USA, SaaS platform development, cloud software development, multi-tenant SaaS, software as a service development';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'SaaS Development', 'url' => 'https://artisticwebservices.com/services/saas.php']];
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'SaaS Development', 'url' => 'https://artisticwebservices.com/services/saas']];
 $page_service_schema = ['name' => 'SaaS Development', 'description' => 'Scalable multi-tenant SaaS platforms with subscription billing, API integrations, and cloud-native architecture for USA startups.'];
 $page_faq = [
     ['q' => 'What is included in SaaS development?', 'a' => 'ArtisticWebServices SaaS development includes product architecture, multi-tenant database design, subscription billing (Stripe/Paddle), user management, API development, CI/CD pipelines, and cloud deployment on AWS or Azure.'],
     ['q' => 'How long does it take to build a SaaS product?', 'a' => 'A minimum viable SaaS product (MVP) takes 3–4 months. A fully-featured SaaS platform with advanced integrations takes 6–12 months.']
 ];
 $page_canonical = 'https://artisticwebservices.com/services/saas';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -83,7 +83,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

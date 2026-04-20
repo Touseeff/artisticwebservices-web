@@ -1,23 +1,14 @@
 User-agent: *
-Allow: /
-
-# Block sensitive paths from all crawlers
 Disallow: /includes/
+Disallow: /logs/
+Disallow: /vendor/
 Disallow: /prompt/
-Disallow: /contact-form.php
-Disallow: /update_testimonials.php
-Disallow: /update_testimonials2.php
-Disallow: /update_names_icons.php
-Disallow: /update_city_pages.php
-Disallow: /qa_insights.php
-Disallow: /thank-you.php
-Disallow: /*.py$
-Disallow: /cdn-cgi/
+Disallow: /mailer-admin-aws7749
+Disallow: /contact-form
+Disallow: /submit-calculator
+Disallow: /thank-you
+Disallow: /*.py
 
-# Allow Googlebot to access all assets
-User-agent: Googlebot
-Allow: /assets/
 Allow: /
 
-# Sitemap
-Sitemap: https://artisticwebservices.com/sitemap.xml
+Sitemap: https://artasticwebservices.com/sitemap.xml

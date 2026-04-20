@@ -1,19 +1,28 @@
 <?php
 /**
  * contact-form.php — Universal contact form handler
- * Accepts POST (standard forms) and GET (legacy form-quote.php links)
+ * Accepts POST submissions from all contact/quote forms and the modal.
  * Sends email via native PHP SMTP socket (Hostinger shared hosting)
+ *
+ * Security: CSRF-protected, rate-limited (5 submissions per 60 seconds per IP).
  */
 
+require_once __DIR__ . '/includes/csrf.php';       // starts session, provides csrf_verify()
+require_once __DIR__ . '/includes/rate-limit.php'; // file-based sliding-window limiter
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/mailer.php';
+
+// ── Security checks (must run before any output) ──────────────────────────────
+csrf_verify();                         // 403 + exit on token mismatch
+rate_limit_check('contact_form');      // 429 + exit if over 5 req/60 s per IP
 
 // ── Input helper ─────────────────────────────────────────────────────────────
 function clean($val): string {
     return htmlspecialchars(strip_tags(trim($val ?? '')));
 }
 
-$src = ($_SERVER['REQUEST_METHOD'] === 'POST') ? $_POST : $_GET;
+// All submissions must be POST — $_SERVER keys kept for host/page tracking
+$src = $_POST;
 
 $first_name  = clean($src['first_name']  ?? '');
 $last_name   = clean($src['last_name']   ?? '');
@@ -53,7 +62,7 @@ $fields = array_filter([
 ]);
 
 // ── Send via SMTP ─────────────────────────────────────────────────────────────
-sendMail([
+$sent = sendMail([
     'reply_to' => $email,
     'subject'  => "New Inquiry from $first_name $last_name — $host",
     'fields'   => $fields,
@@ -61,5 +70,20 @@ sendMail([
 ]);
 
 // ── Redirect ──────────────────────────────────────────────────────────────────
-header("Location: {$base}/thank-you");
+if ($sent) {
+    header("Location: {$base}/thank-you");
+} else {
+    // Log the failed lead so no inquiry is silently lost
+    $failed_log = __DIR__ . '/logs/mail-failed.log';
+    $log_entry  = json_encode([
+        'time'  => date('Y-m-d H:i:s'),
+        'name'  => trim("$first_name $last_name"),
+        'email' => $email,
+        'phone' => $phone,
+        'page'  => $page,
+        'error' => 'SMTP send failed',
+    ]) . "\n";
+    @file_put_contents($failed_log, $log_entry, FILE_APPEND | LOCK_EX);
+    header("Location: {$base}/contact?error=send_failed");
+}
 exit;

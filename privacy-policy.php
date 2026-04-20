@@ -4,7 +4,7 @@ $page_title = 'Privacy Policy | ArtisticWebServices Software Development Company
 $page_description = "Read ArtisticWebServices' privacy policy to understand how we collect, use, and protect your personal information.";
 $page_keywords = 'privacy policy software company, data protection policy USA';
 $page_canonical = 'https://artisticwebservices.com/privacy-policy';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>

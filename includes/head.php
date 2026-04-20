@@ -1,12 +1,20 @@
 <?php
+// Start output buffering to prevent header-already-sent errors.
+// Required because head.php outputs HTML; any stray whitespace or BOM
+// before <?php in config.php or the calling page would otherwise send
+// headers prematurely, breaking setcookie() / header() calls.
+if (!ob_get_level()) {
+    ob_start();
+}
+
 // Ensure config is loaded
 if (!defined('SITE_NAME')) {
     require_once __DIR__ . '/config.php';
 }
 
 // Defaults
-if (!isset($page_canonical)) $page_canonical = SITE_URL . '/';
-if (!isset($page_og_image)) $page_og_image = SITE_URL . '/assets/images/resources/artisticwebservice w.png';
+if (!isset($page_canonical)) $page_canonical = '';
+if (!isset($page_og_image)) $page_og_image = SITE_URL . '/assets/images/resources/artisticwebservices-og.png';
 if (!isset($page_title)) $page_title = 'ArtisticWebServices: Custom Award Winning Software Development Company';
 if (!isset($page_description)) $page_description = 'ArtisticWebServices delivers high-quality custom software, web, and mobile app development services tailored to your business needs.';
 
@@ -16,19 +24,25 @@ $B = SITE_BASE;
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($page_title); ?></title>
     <link rel="icon" type="image/x-icon" href="<?= $B ?>/assets/images/favicons/favicon.ico" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="title" content="<?php echo htmlspecialchars($page_title); ?>">
     <meta name="description" content="<?php echo htmlspecialchars($page_description); ?>" />
     <?php if (isset($page_keywords)): ?><meta name="keywords" content="<?php echo htmlspecialchars($page_keywords); ?>"><?php endif; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
     <meta name="site-base" content="<?= $B ?>"><?php // used by modal JS for redirect ?>
-    <link rel="canonical" href="<?php echo htmlspecialchars($page_canonical); ?>" />
+    <?php
+    if (empty($page_canonical)) {
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+        $page_canonical = $protocol . '://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER['REQUEST_URI'], '?');
+    }
+    ?>
+    <link rel="canonical" href="<?php echo htmlspecialchars($page_canonical, ENT_QUOTES, 'UTF-8'); ?>" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <!-- Open Graph -->
     <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="<?php echo (strpos($_SERVER['REQUEST_URI'], '/insights/') !== false) ? 'article' : 'website'; ?>">
     <meta property="og:url" content="<?php echo htmlspecialchars($page_canonical); ?>">
     <meta property="og:title" content="<?php echo htmlspecialchars($page_title); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($page_description); ?>">
@@ -43,14 +57,7 @@ $B = SITE_BASE;
     <meta property="twitter:title" content="<?php echo htmlspecialchars($page_title); ?>">
     <meta property="twitter:description" content="<?php echo htmlspecialchars($page_description); ?>">
     <meta property="twitter:image" content="<?php echo htmlspecialchars($page_og_image); ?>">
-    <!-- Hreflang: regional targeting -->
-    <link rel="alternate" hreflang="en-us" href="<?php echo htmlspecialchars($page_canonical); ?>" />
-    <link rel="alternate" hreflang="en-ae" href="<?php echo htmlspecialchars($page_canonical); ?>" />
-    <link rel="alternate" hreflang="en-sa" href="<?php echo htmlspecialchars($page_canonical); ?>" />
-    <link rel="alternate" hreflang="en-pk" href="<?php echo htmlspecialchars($page_canonical); ?>" />
-    <link rel="alternate" hreflang="en-qa" href="<?php echo htmlspecialchars($page_canonical); ?>" />
-    <link rel="alternate" hreflang="en-kw" href="<?php echo htmlspecialchars($page_canonical); ?>" />
-    <link rel="alternate" hreflang="en-bh" href="<?php echo htmlspecialchars($page_canonical); ?>" />
+    <!-- Hreflang: x-default only — no regional variants exist yet -->
     <link rel="alternate" hreflang="x-default" href="<?php echo htmlspecialchars($page_canonical); ?>" />
 
     <!-- favicons Icons -->
@@ -60,6 +67,17 @@ $B = SITE_BASE;
     <link rel="icon" type="image/png" sizes="16x16" href="<?= $B ?>/assets/images/favicons/favicon-16x16.png">
     <link rel="manifest" href="<?= $B ?>/assets/images/favicons/site.webmanifest">
 
+    <!-- ═══════════════════════════════════════════════════════════
+         Sprint 2 — LCP / Resource Hints
+         Preload the hero background video so the browser fetches it
+         at highest priority before the parser reaches the <video> tag.
+         fetchpriority="high" keeps it in the critical path.
+         ═══════════════════════════════════════════════════════════ -->
+    <link rel="preload" as="video"
+          href="<?= $B ?>/assets/images/vecteezy_united-states-flag-waving-gently-against-a-bright-blue-sky_71755534.mp4"
+          type="video/mp4"
+          fetchpriority="high">
+
     <!-- Preload critical CSS for performance -->
     <link rel="preload" href="<?= $B ?>/assets/vendors/bootstrap/css/bootstrap.min.css" as="style">
     <link rel="preload" href="<?= $B ?>/assets/css/style-01.css@v=1.1.css" as="style">
@@ -68,49 +86,123 @@ $B = SITE_BASE;
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://embed.tawk.to">
+    <!-- Sprint 2: preconnect for Font Awesome CDN (Task 7) -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- Google Fonts — single combined request for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Federo&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <!-- Vendor CSS -->
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/animate/animate.min.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/animate/custom-animate.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/jarallax/jarallax.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/nouislider/nouislider.min.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/nouislider/nouislider.pips.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/odometer/odometer.min.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/swiper/swiper.min.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/mibooz-icons/style.css">
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/tiny-slider/tiny-slider.min.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/the-sayinistic-font/stylesheet.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/owl-carousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/owl-carousel/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/bxslider/jquery.bxslider.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/bootstrap-select/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/jquery-ui/jquery-ui.css" />
+    <!-- ═══════════════════════════════════════════════════════════
+         Sprint 2 — CSS Loading Strategy
+         CRITICAL (blocking): Bootstrap layout + main theme + custom fixes
+           → These control above-the-fold rendering; must block.
+         NON-CRITICAL (deferred): All vendor plugin CSS (animations,
+           carousels, sliders, popups, range-sliders, odometers, etc.)
+           → Loaded asynchronously via rel=preload hack; noscript fallback
+             ensures they load even when JS is disabled.
+         ═══════════════════════════════════════════════════════════ -->
 
-    <!-- Template styles -->
+    <!-- CRITICAL: Bootstrap layout framework — BLOCKING (above-fold dependency) -->
+    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/bootstrap/css/bootstrap.min.css" />
+
+    <!-- CRITICAL: Main theme styles — BLOCKING (hero section, navbar, layout) -->
     <link rel="stylesheet" href="<?= $B ?>/assets/css/style-01.css@v=1.1.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/css/mibooz-responsive.css@v=1.1.css" />
-    <!-- Slick Carousel -->
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/slick/slick.min.css" />
-    <link rel="stylesheet" href="<?= $B ?>/assets/vendors/slick/slick-theme.min.css" />
-    <!-- Custom fixes: navbar overlap, dropdowns, responsive -->
+
+    <!-- CRITICAL: Custom overrides — BLOCKING (navbar overlap fix, hero sizing) -->
     <link rel="stylesheet" href="<?= $B ?>/assets/css/custom-fixes.css" />
-    <!-- jQuery loaded early so inline page scripts can use $ -->
-    <script src="<?= $B ?>/assets/vendors/jquery/jquery-3.6.0.min.js"></script>
+
+    <!-- ─── NON-CRITICAL: Vendor plugin CSS — DEFERRED (below-fold only) ───── -->
+
+    <!-- Sprint 2 Task 7: Font Awesome — deferred (icons appear in navbar but
+         navbar has no layout-breaking fallback; FA is 102 KB and fully non-layout) -->
+    <link rel="preload"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          as="style"
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></noscript>
+
+    <!-- Animate.css — below-fold scroll animations -->
+    <link rel="preload" href="<?= $B ?>/assets/vendors/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/animate/animate.min.css"></noscript>
+
+    <link rel="preload" href="<?= $B ?>/assets/vendors/animate/custom-animate.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/animate/custom-animate.css"></noscript>
+
+    <!-- Jarallax — parallax plugin, below-fold -->
+    <link rel="preload" href="<?= $B ?>/assets/vendors/jarallax/jarallax.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/jarallax/jarallax.css"></noscript>
+
+    <!-- Magnific Popup — lightbox, triggered on click (below-fold) -->
+    <link rel="preload" href="<?= $B ?>/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css"></noscript>
+
+    <!-- noUiSlider — range-slider widget, below-fold forms -->
+    <link rel="preload" href="<?= $B ?>/assets/vendors/nouislider/nouislider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/nouislider/nouislider.min.css"></noscript>
+
+    <link rel="preload" href="<?= $B ?>/assets/vendors/nouislider/nouislider.pips.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/nouislider/nouislider.pips.css"></noscript>
+
+    <!-- Odometer — counter animations, below-fold -->
+    <link rel="preload" href="<?= $B ?>/assets/vendors/odometer/odometer.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/odometer/odometer.min.css"></noscript>
+
+    <!-- Swiper — carousels, below-fold -->
+    <link rel="preload" href="<?= $B ?>/assets/vendors/swiper/swiper.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/swiper/swiper.min.css"></noscript>
+
+    <!-- Mibooz icons — icon font for decorative icons (below-fold usage) -->
+    <link rel="preload" href="<?= $B ?>/assets/vendors/mibooz-icons/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/mibooz-icons/style.css"></noscript>
+
+    <!-- tiny-slider CSS removed: zero .thm-tiny__slider elements exist on any page (Sprint 2) -->
+
+    <!-- The Sayinistic decorative font — below-fold headings only -->
+    <link rel="preload" href="<?= $B ?>/assets/vendors/the-sayinistic-font/stylesheet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/the-sayinistic-font/stylesheet.css"></noscript>
+
+    <!-- Owl Carousel CSS removed: Sprint 3 — migrated to Swiper (owl-to-swiper-migration.js shim) -->
+
+    <!-- bxslider CSS removed: .listing-details__gallery never rendered on any page (Sprint 2) -->
+
+    <!-- Bootstrap Select — form dropdowns, below-fold -->
+    <link rel="preload" href="<?= $B ?>/assets/vendors/bootstrap-select/css/bootstrap-select.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/bootstrap-select/css/bootstrap-select.min.css"></noscript>
+
+    <!-- jQuery UI — date-pickers / accordions, below-fold -->
+    <link rel="preload" href="<?= $B ?>/assets/vendors/jquery-ui/jquery-ui.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/jquery-ui/jquery-ui.css"></noscript>
+
+    <!-- Responsive overrides — applies to below-fold breakpoints; safe to defer -->
+    <link rel="preload" href="<?= $B ?>/assets/css/mibooz-responsive.css@v=1.1.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/css/mibooz-responsive.css@v=1.1.css"></noscript>
+
+    <!-- Slick Carousel — loaded only on pages that use it (set $load_slick = true before including head.php) -->
+    <?php if (!empty($load_slick)): ?>
+    <link rel="preload" href="<?= $B ?>/assets/vendors/slick/slick.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/slick/slick.min.css"></noscript>
+    <link rel="preload" href="<?= $B ?>/assets/vendors/slick/slick-theme.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/slick/slick-theme.min.css"></noscript>
+    <?php endif; ?>
+
+    <!-- Select2 CSS — search-enhanced dropdowns, below-fold -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"></noscript>
+
+    <!-- jQuery 3.7.1 moved to footer.php (end of body) for render-unblocking (Sprint 2) -->
     <!-- Stub so openLeadModal() is safe before footer.php loads -->
     <script>function openLeadModal(){var m=document.getElementById('awsLeadModal');if(m){m.classList.add('active');document.body.style.overflow='hidden';}}</script>
 
     <!-- Font Awesome 6.7.2 via CDN — supports both FA5 (fas/far/fab) and FA6 (fa-solid/fa-regular/fa-brands) syntax -->
-
-    <!-- Select2 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- Organization + LocalBusiness Structured Data JSON-LD -->
     <script type="application/ld+json">
@@ -122,11 +214,11 @@ $B = SITE_BASE;
         "url": "https://artisticwebservices.com",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png",
+            "url": "https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png",
             "width": 300,
             "height": 80
         },
-        "image": "https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png",
+        "image": "https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png",
         "description": "ArtisticWebServices is an award-winning custom software development company in New York, USA. We build mobile apps, web platforms, AI solutions, and enterprise software for startups and Fortune 500 companies.",
         "foundingDate": "2014",
         "numberOfEmployees": {"@type": "QuantitativeValue", "value": 80},
@@ -188,13 +280,6 @@ $B = SITE_BASE;
                 {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "UI/UX Design"}}
             ]
         },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "300",
-            "bestRating": "5",
-            "worstRating": "1"
-        },
         "sameAs": [
             "https://www.facebook.com/artisticwebservices",
             "https://www.linkedin.com/company/artisticwebservices",
@@ -222,19 +307,14 @@ $B = SITE_BASE;
         "isPartOf": {
             "@type": "WebSite",
             "name": "ArtisticWebServices",
-            "url": "https://artisticwebservices.com",
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://artisticwebservices.com/?s={search_term_string}",
-                "query-input": "required name=search_term_string"
-            }
+            "url": "https://artisticwebservices.com"
         },
         "publisher": {
             "@type": "Organization",
             "name": "ArtisticWebServices",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png"
+                "url": "https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png"
             }
         }
     }
@@ -291,7 +371,15 @@ $B = SITE_BASE;
             "name": "ArtisticWebServices",
             "url": "https://artisticwebservices.com"
         },
-        "areaServed": {"@type": "Country", "name": "United States"},
+        "areaServed": [
+            {"@type": "Country", "name": "United States"},
+            {"@type": "Country", "name": "United Arab Emirates"},
+            {"@type": "Country", "name": "Saudi Arabia"},
+            {"@type": "Country", "name": "Pakistan"},
+            {"@type": "Country", "name": "Qatar"},
+            {"@type": "Country", "name": "Kuwait"},
+            {"@type": "Country", "name": "Bahrain"}
+        ],
         "url": "<?php echo htmlspecialchars($page_canonical); ?>"
     }
     </script>
@@ -315,14 +403,26 @@ $B = SITE_BASE;
             "name": "ArtisticWebServices",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png"
+                "url": "https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png"
             }
         },
         "url": "<?php echo htmlspecialchars($page_canonical); ?>",
-        "datePublished": "<?php echo isset($page_article_schema['date']) ? $page_article_schema['date'] : '2024-01-01'; ?>",
-        "dateModified": "2026-04-03"
+        "datePublished": "<?php echo isset($page_article_schema['date']) ? $page_article_schema['date'] : date('Y-m-d', filemtime($_SERVER['SCRIPT_FILENAME'])); ?>",
+        "dateModified": "<?php echo date('Y-m-d', filemtime($_SERVER['SCRIPT_FILENAME'])); ?>"
     }
     </script>
     <?php endif; ?>
+
+    <?php
+    // ── CSRF meta tag for fetch()-based modal forms ───────────────────────────
+    // Outputs <meta name="csrf-token" content="..."> so JavaScript modal
+    // forms can read the token via:
+    //   document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    // csrf_meta() is defined in includes/csrf.php — safe to require here.
+    if (!function_exists('csrf_meta')) {
+        require_once __DIR__ . '/csrf.php';
+    }
+    echo csrf_meta();
+    ?>
 </head>
 

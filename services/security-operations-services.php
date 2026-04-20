@@ -4,7 +4,16 @@ $page_title = 'DevOps & Security Services USA | CI/CD & Cloud Security — Artis
 $page_description = "Accelerate delivery and secure your infrastructure with ArtisticWebServices' DevOps and security operations services. CI/CD pipelines, cloud security, and compliance.";
 $page_keywords = 'DevOps services USA, CI/CD pipeline development, cloud security company, security operations USA, DevSecOps services';
 $page_canonical = 'https://artisticwebservices.com/services/security-operations-services';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Security Operations Services', 'url' => 'https://artisticwebservices.com/services/security-operations-services']];
+$page_service_schema = ['name' => 'DevOps & Security Operations Services', 'description' => 'CI/CD pipeline automation, cloud security, DevSecOps implementation, and security operations services for USA technology companies.'];
+$page_faq = [
+    ['q' => 'What DevOps services does ArtisticWebServices offer?', 'a' => 'We provide end-to-end DevOps transformation: CI/CD pipeline design and implementation (GitHub Actions, GitLab CI, Jenkins, CircleCI), container orchestration (Docker, Kubernetes), infrastructure-as-code (Terraform, Ansible), cloud automation (AWS, Azure, GCP), monitoring and alerting setup (Prometheus, Grafana, Datadog), and SRE practices for high-availability systems.'],
+    ['q' => 'What is DevSecOps and why does my organization need it?', 'a' => 'DevSecOps integrates security testing and controls into your CI/CD pipeline so vulnerabilities are caught during development — not after deployment. It includes automated SAST/DAST scanning, dependency vulnerability checks, secret detection, container image scanning, and compliance policy enforcement. Organizations that adopt DevSecOps reduce their mean time to remediate (MTTR) critical vulnerabilities by up to 60%.'],
+    ['q' => 'Can you help us achieve SOC 2 or ISO 27001 compliance?', 'a' => 'Yes. ArtisticWebServices prepares organizations for SOC 2 Type II, ISO 27001, and HIPAA audits by implementing the required technical controls: access management, encryption policies, audit logging, incident response procedures, vulnerability management programs, and security awareness training. We work alongside your audit firm to ensure evidence collection is audit-ready.'],
+    ['q' => 'How quickly can you set up a CI/CD pipeline?', 'a' => 'A standard CI/CD pipeline for a web or mobile application can be designed, implemented, and tested within 2–4 weeks. This includes automated build, unit and integration testing, container packaging, environment promotion (dev → staging → production), and rollback procedures. Complex multi-service microservices pipelines typically take 6–10 weeks.'],
+    ['q' => 'Do you offer ongoing security monitoring?', 'a' => 'Yes. We offer managed security services including 24/7 SIEM monitoring, cloud security posture management (CSPM), vulnerability scanning, penetration testing (annual or quarterly), and incident response on retainer. We integrate with your existing ticketing and communication tools for seamless security operations.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -25,7 +34,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         <a href="<?= $B ?>/contact.php" class="btn btn-light rounded-2 color-primary">Discover More</a>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center banner-image-container">
-                        <img src="<?= $B ?>/assets/images/DevOps%2002.webp" class="img-fluid animated-img security-img" alt="">
+                        <img src="<?= $B ?>/assets/images/DevOps%2002.webp" class="img-fluid animated-img security-img" alt="DevOps Solutions — ArtisticWebServices">
                     </div>
                 </div>
             </div>
@@ -188,16 +197,16 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                     <div class="col-lg-4 my-3">
                         <div class="service-card-location">
-                            <h4>Containerized <br> Orchestration  </h4>
-                            <p class="mb-0 mt-3">To achieve scalability and resources thata re effiecnt for your applicaitons, therefore, utilize Kubernetes arrangement. 
+                                    <h4>Containerized <br> Orchestration</h4>
+                            <p class="mb-0 mt-3">Utilize Kubernetes orchestration to achieve the scalability and resource efficiency your applications demand.
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-4 my-3">
                         <div class="service-card-location">
-                            <h4>Monitoring <br> logging
+                            <h4>Monitoring &amp; <br> Logging
                             </h4>
-                            <p class="mb-0 mt-3">Implement robust monitoring logging solutions to gain insights into system performance, troubleshoot issues, and ensure high availability. </p>
+                            <p class="mb-0 mt-3">Implement robust monitoring and logging solutions to gain insights into system performance, troubleshoot issues, and ensure high availability.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 my-3">
@@ -209,9 +218,9 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                     <div class="col-lg-4 my-3">
                         <div class="service-card-location">
-                            <h4>Collaborative  <br> Communication .
+                            <h4>Collaborative  <br> Communication
                             </h4>
-                            <p class="mb-0 mt-3">Foster collaboration among development, operations, and QS teas through tools and best practices that facilitate communication knowledge sharing.  
+                            <p class="mb-0 mt-3">Foster collaboration among development, operations, and QA teams through tools and best practices that facilitate communication and knowledge sharing.
                             </p>
                         </div>
                     </div>
@@ -222,7 +231,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="container">
                 <h2>DevOps Automation
                 </h2>
-                <p>At the technological center, ArtisticWebServices, we fully comprehend the vital role that automation plays in contemporary software development. Our Devps expert use modern mechanism and techniques to automate boring and repetitive jobs, optimize processes and save enough time time to market your application.</p>
+                <p>At the technological center, ArtisticWebServices, we fully comprehend the vital role that automation plays in contemporary software development. Our DevOps experts use modern mechanisms and techniques to automate repetitive jobs, optimize processes, and reduce time to market for your application.</p>
                 <p>Whether it is automating infrastructure provisioning and configuring deployment pipelines or implementing automated testing, we ensure that your development process is efficient, reliable, and scalable. </p>
                 <img src="<?= $B ?>/assets/images/devops-img-02.webp"
                     alt="mobilize-your-vision-transformative-mobile-application-development" class="img-fluid w-50">
@@ -503,71 +512,71 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             }
         }}'>
       <div class="swiper-wrapper">
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/android.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/android.webp" alt="Android"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/angular.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/angular.webp" alt="Angular"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/appium.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/appium.webp" alt="Appium"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/aws.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/aws.webp" alt="Amazon Web Services"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dc.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dc.webp" alt="Docker"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dynamodb.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dynamodb.webp" alt="DynamoDB"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/firebase.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/firebase.webp" alt="Firebase"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/flutter.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/flutter.webp" alt="Flutter"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/gradle.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/gradle.webp" alt="Gradle"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/html5.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/html5.webp" alt="HTML5"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ionic.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ionic.webp" alt="Ionic"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ios.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ios.webp" alt="iOS"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/java.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/java.webp" alt="Java"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/jenkins.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/jenkins.webp" alt="Jenkins"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/kotlin.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/kotlin.webp" alt="Kotlin"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/linode.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/linode.webp" alt="Linode"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/magento.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/magento.webp" alt="Magento"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mongo.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mongo.webp" alt="MongoDB"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mssql.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mssql.webp" alt="Microsoft SQL Server"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mysql.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mysql.webp" alt="MySQL"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/node.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/node.webp" alt="Node.js"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ocject.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ocject.webp" alt="Objective-C"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/php.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/php.webp" alt="PHP"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/rackspace.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/rackspace.webp" alt="Rackspace"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/react.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/react.webp" alt="React"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/redis.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/redis.webp" alt="Redis"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/selenium.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/selenium.webp" alt="Selenium"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/shopify.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/shopify.webp" alt="Shopify"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/swift.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/swift.webp" alt="Swift"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ts.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ts.webp" alt="TypeScript"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/vue.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/vue.webp" alt="Vue.js"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wordpress.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wordpress.webp" alt="WordPress"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wpf.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wpf.webp" alt="WPF"> </div>
         <!-- /.swiper-slide -->
       </div>
     </div>
@@ -583,8 +592,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <p>Our expertise spans diverse industries, enabling us to create custom applications that cater to specific business needs, enhance user experiences, and drive innovation. Over the years, we have worked with a wide range of clients, from startups to established enterprises, earning their trust and satisfaction by delivering results that exceed expectations. </p>
                     <p>ArtisticWebServices, the ultimate <a href="<?= $B ?>/services/mobile-app-development.php" style="color: #d31923">app development company</a>, takes pride in our team of skilled developers, engineers, and strategists who combine their technical expertise with creativity to bring forward-thinking solutions to life. Our services empower businesses to stay ahead of the curve by leveraging the latest in mobile, web, AI, IoT, and blockchain technologies.</p>
                     <p>With a large and growing base of satisfied clients across the United States, we remain committed to our core values of quality, innovation, and customer success. As a trusted app development company in digital transformation, we are dedicated to helping businesses unlock their full potential and achieve sustained growth in a fast-paced digital world.</p>
-                    <a href="<?= $B ?>/contact.php" style="background: #DD0429" class="btn btn-light rounded-2 text-white">Discover
-                        More</a>
+                    <a href="<?= $B ?>/contact.php" style="background: #d31923" class="btn btn-light rounded-2 text-white">Discover More</a>
                 </div>
             </div>
         </div>

@@ -5,12 +5,54 @@
  * Password-protected. Change SMTP_ADMIN_PASS in includes/smtp-config.php
  *
  * ⚠️  Keep this URL secret. Do NOT link to it from any public page.
+ *
+ * Security layers:
+ *   1. IP allowlist — only whitelisted IPs may access this panel
+ *   2. Session-based brute-force lockout — max 5 attempts, 15-minute lockout
+ *   3. CSRF token protection on all POST forms
  */
 
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/smtp-config.php';
+require_once __DIR__ . '/includes/csrf.php'; // also calls session_start() safely
 
-session_start();
+// ── 1. IP Allowlist ───────────────────────────────────────────────────────────
+// Only these IPs can reach the admin panel.
+// Add your office IP here, e.g. '203.0.113.45'
+$allowed_ips = [
+    '127.0.0.1', // localhost IPv4
+    '::1',       // localhost IPv6
+    // Add your office IP here
+];
+
+$visitor_ip = $_SERVER['REMOTE_ADDR'] ?? '';
+if (!in_array($visitor_ip, $allowed_ips, true)) {
+    http_response_code(403);
+    header('Content-Type: text/plain; charset=UTF-8');
+    exit('403 Forbidden: Access denied.');
+}
+
+// ── 2. Session-based brute-force protection ───────────────────────────────────
+// Max 5 failed login attempts; 15-minute lockout on breach.
+define('ADMIN_MAX_ATTEMPTS',  5);
+define('ADMIN_LOCKOUT_SECS', 900); // 15 minutes
+
+if (!isset($_SESSION['admin_attempts'])) {
+    $_SESSION['admin_attempts'] = 0;
+}
+if (!isset($_SESSION['admin_lockout_until'])) {
+    $_SESSION['admin_lockout_until'] = 0;
+}
+
+$lockout_active = (time() < $_SESSION['admin_lockout_until']);
+$lockout_remaining = max(0, $_SESSION['admin_lockout_until'] - time());
+
+// Enforce lockout — even before the login form is shown
+if ($lockout_active && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Silently drop POST requests during lockout
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    exit;
+}
 
 // ── Time-based token (changes every 24 h as extra layer) ──────────────────────
 $today_token = hash('sha256', SMTP_ADMIN_PASS . date('Y-m-d'));
@@ -25,15 +67,34 @@ if (isset($_GET['logout'])) {
 // ── Handle login ──────────────────────────────────────────────────────────────
 $login_error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['panel_password'])) {
-    $submitted = trim($_POST['panel_password'] ?? '');
-    if ($submitted === SMTP_ADMIN_PASS || $submitted === $today_token) {
-        $_SESSION['smtp_admin_auth'] = $today_token;
-        header('Location: ' . $_SERVER['PHP_SELF']);
-        exit;
+
+    // Verify CSRF token for the login form (csrf_verify() exits on failure)
+    csrf_verify();
+
+    // Re-check lockout (session may have just been restored)
+    if (time() < $_SESSION['admin_lockout_until']) {
+        $login_error = 'Too many failed attempts. Try again in ' . ceil($lockout_remaining / 60) . ' minute(s).';
     } else {
-        $login_error = 'Incorrect password.';
-        // Slow down brute-force
-        sleep(2);
+        $submitted = trim($_POST['panel_password'] ?? '');
+        if ($submitted === SMTP_ADMIN_PASS || $submitted === $today_token) {
+            // Success — clear attempt counter and authenticate
+            $_SESSION['admin_attempts']     = 0;
+            $_SESSION['admin_lockout_until'] = 0;
+            $_SESSION['smtp_admin_auth']    = $today_token;
+            header('Location: ' . $_SERVER['PHP_SELF']);
+            exit;
+        } else {
+            $_SESSION['admin_attempts']++;
+            // Slow down brute-force
+            sleep(2);
+            if ($_SESSION['admin_attempts'] >= ADMIN_MAX_ATTEMPTS) {
+                $_SESSION['admin_lockout_until'] = time() + ADMIN_LOCKOUT_SECS;
+                $login_error = 'Too many failed attempts. Account locked for 15 minutes.';
+            } else {
+                $remaining_attempts = ADMIN_MAX_ATTEMPTS - $_SESSION['admin_attempts'];
+                $login_error = 'Incorrect password. ' . $remaining_attempts . ' attempt(s) remaining.';
+            }
+        }
     }
 }
 
@@ -43,6 +104,13 @@ $authenticated = isset($_SESSION['smtp_admin_auth'])
 // ── Handle test email ─────────────────────────────────────────────────────────
 $test_result = null;
 if ($authenticated && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['test_to'])) {
+    // CSRF is already verified above (via the login branch or directly here)
+    // csrf_verify() regenerates the token, so we only call it once per request.
+    // The login block calls csrf_verify() for panel_password POSTs.
+    // For test_to POSTs we call it explicitly:
+    if (!isset($_POST['panel_password'])) {
+        csrf_verify();
+    }
     require_once __DIR__ . '/includes/mailer.php';
     $test_to = filter_var(trim($_POST['test_to']), FILTER_VALIDATE_EMAIL);
     if ($test_to) {
@@ -120,11 +188,14 @@ function cfg(string $key, $fallback = '—'): string {
   <h1 style="text-align:center;">SMTP Admin Panel</h1>
   <p class="sub" style="text-align:center;">ArtisticWebServices — Restricted Access</p>
 
-  <?php if ($login_error): ?>
+  <?php if ($lockout_active): ?>
+    <div class="err">Account locked due to too many failed attempts. Try again in <?= ceil($lockout_remaining / 60) ?> minute(s).</div>
+  <?php elseif ($login_error): ?>
     <div class="err"><?= htmlspecialchars($login_error) ?></div>
   <?php endif; ?>
 
   <form method="POST">
+    <?= csrf_field() ?>
     <div class="form-group">
       <label for="panel_password">Admin Password</label>
       <input type="password" id="panel_password" name="panel_password" autofocus required
@@ -177,6 +248,7 @@ function cfg(string $key, $fallback = '—'): string {
     <?php endif; ?>
 
     <form method="POST">
+      <?= csrf_field() ?>
       <div class="form-group">
         <label for="test_to">Send test email to</label>
         <input type="email" id="test_to" name="test_to" required

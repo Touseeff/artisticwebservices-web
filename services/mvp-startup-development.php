@@ -3,7 +3,7 @@ require_once __DIR__ . '/../includes/config.php';
 $page_title = 'MVP Development Company USA | Launch Your Startup Fast — ArtisticWebServices';
 $page_description = 'Launch your startup with a lean, investor-ready MVP. ArtisticWebServices builds MVPs in 8—12 weeks for USA startups using agile methodology and modern tech stacks.';
 $page_keywords = 'MVP development company USA, startup app development, minimum viable product development, startup software development New York, lean MVP';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'MVP Development', 'url' => 'https://artisticwebservices.com/services/mvp-startup-development.php']];
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'MVP Development', 'url' => 'https://artisticwebservices.com/services/mvp-startup-development']];
 $page_service_schema = ['name' => 'MVP Development', 'description' => 'Lean, investor-ready MVP development in 8-12 weeks for USA startups using agile methodology.'];
 $page_faq = [
     ['q' => 'What is an MVP and why do startups need one?', 'a' => 'An MVP (Minimum Viable Product) is a version of your product with core features needed to validate your idea with real users. It helps startups launch faster, gather feedback, and attract investors with less risk and cost.'],
@@ -11,7 +11,7 @@ $page_faq = [
     ['q' => 'How much does MVP development cost?', 'a' => 'MVP development typically costs $15,000—$50,000 depending on complexity and features. Contact us for a free consultation and quote.']
 ];
 $page_canonical = 'https://artisticwebservices.com/services/mvp-startup-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -1173,7 +1173,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
             <div class="col-xl-6 col-lg-6 col-12 mt-4 mt-lg-0">
                 <div class="welcome-three__right welcome-three__right-zero">
-                    <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                    <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
                 </div>
             </div>
         </div>

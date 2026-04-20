@@ -4,7 +4,16 @@ $page_title = 'EdTech & eLearning App Development USA | LMS Solutions — Artist
 $page_description = 'Transform education with custom eLearning apps from ArtisticWebServices. LMS platforms, virtual classrooms, gamified learning, and K-12 & higher ed solutions.';
 $page_keywords = 'eLearning app development USA, LMS development company, educational app development, EdTech software development, virtual classroom app';
 $page_canonical = 'https://artisticwebservices.com/solutions/education-and-learning';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'EdTech & eLearning Development', 'url' => 'https://artisticwebservices.com/solutions/education-and-learning']];
+$page_service_schema = ['name' => 'EdTech & eLearning App Development', 'description' => 'Custom LMS platforms, virtual classrooms, and gamified eLearning solutions for K-12, higher education, and corporate training in the USA.'];
+$page_faq = [
+    ['q' => 'What eLearning and EdTech solutions does ArtisticWebServices develop?', 'a' => 'We build custom LMS (Learning Management Systems), virtual classroom platforms with live video, gamified learning apps, microlearning mobile apps, SCORM/xAPI compliant course authoring tools, K-12 student information systems, higher education portals, corporate training platforms with completion tracking and certification, and language learning apps.'],
+    ['q' => 'Do you integrate with existing SCORM or LTI standards?', 'a' => 'Yes. All our LMS and eLearning platforms support SCORM 1.2 and 2004 for course content packaging, xAPI (Tin Can) for detailed learning analytics, LTI 1.3 for integration with third-party tools (Google Classroom, Microsoft Teams, Zoom), and QTI for assessment interoperability. This ensures your content works across platforms without rebuilding.'],
+    ['q' => 'Can you integrate live video for virtual classrooms?', 'a' => 'Yes. We integrate Agora, Twilio Video, Zoom SDK, Daily.co, and AWS Chime for live video functionality. Features include multi-participant video, screen sharing, interactive whiteboards, breakout rooms, session recording, live polls, and attendance tracking — all within your branded platform.'],
+    ['q' => 'How long does LMS development take?', 'a' => 'A basic LMS with course management, student enrollment, quizzes, and progress tracking takes 3–5 months. A full-featured platform with live video, gamification, mobile apps, and analytics dashboards takes 6–12 months. We recommend starting with a focused MVP and expanding based on educator and learner feedback.'],
+    ['q' => 'Is your eLearning platform FERPA and COPPA compliant?', 'a' => 'Yes. For K-12 applications we implement COPPA-compliant parental consent flows and strict data minimization. For higher education we implement FERPA controls including role-based access to educational records, audit logging of all record access, and data sharing agreements. All student data is encrypted and hosted in SOC 2 certified cloud infrastructure.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>

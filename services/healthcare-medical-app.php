@@ -4,8 +4,8 @@ $page_title = 'Healthcare & Medical App Development USA | HIPAA Solutions — Ar
 $page_description = 'ArtisticWebServices builds HIPAA-compliant healthcare and medical apps. Telemedicine, EHR integration, patient portals, medication management, and remote monitoring apps for USA healthcare.';
 $page_keywords = 'healthcare app development USA, medical app development company, HIPAA compliant healthcare app, telemedicine app development, EHR integration app, patient portal development';
 $page_canonical = 'https://artisticwebservices.com/services/healthcare-medical-app';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services.php'], ['name' => 'Healthcare App Development', 'url' => 'https://artisticwebservices.com/services/healthcare-medical-app.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Healthcare App Development', 'url' => 'https://artisticwebservices.com/services/healthcare-medical-app']];
 $page_service_schema = ['name' => 'Healthcare & Medical App Development', 'description' => 'HIPAA-compliant healthcare and medical app development including telemedicine and EHR integration for USA healthcare providers.'];
 $page_faq = [
     ['q' => 'Are your healthcare apps HIPAA compliant?', 'a' => 'Yes. ArtisticWebServices follows all HIPAA compliance guidelines including data encryption, access controls, audit trails, and secure data transmission for all healthcare and medical app development projects.'],
@@ -223,7 +223,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         style="visibility: visible; animation-duration: 2500ms; animation-delay: 100ms; animation-name: slideInRight;">
                         <div class="welcome-three__right ">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

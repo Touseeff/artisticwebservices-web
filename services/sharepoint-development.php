@@ -4,7 +4,16 @@ $page_title = 'SharePoint Development Company USA | Microsoft 365 Experts — Ar
 $page_description = 'Expert SharePoint development and Microsoft 365 solutions from ArtisticWebServices. Custom SharePoint intranets, workflows, and integrations for USA enterprises.';
 $page_keywords = 'SharePoint development company USA, Microsoft 365 development, SharePoint intranet, SharePoint customization, Office 365 development';
 $page_canonical = 'https://artisticwebservices.com/services/sharepoint-development';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'SharePoint Development', 'url' => 'https://artisticwebservices.com/services/sharepoint-development']];
+$page_service_schema = ['name' => 'SharePoint Development', 'description' => 'Custom SharePoint intranet portals, workflow automation, and Microsoft 365 integration services for USA enterprises.'];
+$page_faq = [
+    ['q' => 'What SharePoint development services does ArtisticWebServices offer?', 'a' => 'We provide end-to-end SharePoint services: custom SharePoint Online and on-premise intranet portals, SPFx web part and extension development, Power Automate workflow automation, SharePoint migration (from older versions or Google Drive/Dropbox), Microsoft Teams integration, Power Apps development, and SharePoint governance consulting.'],
+    ['q' => 'Should we choose SharePoint Online or SharePoint Server?', 'a' => 'SharePoint Online (Microsoft 365) is recommended for most organizations — it requires no infrastructure management, receives continuous updates, and integrates natively with Teams, OneDrive, and Power Platform. SharePoint Server is preferred when you have strict data residency requirements or need deep on-premise integrations. ArtisticWebServices will assess your needs and recommend the right deployment model.'],
+    ['q' => 'How much does SharePoint development cost?', 'a' => 'A custom SharePoint intranet with branded theme, navigation, and department pages starts around $15,000. Complex solutions with custom SPFx web parts, Power Automate workflows, and ERP integration range from $30,000 to $100,000+. SharePoint migration projects are priced based on data volume and complexity.'],
+    ['q' => 'Can you migrate our existing intranet to SharePoint?', 'a' => 'Yes. ArtisticWebServices handles migrations from SharePoint 2013/2016/2019, Confluence, Jive, and file shares to SharePoint Online. Our migration process includes content inventory, metadata mapping, pilot migration, validation, and cutover — with minimal disruption to daily operations.'],
+    ['q' => 'Do you provide SharePoint training and support?', 'a' => 'Yes. After delivery we provide admin and end-user training sessions, documentation, and ongoing support packages covering platform updates, new feature development, performance tuning, and help desk support for your SharePoint environment.']
+];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
@@ -85,7 +94,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <div class="col-xl-6">
                         <div class="welcome-three__right">
                             <div class="row">
-                                <?php include __DIR__ . '/../includes/form-quote.php'; ?>
+                                <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>
 <script>
   $(document).ready(function () {
     $('#name-validF').delay(5000).fadeOut('slow');

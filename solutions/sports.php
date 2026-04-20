@@ -4,8 +4,8 @@ $page_title = 'Sports App Development USA | Sports Technology Solutions — Arti
 $page_description = 'ArtisticWebServices builds cutting-edge sports apps with AI-driven analytics, athlete management, sports recruiting platforms, and fan engagement solutions for USA sports organizations.';
 $page_keywords = 'sports app development USA, sports technology solutions, athlete management software, sports recruiting app development, sports analytics platform, fan engagement app USA';
 $page_canonical = 'https://artisticwebservices.com/solutions/sports';
-$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservice w.png';
-$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries.php'], ['name' => 'Sports', 'url' => 'https://artisticwebservices.com/solutions/sports.php']];
+$page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'Sports', 'url' => 'https://artisticwebservices.com/solutions/sports']];
 $page_service_schema = ['name' => 'Sports Technology Solutions', 'description' => 'AI-driven sports apps, athlete management, and fan engagement platforms for USA sports organizations.'];
 require_once __DIR__ . '/../includes/head.php';
 $B = defined('SITE_BASE') ? SITE_BASE : '';
