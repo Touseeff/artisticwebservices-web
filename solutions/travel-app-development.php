@@ -20,7 +20,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
 
 <body>
-<div class="page-wrapper" onmousedown="return false;" onselectstart="return false;">
+<div class="page-wrapper">
 <!--Header-Main Start-->
 <?php require_once __DIR__ . '/../includes/header.php'; ?>
 <!--Header-Main End-->
@@ -1728,14 +1728,12 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
           <input type="hidden" name="captcha" value="14">
           <div class="row g-3">
             <div class="col-sm-6">
-              <label class="mf-label">First Name <span style="color:#ec1c22">*</span></label>
-              <input type="text" class="mf-input" id="mcf_first_name" name="first_name" placeholder="Your First Name" autocomplete="given-name" required aria-required="true">
-              <small class="mf-error" id="mcf-err-fname"></small>
+              <label class="mf-label">First Name</label>
+              <input type="text" class="mf-input" id="mcf_first_name" name="first_name" placeholder="Your First Name (optional)" autocomplete="given-name">
             </div>
             <div class="col-sm-6">
               <label class="mf-label">Last Name</label>
               <input type="text" class="mf-input" id="mcf_last_name" name="last_name" placeholder="Your Last Name" autocomplete="family-name">
-              <small class="mf-error" id="mcf-err-lname"></small>
             </div>
             <div class="col-sm-6">
               <label class="mf-label">Email Address <span style="color:#ec1c22">*</span></label>
@@ -1745,7 +1743,6 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             <div class="col-sm-6">
               <label class="mf-label">Phone Number <span style="color:#ec1c22">*</span></label>
               <input type="tel" class="mf-input" id="mcf_phone" name="phone" placeholder="(000)-000-0000" maxlength="30" autocomplete="tel" required aria-required="true">
-              <small class="mf-error" id="mcf-err-phone"></small>
             </div>
             <div class="col-12">
               <label class="mf-label">Project Details</label>

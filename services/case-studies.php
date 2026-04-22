@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Client Case Studies & Portfolio | ArtisticWebServices';
 $page_description = 'Browse ArtisticWebServices client success stories and portfolio. 460+ projects delivered across healthcare, fintech, e-commerce, fitness, real estate, and more industries in USA.';
@@ -59,7 +59,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
          }
       </style>
 <body>
-<div class="page-wrapper" onmousedown="return false;" onselectstart="return false;">
+<div class="page-wrapper">
 <!--Header-Main Start-->
 <?php require_once __DIR__ . '/../includes/header.php'; ?>
 <!--Header-Main End-->

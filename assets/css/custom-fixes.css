@@ -3808,6 +3808,12 @@ section a.btn-cta-modal {
     display: flex;
     align-items: center;
 }
+/* Ensure inputs sit above any stray overlay; clicks reach the control */
+.aws-qf-field-wrap input,
+.aws-qf-field-wrap textarea {
+    position: relative;
+    z-index: 1;
+}
 
 .aws-qf-icon {
     position: absolute;
@@ -3934,6 +3940,11 @@ section a.btn-cta-modal {
     .aws-qf-row {
         flex-direction: column;
         gap: 0;
+    }
+
+    /* Less vertical gap between stacked first/last name fields */
+    .aws-qf-row .aws-qf-group {
+        margin-bottom: 8px;
     }
 
     .aws-qf-header h3 {

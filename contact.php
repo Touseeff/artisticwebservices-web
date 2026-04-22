@@ -283,6 +283,8 @@ require_once 'includes/head.php';
     outline: none;
     font-family: inherit;
     display: block;
+    position: relative;
+    z-index: 1;
 }
 .cf-input:focus {
     border-color: var(--brand);
@@ -327,6 +329,8 @@ select.cf-native-select {
     appearance: auto;
     -webkit-appearance: menulist;
     transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+    position: relative;
+    z-index: 1;
 }
 select.cf-native-select:focus {
     border-color: var(--brand);
@@ -397,6 +401,10 @@ select.cf-native-select:focus {
     .contact-hero h1 { font-size: 28px; }
     .contact-hero { padding: 60px 0 40px; }
     .contact-form-card { padding: 24px 18px; }
+    /* Tighter label ↔ input spacing (name row stacks on mobile) */
+    #contact .cf-field { margin-bottom: 12px; }
+    #contact .cf-field label { margin-bottom: 4px; font-size: 12px; }
+    #contact .cf-small { min-height: 0; margin-top: 2px; line-height: 1.2; }
 }
 </style>
 <body>
@@ -472,7 +480,7 @@ select.cf-native-select:focus {
                         if ($err === 'missing') {
                             echo '<div style="background:#fff5f5;border:1.5px solid #dd0429;border-radius:10px;padding:14px 18px;margin-bottom:22px;display:flex;align-items:center;gap:12px;font-size:14px;color:#c0001c;font-weight:600;">
                                     <i class="fas fa-exclamation-circle" style="font-size:18px;flex-shrink:0;"></i>
-                                    Please fill in your First Name, Email Address, and Phone Number before submitting.
+                                    Please fill in your Email Address and Phone Number before submitting.
                                   </div>';
                         } elseif ($err === 'invalid_email') {
                             echo '<div style="background:#fff5f5;border:1.5px solid #dd0429;border-radius:10px;padding:14px 18px;margin-bottom:22px;display:flex;align-items:center;gap:12px;font-size:14px;color:#c0001c;font-weight:600;">
@@ -500,14 +508,14 @@ select.cf-native-select:focus {
                                 <!-- First Name -->
                                 <div class="col-md-6">
                                     <div class="cf-field">
-                                        <label for="first_name">First Name <span class="req">*</span></label>
+                                        <label for="first_name">First Name</label>
                                         <div class="cf-input-wrap">
                                             <!-- Icon is decorative; label already names the field -->
                                             <i class="fas fa-user cf-input-icon" aria-hidden="true"></i>
                                             <input class="cf-input" maxlength="100" autocomplete="given-name"
-                                                placeholder="e.g. John" type="text" name="first_name" id="first_name" required aria-required="true">
+                                                placeholder="e.g. John (optional)" type="text" name="first_name" id="first_name">
                                         </div>
-                                        <small class="cf-small" id="name-valid"></small>
+                                        <small class="cf-small" aria-hidden="true"></small>
                                     </div>
                                 </div>
 
@@ -520,7 +528,7 @@ select.cf-native-select:focus {
                                             <input class="cf-input" maxlength="100" autocomplete="family-name"
                                                 placeholder="e.g. Smith" type="text" name="last_name" id="last_name">
                                         </div>
-                                        <small class="cf-small" id="name-valid1"></small>
+                                        <small class="cf-small" aria-hidden="true"></small>
                                     </div>
                                 </div>
 
@@ -530,10 +538,10 @@ select.cf-native-select:focus {
                                         <label for="phone">Phone Number <span class="req">*</span></label>
                                         <div class="cf-input-wrap">
                                             <i class="fas fa-phone cf-input-icon" aria-hidden="true"></i>
-                                            <input class="cf-input" autocomplete="tel" required aria-required="true"
+                                            <input class="cf-input" autocomplete="tel" required
                                                 placeholder="e.g. +1 212 555 0100" type="tel" name="phone" id="phone" maxlength="30">
                                         </div>
-                                        <small class="cf-small" id="phone-valid"></small>
+                                        <small class="cf-small" aria-hidden="true"></small>
                                     </div>
                                 </div>
 
@@ -544,9 +552,9 @@ select.cf-native-select:focus {
                                         <div class="cf-input-wrap">
                                             <i class="fas fa-envelope cf-input-icon" aria-hidden="true"></i>
                                             <input class="cf-input" maxlength="100" autocomplete="email"
-                                                placeholder="e.g. john@company.com" type="email" name="email" id="email" required aria-required="true">
+                                                placeholder="e.g. john@company.com" type="email" name="email" id="email" required>
                                         </div>
-                                        <small class="cf-small" id="email-valid"></small>
+                                        <small class="cf-small" aria-hidden="true"></small>
                                     </div>
                                 </div>
 
@@ -577,7 +585,7 @@ select.cf-native-select:focus {
                                             <textarea class="cf-input" autocomplete="off"
                                                 placeholder="Tell us about your project, goals, and timeline…" name="description" id="description"></textarea>
                                         </div>
-                                        <small class="cf-small" id="message-valid"></small>
+                                        <small class="cf-small" aria-hidden="true"></small>
                                     </div>
                                 </div>
 

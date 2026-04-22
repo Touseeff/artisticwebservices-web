@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Fitness App Development Company USA | Health &amp; Wellness Apps — ArtisticWebServices';
 $page_description = 'Build feature-rich fitness and wellness apps with ArtisticWebServices. Workout trackers, diet planners, personal training apps, and wearable integrations for USA market.';
@@ -17,7 +17,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
 
 <body>
-<div class="page-wrapper" onmousedown="return false;" onselectstart="return false;">
+<div class="page-wrapper">
 <!--Header-Main Start-->
 <?php require_once __DIR__ . '/../includes/header.php'; ?>
 <!--Header-Main End-->

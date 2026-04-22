@@ -34,18 +34,16 @@ $_fq_action = SITE_BASE . '/contact-form';
             <label for="quote-first-name" class="visually-hidden">First Name</label>
             <i class="fa fa-user aws-qf-icon" aria-hidden="true"></i>
             <input type="text" name="first_name" id="quote-first-name"
-                   placeholder="First Name *" required aria-required="true" maxlength="100" autocomplete="name">
+                   placeholder="First Name (optional)" maxlength="100" autocomplete="name">
           </div>
-          <small id="name-valid"></small>
         </div>
         <div class="aws-qf-group">
           <div class="aws-qf-field-wrap">
             <label for="quote-last-name" class="visually-hidden">Last Name</label>
             <i class="fa fa-user aws-qf-icon" aria-hidden="true"></i>
             <input type="text" name="last_name" id="quote-last-name"
-                   placeholder="Last Name" maxlength="100" autocomplete="family-name">
+                   placeholder="Last Name (optional)" maxlength="100" autocomplete="family-name">
           </div>
-          <small id="name-valid2"></small>
         </div>
       </div>
 
@@ -55,9 +53,8 @@ $_fq_action = SITE_BASE . '/contact-form';
           <label for="quote-email" class="visually-hidden">Email Address</label>
           <i class="fa fa-envelope aws-qf-icon" aria-hidden="true"></i>
           <input type="email" name="email" id="quote-email"
-                 placeholder="Email Address *" required aria-required="true" autocomplete="email">
+                 placeholder="Email *" required autocomplete="email">
         </div>
-        <small id="email-valid"></small>
       </div>
 
       <!-- Phone -->
@@ -66,9 +63,8 @@ $_fq_action = SITE_BASE . '/contact-form';
           <label for="quote-phone" class="visually-hidden">Phone Number</label>
           <i class="fa fa-phone aws-qf-icon" aria-hidden="true"></i>
           <input type="tel" name="phone" id="quote-phone"
-                 placeholder="Phone Number *" required aria-required="true" maxlength="30" autocomplete="tel">
+                 placeholder="Phone *" required maxlength="30" autocomplete="tel">
         </div>
-        <small id="phone-valid"></small>
       </div>
 
       <!-- Message -->

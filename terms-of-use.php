@@ -10,13 +10,13 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
 
 <body>
-<div class="page-wrapper" onmousedown="return false;" onselectstart="return false;">
+<div class="page-wrapper">
 <!--Header-Main Start-->
 <?php require_once __DIR__ . '/includes/header.php'; ?>
 <!--Header-Main End-->
 
 <!--Page Header Start-->
-    <section class="about-page privacy-policy-bg terms-bg" onmousedown='return false;' onselectstart='return false;'>
+    <section class="about-page privacy-policy-bg terms-bg">
       <div class="container">
         <div class="row">
           <div class="col-xl-12">
@@ -38,7 +38,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
     </section>
     <!--Page Header End-->
     <!--contact Page Start-->
-   <section class="contact-page terms_use" onmousedown="return false;" onselectstart="return false;">
+   <section class="contact-page terms_use">
       <div class="container">
         <div class="section-title">
           <!-- <span class="section-title__tagline">contact with us</span> -->

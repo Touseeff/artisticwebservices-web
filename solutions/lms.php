@@ -12,7 +12,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
 
 <body>
-<div class="page-wrapper" onmousedown="return false;" onselectstart="return false;">
+<div class="page-wrapper">
 <!--Header-Main Start-->
 <?php require_once __DIR__ . '/../includes/header.php'; ?>
 <!--Header-Main End-->

@@ -1734,7 +1734,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         }
     </style>
 <body>
-<div class="page-wrapper" onmousedown="return false;" onselectstart="return false;">
+<div class="page-wrapper">
 <!--Header-Main Start-->
 <?php require_once __DIR__ . '/../includes/header.php'; ?>
 <!--Header-Main End-->
@@ -1761,7 +1761,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         echo csrf_field();
         $calc_err = $_GET['error'] ?? '';
         if ($calc_err === 'missing') {
-            echo '<div class="container pt-4"><div class="alert alert-danger" role="alert">Please enter your <strong>name</strong>, <strong>email</strong>, and <strong>phone number</strong> so we can reach you.</div></div>';
+            echo '<div class="container pt-4"><div class="alert alert-danger" role="alert">Please enter your <strong>email</strong> and <strong>phone number</strong> so we can reach you.</div></div>';
         } elseif ($calc_err === 'invalid_email') {
             echo '<div class="container pt-4"><div class="alert alert-danger" role="alert">Please enter a valid <strong>email address</strong>.</div></div>';
         }
@@ -2478,7 +2478,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         </div>
                         <div class="col-md-6 mb-3">
                             <input autocomplete="tel" required type="text" id="phone" maxlength="30"
-                                class="form-control" placeholder="Contact number *" name="user-number" aria-required="true">
+                                class="form-control" placeholder="Phone *" name="user-number">
                         </div>
                     </div>
                 </div>

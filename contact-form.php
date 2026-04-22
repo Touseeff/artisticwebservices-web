@@ -58,8 +58,8 @@ if (is_array($states_raw)) {
 
 $base = defined('SITE_BASE') ? SITE_BASE : '';
 
-// ── Validate ──────────────────────────────────────────────────────────────────
-if (empty($first_name) || empty($email) || empty($phone)) {
+// ── Validate (email + phone only; other fields optional) ─────────────────────
+if ($email === '' || $phone === '') {
     if (contact_form_wants_json()) {
         contact_form_json_exit(422, ['ok' => false, 'error' => 'missing']);
     }
@@ -75,18 +75,20 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // ── Build email fields ────────────────────────────────────────────────────────
-$fields = array_filter([
-    'Name'    => trim("$first_name $last_name"),
+$name_line = trim("$first_name $last_name");
+$fields    = array_filter([
+    'Name'    => $name_line !== '' ? $name_line : null,
     'Email'   => $email,
-    'Phone'   => $phone ?: null,
-    'Service' => $service ?: null,
-    'Message' => $description ?: null,
+    'Phone'   => $phone,
+    'Service' => $service !== '' ? $service : null,
+    'Message' => $description !== '' ? $description : null,
 ]);
+$subject_name = $name_line !== '' ? $name_line : $email;
 
 // ── Send via SMTP ─────────────────────────────────────────────────────────────
 $sent = sendMail([
     'reply_to' => $email,
-    'subject'  => "New Inquiry from $first_name $last_name — $host",
+    'subject'  => "New Inquiry from {$subject_name} — $host",
     'fields'   => $fields,
     'source'   => $page,
 ]);

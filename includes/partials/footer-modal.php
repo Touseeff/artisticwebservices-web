@@ -80,7 +80,7 @@ if (!isset($B)) {
                             <!-- WCAG 1.3.1: visually-hidden labels paired to every input via for/id -->
                             <label for="modal-first-name" class="visually-hidden">First Name</label>
                             <input type="text" id="modal-first-name" name="first_name"
-                                   placeholder="First Name *" required aria-required="true"
+                                   placeholder="First Name (optional)"
                                    maxlength="100" autocomplete="given-name">
                         </div>
                         <div class="aws-form-group">
@@ -93,12 +93,12 @@ if (!isset($B)) {
                     <div class="aws-form-group">
                         <label for="modal-email" class="visually-hidden">Email Address</label>
                         <input type="email" id="modal-email" name="email"
-                               placeholder="Email Address *" required aria-required="true" autocomplete="email">
+                               placeholder="Email *" required autocomplete="email">
                     </div>
                     <div class="aws-form-group">
                         <label for="modal-phone" class="visually-hidden">Phone Number</label>
                         <input type="tel" id="modal-phone" name="phone"
-                               placeholder="Phone Number *" required aria-required="true" maxlength="30" autocomplete="tel">
+                               placeholder="Phone *" required maxlength="30" autocomplete="tel">
                     </div>
                     <div class="aws-form-group">
                         <label for="modal-service" class="visually-hidden">Select Service</label>
@@ -235,13 +235,14 @@ setTimeout(function() {
 
 /* ── Form submit → thank-you redirect ─────────── */
 function awsSubmitForm(e) {
-    e.preventDefault();
     var form = document.getElementById('awsLeadForm');
-    var btn  = form.querySelector('.aws-form-submit');
-    /* Native validation only (required, type=email, etc.) — same as a normal submit */
-    if (!form.reportValidity()) {
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        e.preventDefault();
         return;
     }
+    e.preventDefault();
+    var btn  = form.querySelector('.aws-form-submit');
     btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
 
@@ -306,7 +307,7 @@ function awsSubmitForm(e) {
                 if (payload && payload.error === 'send_failed') {
                     alert('Email could not be sent (server mail settings). Please try again later or call us directly.');
                 } else if (payload && payload.error === 'missing') {
-                    alert('Please fill in First Name, Email, and Phone Number.');
+                    alert('Please fill in Email and Phone Number.');
                 } else if (payload && payload.error === 'invalid_email') {
                     alert('Please enter a valid email address.');
                 } else {

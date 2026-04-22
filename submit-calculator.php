@@ -38,8 +38,8 @@ $screens     = cleanVal($_POST['number-of-screens'] ?? '');
 $funcs       = cleanArr($_POST['functionalities']   ?? []);
 $description = cleanVal($_POST['app-description']   ?? '');
 
-// ── Validate required fields ──────────────────────────────────────────────────
-if (empty($name) || empty($email) || empty($phone)) {
+// ── Validate required fields (email + phone only) ───────────────────────────
+if (empty($email) || empty($phone)) {
     header("Location: {$base}/services/app-cost-calculator.php?error=missing");
     exit;
 }
@@ -50,7 +50,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 // ── Build email fields ────────────────────────────────────────────────────────
 $fields = array_filter([
-    'Name'              => $name,
+    'Name'              => $name !== '' ? $name : null,
     'Email'             => $email,
     'Phone'             => $phone ?: null,
     'Platforms'         => $platforms   ? implode(', ', $platforms)  : null,
@@ -63,9 +63,10 @@ $fields = array_filter([
 ]);
 
 // ── Send via SMTP ─────────────────────────────────────────────────────────────
+$sub_label = $name !== '' ? $name : $email;
 $sent = sendMail([
     'reply_to' => $email,
-    'subject'  => "App Cost Calculator Submission — $name",
+    'subject'  => "App Cost Calculator Submission — {$sub_label}",
     'fields'   => $fields,
     'source'   => 'App Cost Calculator',
 ]);

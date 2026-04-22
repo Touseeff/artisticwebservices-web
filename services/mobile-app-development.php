@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company USA | ArtisticWebServices';
 $page_description = 'Top-rated mobile app development company in the USA. We build high-performance iOS, Android & cross-platform apps for startups and enterprises. 500+ apps delivered.';
@@ -20,7 +20,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
 ?>
 
 <body>
-<div class="page-wrapper" onmousedown="return false;" onselectstart="return false;">
+<div class="page-wrapper">
 <!--Header-Main Start-->
 <?php require_once __DIR__ . '/../includes/header.php'; ?>
 <!--Header-Main End-->

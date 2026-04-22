@@ -482,7 +482,7 @@ require_once 'includes/head.php';
       }
    </style>
 <body>
-   <div class="page-wrapper" onmousedown='return false;' onselectstart='return false;'>
+   <div class="page-wrapper">
       <!--Header-Main Start-->
       <?php require_once 'includes/header.php'; ?>
       <!--Header-Main End-->
@@ -512,7 +512,7 @@ require_once 'includes/head.php';
          </script>
          <div class="carousel-overlay"></div>
 
-         <div class="carousel-inner" onmousedown='return false;' onselectstart='return false;'>
+         <div class="carousel-inner">
 
             <!-- Hero – Custom Software -->
             <div class="carousel-item active">
