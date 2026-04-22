@@ -312,6 +312,10 @@ require_once 'includes/head.php';
             font-size: clamp(0.82rem, 3.4vw, 0.97rem) !important;
             line-height: 1.6;
          }
+         /* Hero: hide long subcopy on small screens; keep trust chips (div.slide-p) */
+         .hero-video-caption > p.slide-p {
+            display: none !important;
+         }
          .cta-two__right {
             flex-direction: column;
             width: 100%;

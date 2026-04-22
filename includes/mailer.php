@@ -22,6 +22,16 @@ if (function_exists('sendMail')) {
     return;
 }
 
+/** Last SMTP / mailer failure (for logs when sendMail() returns false). */
+function smtp_get_last_error(): string {
+    return (string) ($GLOBALS['_aws_smtp_last_error'] ?? '');
+}
+
+function _smtp_set_error(string $msg): void {
+    $GLOBALS['_aws_smtp_last_error'] = $msg;
+    error_log('[Mailer] ' . $msg);
+}
+
 // ── Internal: send a command and read the SMTP response ───────────────────────
 function _smtp_cmd($socket, string $cmd): string
 {
@@ -77,6 +87,8 @@ function _smtp_cafile(): string
 function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
                     string $subject, string $htmlBody, string $plainBody): bool
 {
+    $GLOBALS['_aws_smtp_last_error'] = '';
+
     $host    = SMTP_HOST;
     $port    = SMTP_PORT;       // 465 (SSL) or 587 (STARTTLS)
     $secure  = SMTP_SECURE;     // 'ssl' or 'tls'
@@ -85,11 +97,11 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     $timeout = 15;
 
     if ($user === '' || $pass === '') {
-        error_log('[Mailer] SMTP_USER / SMTP_PASS are empty — check .env on the server.');
+        _smtp_set_error('SMTP_USER / SMTP_PASS empty — create .env on the server with real Hostinger mailbox credentials.');
         return false;
     }
     if ($from === '' || !filter_var($from, FILTER_VALIDATE_EMAIL)) {
-        error_log('[Mailer] SMTP_FROM_EMAIL is missing or invalid — check .env.');
+        _smtp_set_error('SMTP_FROM_EMAIL missing or invalid in .env.');
         return false;
     }
 
@@ -119,7 +131,7 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     $socket = @stream_socket_client($address, $errno, $errstr, $timeout, STREAM_CLIENT_CONNECT, $ctx);
 
     if (!$socket) {
-        error_log("[Mailer] Socket connect failed ({$address}): {$errstr} ({$errno})");
+        _smtp_set_error("Connect failed {$address}: {$errstr} (errno {$errno}). Try SMTP_PORT=587 and SMTP_SECURE=tls if 465 is blocked.");
         return false;
     }
 
@@ -139,7 +151,7 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     // EHLO
     $ehlo = _smtp_cmd($socket, 'EHLO ' . $ehloHost);
     if (!str_starts_with(trim($ehlo), '2')) {
-        error_log("[Mailer] EHLO failed: {$ehlo}");
+        _smtp_set_error('EHLO failed: ' . trim($ehlo));
         fclose($socket);
         return false;
     }
@@ -148,7 +160,7 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     if ($secure === 'tls') {
         $tls = _smtp_cmd($socket, 'STARTTLS');
         if (!str_starts_with(trim($tls), '2')) {
-            error_log("[Mailer] STARTTLS failed: {$tls}");
+            _smtp_set_error('STARTTLS failed: ' . trim($tls));
             fclose($socket);
             return false;
         }
@@ -161,7 +173,7 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     _smtp_cmd($socket, base64_encode($user));
     $authResp = _smtp_cmd($socket, base64_encode($pass));
     if (!str_starts_with(trim($authResp), '2')) {
-        error_log("[Mailer] AUTH failed: {$authResp}");
+        _smtp_set_error('AUTH failed (wrong SMTP_USER/SMTP_PASS or account not allowed for SMTP): ' . trim($authResp));
         fclose($socket);
         return false;
     }
@@ -169,7 +181,7 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     // MAIL FROM
     $fromResp = _smtp_cmd($socket, "MAIL FROM:<{$from}>");
     if (!str_starts_with(trim($fromResp), '2')) {
-        error_log("[Mailer] MAIL FROM failed: {$fromResp}");
+        _smtp_set_error('MAIL FROM rejected: ' . trim($fromResp));
         fclose($socket);
         return false;
     }
@@ -177,7 +189,7 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     // RCPT TO
     $rcptResp = _smtp_cmd($socket, "RCPT TO:<{$to}>");
     if (!str_starts_with(trim($rcptResp), '2')) {
-        error_log("[Mailer] RCPT TO failed: {$rcptResp}");
+        _smtp_set_error('RCPT TO failed (check MAIL_TO): ' . trim($rcptResp));
         fclose($socket);
         return false;
     }
@@ -229,7 +241,7 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     fclose($socket);
 
     if (!str_starts_with(trim($dataResp), '2')) {
-        error_log("[Mailer] DATA send failed: {$dataResp}");
+        _smtp_set_error('DATA rejected: ' . trim($dataResp));
         return false;
     }
 
@@ -272,11 +284,11 @@ function sendMail(array $data): bool
     }
 
     if (trim((string) $to) === '' || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
-        error_log('[Mailer] MAIL_TO is empty or invalid — set MAIL_TO in .env on the server.');
+        _smtp_set_error('MAIL_TO empty or invalid — set MAIL_TO in .env on the server.');
         return false;
     }
     if (trim((string) $replyTo) === '' || !filter_var($replyTo, FILTER_VALIDATE_EMAIL)) {
-        error_log('[Mailer] reply_to is not a valid email address.');
+        _smtp_set_error('Form reply_to email is invalid.');
         return false;
     }
 

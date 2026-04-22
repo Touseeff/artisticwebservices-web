@@ -102,14 +102,16 @@ if ($sent) {
 } else {
     // Log the failed lead so no inquiry is silently lost
     $failed_log = __DIR__ . '/logs/mail-failed.log';
+    $smtpErr = function_exists('smtp_get_last_error') ? smtp_get_last_error() : '';
     $log_entry  = json_encode([
-        'time'  => date('Y-m-d H:i:s'),
-        'name'  => trim("$first_name $last_name"),
-        'email' => $email,
-        'phone' => $phone,
-        'page'  => $page,
-        'error' => 'SMTP send failed',
-    ]) . "\n";
+        'time'        => date('Y-m-d H:i:s'),
+        'name'        => trim("$first_name $last_name"),
+        'email'       => $email,
+        'phone'       => $phone,
+        'page'        => $page,
+        'error'       => 'SMTP send failed',
+        'smtp_detail' => $smtpErr !== '' ? $smtpErr : null,
+    ], JSON_UNESCAPED_UNICODE) . "\n";
     @file_put_contents($failed_log, $log_entry, FILE_APPEND | LOCK_EX);
     if (contact_form_wants_json()) {
         contact_form_json_exit(503, ['ok' => false, 'error' => 'send_failed']);
