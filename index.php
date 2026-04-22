@@ -664,7 +664,7 @@ require_once 'includes/head.php';
                             <h4>Revolutionize Shopping with Custom E-commerce Solutions</h4>
                             <p>Empower your business with top-notch e-commerce solutions tailored to enhance user experience and maximize sales.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/ecommerce-and-trading.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/services/ecommerce-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                          <div class="facilitites-images">
@@ -679,7 +679,7 @@ require_once 'includes/head.php';
                             <h4>Modernize Your Real Estate Systems for a Competitive Edge</h4>
                             <p>Get ultimate leads, double up your customers acquisitions, escalate your annual revenue</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/services/real-estate-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/services/mobile-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
@@ -814,7 +814,7 @@ require_once 'includes/head.php';
                         <a href="<?= $B ?>/solutions/oil-and-gas-refinery-management-software.php" class="custom-slider-text">Oil &amp; Gas</a>
                     </div>
                     <div class="custom-slider-item solutions-slider-item" data-bg="url('<?= $B ?>/assets/images/industries-one/05-ecommerce.webp')">
-                        <a href="<?= $B ?>/solutions/ecommerce-and-trading.php" class="custom-slider-text">Ecommerce</a>
+                        <a href="<?= $B ?>/services/ecommerce-app-development.php" class="custom-slider-text">Ecommerce</a>
                     </div>
                     <div class="custom-slider-item solutions-slider-item" data-bg="url('<?= $B ?>/assets/images/industries-one/fitness-and-wellness.webp')">
                         <a href="<?= $B ?>/services/fitness-mobile-app-development.php" class="custom-slider-text">Fitness &amp; Wellness</a>
@@ -879,7 +879,7 @@ require_once 'includes/head.php';
     .facilitites-images img {
         width: 100% !important;
         height: 100% !important;
-        min-height: 280px;
+        min-height: 200px;
         object-fit: cover !important;
         object-position: center top;
         display: block;
@@ -887,7 +887,7 @@ require_once 'includes/head.php';
     img.image-004 {
         margin-top: 0 !important;
         height: 100% !important;
-        min-height: 280px;
+        min-height: 200px;
         object-fit: cover !important;
     }
     /* ── Facilitate carousel controls: always centered vertically ── */
@@ -1051,7 +1051,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Unlock the Future of Real Estate with Cutting-Edge App Solutions Tailored for You</h3>
                      <p>Achieve customer satisfaction, and let your business reach sky-high revenue with unique mobile solutions for multiple sectors including real estate. Collaborate with our top-notch real estate developers today.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/services/real-estate-app-development.php">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/services/mobile-app-development.php">See More</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/realstate/admin-panel.webp" alt="Real Estate App" /></div>
                </div>

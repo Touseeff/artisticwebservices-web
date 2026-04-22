@@ -246,14 +246,30 @@ body {
 }
 
 @media (max-width: 991.98px) {
-    .navbar-collapse {
+    /* Primary site nav: keep hamburger in the top bar with logo + Call Now.
+       Theme CSS uses position:absolute on .navbar-toggler below lg, which can
+       float the icon away from that row on small screens. */
+    #awsSiteNav.navbar .navbar-toggler {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        flex-shrink: 0;
+    }
+
+    /* Mobile nav list only — scoped to primary nav (Bootstrap second row). */
+    #awsSiteNav #navbarNav.navbar-collapse {
         background: #fff;
-        border-top: 2px solid #dd0429;
+        border-top: none;
         padding: 16px;
-        max-height: 80vh;
+        max-height: min(80vh, calc(100vh - 72px));
         overflow-y: auto;
         border-radius: 0 0 10px 10px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        -webkit-overflow-scrolling: touch;
+    }
+    #awsSiteNav #navbarNav.navbar-collapse.collapse.show {
+        height: auto !important;
     }
 
     .navbar-nav .nav-item {
@@ -275,24 +291,30 @@ body {
         margin-top: 8px;
     }
 
-    .dropdown-menu {
+    /* Scoped to primary nav — theme .dropdown-menu has 6px red bottom + left bar */
+    #awsSiteNav #navbarNav .dropdown-menu {
         box-shadow: none !important;
         border: none !important;
-        border-left: 3px solid #dd0429 !important;
+        border-left: none !important;
+        border-bottom: none !important;
         border-radius: 0 !important;
-        margin-left: 10px;
+        margin-left: 0;
         padding: 8px 0;
         background: #fafafa !important;
     }
 
-    .dropdown-menu .list-group-item {
+    #awsSiteNav #navbarNav .dropdown-menu h3 {
+        border-bottom: none !important;
+    }
+
+    #awsSiteNav #navbarNav .dropdown-menu .list-group-item {
         font-size: 13px;
         padding: 8px 16px;
     }
 
     /* Hide mega-dropdown image column on mobile */
-    .dropdown-menu .col-lg-3:first-child .services-header-img,
-    .dropdown-menu .col-lg-3:first-child p {
+    #awsSiteNav #navbarNav .dropdown-menu .col-lg-3:first-child .services-header-img,
+    #awsSiteNav #navbarNav .dropdown-menu .col-lg-3:first-child p {
         display: none;
     }
 
@@ -306,7 +328,7 @@ body {
 
 /* ── Desktop: reset any mobile collapse styles ─────── */
 @media (min-width: 992px) {
-    .navbar-collapse {
+    #awsSiteNav #navbarNav.navbar-collapse {
         border: none !important;
         box-shadow: none !important;
         background: transparent !important;
@@ -654,7 +676,7 @@ body.has-cta-bar {
 }
 @media (max-width: 991.98px) {
     .main-menu-wrapper__call {
-        display: none; /* hidden on mobile — mobile uses .aws-mob-callnow in header-logo */
+        display: none; /* hidden on mobile — mobile uses .aws-mob-callnow in top bar */
     }
 }
 
@@ -724,7 +746,24 @@ body.has-cta-bar {
     section.app-dev-ser { margin-top: 30px !important; }
 
     /* Prevent images from overflowing */
-    img { max-width: 100% !important; height: auto !important; }
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Undo global img rule for fixed header + footer logos (height:auto breaks bar layout). */
+    #awsSiteNav .navbar-brand img,
+    .navbar .navbar-brand img {
+        max-width: min(200px, 72vw) !important;
+        height: 42px !important;
+        object-fit: contain !important;
+    }
+    .footer-logo img,
+    img.footer-logo-img {
+        max-width: 220px !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
 
     /* Cards and boxes should not overflow */
     .card, [class*="-box"], [class*="-card"] {
@@ -3463,9 +3502,9 @@ small[id$="-valid"] { color: #dd0429; font-size: 12px; display: block; margin-to
 /* ── Extra small phones (≤480px) ────────────────────────────────────────── */
 @media (max-width: 480px) {
 
-    /* Facilitate carousel images: taller on small screen */
+    /* Facilitate carousel images — shorter boxes on small screens */
     .facilitites-images img {
-        min-height: 200px !important;
+        min-height: 160px !important;
         object-fit: cover !important;
     }
 
@@ -4555,6 +4594,58 @@ section.brand-one {
 .aws-call-now-btn:hover {
     background: #b8001f;
     transform: translateY(-1px);
+}
+
+/* Navbar Call Now (desktop + mobile top bar) — soft pulse ring */
+@keyframes awsNavCallRing {
+    0% {
+        transform: scale(1);
+        opacity: 0.55;
+    }
+    70% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#awsSiteNav .aws-call-now-btn,
+#awsSiteNav .aws-mob-callnow {
+    position: relative;
+    overflow: visible;
+    isolation: isolate;
+}
+
+#awsSiteNav .aws-call-now-btn::before,
+#awsSiteNav .aws-mob-callnow::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50px;
+    border: 2px solid rgba(221, 4, 41, 0.5);
+    pointer-events: none;
+    z-index: -1;
+    animation: awsNavCallRing 2.2s ease-out infinite;
+}
+
+#awsSiteNav .aws-call-now-btn:hover::before,
+#awsSiteNav .aws-call-now-btn:focus-visible::before,
+#awsSiteNav .aws-call-now-btn:active::before,
+#awsSiteNav .aws-mob-callnow:hover::before,
+#awsSiteNav .aws-mob-callnow:focus-visible::before,
+#awsSiteNav .aws-mob-callnow:active::before {
+    animation: none;
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #awsSiteNav .aws-call-now-btn::before,
+    #awsSiteNav .aws-mob-callnow::before {
+        animation: none;
+        opacity: 0;
+    }
 }
 
 /* === Extracted from footer.php — Tawk.to Widget Positioning === */

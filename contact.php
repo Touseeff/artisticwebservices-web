@@ -577,7 +577,7 @@ textarea.cf-input {
                             <!-- Social links: title provides accessible name; icon is decorative -->
                             <a href="https://www.facebook.com/artisticwebservices" target="_blank" rel="noopener" title="Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
                             <a href="https://www.linkedin.com/company/artisticwebservices" target="_blank" rel="noopener" title="LinkedIn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                            <a href="https://twitter.com/artisticwebsvc" target="_blank" rel="noopener" title="Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="https://x.com/artisticweb87" target="_blank" rel="noopener" title="X (Twitter)" aria-label="Follow us on X / Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
                             <a href="https://www.instagram.com/artisticwebservices" target="_blank" rel="noopener" title="Instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                         </div>
                     </div>
@@ -608,7 +608,7 @@ textarea.cf-input {
                         }
                         ?>
 
-                        <form id="contact" action="contact-form" method="post" novalidate>
+                        <form id="contact" action="<?= htmlspecialchars($B) ?>/contact-form" method="post">
                             <?php
                             if (!function_exists('csrf_field')) {
                                 require_once __DIR__ . '/includes/csrf.php';
@@ -843,72 +843,24 @@ textarea.cf-input {
     });
 })();
 
-/* ===== Form validation ===== */
+/* ===== Service multi-select: not a native control, so enforce “required” here only.
+     All other fields use HTML required only (browser validates before submit fires). ===== */
 (function () {
     var form = document.getElementById('contact');
     if (!form) return;
 
     form.addEventListener('submit', function (e) {
-        var firstName = document.getElementById('first_name');
-        var email     = document.getElementById('email');
-        var valid     = true;
-
-        /* First name */
-        if (firstName && !firstName.value.trim()) {
-            document.getElementById('name-valid').textContent = 'First name is required.';
-            firstName.style.borderColor = '#dd0429';
-            valid = false;
-        } else if (firstName) {
-            document.getElementById('name-valid').textContent = '';
-            firstName.style.borderColor = '';
-        }
-
-        /* Email */
-        if (email && !email.value.trim()) {
-            document.getElementById('email-valid').textContent = 'Email address is required.';
-            email.style.borderColor = '#dd0429';
-            valid = false;
-        } else if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-            document.getElementById('email-valid').textContent = 'Please enter a valid email address.';
-            email.style.borderColor = '#dd0429';
-            valid = false;
-        } else if (email) {
-            document.getElementById('email-valid').textContent = '';
-            email.style.borderColor = '';
-        }
-
-        /* Description */
-        var desc = document.getElementById('description');
-        if (desc && !desc.value.trim()) {
-            document.getElementById('message-valid').textContent = 'Please tell us about your project.';
-            desc.style.borderColor = '#dd0429';
-            valid = false;
-        } else if (desc) {
-            document.getElementById('message-valid').textContent = '';
-            desc.style.borderColor = '';
-        }
-
-        /* Services */
         var serviceInputs = document.querySelectorAll('#cf-service-inputs input');
         var projValid = document.getElementById('project-valid');
+        var trigger = document.getElementById('cf-service-trigger');
         if (serviceInputs.length === 0) {
+            e.preventDefault();
             if (projValid) { projValid.style.display = 'block'; }
-            document.getElementById('cf-service-trigger').style.borderColor = '#dd0429';
-            valid = false;
-        } else {
-            if (projValid) { projValid.style.display = 'none'; }
-            document.getElementById('cf-service-trigger').style.borderColor = '';
+            if (trigger) { trigger.style.borderColor = '#dd0429'; }
+            return;
         }
-
-        if (!valid) { e.preventDefault(); }
-    });
-
-    /* Live clear on text inputs */
-    ['first_name', 'email', 'description'].forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) el.addEventListener('input', function () {
-            this.style.borderColor = '';
-        });
+        if (projValid) { projValid.style.display = 'none'; }
+        if (trigger) { trigger.style.borderColor = ''; }
     });
 })();
 </script>

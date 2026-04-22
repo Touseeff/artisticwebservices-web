@@ -76,7 +76,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <a href="<?= $B ?>/solutions/oil-and-gas-refinery-management-software.php">Oil & Gas</a>
                      <a href="<?= $B ?>/solutions/fitness-and-wellness.php">Fitness & Wellness</a>
                     <a href="<?= $B ?>/solutions/healthcare-app-development.php">Healthcare</a>
-                    <a href="<?= $B ?>/services/on-demand-app-development.php">On Demand</a>
+                    <a href="<?= $B ?>/services/mobile-app-development.php">On Demand</a>
                     <a href="<?= $B ?>/solutions/travel-app-development.php">Travel</a>
                     <a href="<?= $B ?>/services/case-studies#work-showcase">Events</a>
                 </div>

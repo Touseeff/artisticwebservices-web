@@ -1831,7 +1831,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                <div class="col-md-12">
                   <ul class="ecmrc_indstrs_lst">
                      <li class="ecmrc_indstrs_bx">
-                        <a href="<?= $B ?>/solutions/ecommerce-and-trading.php">
+                        <a href="<?= $B ?>/services/ecommerce-app-development.php">
                            <img src="<?= $B ?>/assets/images/ecomerceapp/industries1-1.svg" alt="Platform Icon" > 
                            <h3>Retail</h3>
                         </a>
@@ -1843,7 +1843,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         </a>
                      </li>
                      <li class="ecmrc_indstrs_bx">
-                        <a href="<?= $B ?>/solutions/ecommerce-and-trading.php">
+                        <a href="<?= $B ?>/services/ecommerce-app-development.php">
                            <img src="<?= $B ?>/assets/images/ecomerceapp/industries3-1.svg" alt="Platform Icon" > 
                            <h3>Fashion</h3>
                         </a>
@@ -1855,7 +1855,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         </a>
                      </li>
                      <li class="ecmrc_indstrs_bx">
-                        <a href="<?= $B ?>/solutions/ecommerce-and-trading.php">
+                        <a href="<?= $B ?>/services/ecommerce-app-development.php">
                            <img src="<?= $B ?>/assets/images/ecomerceapp/industries6-1.svg" alt="Platform Icon" > 
                            <h3>Furniture</h3>
                         </a>
@@ -1903,153 +1903,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                <div class="col-xl-6">
                   <div class="welcome-three__right welcome-three__right-zero">
                      <div class="row">
-                        <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>                        <script>
-                           $(document).ready(function () {
-                             $('#name-validF').delay(5000).fadeOut('slow');
-                             $('#name-valid2L').delay(5000).fadeOut('slow');
-                             $('#email-validE').delay(5000).fadeOut('slow');
-                             $('#phone-validP').delay(5000).fadeOut('slow');
-                           
-                           
-                           
-                           
-                           
-                             $('#submit_btn').on('click', function (e) {
-                           
-                               e.preventDefault(false);
-                           
-                           
-                               let first_name = $('#first_name').val();
-                               let last_name = $('#last_name').val();
-                               let email = $('#email').val();
-                               let phone = $('#phone').val();
-                               let captcha = $('#captcha').val();
-                               let captcha_answer = $('#captcha_answer').val();
-                               let selectedOptions = $('.js-example-basic-multiple').val();
-                           
-                           
-                           
-                               function validateEmail(email) {
-                                 var re = /\S+@\S+\.\S+/;
-                                 if (re.test(email)) {
-                                   return true
-                                 }
-                               }
-                           
-                               function validatePhoneNumber(phone) {
-                                 var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-                                 if (re.test(phone)) {
-                                   return true;
-                                 }
-                               }
-                           
-                           
-                               if (first_name.trim() == "") {
-                                 $('#name-valid').text("Please enter your first name");
-                                 // alert('Please enter your name');
-                                 return false;
-                               }
-                               else {
-                                 $('#name-valid').text("");
-                           
-                               }
-                           
-                               if (last_name.trim() == "") {
-                                 $('#name-valid2').text("Please enter your last name");
-                                 // alert('Please enter your name');
-                                 return false;
-                               }
-                               else {
-                                 $('#name-valid2').text("");
-                           
-                               }
-                           
-                               if (email.trim() == "") {
-                                 // alert('Please enter your email');
-                                 $('#email-valid').text("Please enter your email");
-                                 return false;
-                               }
-                               else {
-                                 $('#email-valid').text("");
-                               }
-                           
-                           
-                           
-                               if (validateEmail(email) !== true) {
-                                 // alert('Please enter your email');
-                                 $('#email-valid').text("Please enter your valid email");
-                                 return false;
-                               }
-                               else {
-                                 $('#email-valid').text("");
-                           
-                               }
-                           
-                           
-                           
-                               if (phone.trim() == "") {
-                                 // alert('Please enter your phone');
-                                 $('#phone-valid').text("Please enter your phone");
-                                 return false;
-                               }
-                           
-                               else if (validatePhoneNumber(phone) !== true) {
-                                 $('#phone-valid').text("Invalid phone number: (012)-345-6789");
-                                 return false;
-                               }
-                               else {
-                                 $('#phone-valid').text("");
-                               }
-                           
-                               if (!selectedOptions || selectedOptions.length === 0) {
-                                 $('#project-valid').text("Please select at least one option");
-                                 return false;
-                               } else {
-                                 $('#project-valid').text("");
-                               }
-                           
-                               if (captcha.trim() == "") {
-                                 $('#captcha-valid').text("Please validate your captcha");
-                                 return false;
-                               } else if (captcha != null) {
-                                 if (captcha != captcha_answer) {
-                                   $('#captcha-valid').text("Invalid captcha");
-                                   return false;
-                                 } else {
-                                   $('#captcha-valid').text("");
-                                 }
-                               } else {
-                                 $('#captcha-valid').text("");
-                               }
-                           
-                               $("#contact")[0].submit();
-                               return false;
-                             });
-                           });
-                           
-                           
-                           $('#phone').on("keypress", function (e) {
-                           
-                             var regex = new RegExp("^[a-zA-Z]+$");
-                             var key = String.fromCharCode(!e.charCode ? e.which : e.charCode);
-                             if (regex.test(key)) {
-                               e.preventDefault();
-                               return false;
-                             }
-                           
-                             if (e.keyCode == 8)
-                               return;
-                             let val = $(this).val()
-                             if (val.length == 3) {
-                               $('#phone').val("(" + $('#phone').val() + ")-")
-                             }
-                             if (val.length == 9) {
-                               $('#phone').val($('#phone').val() + "-")
-                             }
-                           });
-                           
-                           
-                        </script>
+                        <?php require_once __DIR__ . '/../includes/form-quote.php'; ?>                        
                         <script src="https://www.google.com/recaptcha/api.js"></script>
                         <!-- <script type="text/javascript">
                            var validateRecaptcha = function () {

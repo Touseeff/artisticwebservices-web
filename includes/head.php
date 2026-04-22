@@ -283,7 +283,7 @@ $B = SITE_BASE;
         "sameAs": [
             "https://www.facebook.com/artisticwebservices",
             "https://www.linkedin.com/company/artisticwebservices",
-            "https://twitter.com/artisticwebsvc",
+            "https://x.com/artisticweb87",
             "https://clutch.co/profile/artisticwebservices",
             "https://www.goodfirms.co/company/artisticwebservices",
             "https://www.upwork.com/ag/artisticwebservices",

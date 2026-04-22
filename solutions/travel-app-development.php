@@ -1282,131 +1282,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
          
       </script>
 
-<script>
-  $(document).ready(function () {
-    $('#name-validF').delay(5000).fadeOut('slow');
-    $('#name-valid2L').delay(5000).fadeOut('slow');
-    $('#email-validE').delay(5000).fadeOut('slow');
-    $('#phone-validP').delay(5000).fadeOut('slow');
 
-    $('#submit_btn').on('click', function (e) {
-
-      e.preventDefault(false);
-
-      let first_name = $('#first_name').val();
-      let last_name = $('#last_name').val();
-      let email = $('#email').val();
-      let phone = $('#phone').val();
-      let captcha = $('#captcha').val();
-      let captcha_answer = $('#captcha_answer').val();
-
-      function validateEmail(email) {
-        var re = /\S+@\S+\.\S+/;
-        if (re.test(email)) {
-          return true
-        }
-      }
-
-      function validatePhoneNumber(phone) {
-        var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-        if (re.test(phone)) {
-          return true;
-        }
-      }
-
-      if (first_name.trim() == "") {
-        $('#name-valid').text("Please enter your first name");
-        // alert('Please enter your name');
-        return false;
-      }
-      else {
-        $('#name-valid').text("");
-
-      }
-
-      if (last_name.trim() == "") {
-        $('#name-valid2').text("Please enter your last name");
-        // alert('Please enter your name');
-        return false;
-      }
-      else {
-        $('#name-valid2').text("");
-
-      }
-
-      if (email.trim() == "") {
-        // alert('Please enter your email');
-        $('#email-valid').text("Please enter your email");
-        return false;
-      }
-      else {
-        $('#email-valid').text("");
-      }
-
-      if (validateEmail(email) !== true) {
-        // alert('Please enter your email');
-        $('#email-valid').text("Please enter your valid email");
-        return false;
-      }
-      else {
-        $('#email-valid').text("");
-
-      }
-
-      if (phone.trim() == "") {
-        // alert('Please enter your phone');
-        $('#phone-valid').text("Please enter your phone");
-        return false;
-      }
-
-      else if (validatePhoneNumber(phone) !== true) {
-        $('#phone-valid').text("Invalid phone number: (012)-345-6789");
-        return false;
-      }
-      else {
-        $('#phone-valid').text("");
-      }
-
-      if (captcha.trim() == "") {
-        $('#captcha-valid').text("Please validate your captcha");
-        return false;
-      } else if (captcha != null) {
-        if (captcha != captcha_answer) {
-          $('#captcha-valid').text("Invalid captcha");
-          return false;
-        } else {
-          $('#captcha-valid').text("");
-        }
-      } else {
-        $('#captcha-valid').text("");
-      }
-
-      $("#contact")[0].submit();
-      return false;
-    });
-  });
-
-  $('#phone').on("keypress", function (e) {
-
-    var regex = new RegExp("^[a-zA-Z]+$");
-    var key = String.fromCharCode(!e.charCode ? e.which : e.charCode);
-    if (regex.test(key)) {
-      e.preventDefault();
-      return false;
-    }
-
-    if (e.keyCode == 8)
-      return;
-    let val = $(this).val()
-    if (val.length == 3) {
-      $('#phone').val("(" + $('#phone').val() + ")-")
-    }
-    if (val.length == 9) {
-      $('#phone').val($('#phone').val() + "-")
-    }
-  });
-
-</script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- <script type="text/javascript">
   var validateRecaptcha = function () {
@@ -1839,27 +1715,36 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             (213) 714-7176
           </a>
         </div>
-        <form id="modal-contact-form" action="https://artisticwebservices.com/contact-form.php" method="get">
+        <?php
+        if (!function_exists('csrf_field')) {
+            require_once __DIR__ . '/../includes/csrf.php';
+        }
+        ?>
+        <form id="modal-contact-form" action="<?= htmlspecialchars($B) ?>/contact-form" method="post">
+          <?= csrf_field() ?>
           <input type="hidden" name="host" value="ArtisticWebServices">
+          <input type="hidden" name="page" value="Travel App Development — modal">
+          <input type="hidden" name="captcha_answer" value="14">
+          <input type="hidden" name="captcha" value="14">
           <div class="row g-3">
             <div class="col-sm-6">
               <label class="mf-label">First Name <span style="color:#ec1c22">*</span></label>
-              <input type="text" class="mf-input" id="mcf_first_name" name="first_name" placeholder="Your First Name" autocomplete="off">
+              <input type="text" class="mf-input" id="mcf_first_name" name="first_name" placeholder="Your First Name" autocomplete="off" required aria-required="true">
               <small class="mf-error" id="mcf-err-fname"></small>
             </div>
             <div class="col-sm-6">
               <label class="mf-label">Last Name <span style="color:#ec1c22">*</span></label>
-              <input type="text" class="mf-input" id="mcf_last_name" name="last_name" placeholder="Your Last Name" autocomplete="off">
+              <input type="text" class="mf-input" id="mcf_last_name" name="last_name" placeholder="Your Last Name" autocomplete="off" required aria-required="true">
               <small class="mf-error" id="mcf-err-lname"></small>
             </div>
             <div class="col-sm-6">
               <label class="mf-label">Email Address <span style="color:#ec1c22">*</span></label>
-              <input type="email" class="mf-input" id="mcf_email" name="email" placeholder="your@email.com" autocomplete="off">
+              <input type="email" class="mf-input" id="mcf_email" name="email" placeholder="your@email.com" autocomplete="off" required aria-required="true">
               <small class="mf-error" id="mcf-err-email"></small>
             </div>
             <div class="col-sm-6">
               <label class="mf-label">Phone Number <span style="color:#ec1c22">*</span></label>
-              <input type="tel" class="mf-input" id="mcf_phone" name="phone" placeholder="(000)-000-0000" maxlength="14" autocomplete="off">
+              <input type="tel" class="mf-input" id="mcf_phone" name="phone" placeholder="(000)-000-0000" maxlength="14" autocomplete="off" required aria-required="true">
               <small class="mf-error" id="mcf-err-phone"></small>
             </div>
             <div class="col-12">
@@ -1876,64 +1761,6 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
     </div>
   </div>
 </div>
-
-<script>
-(function () {
-  var form   = document.getElementById('modal-contact-form');
-  var btn    = document.getElementById('mcf-submit-btn');
-  var phoneEl = document.getElementById('mcf_phone');
-
-  btn.addEventListener('click', function (e) {
-    e.preventDefault();
-    var fn    = document.getElementById('mcf_first_name').value.trim();
-    var ln    = document.getElementById('mcf_last_name').value.trim();
-    var em    = document.getElementById('mcf_email').value.trim();
-    var ph    = document.getElementById('mcf_phone').value.trim();
-    var emailRe = /\S+@\S+\.\S+/;
-    var phoneRe = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-    var ok = true;
-
-    document.getElementById('mcf-err-fname').textContent  = fn  ? '' : 'Please enter your first name';
-    document.getElementById('mcf-err-lname').textContent  = ln  ? '' : 'Please enter your last name';
-
-    if (!fn) ok = false;
-    if (!ln) ok = false;
-
-    if (!em) {
-      document.getElementById('mcf-err-email').textContent = 'Please enter your email';
-      ok = false;
-    } else if (!emailRe.test(em)) {
-      document.getElementById('mcf-err-email').textContent = 'Please enter a valid email address';
-      ok = false;
-    } else {
-      document.getElementById('mcf-err-email').textContent = '';
-    }
-
-    if (!ph) {
-      document.getElementById('mcf-err-phone').textContent = 'Please enter your phone number';
-      ok = false;
-    } else if (!phoneRe.test(ph)) {
-      document.getElementById('mcf-err-phone').textContent = 'Format: (012)-345-6789';
-      ok = false;
-    } else {
-      document.getElementById('mcf-err-phone').textContent = '';
-    }
-
-    if (ok) form.submit();
-  });
-
-  if (phoneEl) {
-    phoneEl.addEventListener('keypress', function (e) {
-      var key = String.fromCharCode(!e.charCode ? e.which : e.charCode);
-      if (/^[a-zA-Z]+$/.test(key)) { e.preventDefault(); return false; }
-      if (e.keyCode === 8) return;
-      var v = this.value;
-      if (v.length === 3) this.value = '(' + v + ')-';
-      if (v.length === 9) this.value = v + '-';
-    });
-  }
-})();
-</script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </div><!-- /.page-wrapper -->

@@ -1753,7 +1753,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             </div>
         </div>
     </div>
-    <form action="/submit-calculator" method="post" id="calculatorForm" onsubmit="return validateForm()">
+    <form action="<?= htmlspecialchars($B) ?>/submit-calculator" method="post" id="calculatorForm">
         <?php
         if (!function_exists('csrf_field')) {
             require_once __DIR__ . '/../includes/csrf.php';
@@ -2515,36 +2515,6 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
 </div><!-- /.page-wrapper -->
 
 <script>
-/* ===== Calculator form validation ===== */
-function validateForm() {
-    var valid = true;
-    // Validate required fields: username (name), user-email minimum
-    var nameField  = document.querySelector('[name="username"]');
-    var emailField = document.querySelector('[name="user-email"]');
-
-    if (nameField && nameField.value.trim() === '') {
-        nameField.classList.add('is-invalid');
-        valid = false;
-    } else if (nameField) {
-        nameField.classList.remove('is-invalid');
-    }
-
-    if (emailField && emailField.value.trim() === '') {
-        emailField.classList.add('is-invalid');
-        valid = false;
-    } else if (emailField) {
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailField.value.trim())) {
-            emailField.classList.add('is-invalid');
-            valid = false;
-        } else {
-            emailField.classList.remove('is-invalid');
-        }
-    }
-
-    return valid;
-}
-
 /* ===== reCAPTCHA callback stub ===== */
 function validateRecaptcha() { return true; }
 

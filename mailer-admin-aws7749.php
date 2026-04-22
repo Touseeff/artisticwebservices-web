@@ -2,7 +2,7 @@
 /**
  * SMTP Admin Panel — ArtisticWebServices
  * Secret URL: /mailer-admin-aws7749
- * Password-protected. Change SMTP_ADMIN_PASS in includes/smtp-config.php
+ * Password-protected. Set SMTP_ADMIN_PASS and ADMIN_ALLOWED_IPS in .env
  *
  * ⚠️  Keep this URL secret. Do NOT link to it from any public page.
  *
@@ -17,13 +17,17 @@ require_once __DIR__ . '/includes/smtp-config.php';
 require_once __DIR__ . '/includes/csrf.php'; // also calls session_start() safely
 
 // ── 1. IP Allowlist ───────────────────────────────────────────────────────────
-// Only these IPs can reach the admin panel.
-// Add your office IP here, e.g. '203.0.113.45'
-$allowed_ips = [
-    '127.0.0.1', // localhost IPv4
-    '::1',       // localhost IPv6
-    // Add your office IP here
-];
+// Localhost always allowed. Add more IPs in .env as ADMIN_ALLOWED_IPS=1.2.3.4,5.6.7.8
+$allowed_ips = ['127.0.0.1', '::1'];
+$extra_ips = _smtp_env('ADMIN_ALLOWED_IPS', '');
+if ($extra_ips !== '') {
+    foreach (array_map('trim', explode(',', $extra_ips)) as $ip) {
+        if ($ip !== '' && !in_array($ip, $allowed_ips, true)) {
+            $allowed_ips[] = $ip;
+        }
+    }
+}
+unset($extra_ips);
 
 $visitor_ip = $_SERVER['REMOTE_ADDR'] ?? '';
 if (!in_array($visitor_ip, $allowed_ips, true)) {
@@ -220,7 +224,7 @@ function cfg(string $key, $fallback = '—'): string {
       <tr><td>Port</td>             <td><?= cfg('SMTP_PORT') ?></td></tr>
       <tr><td>Encryption</td>       <td><?= SMTP_PORT == 465 ? 'SSL (smtps)' : 'TLS (starttls)' ?></td></tr>
       <tr><td>Username</td>         <td><?= cfg('SMTP_USERNAME') ?></td></tr>
-      <tr><td>Password</td>         <td><?= defined('SMTP_PASSWORD') && SMTP_PASSWORD !== 'YOUR_EMAIL_PASSWORD_HERE' ? str_repeat('•', 12) : '<span style="color:#fbbf24">⚠ NOT SET</span>' ?></td></tr>
+      <tr><td>Password</td>         <td><?= (defined('SMTP_PASSWORD') && SMTP_PASSWORD !== '' && SMTP_PASSWORD !== 'YOUR_EMAIL_PASSWORD_HERE') ? str_repeat('•', 12) : '<span style="color:#fbbf24">⚠ NOT SET</span>' ?></td></tr>
       <tr><td>From Email</td>       <td><?= cfg('SMTP_FROM_EMAIL') ?></td></tr>
       <tr><td>From Name</td>        <td><?= cfg('SMTP_FROM_NAME') ?></td></tr>
       <tr><td>Default Recipient</td><td><?= cfg('MAIL_TO') ?></td></tr>
@@ -228,9 +232,9 @@ function cfg(string $key, $fallback = '—'): string {
       <tr><td>Mailer Engine</td>   <td><span class="badge-ok">Native PHP Socket (no Composer)</span></td></tr>
     </table>
 
-    <?php if (defined('SMTP_PASSWORD') && SMTP_PASSWORD === 'YOUR_EMAIL_PASSWORD_HERE'): ?>
+    <?php if (!defined('SMTP_PASSWORD') || SMTP_PASSWORD === '' || SMTP_PASSWORD === 'YOUR_EMAIL_PASSWORD_HERE'): ?>
     <div class="warn">
-      <strong>Password not set.</strong> Open <code>includes/smtp-config.php</code> and replace the placeholder with your real Hostinger email password.
+      <strong>Password not set.</strong> On the server, edit the project root <code>.env</code> and set <code>SMTP_PASS=</code> to your Hostinger mailbox password (same values as <code>SMTP_USER</code> / Hostinger → Emails).
     </div>
     <?php endif; ?>
   </div>
@@ -242,7 +246,7 @@ function cfg(string $key, $fallback = '—'): string {
     <?php if ($test_result === 'success'): ?>
       <div class="ok">✓ Test email sent successfully! Check your inbox.</div>
     <?php elseif ($test_result === 'error'): ?>
-      <div class="err">✗ Test email failed. Check your SMTP password in <code>includes/smtp-config.php</code>. See PHP error log for details.</div>
+      <div class="err">✗ Test email failed. Check <code>SMTP_PASS</code> (and <code>SMTP_USER</code>) in the project root <code>.env</code> on the server. See PHP error log for details.</div>
     <?php elseif ($test_result === 'invalid'): ?>
       <div class="err">Invalid recipient email address.</div>
     <?php endif; ?>
@@ -268,20 +272,33 @@ function cfg(string $key, $fallback = '—'): string {
       <tr><td>Port (TLS)</td>   <td>587</td></tr>
       <tr><td>Username</td>     <td>Your full email address</td></tr>
       <tr><td>Password</td>     <td>Your email account password</td></tr>
-      <tr><td>Config file</td>  <td>includes/smtp-config.php</td></tr>
+      <tr><td>Secrets</td>      <td>Project root <code>.env</code> (<code>SMTP_PASS</code>, etc.) — never commit</td></tr>
+      <tr><td>Config loader</td><td><code>includes/smtp-config.php</code> (reads <code>.env</code>)</td></tr>
       <tr><td>Mailer file</td>  <td>includes/mailer.php</td></tr>
       <tr><td>Engine</td>       <td>Native PHP socket — no Composer needed</td></tr>
     </table>
   </div>
 
-  <!-- Forms that use SMTP -->
+  <!-- Forms that use SMTP — audit: OK = POST + CSRF + sendMail() -->
   <div class="section">
-    <h3>Forms Connected to SMTP</h3>
+    <h3>Form → SMTP routing (OK / not OK)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin:0 0 12px 0;">
+      Every lead form should POST to <code>contact-form.php</code> or <code>submit-calculator.php</code>, include a CSRF token, and rely on <code>includes/mailer.php</code> (SMTP). Use <strong>Send test email</strong> above to confirm credentials.
+    </p>
     <table class="table">
-      <tr><td>Contact / Quote forms</td>    <td><code>contact-form.php</code></td></tr>
-      <tr><td>App Cost Calculator</td>      <td><code>submit-calculator.php</code></td></tr>
-      <tr><td>Footer AWS Modal</td>         <td><code>contact-form.php</code> (fetch)</td></tr>
+      <tr><th>Form / surface</th><th>Handler</th><th>SMTP</th><th>Status</th></tr>
+      <tr><td colspan="4" style="background:#1e293b;font-weight:700;padding:10px 8px;">Modal forms</td></tr>
+      <tr><td>Site-wide lead modal — “Get a FREE Quote” (<code>includes/partials/footer-modal.php</code>, <code>#awsLeadForm</code>)</td><td><code>contact-form.php</code> via <code>fetch()</code> + JSON + CSRF meta</td><td><code>sendMail()</code></td><td><span class="badge-ok">OK</span> <span style="color:#64748b;font-size:12px;">URL = <code>site-base</code> + <code>/contact-form</code></span></td></tr>
+      <tr><td>Travel solution modal — “Get In Touch” (<code>solutions/travel-app-development.php</code>, <code>#contactModal</code>)</td><td><code>contact-form.php</code> normal POST</td><td><code>sendMail()</code></td><td><span class="badge-ok">OK</span> <span style="color:#64748b;font-size:12px;">POST + CSRF + <code>SITE_BASE</code> action</span></td></tr>
+      <tr><td colspan="4" style="background:#1e293b;font-weight:700;padding:10px 8px;">Page / inline forms (full submit)</td></tr>
+      <tr><td>Contact page (<code>contact.php</code>)</td><td><code>contact-form.php</code></td><td><code>sendMail()</code></td><td><span class="badge-ok">OK</span> <span style="color:#64748b;font-size:12px;">action = <code>SITE_BASE</code>/contact-form</span></td></tr>
+      <tr><td>Shared quote strip (<code>includes/form-quote.php</code> — services, solutions, about, etc.)</td><td><code>contact-form.php</code></td><td><code>sendMail()</code></td><td><span class="badge-ok">OK</span></td></tr>
+      <tr><td>App cost calculator (<code>services/app-cost-calculator.php</code>)</td><td><code>submit-calculator.php</code></td><td><code>sendMail()</code></td><td><span class="badge-ok">OK</span> <span style="color:#64748b;font-size:12px;">action = <code>SITE_BASE</code>/submit-calculator</span></td></tr>
+      <tr><td>Standalone HTML <code>&lt;form&gt;</code> with <code>mailto:</code> only</td><td>—</td><td>—</td><td><span class="badge-no">Not SMTP</span> <span style="color:#64748b;font-size:12px;">(client email app; not a site lead)</span></td></tr>
     </table>
+    <p style="color:#94a3b8;font-size:12px;margin:10px 0 0 0;">
+      <strong>Remaining to verify manually:</strong> submit a test from the contact page, one service quote form, the floating modal, the travel modal (if you use it), and the calculator — each should land in your inbox or appear in <code>logs/mail-failed.log</code> on failure.
+    </p>
   </div>
 
 <?php endif; ?>

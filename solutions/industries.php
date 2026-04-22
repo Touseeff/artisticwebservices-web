@@ -80,7 +80,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                   <p>Discover how our innovative on-demand solutions are reshaping industries, delivering convenience,</p>
                                 </div>
                                 <div class="facilities-btn">
-                                    <a href="<?= $B ?>/services/on-demand-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                    <a href="<?= $B ?>/services/mobile-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                          </div>
@@ -107,7 +107,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                   <p>Get Your Hands-On 10X Conversions Through Digitalizing Your Brand With Our Top-Tier Ecommerce App Development Company.</p>
                                 </div>
                                 <div class="facilities-btn">
-                                    <a href="<?= $B ?>/solutions/ecommerce-and-trading.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                    <a href="<?= $B ?>/services/ecommerce-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                          </div>

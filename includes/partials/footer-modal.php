@@ -81,13 +81,13 @@ if (!isset($B)) {
                             <label for="modal-first-name" class="visually-hidden">First Name</label>
                             <input type="text" id="modal-first-name" name="first_name"
                                    placeholder="First Name *" required aria-required="true"
-                                   maxlength="50" pattern="[A-Za-z ]+">
+                                   maxlength="50">
                         </div>
                         <div class="aws-form-group">
                             <label for="modal-last-name" class="visually-hidden">Last Name</label>
                             <input type="text" id="modal-last-name" name="last_name"
                                    placeholder="Last Name *" required aria-required="true"
-                                   maxlength="50" pattern="[A-Za-z ]+">
+                                   maxlength="50">
                         </div>
                     </div>
                     <div class="aws-form-group">
@@ -238,6 +238,10 @@ function awsSubmitForm(e) {
     e.preventDefault();
     var form = document.getElementById('awsLeadForm');
     var btn  = form.querySelector('.aws-form-submit');
+    /* Native validation only (required, type=email, etc.) — same as a normal submit */
+    if (!form.reportValidity()) {
+        return;
+    }
     btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
 
@@ -269,7 +273,11 @@ function awsSubmitForm(e) {
     }
     data.append('csrf_token', csrf);
 
-    fetch('/contact-form', {
+    var baseMeta = document.querySelector('meta[name="site-base"]');
+    var siteBase = baseMeta ? (baseMeta.getAttribute('content') || '').replace(/\/$/, '') : '';
+    var contactFormUrl = (siteBase || '') + '/contact-form';
+
+    fetch(contactFormUrl, {
         method: 'POST',
         body: data,
         credentials: 'same-origin',
@@ -357,14 +365,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (img !== hero && !img.closest('#carouselExampleDark .carousel-item.active')) {
             img.setAttribute('loading', 'lazy');
         }
-    });
-});
-
-/* ── Form input sanitize ───────────────────────── */
-['first_name','last_name'].forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) el.addEventListener('input', function() {
-        this.value = this.value.replace(/[^a-zA-Z]/g, '');
     });
 });
 
@@ -473,45 +473,6 @@ if (dy) dy.textContent = new Date().getFullYear();
         });
     }
 
-    /* ── Contact form inline validation (Fix 9) ── */
-    function showErr(field, msg) {
-        removeErr(field);
-        var err = document.createElement('span');
-        err.className = 'aws-field-error';
-        err.textContent = msg;
-        field.parentNode.appendChild(err);
-        field.classList.add('field-error');
-    }
-    function removeErr(field) {
-        var e = field.parentNode ? field.parentNode.querySelector('.aws-field-error') : null;
-        if (e) e.remove();
-        field.classList.remove('field-error');
-    }
-    function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-    function isValidPhone(v) { return /^[+\d][\d\s\-().]{6,19}$/.test(v); }
-    function validateField(field) {
-        var v = field.value.trim();
-        if (!v) { showErr(field, (field.placeholder || field.name || 'This field') + ' is required.'); return false; }
-        if (field.type === 'email' && !isValidEmail(v)) { showErr(field, 'Please enter a valid email address.'); return false; }
-        if (field.type === 'tel' && !isValidPhone(v)) { showErr(field, 'Please enter a valid phone number.'); return false; }
-        removeErr(field); return true;
-    }
-    function initFormValidation() {
-        var sel = 'form.contact-form-validated, form[data-validate], .aws-contact-form form, form#awsLeadForm';
-        document.querySelectorAll(sel).forEach(function (form) {
-            var fields = form.querySelectorAll('input[required], textarea[required], select[required]');
-            fields.forEach(function (field) {
-                field.addEventListener('blur', function () { validateField(field); });
-                field.addEventListener('input', function () { if (field.classList.contains('field-error')) validateField(field); });
-            });
-            form.addEventListener('submit', function (e) {
-                var valid = true;
-                fields.forEach(function (field) { if (!validateField(field)) valid = false; });
-                if (!valid) { e.preventDefault(); e.stopPropagation(); var f = form.querySelector('.field-error'); if (f) f.focus(); }
-            });
-        });
-    }
-
     /* ── SVG clipPath global visibility fix (Fix 6) ── */
     function fixSvgClipVisibility() {
         var allDefs = document.querySelectorAll('svg defs clipPath');
@@ -539,7 +500,6 @@ if (dy) dy.textContent = new Date().getFullYear();
     document.addEventListener('DOMContentLoaded', function () {
         initCaseSliders();
         initTabSliders();
-        initFormValidation();
         fixSvgClipVisibility();
     });
 })();

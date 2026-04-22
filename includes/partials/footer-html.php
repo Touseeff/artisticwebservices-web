@@ -73,9 +73,7 @@ if (!isset($B)) {
                                 <li><a href="<?= $B ?>/solutions/education-and-learning">Education &amp; eLearning</a></li>
                                 <li><a href="<?= $B ?>/solutions/travel-app-development">Travel &amp; Tourism</a></li>
                                 <li><a href="<?= $B ?>/services/fitness-mobile-app-development">Fitness &amp; Wellness</a></li>
-                                <li><a href="<?= $B ?>/services/real-estate-app-development">Real Estate</a></li>
                                 <li><a href="<?= $B ?>/solutions/sports">Sports</a></li>
-                                <li><a href="<?= $B ?>/solutions/ecommerce-and-trading">E-Commerce &amp; Trading</a></li>
                                 <li><a href="<?= $B ?>/solutions/hire-dedicated-developers">Hire Developers</a></li>
                                 <li><a href="<?= $B ?>/services/mvp-startup-development">MVP &amp; Startups</a></li>
                             </ul>
@@ -124,7 +122,7 @@ if (!isset($B)) {
                                     <a href="https://www.instagram.com/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon ig" title="Instagram" aria-label="Follow us on Instagram">
                                         <i class="fa-brands fa-instagram" aria-hidden="true"></i>
                                     </a>
-                                    <a href="https://twitter.com/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon tw" title="X (Twitter)" aria-label="Follow us on X / Twitter">
+                                    <a href="https://x.com/artisticweb87" target="_blank" rel="noopener noreferrer" class="footer-social-icon tw" title="X (Twitter)" aria-label="Follow us on X / Twitter">
                                         <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
                                     </a>
                                 </div>

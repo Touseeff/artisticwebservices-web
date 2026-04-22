@@ -9,6 +9,9 @@
     align-items: center;
     justify-content: center;
     transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), visibility 0.65s ease;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: max(12px, env(safe-area-inset-top, 0px)) max(12px, env(safe-area-inset-right, 0px)) max(12px, env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
 }
 #aws-preloader.aws-loaded {
     opacity: 0;
@@ -16,11 +19,16 @@
     pointer-events: none;
 }
 
-/* ── Main circle wrapper ── */
 .aws-pre-wrap {
     position: relative;
     width: 180px;
     height: 180px;
+    max-width: min(180px, calc(100vw - 32px));
+    max-height: min(180px, calc(100vw - 32px));
+    flex-shrink: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 50%;
     opacity: 0;
     animation: awsPreIn 0.55s cubic-bezier(0.22,1,0.36,1) 0.1s forwards;
 }
@@ -29,51 +37,53 @@
     to   { opacity: 1; transform: scale(1); }
 }
 
-/* ── 3 SVG rings (each on its own layer) ── */
+@media (max-width: 575.98px) {
+    .aws-pre-wrap {
+        width: min(160px, 78vw);
+        height: min(160px, 78vw);
+    }
+}
+@media (max-width: 400px) {
+    .aws-pre-wrap {
+        width: min(140px, 72vw);
+        height: min(140px, 72vw);
+    }
+}
+
 .aws-pre-rings {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    overflow: visible;   /* prevent mobile browsers clipping the outer stroke */
+    display: block;
+    overflow: hidden;
 }
 
-/* ── Mobile: scale wrap so outer ring never touches edges ── */
-@media (max-width: 400px) {
-    .aws-pre-wrap {
-        width: 140px;
-        height: 140px;
-    }
-    .aws-pre-icon img {
-        width: 60px;
-        height: 60px;
-    }
+.aws-arc {
+    fill: none;
+    stroke-linecap: round;
+    transform-box: view-box;
+    transform-origin: 90px 90px;
 }
 
-/* shared arc style */
-.aws-arc { fill: none; stroke-linecap: round; transform-origin: 50% 50%; }
-
-/* Ring 1 — outermost, red, fastest */
 .aws-arc-1 {
     stroke: #dd0429;
     stroke-width: 3.5;
-    stroke-dasharray: 439.8;   /* 2π × 70 */
+    stroke-dasharray: 439.8;
     stroke-dashoffset: 330;
     animation: awsSpin1 1.2s linear infinite;
 }
-/* Ring 2 — middle, lighter red, medium speed, opposite direction */
 .aws-arc-2 {
     stroke: rgba(221,4,41,0.55);
     stroke-width: 2.5;
-    stroke-dasharray: 376.9;   /* 2π × 60 */
+    stroke-dasharray: 376.9;
     stroke-dashoffset: 280;
     animation: awsSpin2 1.9s linear infinite;
 }
-/* Ring 3 — innermost, faint, slowest */
 .aws-arc-3 {
     stroke: rgba(221,4,41,0.28);
     stroke-width: 2;
-    stroke-dasharray: 314.1;   /* 2π × 50 */
+    stroke-dasharray: 314.1;
     stroke-dashoffset: 235;
     animation: awsSpin3 2.8s linear infinite;
 }
@@ -82,56 +92,42 @@
 @keyframes awsSpin2 { to { transform: rotate(-360deg); } }
 @keyframes awsSpin3 { to { transform: rotate(360deg); } }
 
-/* ── Icon inside ── */
-.aws-pre-icon {
-    position: absolute;
-    inset: 28px;
-    border-radius: 50%;
-    background: #1e1d23;
-    box-shadow:
-        0 0 0 1.5px rgba(221,4,41,0.25),
-        0 0 28px rgba(221,4,41,0.12),
-        0 8px 32px rgba(0,0,0,0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-.aws-pre-icon img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    border-radius: 50%;
+.aws-pre-logo-img {
+    transform-origin: 90px 90px;
+    transform-box: fill-box;
     animation: awsIconBreath 2.6s ease-in-out infinite;
 }
 @keyframes awsIconBreath {
-    0%,100% { transform: scale(1);    }
-    50%      { transform: scale(1.07); }
+    0%,100% { transform: scale(1); }
+    50%      { transform: scale(1.04); }
 }
 
 </style>
 
 <div id="aws-preloader" aria-hidden="true" role="status">
     <div class="aws-pre-wrap">
-
-        <!-- 3 concentric spinning arcs -->
-        <svg class="aws-pre-rings" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+        <svg class="aws-pre-rings" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+            <defs>
+                <clipPath id="aws-preloader-logo-clip"><circle cx="90" cy="90" r="40"/></clipPath>
+            </defs>
             <!-- faint full tracks -->
             <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="3.5"/>
             <circle cx="90" cy="90" r="60" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2.5"/>
             <circle cx="90" cy="90" r="50" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="2"/>
-            <!-- animated arcs -->
+            <!-- animated arcs: same cx/cy/r as tracks so rotation stays aligned -->
             <circle class="aws-arc aws-arc-1" cx="90" cy="90" r="70"/>
             <circle class="aws-arc aws-arc-2" cx="90" cy="90" r="60"/>
             <circle class="aws-arc aws-arc-3" cx="90" cy="90" r="50"/>
+            <!-- opaque center + rim (replaces HTML overlay; stays concentric at any scale) -->
+            <circle cx="90" cy="90" r="62" fill="#1e1d23"/>
+            <circle cx="90" cy="90" r="62" fill="none" stroke="rgba(221,4,41,0.25)" stroke-width="1.5"/>
+            <image class="aws-pre-logo-img"
+                   href="<?= htmlspecialchars($B, ENT_QUOTES, 'UTF-8') ?>/assets/images/favicons/apple-touch-icon.png"
+                   xlink:href="<?= htmlspecialchars($B, ENT_QUOTES, 'UTF-8') ?>/assets/images/favicons/apple-touch-icon.png"
+                   x="50" y="50" width="80" height="80"
+                   clip-path="url(#aws-preloader-logo-clip)"
+                   preserveAspectRatio="xMidYMid meet"/>
         </svg>
-
-        <!-- Favicon centered inside -->
-        <div class="aws-pre-icon">
-            <img src="<?= $B ?>/assets/images/favicons/apple-touch-icon.png"
-                 alt="Artastic Web Services" width="80" height="80">
-        </div>
-
     </div>
 </div>
 <!-- ── /Page Preloader ─────────────────────────────────── -->
@@ -145,27 +141,27 @@
       box-shadow: 5px 5px 15px #efe9e9;
       background-color: #fff;
    }
-   /* ── Navbar container: logo left, nav right ── */
-   .navbar > .container {
+   /* ── Navbar container (Bootstrap-style: row1 = brand + mobile controls; row2 = collapse) ── */
+   #awsSiteNav.navbar > .container {
       display: flex;
       align-items: center;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       gap: 0;
+      row-gap: 0;
    }
-   /* ── Logo wrapper: never shrinks ── */
-   .header-logo {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-      flex: 0 0 auto;
-      gap: 10px;
+   @media (min-width: 992px) {
+      #awsSiteNav.navbar > .container {
+         flex-wrap: nowrap;
+      }
    }
-   .header-logo .navbar-brand {
+   #awsSiteNav .navbar-brand {
       margin-right: 0;
       padding-top: 0;
       padding-bottom: 0;
       display: flex;
       align-items: center;
+      flex-shrink: 0;
+      min-width: 0;
    }
    /* ── Logo image ── */
    .navbar-brand img {
@@ -242,17 +238,31 @@
     .select2-container--default.select2-container--focus .select2-selection--multiple{
         border: none;
     }
-   @media screen and (max-width: 768px){
-   .navbar-collapse.collapse.show{
-   height: 100vh;
-   overflow-y: scroll;
-   }
+   /* Mobile menu height: see custom-fixes.css (#awsSiteNav #navbarNav) — avoid
+      height:100vh here; it made the open panel feel like a second full navbar. */
+
+   /* ── Mobile / tablet: in-flow toggler + full-width nav row below brand row ── */
+   @media (max-width: 991.98px) {
+      #awsSiteNav.navbar .navbar-toggler {
+         position: relative !important;
+         top: auto !important;
+         right: auto !important;
+         left: auto !important;
+         flex-shrink: 0;
+         align-self: center;
+         margin-top: 0;
+         margin-bottom: 0;
+      }
+      #awsSiteNav .aws-mobile-top {
+         margin-left: auto;
+      }
+      #awsSiteNav #navbarNav.navbar-collapse {
+         flex-basis: 100%;
+         width: 100%;
+      }
    }
 
-   /* ── Mobile Call Now button ─────────────────────────────── */
-   .aws-mobile-icons {
-      margin-right: 8px;
-   }
+   /* ── Mobile Call Now (top bar, next to hamburger) ─────────────────── */
    .aws-mob-callnow {
       display: inline-flex;
       align-items: center;
@@ -286,14 +296,15 @@
          font-weight: 500;
       }
 
-      /* Dropdown panel – accordion style, left red accent */
+      /* Dropdown panel – accordion style (no left accent bar) */
       #navbarNav .dropdown-menu {
          position: static !important;
          float: none;
          width: 100% !important;
          box-shadow: none !important;
          border: none !important;
-         border-left: 3px solid #e63012 !important;
+         border-left: none !important;
+         border-bottom: none !important;
          border-radius: 0 !important;
          background: #fafafa !important;
          padding: 0 0 6px 0 !important;
@@ -334,6 +345,7 @@
          margin: 0;
          padding: 10px 14px 5px;
          background: #efefef;
+         border-bottom: none !important;
       }
 
       /* List items */
@@ -366,28 +378,30 @@
       }
       /* Hide mt-4 spacers inside dropdowns */
       #navbarNav .dropdown-menu .mt-4 { margin-top: 0 !important; }
+
+      /* Mobile slide-down menu: remove duplicate Call Now at bottom of list
+         (top bar .aws-mob-callnow stays; desktop ≥992px keeps .main-menu-wrapper__call). */
+      #awsSiteNav #navbarNav .main-menu-wrapper__call {
+         display: none !important;
+      }
    }
 </style>
 <nav id="awsSiteNav" class="navbar navbar-expand-lg py-2 fixed-top aws-site-nav" aria-label="Primary">
    <div class="container">
-      <div class="header-logo">
-         <a class="navbar-brand" href="<?= $B ?>/"><img src="<?= $B ?>/assets/images/artistic%20web%20service%20w-01.png"
-         alt="ArtisticWebServices" width="200" height="50" style="height:50px;width:auto;max-width:200px;object-fit:contain;" loading="eager"></a>
+      <a class="navbar-brand" href="<?= $B ?>/"><img src="<?= $B ?>/assets/images/navbar_logo.jpeg"
+      alt="ArtisticWebServices" width="200" height="50" style="height:50px;width:auto;max-width:200px;object-fit:contain;" loading="eager"></a>
 
-         <!-- Mobile-only Call Now button (hidden on desktop) -->
-         <div class="aws-mobile-icons d-flex d-lg-none align-items-center">
-            <!-- type="button" prevents accidental form submission (WCAG 4.1.2) -->
-            <button type="button" class="aws-mob-callnow" onclick="openLeadModal(this)" aria-label="Call Now">
-               <i class="fa fa-phone" aria-hidden="true"></i> Call Now
-            </button>
-         </div>
-
+      <!-- Mobile: Call Now + hamburger on same row as logo; desktop: hidden (desktop CTA is in collapse) -->
+      <div class="aws-mobile-top d-flex d-lg-none align-items-center flex-shrink-0 ms-auto">
+         <button type="button" class="aws-mob-callnow me-2" onclick="openLeadModal(this)" aria-label="Call Now">
+            <i class="fa fa-phone" aria-hidden="true"></i> Call Now
+         </button>
          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-         <!-- aria-hidden: icon is decorative; accessible name comes from aria-label on button -->
-         <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
          </button>
       </div>
+
       <div class="collapse navbar-collapse" id="navbarNav">
          <ul class="navbar-nav align-items-center">
             <li class="nav-item">
@@ -512,9 +526,6 @@
                               <a href="<?= $B ?>/services/fitness-mobile-app-development" class="list-group-item list-group-item-action d-flex align-items-center"> <img src="<?= $B ?>/assets/images/svg-icons/streamline_good-health-and-well-being-solid.svg" class="red-icon me-3 d-block" alt=""> Fitness &amp; Wellness</a>
                               <a href="<?= $B ?>/solutions/sports" class="list-group-item list-group-item-action d-flex align-items-center"> <img src="<?= $B ?>/assets/images/svg-icons/flat-color-icons_sports-mode.svg" class="red-icon me-3 d-block" alt=""> Sports</a>
                               <a href="<?= $B ?>/services/social-networking-app" class="list-group-item list-group-item-action d-flex align-items-center"> <img src="<?= $B ?>/assets/images/svg-icons/carbon_network-enterprise.svg" class="red-icon me-3 d-block" alt=""> Social Networking</a>
-                              <a href="<?= $B ?>/services/real-estate-app-development" class="list-group-item list-group-item-action d-flex align-items-center"> <img src="<?= $B ?>/assets/images/svg-icons/material-symbols_real-estate-agent.svg" class="red-icon me-3 d-block" alt=""> Real Estate</a>
-                              <a href="<?= $B ?>/solutions/ecommerce-and-trading" class="list-group-item list-group-item-action d-flex align-items-center"> <img src="<?= $B ?>/assets/images/svg-icons/mdi_shopping.svg" class="red-icon me-3 d-block" alt="">E-Commerce &amp; Trading</a>
-                              <a href="<?= $B ?>/services/on-demand-app-development" class="list-group-item list-group-item-action d-flex align-items-center"> <img src="<?= $B ?>/assets/images/svg-icons/lets-icons_paper-fill.svg" class="red-icon me-3 d-block" alt=""> On - Demand</a>
                            </div>
                         </div>
                      </div>
@@ -638,7 +649,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /* ── Close menus when clicking outside (keyboard users may also use pointer) ── */
+    /* ── Close mega-menus when clicking outside (mobile nav uses Bootstrap collapse only) ── */
     document.addEventListener('click', function (e) {
         if (!e.target.closest('.dropdown-hover')) {
             closeAllDropdowns();

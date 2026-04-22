@@ -20,7 +20,7 @@ $_fq_action = SITE_BASE . '/contact-form';
       <p>Tell us about your project — we respond within 24 hours.</p>
     </div>
 
-    <form id="contact" action="<?= htmlspecialchars($_fq_action) ?>" method="post" class="aws-qf-form" novalidate>
+    <form id="contact" action="<?= htmlspecialchars($_fq_action) ?>" method="post" class="aws-qf-form">
       <?= csrf_field() ?>
       <input type="hidden" name="host"           value="ArtisticWebServices">
       <input type="hidden" id="captcha_answer"   name="captcha_answer" value="14">

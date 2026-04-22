@@ -29,9 +29,9 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <p class="border-text">E-learning</p>
                 <div class="industry-link-container">
                     <a href="<?= $B ?>/solutions/education-and-learning.php">E-learning</a>
-                    <a href="<?= $B ?>/solutions/ecommerce-and-trading.php">E-Commerce</a>
+                    <a href="<?= $B ?>/services/ecommerce-app-development.php">E-Commerce</a>
                     <a href="<?= $B ?>/solutions/sports.php">Sports</a>
-                    <a href="<?= $B ?>/services/on-demand-app-development.php">On Demand</a>
+                    <a href="<?= $B ?>/services/mobile-app-development.php">On Demand</a>
                     <a href="<?= $B ?>/solutions/travel-app-development.php">Travel</a>
                     <a href="<?= $B ?>/services/case-studies#work-showcase">Events</a>
                 </div>

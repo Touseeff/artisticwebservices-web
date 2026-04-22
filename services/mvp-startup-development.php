@@ -1180,56 +1180,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
 </section>
 
-<script>
-$(document).ready(function () {
-    $('#submit_btn').on('click', function (e) {
-        e.preventDefault();
 
-        var first_name = $('#first_name').val().trim();
-        var last_name  = $('#last_name').val().trim();
-        var email      = $('#email').val().trim();
-        var phone      = $('#phone').val().trim();
-        var captcha    = $('#captcha').val().trim();
-        var captcha_answer = $('#captcha_answer').val();
-        var selectedOptions = $('.js-example-basic-multiple').val();
-
-        function validateEmail(e) { return /\S+@\S+\.\S+/.test(e); }
-        function validatePhone(p) { return /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(p); }
-
-        if (!first_name) { $('#name-valid').text('Please enter your first name'); return; }
-        else $('#name-valid').text('');
-
-        if (!last_name) { $('#name-valid2').text('Please enter your last name'); return; }
-        else $('#name-valid2').text('');
-
-        if (!email) { $('#email-valid').text('Please enter your email'); return; }
-        else if (!validateEmail(email)) { $('#email-valid').text('Please enter a valid email'); return; }
-        else $('#email-valid').text('');
-
-        if (!phone) { $('#phone-valid').text('Please enter your phone'); return; }
-        else if (!validatePhone(phone)) { $('#phone-valid').text('Invalid phone: (012)-345-6789'); return; }
-        else $('#phone-valid').text('');
-
-        if (!selectedOptions || selectedOptions.length === 0) { $('#project-valid').text('Please select at least one option'); return; }
-        else $('#project-valid').text('');
-
-        if (!captcha) { $('#captcha-valid').text('Please enter the captcha answer'); return; }
-        else if (captcha !== captcha_answer) { $('#captcha-valid').text('Invalid captcha answer'); return; }
-        else $('#captcha-valid').text('');
-
-        $('#contact')[0].submit();
-    });
-
-    $('#phone').on('keypress', function (e) {
-        var key = String.fromCharCode(!e.charCode ? e.which : e.charCode);
-        if (/^[a-zA-Z]+$/.test(key)) { e.preventDefault(); return false; }
-        if (e.keyCode === 8) return;
-        var val = $(this).val();
-        if (val.length === 3) $(this).val('(' + val + ')-');
-        if (val.length === 9) $(this).val(val + '-');
-    });
-});
-</script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </div><!-- /.page-wrapper -->
