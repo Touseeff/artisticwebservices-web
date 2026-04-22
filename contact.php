@@ -311,156 +311,34 @@ textarea.cf-input {
     min-height: 16px;
 }
 
-/* ===== Custom Select Dropdown ===== */
-.cf-select-box {
-    position: relative;
-}
-.cf-select-trigger {
-    display: flex;
-    align-items: center;
-    min-height: 52px;
+/* Native service dropdown — reliable on mobile */
+select.cf-native-select {
+    width: 100%;
+    height: 52px;
     border: 1.5px solid var(--border);
     border-radius: 12px;
+    padding: 0 14px 0 44px;
+    font-size: 14px;
+    color: var(--dark);
     background: #fafafa;
-    padding: 8px 40px 8px 44px;
+    font-family: inherit;
     cursor: pointer;
+    outline: none;
+    appearance: auto;
+    -webkit-appearance: menulist;
     transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
-    position: relative;
-    user-select: none;
 }
-.cf-select-trigger.is-open,
-.cf-select-trigger:focus {
+select.cf-native-select:focus {
     border-color: var(--brand);
     background: #fff;
     box-shadow: 0 0 0 4px var(--brand-glow);
-    outline: none;
 }
-.cf-select-trigger .cf-sel-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #bbb;
-    font-size: 14px;
+.cf-select-wrap {
+    position: relative;
+}
+.cf-select-wrap .cf-input-icon {
+    z-index: 1;
     pointer-events: none;
-    transition: color 0.25s;
-}
-.cf-select-trigger.is-open .cf-sel-icon { color: var(--brand); }
-.cf-select-trigger .cf-sel-arrow {
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #bbb;
-    font-size: 12px;
-    transition: transform 0.25s, color 0.25s;
-    pointer-events: none;
-}
-.cf-select-trigger.is-open .cf-sel-arrow {
-    transform: translateY(-50%) rotate(180deg);
-    color: var(--brand);
-}
-.cf-tags-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    align-items: center;
-    flex: 1;
-}
-.cf-sel-placeholder {
-    font-size: 14px;
-    color: #bbb;
-    font-family: inherit;
-}
-.cf-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: var(--brand);
-    color: #fff;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 3px 8px 3px 10px;
-    line-height: 1.4;
-}
-.cf-tag-x {
-    cursor: pointer;
-    opacity: 0.75;
-    font-size: 10px;
-    display: flex;
-    align-items: center;
-    transition: opacity 0.15s;
-}
-.cf-tag-x:hover { opacity: 1; }
-
-.cf-select-dropdown {
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    right: 0;
-    background: #fff;
-    border: 1.5px solid var(--border);
-    border-radius: 14px;
-    box-shadow: 0 10px 36px rgba(0,0,0,0.10);
-    z-index: 200;
-    overflow: hidden;
-    display: none;
-}
-.cf-select-dropdown.is-open { display: block; }
-
-.cf-sel-option {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 18px;
-    cursor: pointer;
-    font-size: 14px;
-    color: var(--text);
-    transition: background 0.15s;
-    border-bottom: 1px solid #f5f5f5;
-}
-.cf-sel-option:last-child { border-bottom: none; }
-.cf-sel-option:hover { background: #fff5f5; color: var(--brand); }
-.cf-sel-option.is-checked { background: #fff5f5; color: var(--brand); font-weight: 600; }
-.cf-sel-option:hover .cf-sel-opt-icon,
-.cf-sel-option.is-checked .cf-sel-opt-icon { color: var(--brand); }
-
-.cf-sel-opt-icon {
-    font-size: 15px;
-    color: #ccc;
-    width: 18px;
-    text-align: center;
-    transition: color 0.2s;
-    flex-shrink: 0;
-}
-.cf-sel-opt-label { flex: 1; }
-.cf-sel-checkmark {
-    width: 20px;
-    height: 20px;
-    border-radius: 6px;
-    border: 2px solid #ddd;
-    background: #fff;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    margin-left: auto;
-}
-.cf-sel-option.is-checked .cf-sel-checkmark {
-    background: var(--brand);
-    border-color: var(--brand);
-}
-.cf-sel-option.is-checked .cf-sel-checkmark::after {
-    content: '';
-    width: 5px;
-    height: 9px;
-    border: 2px solid #fff;
-    border-top: none;
-    border-left: none;
-    transform: rotate(44deg) translateY(-1px);
-    display: block;
 }
 
 /* Submit button */
@@ -594,7 +472,7 @@ textarea.cf-input {
                         if ($err === 'missing') {
                             echo '<div style="background:#fff5f5;border:1.5px solid #dd0429;border-radius:10px;padding:14px 18px;margin-bottom:22px;display:flex;align-items:center;gap:12px;font-size:14px;color:#c0001c;font-weight:600;">
                                     <i class="fas fa-exclamation-circle" style="font-size:18px;flex-shrink:0;"></i>
-                                    Please fill in your First Name and Email Address before submitting.
+                                    Please fill in your First Name, Email Address, and Phone Number before submitting.
                                   </div>';
                         } elseif ($err === 'invalid_email') {
                             echo '<div style="background:#fff5f5;border:1.5px solid #dd0429;border-radius:10px;padding:14px 18px;margin-bottom:22px;display:flex;align-items:center;gap:12px;font-size:14px;color:#c0001c;font-weight:600;">
@@ -626,7 +504,7 @@ textarea.cf-input {
                                         <div class="cf-input-wrap">
                                             <!-- Icon is decorative; label already names the field -->
                                             <i class="fas fa-user cf-input-icon" aria-hidden="true"></i>
-                                            <input class="cf-input" maxlength="20" onpaste="return false;" ondrop="return false;" autocomplete="off"
+                                            <input class="cf-input" maxlength="100" autocomplete="given-name"
                                                 placeholder="e.g. John" type="text" name="first_name" id="first_name" required aria-required="true">
                                         </div>
                                         <small class="cf-small" id="name-valid"></small>
@@ -639,7 +517,7 @@ textarea.cf-input {
                                         <label for="last_name">Last Name</label>
                                         <div class="cf-input-wrap">
                                             <i class="fas fa-user cf-input-icon" aria-hidden="true"></i>
-                                            <input class="cf-input" maxlength="20" onpaste="return false;" ondrop="return false;" autocomplete="off"
+                                            <input class="cf-input" maxlength="100" autocomplete="family-name"
                                                 placeholder="e.g. Smith" type="text" name="last_name" id="last_name">
                                         </div>
                                         <small class="cf-small" id="name-valid1"></small>
@@ -649,11 +527,11 @@ textarea.cf-input {
                                 <!-- Phone -->
                                 <div class="col-md-6">
                                     <div class="cf-field">
-                                        <label for="phone">Phone Number</label>
+                                        <label for="phone">Phone Number <span class="req">*</span></label>
                                         <div class="cf-input-wrap">
                                             <i class="fas fa-phone cf-input-icon" aria-hidden="true"></i>
-                                            <input class="cf-input" onpaste="return false;" ondrop="return false;" autocomplete="off"
-                                                placeholder="e.g. +1 212 555 0100" type="tel" name="phone" id="phone" maxlength="14">
+                                            <input class="cf-input" autocomplete="tel" required aria-required="true"
+                                                placeholder="e.g. +1 212 555 0100" type="tel" name="phone" id="phone" maxlength="30">
                                         </div>
                                         <small class="cf-small" id="phone-valid"></small>
                                     </div>
@@ -665,66 +543,39 @@ textarea.cf-input {
                                         <label for="email">Email Address <span class="req">*</span></label>
                                         <div class="cf-input-wrap">
                                             <i class="fas fa-envelope cf-input-icon" aria-hidden="true"></i>
-                                            <input class="cf-input" maxlength="50" onpaste="return false;" ondrop="return false;" autocomplete="off"
+                                            <input class="cf-input" maxlength="100" autocomplete="email"
                                                 placeholder="e.g. john@company.com" type="email" name="email" id="email" required aria-required="true">
                                         </div>
                                         <small class="cf-small" id="email-valid"></small>
                                     </div>
                                 </div>
 
-                                <!-- Services -->
+                                <!-- Services (native select — works reliably on mobile) -->
                                 <div class="col-12">
                                     <div class="cf-field">
-                                        <!-- WCAG 1.3.1 note: this custom listbox is labelled via the visible
-                                             <label> text above; aria-labelledby added to the trigger for AT -->
-                                        <label id="cf-service-label">What Are You Looking For? <span class="req">*</span></label>
-                                        <div class="cf-select-box" id="cf-service-box">
-                                            <div class="cf-select-trigger" id="cf-service-trigger" tabindex="0" role="button"
-                                                 aria-haspopup="listbox" aria-expanded="false"
-                                                 aria-labelledby="cf-service-label">
-                                                <i class="fas fa-th-list cf-sel-icon" aria-hidden="true"></i>
-                                                <div class="cf-tags-wrap" id="cf-service-tags">
-                                                    <span class="cf-sel-placeholder">Select services…</span>
-                                                </div>
-                                                <i class="fas fa-chevron-down cf-sel-arrow" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="cf-select-dropdown" id="cf-service-dropdown" role="listbox">
-                                                <div class="cf-sel-option" data-value="Mobile App" role="option">
-                                                    <i class="fas fa-mobile-alt cf-sel-opt-icon" aria-hidden="true"></i>
-                                                    <span class="cf-sel-opt-label">Mobile App</span>
-                                                    <span class="cf-sel-checkmark"></span>
-                                                </div>
-                                                <div class="cf-sel-option" data-value="Progressive Web App" role="option">
-                                                    <i class="fas fa-globe cf-sel-opt-icon" aria-hidden="true"></i>
-                                                    <span class="cf-sel-opt-label">Progressive Web App</span>
-                                                    <span class="cf-sel-checkmark"></span>
-                                                </div>
-                                                <div class="cf-sel-option" data-value="Web App" role="option">
-                                                    <i class="fas fa-laptop-code cf-sel-opt-icon" aria-hidden="true"></i>
-                                                    <span class="cf-sel-opt-label">Web App</span>
-                                                    <span class="cf-sel-checkmark"></span>
-                                                </div>
-                                                <div class="cf-sel-option" data-value="Custom Software" role="option">
-                                                    <i class="fas fa-cogs cf-sel-opt-icon" aria-hidden="true"></i>
-                                                    <span class="cf-sel-opt-label">Custom Software</span>
-                                                    <span class="cf-sel-checkmark"></span>
-                                                </div>
-                                            </div>
+                                        <label for="cf-service">What Are You Looking For?</label>
+                                        <div class="cf-input-wrap cf-select-wrap">
+                                            <i class="fas fa-th-list cf-input-icon" aria-hidden="true"></i>
+                                            <select class="cf-native-select" id="cf-service" name="service">
+                                                <option value="" selected>Select… (optional)</option>
+                                                <option value="Mobile App">Mobile App</option>
+                                                <option value="Progressive Web App">Progressive Web App</option>
+                                                <option value="Web App">Web App</option>
+                                                <option value="Custom Software">Custom Software</option>
+                                            </select>
                                         </div>
-                                        <!-- Hidden inputs submitted with the form -->
-                                        <div id="cf-service-inputs"></div>
-                                        <small class="cf-small" id="project-valid" style="display:none;">Please select at least one service.</small>
+                                        <small class="cf-small" aria-hidden="true"></small>
                                     </div>
                                 </div>
 
                                 <!-- Message -->
                                 <div class="col-12">
                                     <div class="cf-field">
-                                        <label for="description">Your Message <span class="req">*</span></label>
+                                        <label for="description">Your Message</label>
                                         <div class="cf-input-wrap cf-input-wrap--ta">
                                             <i class="fas fa-comment-alt cf-input-icon" aria-hidden="true"></i>
-                                            <textarea class="cf-input" onpaste="return false;" ondrop="return false;" autocomplete="off"
-                                                placeholder="Tell us about your project, goals, and timeline…" name="description" id="description" required aria-required="true"></textarea>
+                                            <textarea class="cf-input" autocomplete="off"
+                                                placeholder="Tell us about your project, goals, and timeline…" name="description" id="description"></textarea>
                                         </div>
                                         <small class="cf-small" id="message-valid"></small>
                                     </div>
@@ -756,113 +607,5 @@ textarea.cf-input {
     <?php require_once 'includes/footer.php'; ?>
 </div>
 
-<script>
-/* ===== Custom Service Select ===== */
-(function () {
-    var box      = document.getElementById('cf-service-box');
-    var trigger  = document.getElementById('cf-service-trigger');
-    var dropdown = document.getElementById('cf-service-dropdown');
-    var tagsWrap = document.getElementById('cf-service-tags');
-    var hiddenEl = document.getElementById('cf-service-inputs');
-    if (!trigger) return;
-
-    var selected = [];
-
-    function renderTags() {
-        tagsWrap.innerHTML = '';
-        hiddenEl.innerHTML = '';
-        if (selected.length === 0) {
-            tagsWrap.innerHTML = '<span class="cf-sel-placeholder">Select services\u2026</span>';
-            return;
-        }
-        selected.forEach(function (val) {
-            /* tag */
-            var tag = document.createElement('span');
-            tag.className = 'cf-tag';
-            tag.innerHTML = val + '<span class="cf-tag-x" data-val="' + val + '"><i class="fas fa-times"></i></span>';
-            tag.querySelector('.cf-tag-x').addEventListener('click', function (e) {
-                e.stopPropagation();
-                deselect(this.dataset.val);
-            });
-            tagsWrap.appendChild(tag);
-            /* hidden input */
-            var inp = document.createElement('input');
-            inp.type  = 'hidden';
-            inp.name  = 'states[]';
-            inp.value = val;
-            hiddenEl.appendChild(inp);
-        });
-    }
-
-    function deselect(val) {
-        selected = selected.filter(function (v) { return v !== val; });
-        var opt = dropdown.querySelector('[data-value="' + val + '"]');
-        if (opt) opt.classList.remove('is-checked');
-        renderTags();
-    }
-
-    trigger.addEventListener('click', function () {
-        var open = dropdown.classList.contains('is-open');
-        dropdown.classList.toggle('is-open', !open);
-        trigger.classList.toggle('is-open', !open);
-        trigger.setAttribute('aria-expanded', String(!open));
-    });
-
-    trigger.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            trigger.click();
-        }
-        if (e.key === 'Escape') {
-            dropdown.classList.remove('is-open');
-            trigger.classList.remove('is-open');
-            trigger.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-    dropdown.querySelectorAll('.cf-sel-option').forEach(function (opt) {
-        opt.addEventListener('click', function (e) {
-            if (e.target.closest('.cf-tag-x')) return;
-            var val = opt.dataset.value;
-            if (opt.classList.contains('is-checked')) {
-                deselect(val);
-            } else {
-                selected.push(val);
-                opt.classList.add('is-checked');
-                renderTags();
-            }
-        });
-    });
-
-    document.addEventListener('click', function (e) {
-        if (!box.contains(e.target)) {
-            dropdown.classList.remove('is-open');
-            trigger.classList.remove('is-open');
-            trigger.setAttribute('aria-expanded', 'false');
-        }
-    });
-})();
-
-/* ===== Service multi-select: not a native control, so enforce “required” here only.
-     All other fields use HTML required only (browser validates before submit fires). ===== */
-(function () {
-    var form = document.getElementById('contact');
-    if (!form) return;
-
-    form.addEventListener('submit', function (e) {
-        var serviceInputs = document.querySelectorAll('#cf-service-inputs input');
-        var projValid = document.getElementById('project-valid');
-        var trigger = document.getElementById('cf-service-trigger');
-        if (serviceInputs.length === 0) {
-            e.preventDefault();
-            if (projValid) { projValid.style.display = 'block'; }
-            if (trigger) { trigger.style.borderColor = '#dd0429'; }
-            return;
-        }
-        if (projValid) { projValid.style.display = 'none'; }
-        if (trigger) { trigger.style.borderColor = ''; }
-    });
-})();
-</script>
 </body>
 </html>

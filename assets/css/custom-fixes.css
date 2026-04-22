@@ -1034,7 +1034,26 @@ a.thm-btn.redchange:hover {
     section { padding-top: 50px !important; padding-bottom: 50px !important; overflow-x: hidden; }
     .section-title__title { font-size: 1.4rem !important; }
     .section-title__paragraph { font-size: 14px !important; width: 100% !important; }
-    #carouselExampleDark { height: 65vh; }
+    /* Hero: fixed viewport heights (e.g. 65vh) clipped caption text under
+       #carouselExampleDark overflow:hidden + slide min-height. Grow with content
+       so badge, headline, and description stay visible. */
+    #carouselExampleDark {
+        height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100svh !important;
+    }
+    #carouselExampleDark .carousel-inner,
+    #carouselExampleDark .carousel-item,
+    #carouselExampleDark .carousel-item.active {
+        min-height: 0 !important;
+        height: auto !important;
+    }
+    .home__page .hero-video-caption .slide-badge,
+    .home__page .hero-video-caption > p.slide-p {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
     .hero-video-caption .slide-h2 { font-size: 1.5rem !important; }
     .hero-video-caption .slide-p { font-size: 14px !important; }
     .case-content { padding: 20px; gap: 16px; }
@@ -1061,7 +1080,11 @@ a.thm-btn.redchange:hover {
     h3 { font-size: 1.1rem !important; }
     section { padding-top: 40px !important; padding-bottom: 40px !important; }
     .section-title__title { font-size: 1.25rem !important; }
-    #carouselExampleDark { height: 100vh; min-height: 500px; }
+    #carouselExampleDark {
+        height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100svh !important;
+    }
     .hero-video-caption { width: 96%; }
     .hero-video-caption .slide-h2 { font-size: 1.3rem !important; }
     .hero-video-caption .slide-p { font-size: 13px !important; }

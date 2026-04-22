@@ -39,7 +39,7 @@ $funcs       = cleanArr($_POST['functionalities']   ?? []);
 $description = cleanVal($_POST['app-description']   ?? '');
 
 // ── Validate required fields ──────────────────────────────────────────────────
-if (empty($name) || empty($email)) {
+if (empty($name) || empty($email) || empty($phone)) {
     header("Location: {$base}/services/app-cost-calculator.php?error=missing");
     exit;
 }

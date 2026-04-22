@@ -81,29 +81,29 @@ if (!isset($B)) {
                             <label for="modal-first-name" class="visually-hidden">First Name</label>
                             <input type="text" id="modal-first-name" name="first_name"
                                    placeholder="First Name *" required aria-required="true"
-                                   maxlength="50">
+                                   maxlength="100" autocomplete="given-name">
                         </div>
                         <div class="aws-form-group">
                             <label for="modal-last-name" class="visually-hidden">Last Name</label>
                             <input type="text" id="modal-last-name" name="last_name"
-                                   placeholder="Last Name *" required aria-required="true"
-                                   maxlength="50">
+                                   placeholder="Last Name"
+                                   maxlength="100" autocomplete="family-name">
                         </div>
                     </div>
                     <div class="aws-form-group">
                         <label for="modal-email" class="visually-hidden">Email Address</label>
                         <input type="email" id="modal-email" name="email"
-                               placeholder="Email Address *" required aria-required="true">
+                               placeholder="Email Address *" required aria-required="true" autocomplete="email">
                     </div>
                     <div class="aws-form-group">
                         <label for="modal-phone" class="visually-hidden">Phone Number</label>
                         <input type="tel" id="modal-phone" name="phone"
-                               placeholder="Phone Number *" required aria-required="true" maxlength="20">
+                               placeholder="Phone Number *" required aria-required="true" maxlength="30" autocomplete="tel">
                     </div>
                     <div class="aws-form-group">
                         <label for="modal-service" class="visually-hidden">Select Service</label>
-                        <select id="modal-service" name="service" required aria-required="true">
-                            <option value="" disabled selected>Select Service *</option>
+                        <select id="modal-service" name="service">
+                            <option value="" selected>Service (optional)</option>
                             <option>Mobile App Development</option>
                             <option>Web Development</option>
                             <option>AI / Machine Learning</option>
@@ -306,7 +306,7 @@ function awsSubmitForm(e) {
                 if (payload && payload.error === 'send_failed') {
                     alert('Email could not be sent (server mail settings). Please try again later or call us directly.');
                 } else if (payload && payload.error === 'missing') {
-                    alert('Please fill in First Name and Email.');
+                    alert('Please fill in First Name, Email, and Phone Number.');
                 } else if (payload && payload.error === 'invalid_email') {
                     alert('Please enter a valid email address.');
                 } else {

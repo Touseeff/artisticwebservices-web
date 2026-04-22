@@ -59,7 +59,7 @@ if (is_array($states_raw)) {
 $base = defined('SITE_BASE') ? SITE_BASE : '';
 
 // ── Validate ──────────────────────────────────────────────────────────────────
-if (empty($first_name) || empty($email)) {
+if (empty($first_name) || empty($email) || empty($phone)) {
     if (contact_form_wants_json()) {
         contact_form_json_exit(422, ['ok' => false, 'error' => 'missing']);
     }

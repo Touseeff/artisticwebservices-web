@@ -1729,22 +1729,22 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
           <div class="row g-3">
             <div class="col-sm-6">
               <label class="mf-label">First Name <span style="color:#ec1c22">*</span></label>
-              <input type="text" class="mf-input" id="mcf_first_name" name="first_name" placeholder="Your First Name" autocomplete="off" required aria-required="true">
+              <input type="text" class="mf-input" id="mcf_first_name" name="first_name" placeholder="Your First Name" autocomplete="given-name" required aria-required="true">
               <small class="mf-error" id="mcf-err-fname"></small>
             </div>
             <div class="col-sm-6">
-              <label class="mf-label">Last Name <span style="color:#ec1c22">*</span></label>
-              <input type="text" class="mf-input" id="mcf_last_name" name="last_name" placeholder="Your Last Name" autocomplete="off" required aria-required="true">
+              <label class="mf-label">Last Name</label>
+              <input type="text" class="mf-input" id="mcf_last_name" name="last_name" placeholder="Your Last Name" autocomplete="family-name">
               <small class="mf-error" id="mcf-err-lname"></small>
             </div>
             <div class="col-sm-6">
               <label class="mf-label">Email Address <span style="color:#ec1c22">*</span></label>
-              <input type="email" class="mf-input" id="mcf_email" name="email" placeholder="your@email.com" autocomplete="off" required aria-required="true">
+              <input type="email" class="mf-input" id="mcf_email" name="email" placeholder="your@email.com" autocomplete="email" required aria-required="true">
               <small class="mf-error" id="mcf-err-email"></small>
             </div>
             <div class="col-sm-6">
               <label class="mf-label">Phone Number <span style="color:#ec1c22">*</span></label>
-              <input type="tel" class="mf-input" id="mcf_phone" name="phone" placeholder="(000)-000-0000" maxlength="14" autocomplete="off" required aria-required="true">
+              <input type="tel" class="mf-input" id="mcf_phone" name="phone" placeholder="(000)-000-0000" maxlength="30" autocomplete="tel" required aria-required="true">
               <small class="mf-error" id="mcf-err-phone"></small>
             </div>
             <div class="col-12">

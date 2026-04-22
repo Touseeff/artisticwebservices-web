@@ -1759,6 +1759,12 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             require_once __DIR__ . '/../includes/csrf.php';
         }
         echo csrf_field();
+        $calc_err = $_GET['error'] ?? '';
+        if ($calc_err === 'missing') {
+            echo '<div class="container pt-4"><div class="alert alert-danger" role="alert">Please enter your <strong>name</strong>, <strong>email</strong>, and <strong>phone number</strong> so we can reach you.</div></div>';
+        } elseif ($calc_err === 'invalid_email') {
+            echo '<div class="container pt-4"><div class="alert alert-danger" role="alert">Please enter a valid <strong>email address</strong>.</div></div>';
+        }
         ?>
         <input type="hidden" name="host" value="ArtisticWebServices">
         <div class="container py-5">
@@ -2450,7 +2456,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <h4 class="mb-4">7. Describe your app in own words</h4>
                     <div class="row">
                         <div class="col-12">
-                            <textarea autocomplete="off" required rows="5" class="form-control" name="app-description"
+                            <textarea autocomplete="off" rows="5" class="form-control" name="app-description"
                                 placeholder="Describe your app......."></textarea>
                         </div>
                     </div>
@@ -2463,16 +2469,16 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     <h4 class="mb-4">8. Provide your details, so we can reach you</h4>
                     <div class="row">
                         <div class="col-12 mb-3">
-                            <input autocomplete="off" required type="text" class="form-control" placeholder="Name"
+                            <input autocomplete="name" required type="text" class="form-control" placeholder="Name"
                                 name="username">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <input autocomplete="off" required type="email" class="form-control" placeholder="Email"
+                            <input autocomplete="email" required type="email" class="form-control" placeholder="Email"
                                 name="user-email">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <input autocomplete="off" required type="text" id="phone" maxlength="14"
-                                class="form-control" placeholder="Contact number" name="user-number">
+                            <input autocomplete="tel" required type="text" id="phone" maxlength="30"
+                                class="form-control" placeholder="Contact number *" name="user-number" aria-required="true">
                         </div>
                     </div>
                 </div>
