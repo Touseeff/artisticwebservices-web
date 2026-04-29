@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Our Software Development Process | Agile 6-Step Methodology — ArtisticWebServices';
 $page_description = 'Discover ArtisticWebServices agile software development process. From discovery and design to development, QA, and deployment — transparent 6-step SDLC for on-time delivery.';
-$page_keywords = 'software development process USA, agile development methodology, SDLC process, app development process, iterative software development, agile sprint process USA';
 $page_canonical = 'https://artisticwebservices.com/solutions/process';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'About', 'url' => 'https://artisticwebservices.com/about-us'], ['name' => 'Our Process', 'url' => 'https://artisticwebservices.com/solutions/process']];

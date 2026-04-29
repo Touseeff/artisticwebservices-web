@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Legacy App Modernization USA | Replatforming & Refactoring — ArtisticWebServices';
 $page_description = 'Modernize your outdated software with ArtisticWebServices. We replatform, refactor, and re-architect legacy applications to cloud-native, scalable modern systems.';
-$page_keywords = 'legacy application modernization USA, software replatforming, legacy system migration, application modernization company, mainframe migration';
 $page_canonical = 'https://artisticwebservices.com/services/legacy-application-modernization-services';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Legacy Application Modernization', 'url' => 'https://artisticwebservices.com/services/legacy-application-modernization-services']];

@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Hire Dedicated Developers USA | Remote Dev Teams — ArtisticWebServices';
 $page_description = 'Hire skilled dedicated developers from ArtisticWebServices. Build your remote development team with vetted iOS, Android, React, Node.js, and full-stack developers.';
-$page_keywords = 'hire dedicated developers USA, remote development team, hire iOS developers, hire Android developers, dedicated software team USA';
 $page_canonical = 'https://artisticwebservices.com/solutions/hire-dedicated-developers';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'Hire Dedicated Developers', 'url' => 'https://artisticwebservices.com/solutions/hire-dedicated-developers']];

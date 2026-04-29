@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Microservices Development Company USA | API & Cloud Architecture — ArtisticWebServices';
 $page_description = 'Build scalable, resilient microservices architectures with ArtisticWebServices. REST APIs, GraphQL, event-driven systems, and containerization for USA enterprises.';
-$page_keywords = 'microservices development USA, API development company, cloud-native architecture, Docker Kubernetes development, microservices architecture';
 $page_canonical = 'https://artisticwebservices.com/services/microservices-development';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Microservices Development', 'url' => 'https://artisticwebservices.com/services/microservices-development']];

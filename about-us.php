@@ -1,10 +1,10 @@
 <?php
 require_once 'includes/config.php';
-$page_title = 'About ArtisticWebServices | Top Software Development Company New York USA';
+$page_title = 'About Us | ArtisticWebServices — New York Software Company';
 $page_description = 'Learn about ArtisticWebServices — a leading NYC-based custom software & mobile app development firm with 10+ years experience delivering award-winning digital solutions.';
-$page_keywords = 'about ArtisticWebServices, software company New York, top rated app development company USA, award winning software company';
 $page_canonical   = SITE_URL . '/about-us';
 $page_og_image    = SITE_URL . '/assets/images/resources/artisticwebservices-og.png';
+$page_breadcrumbs = [['name' => 'About Us', 'url' => SITE_URL . '/about-us']];
 require_once 'includes/head.php';
 ?>
    <style>
@@ -26,6 +26,7 @@ require_once 'includes/head.php';
       <?php require_once 'includes/header.php'; ?>
       <!--Header-Main End-->
 
+        <div id="main-content"></div>
         <section class="about-page"
             style="background-image: url(<?= $B ?>/assets/images/page-header-about.webp); background-size: cover; background-position: center top; height: 550px;">
             <div class="container"></div>
@@ -59,7 +60,7 @@ require_once 'includes/head.php';
                                     </li>
                                 </ul>
                             </div>
-                            <a href="<?= $B ?>/about-us.php" class="thm-btn welcome-three__btn">Discover More</a>
+                            <a href="<?= $B ?>/about-us" class="thm-btn welcome-three__btn">Discover More</a>
                         </div>
                     </div>
                     <div class="col-xl-6">

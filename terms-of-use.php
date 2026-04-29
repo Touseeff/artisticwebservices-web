@@ -2,7 +2,6 @@
 require_once __DIR__ . '/includes/config.php';
 $page_title = 'Terms of Use | ArtisticWebServices — Software & App Development Services';
 $page_description = "Review the terms and conditions governing the use of ArtisticWebServices' website and software development services.";
-$page_keywords = 'terms of use software company, website terms conditions USA';
 $page_canonical = 'https://artisticwebservices.com/terms-of-use';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/includes/head.php';

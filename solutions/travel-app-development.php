@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Travel App Development Company USA | Booking & Tourism Apps — ArtisticWebServices';
 $page_description = 'Launch your travel app with ArtisticWebServices. Hotel booking, flight search, tour management, and travel marketplace development for USA travel companies.';
-$page_keywords = 'travel app development USA, hotel booking app development, flight booking app, tourism app development company, travel software USA';
 $page_canonical = 'https://artisticwebservices.com/solutions/travel-app-development';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'Travel App Development', 'url' => 'https://artisticwebservices.com/solutions/travel-app-development']];

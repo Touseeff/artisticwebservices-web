@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'SharePoint Development Company USA | Microsoft 365 Experts — ArtisticWebServices';
 $page_description = 'Expert SharePoint development and Microsoft 365 solutions from ArtisticWebServices. Custom SharePoint intranets, workflows, and integrations for USA enterprises.';
-$page_keywords = 'SharePoint development company USA, Microsoft 365 development, SharePoint intranet, SharePoint customization, Office 365 development';
 $page_canonical = 'https://artisticwebservices.com/services/sharepoint-development';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'SharePoint Development', 'url' => 'https://artisticwebservices.com/services/sharepoint-development']];

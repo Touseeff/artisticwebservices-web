@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Enterprise Software Development USA | ERP & Custom Solutions — ArtisticWebServices';
 $page_description = 'Build enterprise-grade ERP systems and custom business software with ArtisticWebServices. Scalable, secure solutions for Fortune 500 and mid-market USA companies.';
-$page_keywords = 'enterprise software development USA, ERP development company, custom enterprise solutions, large scale software development, enterprise app development';
 $page_canonical = 'https://artisticwebservices.com/services/enterprise-development';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Enterprise Software Development', 'url' => 'https://artisticwebservices.com/services/enterprise-development']];

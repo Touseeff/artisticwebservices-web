@@ -2,7 +2,6 @@
 require_once 'includes/config.php';
 $page_title = "Software Development Services | ArtisticWebServices — USA's Leading Tech Agency";
 $page_description = "Explore ArtisticWebServices' full suite of technology services: mobile app development, web development, AI, blockchain, cloud, IoT, and more. Trusted by 500+ clients.";
-$page_keywords = 'software development services USA, mobile app development services, web development services New York, IT services company USA';
 $page_canonical   = SITE_URL . '/services';
 $page_og_image    = SITE_URL . '/assets/images/resources/artisticwebservices-og.png';
 require_once 'includes/head.php';

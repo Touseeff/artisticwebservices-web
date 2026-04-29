@@ -1,8 +1,7 @@
 <?php
 require_once 'includes/config.php';
-$page_title       = 'Contact ArtisticWebServices | Get a Free Quote — Software Development USA';
+$page_title       = 'Contact ArtisticWebServices | Free Quote — NYC';
 $page_description = 'Contact ArtisticWebServices for a free consultation on your mobile app, web, or enterprise software project. Based in New York — serving clients worldwide.';
-$page_keywords    = 'contact software development company, hire app developers USA, free software development quote, get mobile app quote';
 $page_canonical   = SITE_URL . '/contact';
 $page_og_image    = SITE_URL . '/assets/images/resources/artisticwebservices-og.png';
 require_once 'includes/head.php';
@@ -385,7 +384,7 @@ select.cf-native-select:focus {
 .cf-safe-note {
     text-align: center;
     font-size: 12px;
-    color: #999;
+    color: #767676; /* was #999 — changed to pass WCAG AA 4.5:1 contrast ratio */
     margin-top: 14px;
     margin-bottom: 0;
 }
@@ -411,6 +410,7 @@ select.cf-native-select:focus {
 <div class="page-wrapper">
     <?php require_once 'includes/header.php'; ?>
 
+    <div id="main-content"></div>
     <!-- ===== Hero ===== -->
     <section class="contact-hero">
         <div class="container">

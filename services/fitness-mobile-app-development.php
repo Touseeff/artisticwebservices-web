@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Fitness App Development Company USA | Health &amp; Wellness Apps — ArtisticWebServices';
 $page_description = 'Build feature-rich fitness and wellness apps with ArtisticWebServices. Workout trackers, diet planners, personal training apps, and wearable integrations for USA market.';
-$page_keywords = 'fitness app development USA, workout app development, health tracking app, wellness app development company, personal trainer app';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Fitness App Development', 'url' => 'https://artisticwebservices.com/services/fitness-mobile-app-development']];
 $page_service_schema = ['name' => 'Fitness App Development', 'description' => 'Feature-rich fitness and wellness apps with workout tracking, nutrition planning, and wearable integration for USA market.'];
 $page_faq = [

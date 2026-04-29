@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Digital Transformation Consulting USA | ArtisticWebServices';
 $page_description = 'Expert digital transformation consulting & IT strategy advisory helping USA businesses modernize, plan technology roadmaps, and scale effectively.';
-$page_keywords = 'digital transformation consulting USA, IT strategy consulting, technology advisory services, digital consulting company New York, CTO advisory services, technology roadmap consulting';
 $page_canonical = 'https://artisticwebservices.com/solutions/consulting';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'Consulting', 'url' => 'https://artisticwebservices.com/solutions/consulting']];

@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Custom CRM Development Company USA | Salesforce & HubSpot Experts — ArtisticWebServices';
 $page_description = 'Build a custom CRM tailored to your business with ArtisticWebServices. Salesforce, HubSpot integrations, and fully bespoke CRM systems for USA enterprises.';
-$page_keywords = 'custom CRM development USA, CRM software development company, Salesforce development, HubSpot customization, enterprise CRM solutions';
 $page_canonical = 'https://artisticwebservices.com/services/custom-crm-development-services';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Custom CRM Development', 'url' => 'https://artisticwebservices.com/services/custom-crm-development-services']];

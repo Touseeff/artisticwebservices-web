@@ -11,15 +11,18 @@
 if (!isset($B)) {
     $B = defined('SITE_BASE') ? SITE_BASE : '';
 }
-if (!isset($load_slick)) {
-    $load_slick = false;
-}
+if (!isset($load_slick))     { $load_slick     = false; }
+if (!isset($load_jarallax))  { $load_jarallax  = false; }
+if (!isset($load_isotope))   { $load_isotope   = false; }
+if (!isset($load_countdown)) { $load_countdown = false; }
 ?>
 <!-- ── Vendor JS ────────────────────────────────────── -->
 <!-- jQuery 3.7.1 (upgraded from 3.6.0, moved from head to end-of-body for render-unblocking — Sprint 2) -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="<?= $B ?>/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+<?php if (!empty($load_jarallax)): ?>
 <script src="<?= $B ?>/assets/vendors/jarallax/jarallax.min.js"></script>
+<?php endif; ?>
 <script src="<?= $B ?>/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
 <script src="<?= $B ?>/assets/vendors/jquery-appear/jquery.appear.min.js"></script>
 <script src="<?= $B ?>/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
@@ -31,8 +34,12 @@ if (!isset($load_slick)) {
 <!-- tiny-slider JS removed: zero .thm-tiny__slider elements on any page (Sprint 2) -->
 <script src="<?= $B ?>/assets/vendors/wnumb/wNumb.min.js"></script>
 <script src="<?= $B ?>/assets/vendors/wow/wow.js"></script>
+<?php if (!empty($load_isotope)): ?>
 <script src="<?= $B ?>/assets/vendors/isotope/isotope.js"></script>
+<?php endif; ?>
+<?php if (!empty($load_countdown)): ?>
 <script src="<?= $B ?>/assets/vendors/countdown/countdown.min.js"></script>
+<?php endif; ?>
 <!-- Owl Carousel JS removed: Sprint 3 — migrated to Swiper via owl-to-swiper-migration.js shim -->
 <!-- bxslider JS removed: .listing-details__gallery never rendered on any page (Sprint 2) -->
 <script src="<?= $B ?>/assets/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
@@ -41,7 +48,7 @@ if (!isset($load_slick)) {
 <?php if (!empty($load_slick)): ?>
 <script src="<?= $B ?>/assets/vendors/slick/slick.min.js"></script>
 <?php endif; ?>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" integrity="sha384-d3UHjPdzJkZuk5H3qKYMLRyWLAQBJbby2yr2Q58hXXtAGF8RSNO9jpLDlKKPv5v3" crossorigin="anonymous"></script>
 <script>$('.js-example-basic-multiple').select2();</script>
 <!-- Owl → Swiper migration shim (Sprint 3): intercepts .owlCarousel() calls and uses Swiper instead -->
 <!-- Must be loaded AFTER swiper.min.js (above) and BEFORE mibooz.js (below) -->

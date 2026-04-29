@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Energy Sector App Development USA | IoT & Digital Automation Solutions — ArtisticWebServices';
 $page_description = 'ArtisticWebServices delivers smart energy sector digital solutions with IoT integration, device automation, and real-time monitoring apps for USA energy companies.';
-$page_keywords = 'energy sector app development USA, IoT energy management software, digital energy solutions, smart grid app development, energy automation software, oil gas digital solutions';
 $page_canonical = 'https://artisticwebservices.com/solutions/energy-sector-digital';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'Energy Sector', 'url' => 'https://artisticwebservices.com/solutions/energy-sector-digital']];
 $page_service_schema = ['name' => 'Energy Sector Digital Solutions', 'description' => 'IoT-integrated mobile applications and digital automation for the energy sector in USA.'];

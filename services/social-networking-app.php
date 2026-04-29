@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Social Networking App Development USA | Community Platforms — ArtisticWebServices';
 $page_description = 'Build the next big social network with ArtisticWebServices. Custom social apps, community platforms, dating apps, and professional networking tools for USA startups.';
-$page_keywords = 'social networking app development USA, social media app development company, community platform development, dating app development, social app USA';
 $page_canonical = 'https://artisticwebservices.com/services/social-networking-app';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 require_once __DIR__ . '/../includes/head.php';

@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'SaaS Development Company USA | Cloud SaaS Platform Builder — ArtisticWebServices';
 $page_description = 'Build scalable SaaS products with ArtisticWebServices. Multi-tenant SaaS platforms, subscription billing, API integrations, and cloud-native architecture for USA startups.';
-$page_keywords = 'SaaS development company USA, SaaS platform development, cloud software development, multi-tenant SaaS, software as a service development';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'SaaS Development', 'url' => 'https://artisticwebservices.com/services/saas']];
 $page_service_schema = ['name' => 'SaaS Development', 'description' => 'Scalable multi-tenant SaaS platforms with subscription billing, API integrations, and cloud-native architecture for USA startups.'];
 $page_faq = [

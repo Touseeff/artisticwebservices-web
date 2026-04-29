@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'LMS Development Company USA | Learning Management System — ArtisticWebServices';
 $page_description = 'Build powerful Learning Management Systems with ArtisticWebServices. Custom LMS platforms with e-learning, course management, student analytics, and SCORM compliance for USA companies.';
-$page_keywords = 'LMS development company USA, learning management system development, eLearning platform development, custom LMS software, SCORM LMS development, online course platform USA';
 $page_canonical = 'https://artisticwebservices.com/solutions/lms';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'LMS Development', 'url' => 'https://artisticwebservices.com/solutions/lms']];

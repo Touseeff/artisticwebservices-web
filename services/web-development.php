@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Web Development Company USA | Custom Websites & Web Apps — ArtisticWebServices';
 $page_description = 'ArtisticWebServices is a leading web development company in the USA. We build fast, SEO-optimized websites, web apps, and e-commerce platforms for businesses of all sizes.';
-$page_keywords = 'web development company USA, custom website development, web app development New York, professional web developers USA';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Web Development', 'url' => 'https://artisticwebservices.com/services/web-development']];
 $page_service_schema = ['name' => 'Web Development', 'description' => 'Custom websites, web apps, and e-commerce platforms for USA businesses of all sizes.'];
 $page_faq = [

@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Oil & Gas Refinery Management Software USA | Digital Oilfield Solutions — ArtisticWebServices';
 $page_description = 'ArtisticWebServices develops oil and gas refinery management software, digital oilfield solutions, and asset tracking apps to improve efficiency for USA energy companies.';
-$page_keywords = 'oil gas software development USA, refinery management software, digital oilfield solutions, oil gas app development, petroleum industry software, energy sector management software';
 $page_canonical = 'https://artisticwebservices.com/solutions/oil-and-gas-refinery-management-software';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'Oil & Gas', 'url' => 'https://artisticwebservices.com/solutions/oil-and-gas-refinery-management-software']];

@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Cloud Managed Services USA | AWS, Azure & GCP Solutions — ArtisticWebServices';
 $page_description = 'Expert cloud managed services from ArtisticWebServices. AWS, Microsoft Azure, and Google Cloud migration, management, and optimization for USA businesses.';
-$page_keywords = 'cloud managed services USA, AWS cloud services, Azure managed services, cloud migration company New York, cloud consulting USA';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Cloud Managed Services', 'url' => 'https://artisticwebservices.com/services/cloud-managed-services']];
 $page_service_schema = ['name' => 'Cloud Managed Services', 'description' => 'AWS, Azure, and Google Cloud migration, management, and optimization for USA businesses.'];
 $page_faq = [

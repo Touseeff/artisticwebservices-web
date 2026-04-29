@@ -29,7 +29,6 @@ $B = SITE_BASE;
     <link rel="icon" type="image/x-icon" href="<?= $B ?>/assets/images/favicons/favicon.ico" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="description" content="<?php echo htmlspecialchars($page_description); ?>" />
-    <?php if (isset($page_keywords)): ?><meta name="keywords" content="<?php echo htmlspecialchars($page_keywords); ?>"><?php endif; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
     <meta name="site-base" content="<?= $B ?>"><?php // used by modal JS for redirect ?>
     <?php
@@ -68,15 +67,16 @@ $B = SITE_BASE;
     <link rel="manifest" href="<?= $B ?>/assets/images/favicons/site.webmanifest">
 
     <!-- ═══════════════════════════════════════════════════════════
-         Sprint 2 — LCP / Resource Hints
-         Preload the hero background video so the browser fetches it
-         at highest priority before the parser reaches the <video> tag.
-         fetchpriority="high" keeps it in the critical path.
+         LCP / Resource Hints
+         If the page sets $page_hero_poster, preload it as the LCP image.
+         The hero video is NOT preloaded globally — it is not a valid LCP
+         element and preloading it blocks bandwidth for actual LCP resources.
          ═══════════════════════════════════════════════════════════ -->
-    <link rel="preload" as="video"
-          href="<?= $B ?>/assets/images/vecteezy_united-states-flag-waving-gently-against-a-bright-blue-sky_71755534.mp4"
-          type="video/mp4"
+    <?php if (!empty($page_hero_poster)): ?>
+    <link rel="preload" as="image"
+          href="<?= htmlspecialchars($page_hero_poster) ?>"
           fetchpriority="high">
+    <?php endif; ?>
 
     <!-- Preload critical CSS for performance -->
     <link rel="preload" href="<?= $B ?>/assets/vendors/bootstrap/css/bootstrap.min.css" as="style">
@@ -290,7 +290,8 @@ $B = SITE_BASE;
             "https://www.instagram.com/artisticwebservices",
             "https://www.youtube.com/@artisticwebservices",
             "https://github.com/artisticwebservices",
-            "https://www.glassdoor.com/Overview/Working-at-ArtisticWebServices"
+            "https://www.glassdoor.com/Overview/Working-at-ArtisticWebServices",
+            "https://www.crunchbase.com/organization/artisticwebservices"
         ]
     }
     </script>
@@ -395,8 +396,13 @@ $B = SITE_BASE;
         "description": "<?php echo addslashes($page_description); ?>",
         "image": "<?php echo htmlspecialchars($page_og_image); ?>",
         "author": {
-            "@type": "Organization",
-            "name": "ArtisticWebServices"
+            "@type": "Person",
+            "name": "ArtisticWebServices Editorial Team",
+            "url": "https://artisticwebservices.com/about-us",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "ArtisticWebServices"
+            }
         },
         "publisher": {
             "@type": "Organization",
@@ -424,5 +430,9 @@ $B = SITE_BASE;
     }
     echo csrf_meta();
     ?>
+    <style>
+    .skip-to-main{position:absolute;left:-9999px;top:0;z-index:999999;background:#dd0429;color:#fff;padding:10px 20px;font-size:14px;font-weight:700;text-decoration:none;border-radius:0 0 6px 0;}
+    .skip-to-main:focus{left:0;}
+    </style>
 </head>
 

@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Company USA | ArtisticWebServices';
 $page_description = 'Top-rated mobile app development company in the USA. We build high-performance iOS, Android & cross-platform apps for startups and enterprises. 500+ apps delivered.';
-$page_keywords = 'mobile app development company USA, iOS app development, Android app development, cross-platform app development, mobile app developers New York';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Mobile App Development', 'url' => 'https://artisticwebservices.com/services/mobile-app-development']];
 $page_service_schema = ['name' => 'Mobile App Development', 'description' => 'Top-rated iOS, Android, and cross-platform mobile app development for startups and enterprises in USA.'];
 $page_faq = [
@@ -2291,12 +2290,88 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
       <a href="<?php echo $B; ?>/services/case-studies" style="display:inline-block; margin:0 8px 8px; padding:10px 24px; background:#dd0429; color:#fff; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600;">
         View All Case Studies
       </a>
-      <a href="<?php echo $B; ?>/contact.php" style="display:inline-block; margin:0 8px 8px; padding:10px 24px; background:transparent; color:#dd0429; border:2px solid #dd0429; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600;">
+      <a href="<?php echo $B; ?>/contact" style="display:inline-block; margin:0 8px 8px; padding:10px 24px; background:transparent; color:#dd0429; border:2px solid #dd0429; border-radius:4px; text-decoration:none; font-size:14px; font-weight:600;">
         Get a Free Quote
       </a>
     </div>
   </div>
 </section>
+
+<!-- ── Cities We Serve ─────────────────────────────── -->
+<section style="padding:60px 0; background:#f9f9f9;">
+  <div class="container">
+    <div class="section-title text-center" style="margin-bottom:32px;">
+      <h2 class="section-title__title">Mobile App Development Across the USA &amp; Beyond</h2>
+      <p class="section-title__paragraph">Based in New York, we deliver mobile apps to clients across the USA and globally.</p>
+    </div>
+    <div class="row g-3 justify-content-center">
+      <div class="col-lg-2 col-md-3 col-6">
+        <a href="<?php echo $B; ?>/insights/mobile-app-development-in-newyork"
+           style="display:block;text-align:center;padding:18px 12px;background:#fff;border:1px solid #eee;border-radius:10px;text-decoration:none;color:#333;font-size:14px;font-weight:600;transition:box-shadow 0.2s;">
+          <i class="fas fa-map-marker-alt" style="color:#dd0429;display:block;font-size:20px;margin-bottom:8px;" aria-hidden="true"></i>
+          New York
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <a href="<?php echo $B; ?>/insights/mobile-app-development-in-dubai"
+           style="display:block;text-align:center;padding:18px 12px;background:#fff;border:1px solid #eee;border-radius:10px;text-decoration:none;color:#333;font-size:14px;font-weight:600;transition:box-shadow 0.2s;">
+          <i class="fas fa-map-marker-alt" style="color:#dd0429;display:block;font-size:20px;margin-bottom:8px;" aria-hidden="true"></i>
+          Dubai
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <a href="<?php echo $B; ?>/insights/mobile-app-development-company-in-saudi-arabia"
+           style="display:block;text-align:center;padding:18px 12px;background:#fff;border:1px solid #eee;border-radius:10px;text-decoration:none;color:#333;font-size:14px;font-weight:600;transition:box-shadow 0.2s;">
+          <i class="fas fa-map-marker-alt" style="color:#dd0429;display:block;font-size:20px;margin-bottom:8px;" aria-hidden="true"></i>
+          Saudi Arabia
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <a href="<?php echo $B; ?>/insights/mobile-app-development-in-houston"
+           style="display:block;text-align:center;padding:18px 12px;background:#fff;border:1px solid #eee;border-radius:10px;text-decoration:none;color:#333;font-size:14px;font-weight:600;transition:box-shadow 0.2s;">
+          <i class="fas fa-map-marker-alt" style="color:#dd0429;display:block;font-size:20px;margin-bottom:8px;" aria-hidden="true"></i>
+          Houston
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <a href="<?php echo $B; ?>/insights/mobile-app-development-in-san-francisco"
+           style="display:block;text-align:center;padding:18px 12px;background:#fff;border:1px solid #eee;border-radius:10px;text-decoration:none;color:#333;font-size:14px;font-weight:600;transition:box-shadow 0.2s;">
+          <i class="fas fa-map-marker-alt" style="color:#dd0429;display:block;font-size:20px;margin-bottom:8px;" aria-hidden="true"></i>
+          San Francisco
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <a href="<?php echo $B; ?>/insights/mobile-app-development-in-qatar"
+           style="display:block;text-align:center;padding:18px 12px;background:#fff;border:1px solid #eee;border-radius:10px;text-decoration:none;color:#333;font-size:14px;font-weight:600;transition:box-shadow 0.2s;">
+          <i class="fas fa-map-marker-alt" style="color:#dd0429;display:block;font-size:20px;margin-bottom:8px;" aria-hidden="true"></i>
+          Qatar
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <a href="<?php echo $B; ?>/insights/mobile-app-development-in-kuwait"
+           style="display:block;text-align:center;padding:18px 12px;background:#fff;border:1px solid #eee;border-radius:10px;text-decoration:none;color:#333;font-size:14px;font-weight:600;transition:box-shadow 0.2s;">
+          <i class="fas fa-map-marker-alt" style="color:#dd0429;display:block;font-size:20px;margin-bottom:8px;" aria-hidden="true"></i>
+          Kuwait
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <a href="<?php echo $B; ?>/insights/mobile-app-development-in-bahrain"
+           style="display:block;text-align:center;padding:18px 12px;background:#fff;border:1px solid #eee;border-radius:10px;text-decoration:none;color:#333;font-size:14px;font-weight:600;transition:box-shadow 0.2s;">
+          <i class="fas fa-map-marker-alt" style="color:#dd0429;display:block;font-size:20px;margin-bottom:8px;" aria-hidden="true"></i>
+          Bahrain
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <a href="<?php echo $B; ?>/insights/mobile-app-development-in-karachi"
+           style="display:block;text-align:center;padding:18px 12px;background:#fff;border:1px solid #eee;border-radius:10px;text-decoration:none;color:#333;font-size:14px;font-weight:600;transition:box-shadow 0.2s;">
+          <i class="fas fa-map-marker-alt" style="color:#dd0429;display:block;font-size:20px;margin-bottom:8px;" aria-hidden="true"></i>
+          Karachi
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ── /Cities We Serve ────────────────────────────── -->
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </div><!-- /.page-wrapper -->

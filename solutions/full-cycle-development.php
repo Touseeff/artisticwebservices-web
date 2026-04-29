@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Full-Cycle Software Development USA | End-to-End Product Dev — ArtisticWebServices';
 $page_description = 'From concept to launch — ArtisticWebServices provides full-cycle software product development. Discovery, design, development, QA, deployment, and maintenance.';
-$page_keywords = 'full cycle software development USA, end to end app development, product development company, software product development USA, agile development';
 $page_canonical = 'https://artisticwebservices.com/solutions/full-cycle-development';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'Full-Cycle Software Development', 'url' => 'https://artisticwebservices.com/solutions/full-cycle-development']];

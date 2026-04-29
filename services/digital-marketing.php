@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Digital Marketing Services USA | SEO, PPC & Social Media — ArtisticWebServices';
 $page_description = "Grow your business with ArtisticWebServices' data-driven digital marketing services. SEO, PPC, social media marketing, and content strategy for USA companies.";
-$page_keywords = 'digital marketing company USA, SEO services New York, PPC management USA, social media marketing company, digital marketing agency';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Digital Marketing', 'url' => 'https://artisticwebservices.com/services/digital-marketing']];
 $page_service_schema = ['name' => 'Digital Marketing Services', 'description' => 'Data-driven SEO, PPC, social media marketing, and content strategy for USA businesses.'];
 $page_faq = [

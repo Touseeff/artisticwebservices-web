@@ -1,8 +1,7 @@
 <?php
 require_once 'includes/config.php';
-$page_title       = 'Award-Winning Software Development Company USA | AWS';
-$page_keywords    = 'software development company USA, mobile app development company New York, custom software development, enterprise software development, web development company USA, app development agency New York, hire software developers USA, custom mobile app development, iOS Android app development company, software outsourcing company USA, digital transformation company, full stack development company, award winning app development company, startup software development company, best software development company USA';
-$page_description = 'ArtisticWebServices is an award-winning custom software development company in New York, USA. We build high-performance mobile apps, web platforms, AI solutions, and enterprise software for startups and Fortune 500 companies. 460+ projects delivered.';
+$page_title       = 'Custom Software Development Company New York | ArtisticWebServices';
+$page_description = 'ArtisticWebServices is an award-winning software development company in New York. Mobile apps, AI, blockchain & enterprise software. 500+ projects. 10+ years.';
 $page_breadcrumbs = [];
 $page_faq = [
     ['q' => 'What services does ArtisticWebServices offer?', 'a' => 'ArtisticWebServices offers mobile app development, web development, AI & machine learning, blockchain development, cloud managed services, UI/UX design, SaaS development, IoT solutions, and digital marketing for businesses across USA and globally.'],
@@ -14,6 +13,7 @@ $page_faq = [
 ];
 $page_canonical   = SITE_URL . '/';
 $page_og_image    = SITE_URL . '/assets/images/resources/artisticwebservices-og.png';
+$page_hero_poster = SITE_URL . '/assets/images/resources/artisticwebservices-og.png';
 require_once 'includes/head.php';
 ?>
    <style>
@@ -312,9 +312,10 @@ require_once 'includes/head.php';
             font-size: clamp(0.82rem, 3.4vw, 0.97rem) !important;
             line-height: 1.6;
          }
-         /* Hero: hide long subcopy on small screens; keep trust chips (div.slide-p) */
+         /* Hero: reduce font size on small screens but keep visible for mobile-first indexing */
          .hero-video-caption > p.slide-p {
-            display: none !important;
+            font-size: clamp(0.78rem, 3.2vw, 0.9rem) !important;
+            line-height: 1.55;
          }
          .cta-two__right {
             flex-direction: column;
@@ -367,8 +368,16 @@ require_once 'includes/head.php';
          ALL DEVICES: video always visible, text always readable
          ══════════════════════════════════════════════════════════ */
 
-      /* Video visible on all screen sizes */
+      /* Desktop: video plays; mobile: video hidden, poster (background-image on wrapper) shows */
       .hero-video-bg { display: block !important; }
+      @media (max-width: 767px) {
+         .hero-video-bg { display: none !important; }
+         #carouselExampleDark {
+            background-image: url('/assets/images/resources/artisticwebservices-og.png');
+            background-size: cover;
+            background-position: center;
+         }
+      }
 
       /* Text always visible (no entrance animation delay issues) */
       @media (max-width: 767px) {
@@ -491,10 +500,12 @@ require_once 'includes/head.php';
       <?php require_once 'includes/header.php'; ?>
       <!--Header-Main End-->
 
+      <div id="main-content"></div>
       <div id="carouselExampleDark" class="carousel carousel-dark home__page">
          <!-- Single shared video plays behind every slide -->
          <!-- Sprint 2: id added for prefers-reduced-motion JS; aria-hidden prevents screen-reader noise -->
-         <video class="hero-video-bg" id="hero-bg-video" autoplay muted loop playsinline aria-hidden="true">
+         <video class="hero-video-bg" id="hero-bg-video" autoplay muted loop playsinline aria-hidden="true"
+                poster="<?= $B ?>/assets/images/resources/artisticwebservices-og.png">
             <source src="<?= $B ?>/assets/images/vecteezy_united-states-flag-waving-gently-against-a-bright-blue-sky_71755534.mp4" type="video/mp4">
          </video>
          <!-- Sprint 2 Task 6: prefers-reduced-motion guard
@@ -532,7 +543,7 @@ require_once 'includes/head.php';
                      <span>98% Client Satisfaction</span>
                   </div>
                   <div class="cta-two__right mt-4 slide-btn">
-                     <a href="<?= $B ?>/contact.php" class="thm-btn cta-two__btn redchange">Get a Free Quote →</a>
+                     <a href="<?= $B ?>/contact" class="thm-btn cta-two__btn redchange">Get a Free Quote →</a>
                      <a href="<?= $B ?>/services/case-studies" class="hero-ghost-btn">View Our Work</a>
                   </div>
                </div>
@@ -555,29 +566,29 @@ require_once 'includes/head.php';
                   <div class="custom-slider">
                      <div class="custom-slider-wrapper">
                         <div class="custom-slider-item active" data-bg="url('<?= $B ?>/assets/images/services-we-offer/mobile-app-dev.webp')">
-                            <a href="<?= $B ?>/services/mobile-app-development.php" class="custom-slider-text">Mobile Development</a>
+                            <a href="<?= $B ?>/services/mobile-app-development" class="custom-slider-text">Mobile Development</a>
                         </div>
                         <div class="custom-slider-item" data-bg="url('<?= $B ?>/assets/images/services-we-offer/artifical-intelligience.webp')">
-                            <a href="<?= $B ?>/services/artificial-intelligence.php" class="custom-slider-text">Artificial Intelligence</a>
+                            <a href="<?= $B ?>/services/artificial-intelligence" class="custom-slider-text">Artificial Intelligence</a>
                         </div>
                         <div class="custom-slider-item" data-bg="url('<?= $B ?>/assets/images/services-we-offer/blockchain-main.webp')">
-                            <a href="<?= $B ?>/services/blockchain-development.php" class="custom-slider-text">Blockchain Development</a>
+                            <a href="<?= $B ?>/services/blockchain-development" class="custom-slider-text">Blockchain Development</a>
                         </div>
                         <div class="custom-slider-item" data-bg="url('<?= $B ?>/assets/images/services-we-offer/web-dev.webp')">
-                            <a href="<?= $B ?>/services/web-development.php" class="custom-slider-text">Web Development</a>
+                            <a href="<?= $B ?>/services/web-development" class="custom-slider-text">Web Development</a>
                         </div>
                         <div class="custom-slider-item" data-bg="url('<?= $B ?>/assets/images/services-we-offer/progreesive-web-app.webp')">
-                            <a href="<?= $B ?>/services/progressive-web-apps.php" class="custom-slider-text">Progressive Web App</a>
+                            <a href="<?= $B ?>/services/progressive-web-apps" class="custom-slider-text">Progressive Web App</a>
                         </div>
                         <div class="custom-slider-item" data-bg="url('<?= $B ?>/assets/images/mvp-startup-development-img2.webp')">
-                            <a href="<?= $B ?>/services/mvp-startup-development.php" class="custom-slider-text">MVP Development</a>
+                            <a href="<?= $B ?>/services/mvp-startup-development" class="custom-slider-text">MVP Development</a>
                         </div>
                         <div class="custom-slider-item" data-bg="url('<?= $B ?>/assets/images/services-we-offer/digital-marketing.webp')">
-                            <a href="<?= $B ?>/services/digital-marketing.php" class="custom-slider-text">Digital Marketing</a>
+                            <a href="<?= $B ?>/services/digital-marketing" class="custom-slider-text">Digital Marketing</a>
                         </div>
                      </div>
-                     <button class="custom-slider-prev">&#10094;</button>
-                     <button class="custom-slider-next">&#10095;</button>
+                     <button class="custom-slider-prev" aria-label="Previous service">&#10094;</button>
+                     <button class="custom-slider-next" aria-label="Next service">&#10095;</button>
                   </div>
                </section>
             </div>
@@ -601,25 +612,25 @@ require_once 'includes/head.php';
                 <div class="carousel-item active">
                     <div class="facilities-grid">
                         <div class="facilitites-images">
-                            <img src="<?= $B ?>/assets/images/Healthcare.webp" class="image-001 d-block w-100" alt="Healthcare">
+                            <img src="<?= $B ?>/assets/images/Healthcare.webp" class="image-001 d-block w-100" alt="Healthcare app development" width="800" height="600" loading="lazy">
                         </div>
                         <div class="facilitites-texts text-001">
                             <h6>Empowering</h6>
                             <h4>Future With Tailored Healthcare Solutions</h4>
                             <p>Dive into our transformative healthcare solutions designed to elevate patient care, optimize operations, and drive innovation in the rapidly evolving healthcare landscape.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/healthcare-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/healthcare-app-development"><i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
-                            <img src="<?= $B ?>/assets/images/Education.webp" class="image-002 d-block w-100" alt="Education">
+                            <img src="<?= $B ?>/assets/images/Education.webp" class="image-002 d-block w-100" alt="Education app development" width="800" height="600" loading="lazy">
                         </div>
                         <div class="facilitites-texts text-002">
                             <h6>Education</h6>
                             <h4>Intranet Portal with Generative AI</h4>
                             <p>Generative AI-based portal with DMS and CMS capabilities for a multinational company.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/educations.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/educations"><i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -631,22 +642,22 @@ require_once 'includes/head.php';
                             <h4>Collaboration Solution that Score High</h4>
                             <p>Gear up for the future of sports recruiting with inventive technology's solutions.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/sports.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/sports"><i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
-                            <img src="<?= $B ?>/assets/images/Sports.webp" class="image-004 d-block w-100" alt="Sports">
+                            <img src="<?= $B ?>/assets/images/Sports.webp" class="image-004 d-block w-100" alt="Sports app development" width="800" height="600" loading="lazy">
                         </div>
                         <div class="facilitites-texts text-004">
                             <h6>Financial &amp; Banking</h6>
                             <h4>Revolutionizing Finances With Premium Financial &amp; Banking Solutions</h4>
                             <p>Get innovative financial technology designed by ArtisticWebServices to streamline operations, enhance security, and drive sustainable growth.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/financial-and-banking.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/financial-and-banking"><i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
-                            <img src="<?= $B ?>/assets/images/Fintech.webp" class="image-003 d-block w-100" alt="Fintech">
+                            <img src="<?= $B ?>/assets/images/Fintech.webp" class="image-003 d-block w-100" alt="Fintech banking app development" width="800" height="600" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -657,22 +668,22 @@ require_once 'includes/head.php';
                             <h4>Discover Tailored Travel Solutions</h4>
                             <p>Explore personalized travel apps that enhance your journeys with seamless booking, travel assistance, and itinerary management.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/travel-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/travel-app-development"><i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
-                            <img src="<?= $B ?>/assets/images/Travelling.webp" class="image-005 d-block w-100" alt="Travel">
+                            <img src="<?= $B ?>/assets/images/Travelling.webp" class="image-005 d-block w-100" alt="Travel app development" width="800" height="600" loading="lazy">
                         </div>
                         <div class="facilitites-texts text-006">
                             <h6>E-commerce</h6>
                             <h4>Revolutionize Shopping with Custom E-commerce Solutions</h4>
                             <p>Empower your business with top-notch e-commerce solutions tailored to enhance user experience and maximize sales.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/services/ecommerce-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/services/ecommerce-app-development"><i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                          <div class="facilitites-images">
-                            <img src="<?= $B ?>/assets/images/e-commerce-002.webp" class="image-003 d-block w-100" alt="E-commerce">
+                            <img src="<?= $B ?>/assets/images/e-commerce-002.webp" class="image-003 d-block w-100" alt="E-commerce app development" width="800" height="600" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -683,11 +694,11 @@ require_once 'includes/head.php';
                             <h4>Modernize Your Real Estate Systems for a Competitive Edge</h4>
                             <p>Get ultimate leads, double up your customers acquisitions, escalate your annual revenue</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/services/mobile-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/services/mobile-app-development"><i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
-                            <img src="<?= $B ?>/assets/images/realestate-002.webp" class="image-005 d-block w-100" alt="Real Estate">
+                            <img src="<?= $B ?>/assets/images/realestate-002.webp" class="image-005 d-block w-100" alt="Real estate app development" width="800" height="600" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -698,22 +709,22 @@ require_once 'includes/head.php';
                             <h4>Effective Collaboration for a Healthier You</h4>
                             <p>Embark on a transformative journey to a healthier life, where vibrant wellness and fitness with lasting happiness that inspires every step of your way.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/services/fitness-mobile-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/services/fitness-mobile-app-development"><i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
-                            <img src="<?= $B ?>/assets/images/fitness-wellness.webp" class="image-005 d-block w-100" alt="Fitness">
+                            <img src="<?= $B ?>/assets/images/fitness-wellness.webp" class="image-005 d-block w-100" alt="Fitness and wellness app development" width="800" height="600" loading="lazy">
                         </div>
                         <div class="facilitites-texts text-001">
                             <h6>Empowering</h6>
                             <h4>Future With Tailored Healthcare Solutions</h4>
                             <p>Dive into our transformative healthcare solutions designed to elevate patient care, optimize operations, and drive innovation in the rapidly evolving healthcare landscape.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/healthcare-app-development.php"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/healthcare-app-development"><i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                          <div class="facilitites-images">
-                            <img src="<?= $B ?>/assets/images/healthcare-0002.webp" class="image-001 d-block w-100" alt="Healthcare">
+                            <img src="<?= $B ?>/assets/images/healthcare-0002.webp" class="image-001 d-block w-100" alt="Healthcare app development solutions" width="800" height="600" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -806,26 +817,26 @@ require_once 'includes/head.php';
              <div class="custom-slider solutions-slider">
                 <div class="custom-slider-wrapper solutions-slider-wrapper">
                     <div class="custom-slider-item solutions-slider-item active" data-bg="url('<?= $B ?>/assets/images/industries-one/01-healcare.webp')">
-                        <a href="<?= $B ?>/solutions/healthcare-app-development.php" class="custom-slider-text">Healthcare</a>
+                        <a href="<?= $B ?>/solutions/healthcare-app-development" class="custom-slider-text">Healthcare</a>
                     </div>
                     <div class="custom-slider-item solutions-slider-item" data-bg="url('<?= $B ?>/assets/images/industries-one/education.webp')">
-                        <a href="<?= $B ?>/solutions/education-and-learning.php" class="custom-slider-text">Education</a>
+                        <a href="<?= $B ?>/solutions/education-and-learning" class="custom-slider-text">Education</a>
                     </div>
                     <div class="custom-slider-item solutions-slider-item" data-bg="url('<?= $B ?>/assets/images/industries-one/2.%20Fintech.webp')">
-                        <a href="<?= $B ?>/solutions/financial-and-banking.php" class="custom-slider-text">Financial &amp; Banking</a>
+                        <a href="<?= $B ?>/solutions/financial-and-banking" class="custom-slider-text">Financial &amp; Banking</a>
                     </div>
                     <div class="custom-slider-item solutions-slider-item" data-bg="url('<?= $B ?>/assets/images/industries-one/oil-gas.webp')">
-                        <a href="<?= $B ?>/solutions/oil-and-gas-refinery-management-software.php" class="custom-slider-text">Oil &amp; Gas</a>
+                        <a href="<?= $B ?>/solutions/oil-and-gas-refinery-management-software" class="custom-slider-text">Oil &amp; Gas</a>
                     </div>
                     <div class="custom-slider-item solutions-slider-item" data-bg="url('<?= $B ?>/assets/images/industries-one/05-ecommerce.webp')">
-                        <a href="<?= $B ?>/services/ecommerce-app-development.php" class="custom-slider-text">Ecommerce</a>
+                        <a href="<?= $B ?>/services/ecommerce-app-development" class="custom-slider-text">Ecommerce</a>
                     </div>
                     <div class="custom-slider-item solutions-slider-item" data-bg="url('<?= $B ?>/assets/images/industries-one/fitness-and-wellness.webp')">
-                        <a href="<?= $B ?>/services/fitness-mobile-app-development.php" class="custom-slider-text">Fitness &amp; Wellness</a>
+                        <a href="<?= $B ?>/services/fitness-mobile-app-development" class="custom-slider-text">Fitness &amp; Wellness</a>
                     </div>
                 </div>
-                <button class="custom-slider-prev solutions-slider-prev">&#10094;</button>
-                <button class="custom-slider-next solutions-slider-next">&#10095;</button>
+                <button class="custom-slider-prev solutions-slider-prev" aria-label="Previous industry">&#10094;</button>
+                <button class="custom-slider-next solutions-slider-next" aria-label="Next industry">&#10095;</button>
              </div>
           </section>
        </div>
@@ -907,7 +918,7 @@ require_once 'includes/head.php';
 <section class="chooseus__div">
     <div class="container chooseus-div">
     <h2 class="section-title__title text-center">Why Choose Us</h2>
-    <img src="<?= $B ?>/assets/images/choose-us-stick.webp" alt="chooseus stick" class="img-fluid mt-4 choose-stick">
+    <img src="<?= $B ?>/assets/images/choose-us-stick.webp" alt="" class="img-fluid mt-4 choose-stick" aria-hidden="true">
     <div class="center-notch"></div>
     <div class="left-notch"></div>
     <div class="right-notch"></div>
@@ -952,53 +963,7 @@ require_once 'includes/head.php';
         </div>
     </div>
 </div>
-</section><script>
-    window.addEventListener('load', function() {
-        function applyChooseCardStyles(swiper) {
-            swiper.el.querySelectorAll('.choose-card').forEach(function(card) {
-                card.style.backgroundColor = '#fff';
-                card.style.color = '#333';
-                card.style.boxShadow = '0 0 30px #d5d5d5';
-                card.style.minHeight = '280px';
-                card.querySelectorAll('h4').forEach(function(h) { h.style.color = ''; });
-                card.querySelectorAll('p').forEach(function(p)  { p.style.color = ''; });
-            });
-            swiper.el.querySelectorAll('.swiper-slide-active, .swiper-slide-duplicate-active').forEach(function(slide) {
-                var card = slide.querySelector('.choose-card');
-                if (!card) return;
-                card.style.backgroundColor = '#17161a';
-                card.style.color = '#fff';
-                card.style.boxShadow = '0 8px 40px rgba(0,0,0,0.25)';
-                card.style.minHeight = '310px';
-                card.querySelectorAll('h4').forEach(function(h) { h.style.color = '#fff'; });
-                card.querySelectorAll('p').forEach(function(p)  { p.style.color = 'rgba(255,255,255,0.85)'; });
-            });
-        }
-
-        var swiperChoose = new Swiper(".swiper-chooseus", {
-            spaceBetween: 20,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            loop: true,
-            centeredSlides: true,
-            grabCursor: true,
-            allowTouchMove: true,
-            touchRatio: 1,
-            touchAngle: 45,
-            simulateTouch: true,
-            slidesPerView: 1,
-            breakpoints: {
-                480: { slidesPerView: 1, spaceBetween: 16 },
-                768: { slidesPerView: 2, spaceBetween: 20 },
-                980: { slidesPerView: 3, spaceBetween: 24 },
-            },
-            on: {
-                init:          function() { applyChooseCardStyles(this); },
-                slideChange:   function() { applyChooseCardStyles(this); },
-                transitionEnd: function() { applyChooseCardStyles(this); },
-            }
-        });
-    });
-</script>
+</section>
 
       <!--Project One Start-->
 <section class="project__two">
@@ -1015,9 +980,9 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Transform Your Fitness Journey with Custom Mobile App Solutions Tailored for Success</h3>
                      <p>Transform your fitness journey into a powerful mobile solution with Fitness App Development. Our expert team brings you user-friendly apps crafted for personal trainers and several fitness and wellness brands.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/services/fitness-mobile-app-development.php">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/services/fitness-mobile-app-development">See More</a></div>
                   </div>
-                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/fitness/2-custom-fitness-app.webp" alt="Custom Fitness App" /></div>
+                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/fitness/2-custom-fitness-app.webp" alt="Custom Fitness App Development" width="600" height="450" loading="lazy" /></div>
                </div>
                </div>
                <div class="swiper-slide">
@@ -1027,7 +992,7 @@ require_once 'includes/head.php';
                      <p>These comprehensive telemedicine experiences, enhance the patient's care and convenience while ensuring effective communication between patients and healthcare providers.</p>
                      <div class="case_btn"><a href="<?= $B ?>/services/case-studies#work-showcase">See More</a></div>
                   </div>
-                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/showcase/telehome.webp" alt="Telemedicine App" /></div>
+                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/showcase/telehome.webp" alt="Telemedicine App Development" width="600" height="450" loading="lazy" /></div>
                </div>
                </div>
                <div class="swiper-slide">
@@ -1035,9 +1000,9 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Revolutionizing Finances With Premium Financial &amp; Banking Solutions</h3>
                      <p>ArtisticWebServices got it covered for you. From blockchain technology and AI-driven analytics to personalized financial products, our expert team provides advanced solutions that foster growth and enhance customer experience.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/solutions/financial-and-banking.php">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/solutions/financial-and-banking">See More</a></div>
                   </div>
-                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/finance/06.webp" alt="Financial Banking" /></div>
+                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/finance/06.webp" alt="Financial and Banking App Development" width="600" height="450" loading="lazy" /></div>
                </div>
                </div>
                <div class="swiper-slide">
@@ -1045,9 +1010,9 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Revolutionizing Healthcare: Seamless, Accessible Solutions from the Leading App Development Company</h3>
                      <p>Since 2018, we have been helping health sectors, with our innovative technologies we deliver the best telemedicine features while keeping patient comfort and care in mind with custom healthcare app development while simplifying patients care like never before.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/solutions/healthcare-app-development.php">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/solutions/healthcare-app-development">See More</a></div>
                   </div>
-                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/health/1-digital-health-m,anagement.webp" alt="Healthcare App" /></div>
+                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/health/1-digital-health-m,anagement.webp" alt="Healthcare App Development" width="600" height="450" loading="lazy" /></div>
                </div>
                </div>
                <div class="swiper-slide">
@@ -1055,9 +1020,9 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Unlock the Future of Real Estate with Cutting-Edge App Solutions Tailored for You</h3>
                      <p>Achieve customer satisfaction, and let your business reach sky-high revenue with unique mobile solutions for multiple sectors including real estate. Collaborate with our top-notch real estate developers today.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/services/mobile-app-development.php">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/services/mobile-app-development">See More</a></div>
                   </div>
-                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/realstate/admin-panel.webp" alt="Real Estate App" /></div>
+                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/realstate/admin-panel.webp" alt="Real Estate App Development" width="600" height="450" loading="lazy" /></div>
                </div>
                </div>
                <div class="swiper-slide">
@@ -1065,9 +1030,9 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Transform Connections and Empower Your Community with Next-Gen Social Networking Solutions</h3>
                      <p>Businesses are looking for innovation since the social networking landscape is evolving rapidly and companies are facing new exceptions daily while targeting their desired audiences effectively.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/services/social-networking-solution.php">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/services/social-networking-solution">See More</a></div>
                   </div>
-                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/social/01.webp" alt="Social Networking" /></div>
+                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/social/01.webp" alt="Social Networking App Development" width="600" height="450" loading="lazy" /></div>
                </div>
                </div>
                <div class="swiper-slide">
@@ -1075,9 +1040,9 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Explore New Horizons with Innovative Travel App Solutions Tailored for Your Journey</h3>
                      <p>ArtisticWebServices is a dedicated app development company, providing top-notch and user-focused travel apps that will change your perception towards the digital world.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/solutions/travel-app-development.php">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/solutions/travel-app-development">See More</a></div>
                   </div>
-                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/travel-app-development-company.webp" alt="Travel App" /></div>
+                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/travel-app-development-company.webp" alt="Travel App Development" width="600" height="450" loading="lazy" /></div>
                </div>
                </div>
                <div class="swiper-slide">
@@ -1085,9 +1050,9 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Revolutionizing Healthcare with Smart Apps for a Healthier, Connected World</h3>
                      <p>Medical App is a cloud-based on-demand application for doctors, designed and developed by our mobile app developers. Do you want to create a software-based doctor-on-demand application or solution?</p>
-                     <div class="case_btn"><a href="<?= $B ?>/services/healthcare-medical-app.php">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/services/healthcare-medical-app">See More</a></div>
                   </div>
-                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/Healthcare.webp" alt="Healthcare Medical App" /></div>
+                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/Healthcare.webp" alt="Healthcare Medical App Development" width="600" height="450" loading="lazy" /></div>
                </div>
                </div>
                <div class="swiper-slide">
@@ -1095,9 +1060,9 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Score Big with Innovative Sports Collaboration Solutions for Seamless Teamwork</h3>
                      <p>Sports Drive (Mobile App &amp; Web Software) features collectively enhance the user experience, making sports apps more engaging and informative for fans.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/solutions/sports.php">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/solutions/sports">See More</a></div>
                   </div>
-                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/sports-main.webp" alt="Sports App" /></div>
+                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/sports-main.webp" alt="Sports App Development" width="600" height="450" loading="lazy" /></div>
                </div>
                </div>
                <div class="swiper-slide">
@@ -1105,23 +1070,15 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Streamline Operations and Maximize Efficiency with Advanced Oil &amp; Gas Refinery Management Software</h3>
                      <p>Kick off a journey of transformation and efficiency with our next-gen refinery management software, crafted to meet the evolving needs of the oil and gas industry.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/solutions/oil-and-gas-refinery-management-software.php">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/solutions/oil-and-gas-refinery-management-software">See More</a></div>
                   </div>
-                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/oilgas/main-image.webp" alt="Oil Gas Software" /></div>
+                  <div class="case-imgs"><img src="<?= $B ?>/assets/images/oilgas/main-image.webp" alt="Oil and Gas Refinery Management Software" width="600" height="450" loading="lazy" /></div>
                </div>
                </div>
             </div>
          </div>
       </div>
    </div>
-   <script>
-    window.addEventListener('load', function() {
-        new Swiper(".my__Swiper", {
-            loop: true,
-            autoplay: { delay: 6000 },
-        });
-    });
-    </script>
 </section>
       <!--Project One End-->
 
@@ -1135,7 +1092,7 @@ require_once 'includes/head.php';
                     <ul class="list-unstyled counter-one__list">
                         <li class="counter-one__single wow fadeInUp" data-wow-delay="100ms">
                             <div class="counter-one__icon"> <span class="icon-recommend"></span> </div>
-                            <h3 class="odometer" data-count="460">00</h3><span class="plus-sign">+</span>
+                            <h3 class="odometer" data-count="500">00</h3><span class="plus-sign">+</span>
                             <p class="counter-one__text">Projects Completed</p>
                         </li>
                         <li class="counter-one__single wow fadeInUp" data-wow-delay="200ms">
@@ -1175,7 +1132,7 @@ require_once 'includes/head.php';
                         </div>
                     </div>
                     <div class="cta-two__right">
-                        <a href="<?= $B ?>/services/app-cost-calculator.php" class="thm-btn cta-two__btn redchange">Calculate Now</a>
+                        <a href="<?= $B ?>/services/app-cost-calculator" class="thm-btn cta-two__btn redchange">Calculate Now</a>
                     </div>
                 </div>
             </div>
@@ -1189,8 +1146,8 @@ require_once 'includes/head.php';
         <div class="section-title text-center"> <span class="section-title__tagline">easy 6 steps</span>
             <h2 class="section-title__title">Our Process</h2>
         </div>
-        <img src="<?= $B ?>/assets/images/process.webp" alt="process" class="img-fluid d-none d-md-block">
-        <img src="<?= $B ?>/assets/images/process-mobile.webp" alt="process" class="img-fluid d-block d-md-none">
+        <img src="<?= $B ?>/assets/images/process.webp" alt="ArtisticWebServices 6-step software development process" class="img-fluid d-none d-md-block" width="1200" height="400" loading="lazy">
+        <img src="<?= $B ?>/assets/images/process-mobile.webp" alt="ArtisticWebServices 6-step software development process" class="img-fluid d-block d-md-none" width="600" height="800" loading="lazy">
         <div class="how-it-works__bottom wow fadeInUp animated" data-wow-delay="900ms"
             style="visibility: visible; animation-delay: 900ms; animation-name: fadeInUp;">
             <div class="row">
@@ -1198,7 +1155,7 @@ require_once 'includes/head.php';
                     <div class="how-it-works__bottom-inner">
                         <p class="how-it-works__bottom-text">Our flexible app development team is always ready to take
                             on challenging projects. Our cost-effective solutions catered precisely to making your
-                            business grow! </p> <a href="<?= $B ?>/contact.php" class="thm-btn how-it-works__btn">get a free quote</a>
+                            business grow! </p> <a href="<?= $B ?>/contact" class="thm-btn how-it-works__btn">get a free quote</a>
                     </div>
                 </div>
             </div>
@@ -1207,58 +1164,29 @@ require_once 'includes/head.php';
 </section>
       <!--How It Works End-->
 
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How ArtisticWebServices Builds Your Software",
+        "description": "Our proven 6-step software development process from discovery to ongoing support.",
+        "totalTime": "PT12W",
+        "step": [
+          {"@type":"HowToStep","position":1,"name":"Discovery","text":"We analyze your business goals, define requirements, and create a project roadmap."},
+          {"@type":"HowToStep","position":2,"name":"Design","text":"Our designers create wireframes, UI mockups, and prototypes aligned with your brand."},
+          {"@type":"HowToStep","position":3,"name":"Development","text":"Our engineers build your solution using agile sprints with continuous client updates."},
+          {"@type":"HowToStep","position":4,"name":"Testing","text":"Rigorous QA testing across devices and platforms ensures a bug-free product."},
+          {"@type":"HowToStep","position":5,"name":"Deployment","text":"We launch your product to production with zero-downtime deployment strategies."},
+          {"@type":"HowToStep","position":6,"name":"Support","text":"Lifetime bug-free warranty and ongoing support keep your software running at peak performance."}
+        ]
+      }
+      </script>
+
       <!--Site Footer Start-->
       <?php require_once 'includes/social-share.php'; ?>
       <?php require_once 'includes/footer.php'; ?>
       <!--Site Footer End-->
-
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            function initializeSlider(sliderWrapperSelector, prevButtonSelector, nextButtonSelector, sectionSelector) {
-                const sliderWrapper = document.querySelector(sliderWrapperSelector);
-                if (!sliderWrapper) return;
-                const items = sliderWrapper.querySelectorAll('.custom-slider-item');
-                const prevButton = document.querySelector(prevButtonSelector);
-                const nextButton = document.querySelector(nextButtonSelector);
-                const section = document.querySelector(sectionSelector);
-                let index = 0;
-                const totalItems = items.length;
-                let visibleItems = 4;
-
-                function updateVisibleItems() {
-                    visibleItems = window.innerWidth <= 991 ? 1 : 4;
-                }
-
-                function updateSlider() {
-                    sliderWrapper.style.transform = `translateX(${-index * (100 / visibleItems)}%)`;
-                }
-
-                /* Apply each item's own background image from data-bg */
-                function applyItemBackgrounds() {
-                    items.forEach((item) => {
-                        const bg = item.getAttribute('data-bg');
-                        if (bg) item.style.backgroundImage = bg;
-                    });
-                }
-
-                if (nextButton) nextButton.addEventListener('click', () => {
-                    index = index < totalItems - visibleItems ? index + 1 : 0;
-                    updateSlider();
-                });
-
-                if (prevButton) prevButton.addEventListener('click', () => {
-                    index = index > 0 ? index - 1 : totalItems - visibleItems;
-                    updateSlider();
-                });
-
-                window.addEventListener('resize', () => { updateVisibleItems(); updateSlider(); });
-                updateVisibleItems(); updateSlider(); applyItemBackgrounds();
-            }
-
-            initializeSlider('.custom-slider-wrapper', '.custom-slider-prev', '.custom-slider-next', '.custom-slider-section');
-            initializeSlider('.solutions-slider-wrapper', '.solutions-slider-prev', '.solutions-slider-next', '.solutions-slider-section');
-        });
-      </script>
+      <script src="<?= $B ?>/assets/js/index-page.js" defer></script>
 
    </div>
    <!-- /.page-wrapper -->

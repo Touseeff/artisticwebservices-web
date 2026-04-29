@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Construction Industry App Development USA | IoT, AR & AI Solutions — ArtisticWebServices';
 $page_description = 'ArtisticWebServices builds smart construction industry applications with IoT integration, Augmented Reality (AR), and AI-powered automation for USA construction companies.';
-$page_keywords = 'construction app development USA, construction industry software, IoT construction solutions, AR in construction, AI construction management app, building management software';
 $page_canonical = 'https://artisticwebservices.com/solutions/construction-industry';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'Construction Industry', 'url' => 'https://artisticwebservices.com/solutions/construction-industry']];
 $page_service_schema = ['name' => 'Construction Industry App Development', 'description' => 'IoT, AR, and AI-integrated mobile applications for the construction industry in USA.'];

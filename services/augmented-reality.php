@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Augmented Reality App Development USA | AR/VR Solutions — ArtisticWebServices';
 $page_description = 'Create immersive AR/VR experiences with ArtisticWebServices. Custom augmented reality apps for retail, real estate, healthcare, and education industries in the USA.';
-$page_keywords = 'augmented reality development USA, AR app development company, VR development company, AR/VR solutions USA, immersive app development';
 $page_canonical = 'https://artisticwebservices.com/services/augmented-reality';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Augmented Reality Development', 'url' => 'https://artisticwebservices.com/services/augmented-reality']];

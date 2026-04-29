@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'App Support & Maintenance Services USA | 24/7 — ArtisticWebServices';
 $page_description = "Keep your app running perfectly with ArtisticWebServices' 24/7 app support and maintenance services. Bug fixes, updates, performance optimization, and monitoring.";
-$page_keywords = 'app support maintenance USA, mobile app maintenance company, software support services, 24/7 app monitoring, app update services';
 $page_canonical = 'https://artisticwebservices.com/services/app-support';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'App Support & Maintenance', 'url' => 'https://artisticwebservices.com/services/app-support']];

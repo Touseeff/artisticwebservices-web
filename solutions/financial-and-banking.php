@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'FinTech App Development USA | Banking & Finance Software — ArtisticWebServices';
 $page_description = 'Build secure, compliant FinTech solutions with ArtisticWebServices. Mobile banking apps, payment systems, investment platforms, and insurance tech for USA companies.';
-$page_keywords = 'fintech app development USA, mobile banking app development, payment app development, financial software development company, investment app';
 $page_canonical = 'https://artisticwebservices.com/solutions/financial-and-banking';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'FinTech & Banking App Development', 'url' => 'https://artisticwebservices.com/solutions/financial-and-banking']];

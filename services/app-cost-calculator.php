@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Mobile App Development Cost Calculator | Free Estimate — ArtisticWebServices';
 $page_description = 'Use our free mobile app development cost calculator to estimate your project budget. Get accurate insights based on features, complexity, platform (iOS/Android), and team size.';
-$page_keywords = 'mobile app development cost calculator, app development cost estimate, how much does app development cost, app budget calculator, iOS Android app cost, software development cost USA';
 $page_canonical = 'https://artisticwebservices.com/services/app-cost-calculator';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'App Cost Calculator', 'url' => 'https://artisticwebservices.com/services/app-cost-calculator']];

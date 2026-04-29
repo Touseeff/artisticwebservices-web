@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'EdTech & eLearning App Development USA | LMS Solutions — ArtisticWebServices';
 $page_description = 'Transform education with custom eLearning apps from ArtisticWebServices. LMS platforms, virtual classrooms, gamified learning, and K-12 & higher ed solutions.';
-$page_keywords = 'eLearning app development USA, LMS development company, educational app development, EdTech software development, virtual classroom app';
 $page_canonical = 'https://artisticwebservices.com/solutions/education-and-learning';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'EdTech & eLearning Development', 'url' => 'https://artisticwebservices.com/solutions/education-and-learning']];

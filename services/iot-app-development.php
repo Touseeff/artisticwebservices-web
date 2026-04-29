@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'IoT App Development Company USA | Smart Device Solutions — ArtisticWebServices';
 $page_description = 'Build connected IoT solutions with ArtisticWebServices. From smart home apps to industrial IoT platforms — expert IoT development for USA businesses.';
-$page_keywords = 'IoT development company USA, Internet of Things app development, smart device development, industrial IoT solutions, connected device apps';
 $page_canonical = 'https://artisticwebservices.com/services/iot-app-development';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'IoT App Development', 'url' => 'https://artisticwebservices.com/services/iot-app-development']];

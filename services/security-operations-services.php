@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'DevOps & Security Services USA | CI/CD & Cloud Security — ArtisticWebServices';
 $page_description = "Accelerate delivery and secure your infrastructure with ArtisticWebServices' DevOps and security operations services. CI/CD pipelines, cloud security, and compliance.";
-$page_keywords = 'DevOps services USA, CI/CD pipeline development, cloud security company, security operations USA, DevSecOps services';
 $page_canonical = 'https://artisticwebservices.com/services/security-operations-services';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Security Operations Services', 'url' => 'https://artisticwebservices.com/services/security-operations-services']];

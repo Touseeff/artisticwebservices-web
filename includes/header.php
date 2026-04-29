@@ -1,3 +1,4 @@
+<a class="skip-to-main" href="#main-content">Skip to main content</a>
 <!-- ── Page Preloader ────────────────────────────────────── -->
 <style>
 #aws-preloader {
@@ -389,7 +390,7 @@
 <nav id="awsSiteNav" class="navbar navbar-expand-lg py-2 fixed-top aws-site-nav" aria-label="Primary">
    <div class="container">
       <a class="navbar-brand" href="<?= $B ?>/"><img src="<?= $B ?>/assets/images/navbar_logo.jpeg"
-      alt="ArtisticWebServices" width="200" height="50" style="height:50px;width:auto;max-width:200px;object-fit:contain;" loading="eager"></a>
+      alt="ArtisticWebServices" width="200" height="50" style="height:50px;width:auto;max-width:200px;object-fit:contain;" loading="eager" fetchpriority="high"></a>
 
       <!-- Mobile: Call Now + hamburger on same row as logo; desktop: hidden (desktop CTA is in collapse) -->
       <div class="aws-mobile-top d-flex d-lg-none align-items-center flex-shrink-0 ms-auto">

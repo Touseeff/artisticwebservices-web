@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Progressive Web App Development USA | PWA Experts — ArtisticWebServices';
 $page_description = 'Build blazing-fast Progressive Web Apps (PWA) with ArtisticWebServices. Offline-capable, installable, and SEO-friendly PWAs for USA businesses.';
-$page_keywords = 'progressive web app development USA, PWA development company, mobile web app development, offline web app, PWA developers New York';
 $page_canonical = 'https://artisticwebservices.com/services/progressive-web-apps';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Progressive Web Apps', 'url' => 'https://artisticwebservices.com/services/progressive-web-apps']];

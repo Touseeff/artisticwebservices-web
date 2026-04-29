@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'AWS Services Company USA | Cloud Architecture & DevOps — ArtisticWebServices';
 $page_description = 'Certified AWS partner offering cloud architecture, DevOps, serverless development, and AWS migration services. Trusted by 200+ USA businesses.';
-$page_keywords = 'AWS services company USA, Amazon Web Services partner, AWS cloud migration, AWS DevOps, cloud architecture USA';
 $page_canonical = 'https://artisticwebservices.com/services/aws-services';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'AWS Services', 'url' => 'https://artisticwebservices.com/services/aws-services']];

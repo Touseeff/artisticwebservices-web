@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'eCommerce App Development Company USA | Shopify, WooCommerce — ArtisticWebServices';
 $page_description = 'Build powerful eCommerce apps and platforms with ArtisticWebServices. Custom Shopify, WooCommerce, Magento & headless commerce solutions for USA businesses.';
-$page_keywords = 'ecommerce app development USA, Shopify development company, WooCommerce developers, ecommerce website development New York, online store development';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'eCommerce App Development', 'url' => 'https://artisticwebservices.com/services/ecommerce-app-development']];
 $page_service_schema = ['name' => 'eCommerce App Development', 'description' => 'Custom Shopify, WooCommerce, Magento, and headless commerce solutions for USA businesses.'];
 $page_faq = [

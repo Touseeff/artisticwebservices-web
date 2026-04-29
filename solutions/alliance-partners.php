@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Technology Alliance Partners | Software Partnership Program — ArtisticWebServices';
 $page_description = 'ArtisticWebServices technology alliance partners program. We collaborate with leading technology companies, agencies, and resellers to deliver world-class software solutions globally.';
-$page_keywords = 'technology alliance partners, software partnership program, IT alliance program USA, technology reseller program, software company partners, strategic technology partnerships';
 $page_canonical = 'https://artisticwebservices.com/solutions/alliance-partners';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions/industries'], ['name' => 'Alliance Partners', 'url' => 'https://artisticwebservices.com/solutions/alliance-partners']];

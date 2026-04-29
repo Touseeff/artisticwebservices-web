@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'UI/UX Design Company USA | Award-Winning Design — ArtisticWebServices';
 $page_description = "Elevate your product with ArtisticWebServices' award-winning UI/UX design. User-centered design, mobile app UI, web design, and design system creation for USA companies.";
-$page_keywords = 'UI UX design company USA, user interface design, user experience agency, mobile app UI design, web UX design New York';
 $page_canonical = 'https://artisticwebservices.com/solutions/ui-ux';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Solutions', 'url' => 'https://artisticwebservices.com/solutions'], ['name' => 'UI/UX Design', 'url' => 'https://artisticwebservices.com/solutions/ui-ux']];

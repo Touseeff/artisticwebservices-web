@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Blockchain Development Company USA | Smart Contracts & DApps — ArtisticWebServices';
 $page_description = 'Leading blockchain development company in the USA. We build smart contracts, DeFi platforms, NFT marketplaces, and enterprise blockchain solutions on Ethereum & more.';
-$page_keywords = 'blockchain development company USA, smart contract development, DeFi development, NFT marketplace development, enterprise blockchain solutions';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Blockchain Development', 'url' => 'https://artisticwebservices.com/services/blockchain-development']];
 $page_service_schema = ['name' => 'Blockchain Development', 'description' => 'Smart contracts, DeFi platforms, NFT marketplaces, and enterprise blockchain solutions on Ethereum and other chains.'];
 $page_faq = [

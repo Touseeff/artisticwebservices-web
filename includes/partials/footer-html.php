@@ -81,7 +81,6 @@ if (!isset($B)) {
                     </div>
                     <div class="col-xl-3 col-lg-4 loactions__footer__new wow fadeInUp" data-wow-delay="350ms">
                         <div class="d-flex flex-column w-100 min-w-0 footer-connect-inner">
-                            <!-- ═══ MAP & ADDRESS COMMENTED OUT ═══
                             <a href="https://maps.app.goo.gl/YSFamADS1SptATJS7" target="_blank" rel="noopener noreferrer" class="map__anchor text-white text-decoration-none d-block w-100 min-w-0">
                                 <div class="footer-widget__column footer-widget__links clearfix">
                                     <h3 class="footer-widget__title">Connect With Us</h3>
@@ -98,34 +97,24 @@ if (!isset($B)) {
                             </a>
                             <div class="footer-widget__column footer-widget__links clearfix address__footers w-100 min-w-0">
                                 <div class="three__tabs">
-                                    <div class="mt-0">Email: <a href="mailto:info@artisticwebservices.com">info@artisticwebservices.com</a></div>
-                                    <div class="mt-0">Phone: <a href="tel:+12137147176" class="nav-number nav-number-1">(213) 714-7176</a></div>
-                                </div>
-                            </div>
-                            ═══ END MAP & ADDRESS ═══ -->
-
-                            <!-- Contact info (map & street address commented out above) -->
-                            <div class="footer-widget__column footer-widget__links clearfix w-100 min-w-0">
-                                <h3 class="footer-widget__title">Connect With Us</h3>
-                                <div class="three__tabs footer-contact-inline">
                                     <div class="mt-0"><i class="fa fa-envelope me-1" style="color:#dd0429;" aria-hidden="true"></i> <a href="mailto:info@artisticwebservices.com">info@artisticwebservices.com</a></div>
                                     <div class="mt-0"><i class="fa fa-phone me-1" style="color:#dd0429;" aria-hidden="true"></i> <a href="tel:+12137147176" class="nav-number nav-number-1">(213) 714-7176</a></div>
                                 </div>
-                                <!-- Social Media Icons -->
-                                <div class="footer-social-wrap">
-                                    <a href="https://www.facebook.com/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon fb" title="Facebook" aria-label="Follow us on Facebook">
-                                        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="https://www.linkedin.com/company/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon li" title="LinkedIn" aria-label="Follow us on LinkedIn">
-                                        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="https://www.instagram.com/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon ig" title="Instagram" aria-label="Follow us on Instagram">
-                                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="https://x.com/artisticweb87" target="_blank" rel="noopener noreferrer" class="footer-social-icon tw" title="X (Twitter)" aria-label="Follow us on X / Twitter">
-                                        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-                                    </a>
-                                </div>
+                            </div>
+                            <!-- Social Media Icons -->
+                            <div class="footer-social-wrap">
+                                <a href="https://www.facebook.com/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon fb" title="Facebook" aria-label="Follow us on Facebook">
+                                    <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon li" title="LinkedIn" aria-label="Follow us on LinkedIn">
+                                    <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://www.instagram.com/artisticwebservices" target="_blank" rel="noopener noreferrer" class="footer-social-icon ig" title="Instagram" aria-label="Follow us on Instagram">
+                                    <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://x.com/artisticweb87" target="_blank" rel="noopener noreferrer" class="footer-social-icon tw" title="X (Twitter)" aria-label="Follow us on X / Twitter">
+                                    <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -160,7 +149,10 @@ if (!isset($B)) {
             <div class="row">
                 <div class="col-xl-12">
                     <div class="site-footer__bottom-inner">
-                        <p class="site-footer__bottom-text">&copy; Copyrights 2025 ArtisticWebServices. All rights reserved.</p>
+                        <p class="site-footer__bottom-text">&copy; Copyrights <?php echo date('Y'); ?> ArtisticWebServices. All rights reserved. &nbsp;·&nbsp; <span style="font-size:12px;opacity:0.7;">Last updated: <?php
+    $ts = !empty($page_last_updated) ? strtotime($page_last_updated) : filemtime($_SERVER['SCRIPT_FILENAME']);
+    echo date('F Y', $ts);
+?></span></p>
                     </div>
                 </div>
             </div>

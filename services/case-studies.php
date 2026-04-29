@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Client Case Studies & Portfolio | ArtisticWebServices';
 $page_description = 'Browse ArtisticWebServices client success stories and portfolio. 460+ projects delivered across healthcare, fintech, e-commerce, fitness, real estate, and more industries in USA.';
-$page_keywords = 'software development case studies, mobile app portfolio USA, client success stories, app development portfolio, software company case study, ArtisticWebServices portfolio';
 $page_canonical = 'https://artisticwebservices.com/services/case-studies';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Case Studies', 'url' => 'https://artisticwebservices.com/services/case-studies']];

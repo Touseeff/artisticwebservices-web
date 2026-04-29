@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Business Intelligence Services USA | Data Analytics & BI — ArtisticWebServices';
 $page_description = "Transform raw data into actionable insights with ArtisticWebServices' BI services. Custom dashboards, Power BI, Tableau, and data warehouse solutions for USA companies.";
-$page_keywords = 'business intelligence company USA, data analytics services, Power BI development, Tableau consulting, BI solutions New York';
 $page_canonical = 'https://artisticwebservices.com/services/business-intelligence';
 $page_og_image = 'https://artisticwebservices.com/assets/images/resources/artisticwebservices-og.png';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'Business Intelligence', 'url' => 'https://artisticwebservices.com/services/business-intelligence']];

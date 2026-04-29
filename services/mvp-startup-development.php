@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'MVP Development Company USA | Launch Your Startup Fast — ArtisticWebServices';
 $page_description = 'Launch your startup with a lean, investor-ready MVP. ArtisticWebServices builds MVPs in 8—12 weeks for USA startups using agile methodology and modern tech stacks.';
-$page_keywords = 'MVP development company USA, startup app development, minimum viable product development, startup software development New York, lean MVP';
 $page_breadcrumbs = [['name' => 'Services', 'url' => 'https://artisticwebservices.com/services'], ['name' => 'MVP Development', 'url' => 'https://artisticwebservices.com/services/mvp-startup-development']];
 $page_service_schema = ['name' => 'MVP Development', 'description' => 'Lean, investor-ready MVP development in 8-12 weeks for USA startups using agile methodology.'];
 $page_faq = [
