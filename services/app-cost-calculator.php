@@ -2428,8 +2428,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                                     <div class="platform-card">
                                         <div class="radio-inputs">
                                             <label>
-                                                <input class="radio-input" type="radio" name="project-type"
-                                                    name="functionalities[]" value="other">
+                                                <input class="radio-input" type="checkbox" name="functionalities[]" value="other">
                                                 <span class="radio-tile">
                                                     <span class="radio-icon">
                                                         <img src="<?= $B ?>/assets/images/calculator-img/other.webp"

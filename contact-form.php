@@ -48,12 +48,12 @@ $description = clean($src['description'] ?? $src['message'] ?? '');
 $host        = clean($src['host']        ?? 'ArtisticWebServices');
 $page        = clean($src['page']        ?? $host);
 
-// Services are submitted as states[] array (multi-select custom dropdown)
+// Services submitted as states[] (multi-select) or service (plain select)
 $states_raw = $src['states'] ?? [];
-if (is_array($states_raw)) {
+if (is_array($states_raw) && !empty($states_raw)) {
     $service = implode(', ', array_map('strip_tags', array_map('trim', $states_raw)));
 } else {
-    $service = clean($states_raw ?: ($src['service'] ?? ''));
+    $service = clean($src['service'] ?? '');
 }
 
 $base = defined('SITE_BASE') ? SITE_BASE : '';

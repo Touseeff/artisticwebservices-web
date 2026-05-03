@@ -88,6 +88,6 @@ if ($sent) {
         'smtp_detail' => $smtpErr !== '' ? $smtpErr : null,
     ], JSON_UNESCAPED_UNICODE) . "\n";
     @file_put_contents($failed_log, $log_entry, FILE_APPEND | LOCK_EX);
-    header("Location: {$base}/contact?error=send_failed");
+    header("Location: {$base}/services/app-cost-calculator.php?error=send_failed");
 }
 exit;

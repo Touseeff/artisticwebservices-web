@@ -45,7 +45,7 @@ require_once __DIR__ . '/includes/header.php';
         </a>
       </div>
       <div class="col-md-3 col-6 mb-3">
-        <a href="<?php echo $B; ?>services/ai" style="display:block; padding:20px; border:1px solid #eee; border-radius:8px; text-decoration:none; color:#333;">
+        <a href="<?php echo $B; ?>services/artificial-intelligence" style="display:block; padding:20px; border:1px solid #eee; border-radius:8px; text-decoration:none; color:#333;">
           <i class="fas fa-brain fa-2x" style="color:#dd0429; margin-bottom:10px;" aria-hidden="true"></i>
           <p style="margin:0; font-size:14px; font-weight:600;">AI Development</p>
         </a>
