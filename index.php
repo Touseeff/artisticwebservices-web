@@ -13,7 +13,7 @@ $page_faq = [
 ];
 $page_canonical   = SITE_URL . '/';
 $page_og_image    = SITE_URL . '/assets/images/resources/artisticwebservices-og.png';
-$page_hero_poster = SITE_URL . '/assets/images/resources/artisticwebservices-og.png';
+$page_hero_poster = SITE_URL . '/assets/images/resources/bneer-image.jpg';
 require_once 'includes/head.php';
 ?>
    <style>
@@ -373,9 +373,10 @@ require_once 'includes/head.php';
       @media (max-width: 767px) {
          .hero-video-bg { display: none !important; }
          #carouselExampleDark {
-            background-image: url('/assets/images/resources/artisticwebservices-og.png');
+            background-image: url('/assets/images/resources/bneer-image.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: center top;
+            background-repeat: no-repeat;
          }
       }
 
@@ -505,7 +506,7 @@ require_once 'includes/head.php';
          <!-- Single shared video plays behind every slide -->
          <!-- Sprint 2: id added for prefers-reduced-motion JS; aria-hidden prevents screen-reader noise -->
          <video class="hero-video-bg" id="hero-bg-video" autoplay muted loop playsinline aria-hidden="true"
-                poster="<?= $B ?>/assets/images/resources/artisticwebservices-og.png">
+                poster="<?= $B ?>/assets/images/resources/bneer-image.jpg">
             <source src="<?= $B ?>/assets/images/vecteezy_united-states-flag-waving-gently-against-a-bright-blue-sky_71755534.mp4" type="video/mp4">
          </video>
          <!-- Sprint 2 Task 6: prefers-reduced-motion guard
