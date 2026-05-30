@@ -5416,3 +5416,17 @@ section.brand-one {
 @media (max-width: 575px) {
     .aws-breadcrumb-bar { font-size: 12px; padding: 6px 0; }
 }
+
+/* ── WCAG 2.2 SC 2.5.8 target-size: Industries/Facilities arrow link ──────────
+   The .facilities-btn circle is 40×40 but its <a> only wrapped the 30×30 icon,
+   leaving a 5px dead ring and a sub-spec tap target under layout shift. Make the
+   <a> fill the circle so the whole 40×40 is clickable. The .facilities-btn is
+   already display:flex; justify/align center, so the centered icon does NOT move
+   (verified: icon stays at the same 5px inset) — this is non-visual.            */
+.facilities-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}

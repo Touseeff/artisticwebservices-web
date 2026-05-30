@@ -76,11 +76,17 @@ $B = SITE_BASE;
     <link rel="preload" as="image"
           href="<?= htmlspecialchars($page_hero_poster) ?>"
           fetchpriority="high">
+    <?php else: ?>
+    <!-- Navbar logo is the LCP candidate on non-hero pages — preload it -->
+    <link rel="preload" as="image"
+          href="<?= $B ?>/assets/images/navbar_logo_optimized.jpeg"
+          fetchpriority="high">
     <?php endif; ?>
 
     <!-- Preload critical CSS for performance -->
     <link rel="preload" href="<?= $B ?>/assets/vendors/bootstrap/css/bootstrap.min.css" as="style">
     <link rel="preload" href="<?= $B ?>/assets/css/style-01.css@v=1.1.css" as="style">
+    <link rel="preload" href="<?= $B ?>/assets/css/mibooz-responsive.css@v=1.1.css" as="style">
     <!-- DNS prefetch for third-party origins -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -89,10 +95,14 @@ $B = SITE_BASE;
     <!-- Sprint 2: preconnect for Font Awesome CDN (Task 7) -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <!-- Google Fonts — single combined request for performance -->
+    <!-- Google Fonts — deferred to avoid render-blocking (display=swap prevents FOIT) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Federo&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Federo&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Federo&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"></noscript>
 
     <!-- ═══════════════════════════════════════════════════════════
          Sprint 2 — CSS Loading Strategy
@@ -109,9 +119,56 @@ $B = SITE_BASE;
 
     <!-- CRITICAL: Main theme styles — BLOCKING (hero section, navbar, layout) -->
     <link rel="stylesheet" href="<?= $B ?>/assets/css/style-01.css@v=1.1.css" />
+    <!-- CRITICAL: Responsive overrides — BLOCKING (must apply in same render pass as style-01) -->
+    <link rel="stylesheet" href="<?= $B ?>/assets/css/mibooz-responsive.css@v=1.1.css" />
 
-    <!-- CRITICAL: Custom overrides — BLOCKING (navbar overlap fix, hero sizing) -->
-    <link rel="stylesheet" href="<?= $B ?>/assets/css/custom-fixes.css" />
+    <!-- CRITICAL (inlined): Navbar + dropdown + body-padding overrides that affect above-fold rendering.
+         Inlining prevents layout shift from custom-fixes.css deferred load below. -->
+    <style>
+:root{--color-brand-red:#dd0429;--color-brand-red-dark:#d31923;--color-brand-red-accent:#ec1c22;--color-brand-red-hover:#b8021f;--color-text-primary:#222222;--color-text-secondary:#666666;--color-text-light:#999999;--color-text-white:#ffffff;--color-bg-light:#f8f9fa;--color-bg-dark:#1a1a2e;--spacing-xs:8px;--spacing-sm:16px;--spacing-md:24px;--spacing-lg:48px;--spacing-xl:80px;--radius-sm:4px;--radius-md:8px;--radius-lg:16px;--transition-base:0.3s ease}
+body{padding-top:68px}
+@media(max-width:991.98px){body{padding-top:60px}}
+.page-header,.banner-one,.main-slider,.hero-section,.slider-one,[class*="banner-"],[class*="page-header"]{margin-top:0!important}
+.navbar{background-color:#fff!important;box-shadow:0 2px 20px rgba(0,0,0,.08)!important;transition:box-shadow .3s ease}
+.navbar.scrolled{box-shadow:0 4px 25px rgba(0,0,0,.14)!important}
+.navbar-brand img{max-height:50px;width:auto}
+@media(max-width:991.98px){.navbar-brand img{max-height:42px}}
+.navbar .nav-link{font-size:14px;font-weight:500;color:#222!important;border-radius:4px;transition:color .2s ease,background .2s ease;position:relative;white-space:nowrap}
+@media(min-width:1200px){.navbar .nav-link{padding:0 12px;line-height:50px}}
+@media(min-width:992px)and (max-width:1199px){.navbar .nav-link{padding:0 7px;font-size:13px;line-height:50px}.main-menu-wrapper__call .aws-call-now-btn{padding:7px 14px;font-size:12.5px}}
+@media(max-width:991.98px){.navbar .nav-link{padding:10px 6px}}
+.navbar .nav-link:hover,.navbar .nav-link:focus{color:#dd0429!important;background:rgba(221,4,41,.05)}
+.navbar .nav-link.dropdown-toggle::after{vertical-align:middle}
+.navbar .main-menu-wrapper__call{margin-right:0!important;margin-left:12px!important}
+@media(min-width:992px){.navbar-collapse{min-width:0}.navbar-expand-lg .navbar-nav{flex-shrink:1}}
+.navbar.aws-site-nav{transition:transform .32s cubic-bezier(.4,0,.2,1),box-shadow .32s ease;will-change:transform}
+.navbar.aws-site-nav.aws-nav--hidden{transform:translateY(-102%);box-shadow:none;pointer-events:none}
+.dropdown-menu{background-color:#fff!important;border:none!important;box-shadow:0 15px 50px rgba(0,0,0,.13)!important;border-radius:0 0 10px 10px!important;margin-top:0!important;animation:dropFadeIn .18s ease forwards}
+@keyframes dropFadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.dropdown-item{font-size:14px;font-weight:400;color:#333!important;padding:8px 20px!important;transition:background .15s ease,color .15s ease,padding-left .15s ease}
+.dropdown-item:hover{background-color:rgba(221,4,41,.06)!important;color:#dd0429!important;padding-left:26px!important}
+.dropdown-menu .list-group-item{border:none!important;border-bottom:1px solid #f0f0f0!important;background:transparent!important;color:#333;font-size:14px;padding:10px 12px;transition:background .15s ease,color .15s ease,padding-left .15s ease}
+.dropdown-menu .list-group-item:hover{background-color:rgba(221,4,41,.06)!important;color:#dd0429!important;padding-left:20px}
+.dropdown-menu .red-icon{color:#dd0429;font-size:16px;width:20px;flex-shrink:0}
+.dropdown-menu h3{font-size:14px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px!important;padding-bottom:6px;border-bottom:2px solid #dd0429;display:inline-block}
+.navbar-toggler{border:none!important;outline:none!important;box-shadow:none!important;padding:6px 10px;background:rgba(221,4,41,.08);border-radius:6px}
+.navbar-toggler:focus{box-shadow:0 0 0 3px rgba(221,4,41,.2)!important}
+.navbar-toggler .fa-bars{font-size:20px;color:#dd0429}
+@media(max-width:991.98px){#awsSiteNav.navbar .navbar-toggler{position:relative!important;top:auto!important;right:auto!important;left:auto!important;flex-shrink:0}#awsSiteNav #navbarNav.navbar-collapse{background:#fff;border-top:none;padding:16px;max-height:min(80vh,calc(100vh - 72px));overflow-y:auto;border-radius:0 0 10px 10px;box-shadow:0 10px 30px rgba(0,0,0,.12);-webkit-overflow-scrolling:touch}#awsSiteNav #navbarNav.navbar-collapse.collapse.show{height:auto!important}.navbar-nav .nav-item{border-bottom:1px solid #f0f0f0}.navbar-nav .nav-item:last-child{border-bottom:none}.navbar-nav .nav-link{padding:12px 8px!important;font-size:15px}.navbar-nav .dropdown-toggle::after{float:right;margin-top:8px}#awsSiteNav #navbarNav .dropdown-menu{box-shadow:none!important;border:none!important;border-left:none!important;border-bottom:none!important;border-radius:0!important;margin-left:0;padding:8px 0;background:#fafafa!important}#awsSiteNav #navbarNav .dropdown-menu h3{border-bottom:none!important}#awsSiteNav #navbarNav .dropdown-menu .list-group-item{font-size:13px;padding:8px 16px}#awsSiteNav #navbarNav .dropdown-menu .col-lg-3:first-child .services-header-img,#awsSiteNav #navbarNav .dropdown-menu .col-lg-3:first-child p{display:none}.main-menu-wrapper__call{margin-top:16px;padding-top:16px;border-top:1px solid #f0f0f0}}
+@media(min-width:992px){#awsSiteNav #navbarNav.navbar-collapse{border:none!important;box-shadow:none!important;background:transparent!important;padding:0!important;max-height:none!important;overflow:visible!important;border-radius:0!important}}
+.main-menu-wrapper__call{display:flex;align-items:center;gap:10px}
+.main-menu-wrapper__call-icon img{width:38px;height:38px;object-fit:contain}
+.main-menu-wrapper__call-number h5{margin:0;font-size:14px}
+.nav-number{color:#dd0429!important;font-weight:600;text-decoration:none;transition:color .2s}
+.nav-number:hover{color:#b8001f!important}
+main>section:first-child,.page-body>section:first-child,section.banner-one,section.page-header{position:relative;z-index:1}
+section{position:relative}
+img{max-width:100%;height:auto}
+    </style>
+
+    <!-- NON-CRITICAL: Full custom overrides — deferred (critical sections inlined above) -->
+    <link rel="preload" href="<?= $B ?>/assets/css/custom-fixes.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/css/custom-fixes.css"></noscript>
 
     <!-- ─── NON-CRITICAL: Vendor plugin CSS — DEFERRED (below-fold only) ───── -->
 
@@ -141,16 +198,8 @@ $B = SITE_BASE;
     <link rel="preload" href="<?= $B ?>/assets/vendors/jarallax/jarallax.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/jarallax/jarallax.css"></noscript>
 
-    <!-- Magnific Popup — lightbox, triggered on click (below-fold) -->
-    <link rel="preload" href="<?= $B ?>/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css"></noscript>
-
-    <!-- noUiSlider — range-slider widget, below-fold forms -->
-    <link rel="preload" href="<?= $B ?>/assets/vendors/nouislider/nouislider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/nouislider/nouislider.min.css"></noscript>
-
-    <link rel="preload" href="<?= $B ?>/assets/vendors/nouislider/nouislider.pips.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/nouislider/nouislider.pips.css"></noscript>
+    <!-- magnific-popup CSS removed: no .video-popup or .img-popup element exists on any page -->
+    <!-- nouislider CSS removed: no #range-slider-price element exists on any page -->
 
     <!-- Odometer — counter animations, below-fold -->
     <link rel="preload" href="<?= $B ?>/assets/vendors/odometer/odometer.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -174,17 +223,10 @@ $B = SITE_BASE;
 
     <!-- bxslider CSS removed: .listing-details__gallery never rendered on any page (Sprint 2) -->
 
-    <!-- Bootstrap Select — form dropdowns, below-fold -->
-    <link rel="preload" href="<?= $B ?>/assets/vendors/bootstrap-select/css/bootstrap-select.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/bootstrap-select/css/bootstrap-select.min.css"></noscript>
+    <!-- bootstrap-select CSS removed: selectpicker() not called in mibooz.js -->
+    <!-- jquery-ui CSS removed: not referenced in mibooz.js -->
 
-    <!-- jQuery UI — date-pickers / accordions, below-fold -->
-    <link rel="preload" href="<?= $B ?>/assets/vendors/jquery-ui/jquery-ui.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/jquery-ui/jquery-ui.css"></noscript>
-
-    <!-- Responsive overrides — applies to below-fold breakpoints; safe to defer -->
-    <link rel="preload" href="<?= $B ?>/assets/css/mibooz-responsive.css@v=1.1.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="<?= $B ?>/assets/css/mibooz-responsive.css@v=1.1.css"></noscript>
+    <!-- mibooz-responsive.css moved to blocking load above (right after style-01) to prevent cascade break -->
 
     <!-- Slick Carousel — loaded only on pages that use it (set $load_slick = true before including head.php) -->
     <?php if (!empty($load_slick)): ?>
@@ -194,9 +236,7 @@ $B = SITE_BASE;
     <noscript><link rel="stylesheet" href="<?= $B ?>/assets/vendors/slick/slick-theme.min.css"></noscript>
     <?php endif; ?>
 
-    <!-- Select2 CSS — search-enhanced dropdowns, below-fold -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"></noscript>
+    <!-- select2 CSS removed: no .js-example-basic-multiple element exists on any page -->
 
     <!-- jQuery 3.7.1 moved to footer.php (end of body) for render-unblocking (Sprint 2) -->
     <!-- Stub so openLeadModal() is safe before footer.php loads -->

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'FinTech App Development USA | Banking & Finance Software — ArtisticWebServices';
 $page_description = 'Build secure, compliant FinTech solutions with ArtisticWebServices. Mobile banking apps, payment systems, investment platforms, and insurance tech for USA companies.';
@@ -43,12 +43,12 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                             <div id="moreContent" class="hidden">
                                 <p>At ArtisticWebServices, we take the time to understand your unique challenges and objectives. By opting for the latest tools and technologies, we develop bespoke solutions tailored to your business needs. Whether you're a startup aiming to disrupt the market or an enterprise seeking scalable options, we are here to support you on your journey! </p>
                             </div>
-                            <a href="javascript:void(0);" id="readMoreBtn" class="action-btn btn">Read More</a>
+                            <a href="#" id="readMoreBtn" onclick="return false" class="action-btn btn">Read More</a>
                         </div>
                     </div>
                     
                     <div class="col-xl-6 col-lg-7 d-flex flex-column justify-content-end">
-                        <img src="<?= $B ?>/assets/images/finance/finance-header.webp" class="img-fluid" alt="">
+                        <img src="<?= $B ?>/assets/images/finance/finance-header.webp" class="img-fluid" alt="Financial and banking app development illustration">
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                             <img src="<?= $B ?>/assets/images/finance/01.webp" class="img-fluid" alt="">
+                             <img src="<?= $B ?>/assets/images/finance/01.webp" class="img-fluid" alt="Banking risk management and fraud detection app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -114,7 +114,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/finance/02.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/finance/02.webp" class="img-fluid" alt="Banking operational management app screenshot">
                         </div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                             <img src="<?= $B ?>/assets/images/finance/03.webp" class="img-fluid" alt="">
+                             <img src="<?= $B ?>/assets/images/finance/03.webp" class="img-fluid" alt="Financial services app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -159,7 +159,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/finance/04.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/finance/04.webp" class="img-fluid" alt="Banking digital transformation app screenshot">
                         </div>
                     </div>
                 </div>
@@ -171,7 +171,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                             <img src="<?= $B ?>/assets/images/finance/05.webp" class="img-fluid" alt="">
+                             <img src="<?= $B ?>/assets/images/finance/05.webp" class="img-fluid" alt="Financial analytics and reporting app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -205,7 +205,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/finance/06.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/finance/06.webp" class="img-fluid" alt="Banking customer experience app screenshot">
                         </div>
                     </div>
                 </div>
@@ -216,7 +216,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                            <img src="<?= $B ?>/assets/images/finance/07.webp" class="img-fluid" alt="">
+                            <img src="<?= $B ?>/assets/images/finance/07.webp" class="img-fluid" alt="Financial mobile app development screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -287,7 +287,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         <div class="industry-counter-section">
             <div class="row mx-0">
                 <div class="col-lg-6">
-                    <img src="<?= $B ?>/assets/images/industries/counter-image.webp" class="img-fluid" width="80%" alt="">
+                    <img src="<?= $B ?>/assets/images/industries/counter-image.webp" class="img-fluid" width="80%" alt="BankConnect financial app project showcase">
                 </div>
                 <div class="col-lg-6 counter-col-bg p-5 d-flex flex-column justify-content-center">
                     <h2>BankConnect</h2>

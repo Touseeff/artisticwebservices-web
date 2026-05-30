@@ -81,7 +81,7 @@ require_once 'includes/head.php';
 }
 .contact-hero p {
     font-size: 17px;
-    color: rgba(255,255,255,0.65);
+    color: #fff; /* WCAG AA: muted white (rgba .65 ≈ 2.7:1) failed on red; solid #fff = 5.1:1 */
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.8;
@@ -124,7 +124,12 @@ require_once 'includes/head.php';
     pointer-events: none;
 }
 .contact-info-card .info-title {
-    font-size: 24px;
+    /* Promoted <h4>→<h2> for valid heading order. Pin font-size/line-height so the
+       global per-level "h2 { font-size: … !important }" rules in custom-fixes.css
+       can't resize it — verified to reproduce the prior h4 render (24px desktop,
+       16.8px ≤767px via the media query below), so the promotion is non-visual. */
+    font-size: 24px !important;
+    line-height: 1.2 !important;
     font-weight: 800;
     color: #fff;
     margin-bottom: 8px;
@@ -133,7 +138,7 @@ require_once 'includes/head.php';
 }
 .contact-info-card .info-subtitle {
     font-size: 14px;
-    color: rgba(255,255,255,0.5);
+    color: #fff; /* WCAG AA: rgba .5 ≈ 2.0:1 failed on red card; solid #fff = 5.1:1 (hierarchy kept via size/weight) */
     margin-bottom: 34px;
     line-height: 1.7;
     position: relative;
@@ -167,13 +172,14 @@ require_once 'includes/head.php';
     color: #fff;
     transform: scale(1.06);
 }
-.info-item-body h6 {
+.info-item-body .info-label { /* was <h6> — converted to non-heading <p class="info-label"> to remove the h4→h6 heading-order skip; values reproduce the prior h6 render exactly (incl. the 14px margin the global h1..h6 !important rule used to force) */
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 4px;
+    color: #fff; /* WCAG AA: solid #fff = 5.1:1 on the red card (was rgba .65 ≈ 2.7:1) */
+    line-height: 1.2;
+    margin: 0 0 14px;
 }
 .info-item-body p,
 .info-item-body a {
@@ -290,7 +296,7 @@ require_once 'includes/head.php';
     background: #fff;
     box-shadow: 0 0 0 4px var(--brand-glow);
 }
-.cf-input::placeholder { color: #bbb; }
+.cf-input::placeholder { color: #767676; }
 
 textarea.cf-input {
     height: 130px;
@@ -396,6 +402,10 @@ select.cf-native-select:focus {
     .contact-form-card { padding: 32px 24px; }
     .contact-info-card { margin-bottom: 30px; }
 }
+@media (max-width: 767px) {
+    /* Match the prior h4 render: global "h4 { 1.05rem !important }" shrank it to 16.8px here */
+    .contact-info-card .info-title { font-size: 16.8px !important; }
+}
 @media (max-width: 575px) {
     .contact-hero h1 { font-size: 28px; }
     .contact-hero { padding: 60px 0 40px; }
@@ -430,13 +440,13 @@ select.cf-native-select:focus {
                 <!-- LEFT: Info Card -->
                 <div class="col-lg-4">
                     <div class="contact-info-card">
-                        <h4 class="info-title">Contact Information</h4>
+                        <h2 class="info-title">Contact Information</h2>
                         <p class="info-subtitle">Reach out to us through any of these channels — we're here to help.</p>
 
                         <div class="info-item">
                             <div class="info-item-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
                             <div class="info-item-body">
-                                <h6>Email Address</h6>
+                                <p class="info-label">Email Address</p>
                                 <a href="mailto:info@artisticwebservices.com">info@artisticwebservices.com</a>
                             </div>
                         </div>
@@ -444,7 +454,7 @@ select.cf-native-select:focus {
                         <div class="info-item">
                             <div class="info-item-icon"><i class="fas fa-phone-alt" aria-hidden="true"></i></div>
                             <div class="info-item-body">
-                                <h6>Phone / WhatsApp</h6>
+                                <p class="info-label">Phone / WhatsApp</p>
                                 <a href="tel:+12137147176">(213) 714-7176</a>
                             </div>
                         </div>
@@ -452,7 +462,7 @@ select.cf-native-select:focus {
                         <div class="info-item">
                             <div class="info-item-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
                             <div class="info-item-body">
-                                <h6>Business Hours</h6>
+                                <p class="info-label">Business Hours</p>
                                 <p>Mon – Fri: 9:00 AM – 6:00 PM</p>
                             </div>
                         </div>

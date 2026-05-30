@@ -18,43 +18,53 @@
 Healthcare, FinTech & Banking, Education, Travel, Fitness & Wellness, Sports, Real Estate, Oil & Gas, E-commerce, Construction
 
 ## Contact
-- Website: https://artisticwebservices.com
+- Website: [artisticwebservices.com](https://artisticwebservices.com)
 - Email: info@artisticwebservices.com
 - Phone: +1 (213) 714-7176
 - Address: 26 Broadway, Suite 934, New York, NY 10004, USA
 
 ## Key Pages
-- Homepage: https://artisticwebservices.com/
-- About: https://artisticwebservices.com/about-us
-- Services: https://artisticwebservices.com/services
-- Mobile App Development: https://artisticwebservices.com/services/mobile-app-development
-- AI Development: https://artisticwebservices.com/services/artificial-intelligence
-- Blockchain Development: https://artisticwebservices.com/services/blockchain-development
-- Web Development: https://artisticwebservices.com/services/web-development
-- Healthcare Solutions: https://artisticwebservices.com/solutions/healthcare-app-development
-- FinTech Solutions: https://artisticwebservices.com/solutions/financial-and-banking
-- Case Studies: https://artisticwebservices.com/services/case-studies
-- Blog / Insights: https://artisticwebservices.com/insights
-- Contact: https://artisticwebservices.com/contact
-- App Cost Calculator: https://artisticwebservices.com/services/app-cost-calculator
+- [Homepage](https://artisticwebservices.com/)
+- [About Us](https://artisticwebservices.com/about-us)
+- [Services Overview](https://artisticwebservices.com/services)
+- [Mobile App Development](https://artisticwebservices.com/services/mobile-app-development)
+- [AI Development](https://artisticwebservices.com/services/artificial-intelligence)
+- [Blockchain Development](https://artisticwebservices.com/services/blockchain-development)
+- [Web Development](https://artisticwebservices.com/services/web-development)
+- [iOS App Development](https://artisticwebservices.com/services/ios-app-development)
+- [Android App Development](https://artisticwebservices.com/services/android-app-development)
+- [UI/UX Design](https://artisticwebservices.com/services/ui-ux-design)
+- [Cloud Managed Services](https://artisticwebservices.com/services/cloud-managed-services)
+- [Digital Marketing](https://artisticwebservices.com/services/digital-marketing)
+- [Fitness App Development](https://artisticwebservices.com/services/fitness-mobile-app-development)
+- [Social Networking Solutions](https://artisticwebservices.com/services/social-networking-solution)
+- [Healthcare Solutions](https://artisticwebservices.com/solutions/healthcare-app-development)
+- [FinTech & Banking Solutions](https://artisticwebservices.com/solutions/financial-and-banking)
+- [Travel App Development](https://artisticwebservices.com/solutions/travel-app-development)
+- [Sports App Development](https://artisticwebservices.com/solutions/sports)
+- [Oil & Gas Software](https://artisticwebservices.com/solutions/oil-and-gas-refinery-management-software)
+- [Education App Development](https://artisticwebservices.com/solutions/educations)
+- [Case Studies](https://artisticwebservices.com/services/case-studies)
+- [Blog / Insights](https://artisticwebservices.com/insights)
+- [Contact](https://artisticwebservices.com/contact)
+- [App Cost Calculator](https://artisticwebservices.com/services/app-cost-calculator)
 
 ## Entity Profiles
-- LinkedIn: https://www.linkedin.com/company/artisticwebservices
-- Clutch: https://clutch.co/profile/artisticwebservices
-- GoodFirms: https://www.goodfirms.co/company/artisticwebservices
-- Crunchbase: https://www.crunchbase.com/organization/artisticwebservices
-- GitHub: https://github.com/artisticwebservices
-- Glassdoor: https://www.glassdoor.com/Overview/Working-at-ArtisticWebServices
-- Instagram: https://www.instagram.com/artisticwebservices
-- Facebook: https://www.facebook.com/artisticwebservices
-- YouTube: https://www.youtube.com/@artisticwebservices
+- [LinkedIn](https://www.linkedin.com/company/artisticwebservices)
+- [Clutch](https://clutch.co/profile/artisticwebservices)
+- [GoodFirms](https://www.goodfirms.co/company/artisticwebservices)
+- [Crunchbase](https://www.crunchbase.com/organization/artisticwebservices)
+- [GitHub](https://github.com/artisticwebservices)
+- [Glassdoor](https://www.glassdoor.com/Overview/Working-at-ArtisticWebServices)
+- [Instagram](https://www.instagram.com/artisticwebservices)
+- [Facebook](https://www.facebook.com/artisticwebservices)
+- [YouTube](https://www.youtube.com/@artisticwebservices)
 
 ## Disambiguation
 "AWS" in ArtisticWebServices page titles refers to ArtisticWebServices LLC only — not Amazon Web Services. ArtisticWebServices is a custom software and mobile app development agency, not a cloud infrastructure provider.
 
 ## Entity Identifiers
-- Wikidata: [Add QID after creating entry at wikidata.org]
-- Crunchbase: https://www.crunchbase.com/organization/artisticwebservices
+- [Crunchbase](https://www.crunchbase.com/organization/artisticwebservices)
 
 ## Key Statistics (as of 2026)
 - Projects delivered: 500+
@@ -64,5 +74,5 @@ Healthcare, FinTech & Banking, Education, Travel, Fitness & Wellness, Sports, Re
 - Team size: 80+
 
 ## Content Freshness
-- Last site update: 2026-04-29
-- Insight articles carry individual publish dates at /insights/
+- Last site update: 2026-05-30
+- Insight articles carry individual publish dates at [/insights/](https://artisticwebservices.com/insights/)

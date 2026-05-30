@@ -36,7 +36,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         <a href="<?= $B ?>/contact.php" class="btn btn-light rounded-2 color-primary">Discover More</a>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center banner-image-container">
-                        <img src="<?= $B ?>/assets/images/mobile,%20app%20maintainance.webp" class="img-fluid animated-img w-80" alt="">
+                        <img src="<?= $B ?>/assets/images/mobile,%20app%20maintainance.webp" class="img-fluid animated-img w-80" alt="Mobile app maintenance and support services illustration">
                     </div>
                 </div>
             </div>

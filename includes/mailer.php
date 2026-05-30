@@ -118,10 +118,10 @@ function _smtp_send(string $to, string $from, string $fromName, string $replyTo,
     if ($_cafile !== '') {
         $_ssl_opts['cafile'] = $_cafile;
     } else {
-        // No CA bundle found — fall back to unverified (warning already logged)
-        $_ssl_opts['verify_peer']       = false;
-        $_ssl_opts['verify_peer_name']  = false;
-        $_ssl_opts['allow_self_signed'] = true;
+        // No CA bundle found — fail securely rather than disable peer verification.
+        // Fix: set curl.cainfo or openssl.cafile in php.ini to point to a CA bundle.
+        _smtp_set_error('SMTP SSL error: no CA bundle found. Set curl.cainfo in php.ini.');
+        return false;
     }
     $ctx = stream_context_create(['ssl' => $_ssl_opts]);
     unset($_cafile, $_ssl_opts);

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once 'includes/config.php';
 $page_title       = 'Custom Software Development Company New York | ArtisticWebServices';
 $page_description = 'ArtisticWebServices is an award-winning software development company in New York. Mobile apps, AI, blockchain & enterprise software. 500+ projects. 10+ years.';
@@ -340,7 +340,7 @@ require_once 'includes/head.php';
          .chooseus__div .right-notch       { display: none; }
          .choose-card                      { min-height: 220px !important; padding: 35px 16px 20px !important; }
          .swiper-slide-active .choose-card { min-height: 240px !important; padding: 35px 16px 30px !important; }
-         .choose-heading h4                { font-size: 1rem; margin-top: 15px; }
+         .choose-heading h3                { font-size: 1rem; margin-top: 15px; }
          .choose-description p             { font-size: 0.82rem; line-height: 1.45; }
          .swiper-chooseus                  { padding-bottom: 10px !important; }
       }
@@ -501,7 +501,7 @@ require_once 'includes/head.php';
       <?php require_once 'includes/header.php'; ?>
       <!--Header-Main End-->
 
-      <div id="main-content"></div>
+
       <div id="carouselExampleDark" class="carousel carousel-dark home__page">
          <!-- Single shared video plays behind every slide -->
          <!-- Sprint 2: id added for prefers-reduced-motion JS; aria-hidden prevents screen-reader noise -->
@@ -616,22 +616,22 @@ require_once 'includes/head.php';
                             <img src="<?= $B ?>/assets/images/Healthcare.webp" class="image-001 d-block w-100" alt="Healthcare app development" width="800" height="600" loading="lazy">
                         </div>
                         <div class="facilitites-texts text-001">
-                            <h6>Empowering</h6>
-                            <h4>Future With Tailored Healthcare Solutions</h4>
+                            <p class="facilitites-tagline">Empowering</p>
+                            <h3>Future With Tailored Healthcare Solutions</h3>
                             <p>Dive into our transformative healthcare solutions designed to elevate patient care, optimize operations, and drive innovation in the rapidly evolving healthcare landscape.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/healthcare-app-development"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/healthcare-app-development" aria-label="Explore Healthcare App Development"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
                             <img src="<?= $B ?>/assets/images/Education.webp" class="image-002 d-block w-100" alt="Education app development" width="800" height="600" loading="lazy">
                         </div>
                         <div class="facilitites-texts text-002">
-                            <h6>Education</h6>
-                            <h4>Intranet Portal with Generative AI</h4>
+                            <p class="facilitites-tagline">Education</p>
+                            <h3>Intranet Portal with Generative AI</h3>
                             <p>Generative AI-based portal with DMS and CMS capabilities for a multinational company.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/educations"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/educations" aria-label="Explore Education App Development"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -639,22 +639,22 @@ require_once 'includes/head.php';
                 <div class="carousel-item">
                     <div class="facilities-grid">
                         <div class="facilitites-texts text-003">
-                            <h6>Sports</h6>
-                            <h4>Collaboration Solution that Score High</h4>
+                            <p class="facilitites-tagline">Sports</p>
+                            <h3>Collaboration Solution that Score High</h3>
                             <p>Gear up for the future of sports recruiting with inventive technology's solutions.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/sports"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/sports" aria-label="Explore Sports App Development"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
                             <img src="<?= $B ?>/assets/images/Sports.webp" class="image-004 d-block w-100" alt="Sports app development" width="800" height="600" loading="lazy">
                         </div>
                         <div class="facilitites-texts text-004">
-                            <h6>Financial &amp; Banking</h6>
-                            <h4>Revolutionizing Finances With Premium Financial &amp; Banking Solutions</h4>
+                            <p class="facilitites-tagline">Financial &amp; Banking</p>
+                            <h3>Revolutionizing Finances With Premium Financial &amp; Banking Solutions</h3>
                             <p>Get innovative financial technology designed by ArtisticWebServices to streamline operations, enhance security, and drive sustainable growth.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/financial-and-banking"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/financial-and-banking" aria-label="Explore Financial and Banking Solutions"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
@@ -665,22 +665,22 @@ require_once 'includes/head.php';
                 <div class="carousel-item">
                     <div class="facilities-grid">
                         <div class="facilitites-texts text-005">
-                            <h6>Travel</h6>
-                            <h4>Discover Tailored Travel Solutions</h4>
+                            <p class="facilitites-tagline">Travel</p>
+                            <h3>Discover Tailored Travel Solutions</h3>
                             <p>Explore personalized travel apps that enhance your journeys with seamless booking, travel assistance, and itinerary management.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/travel-app-development"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/travel-app-development" aria-label="Explore Travel App Development"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
                             <img src="<?= $B ?>/assets/images/Travelling.webp" class="image-005 d-block w-100" alt="Travel app development" width="800" height="600" loading="lazy">
                         </div>
                         <div class="facilitites-texts text-006">
-                            <h6>E-commerce</h6>
-                            <h4>Revolutionize Shopping with Custom E-commerce Solutions</h4>
+                            <p class="facilitites-tagline">E-commerce</p>
+                            <h3>Revolutionize Shopping with Custom E-commerce Solutions</h3>
                             <p>Empower your business with top-notch e-commerce solutions tailored to enhance user experience and maximize sales.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/services/ecommerce-app-development"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/services/ecommerce-app-development" aria-label="Explore E-commerce App Development"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                          <div class="facilitites-images">
@@ -691,11 +691,11 @@ require_once 'includes/head.php';
                 <div class="carousel-item">
                     <div class="facilities-grid">
                         <div class="facilitites-texts text-005">
-                            <h6>Real Estate</h6>
-                            <h4>Modernize Your Real Estate Systems for a Competitive Edge</h4>
+                            <p class="facilitites-tagline">Real Estate</p>
+                            <h3>Modernize Your Real Estate Systems for a Competitive Edge</h3>
                             <p>Get ultimate leads, double up your customers acquisitions, escalate your annual revenue</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/services/mobile-app-development"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/services/mobile-app-development" aria-label="Explore Real Estate App Development"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
@@ -706,22 +706,22 @@ require_once 'includes/head.php';
                 <div class="carousel-item">
                     <div class="facilities-grid">
                         <div class="facilitites-texts text-005">
-                            <h6>Fitness &amp; Wellness</h6>
-                            <h4>Effective Collaboration for a Healthier You</h4>
+                            <p class="facilitites-tagline">Fitness &amp; Wellness</p>
+                            <h3>Effective Collaboration for a Healthier You</h3>
                             <p>Embark on a transformative journey to a healthier life, where vibrant wellness and fitness with lasting happiness that inspires every step of your way.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/services/fitness-mobile-app-development"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/services/fitness-mobile-app-development" aria-label="Explore Fitness App Development"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <div class="facilitites-images">
                             <img src="<?= $B ?>/assets/images/fitness-wellness.webp" class="image-005 d-block w-100" alt="Fitness and wellness app development" width="800" height="600" loading="lazy">
                         </div>
                         <div class="facilitites-texts text-001">
-                            <h6>Empowering</h6>
-                            <h4>Future With Tailored Healthcare Solutions</h4>
+                            <p class="facilitites-tagline">Empowering</p>
+                            <h3>Future With Tailored Healthcare Solutions</h3>
                             <p>Dive into our transformative healthcare solutions designed to elevate patient care, optimize operations, and drive innovation in the rapidly evolving healthcare landscape.</p>
                             <div class="facilities-btn">
-                                <a href="<?= $B ?>/solutions/healthcare-app-development"><i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="<?= $B ?>/solutions/healthcare-app-development" aria-label="Explore Healthcare App Development"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                          <div class="facilitites-images">
@@ -807,7 +807,7 @@ require_once 'includes/head.php';
 <!--Brand Two End-->
 
 <section class="services-three our__clients__section">
-    <div class="services-three-shape" style="background-image: url(<?= $B ?>/assets/images/shapes/solutions-section-shape.webp)"></div>
+    <div class="services-three-shape" style="background-image: url(<?= $B ?>/assets/images/shapes/services-three-shape.webp)"></div>
     <div class="container-fluid">
        <div class="section-title text-center">
           <h2 class="section-title__title">Industries</h2>
@@ -847,10 +847,10 @@ require_once 'includes/head.php';
     .chooseus__div{ overflow: hidden; }
     .choose-stick{ width: 90%; margin: -25px auto; display: block; position: relative; z-index: 5; }
     .choose-card{ background: #fff; box-shadow: 0 0 30px #d5d5d5; border-radius: 20px; padding: 50px 20px 5px 20px; text-align: center; min-height: 280px }
-    .choose-heading h4{ font-weight: bold; margin-bottom: 10px; margin-top: 25px; }
+    .choose-heading h3{ font-weight: bold; margin-bottom: 10px; margin-top: 25px; }
     .choose-description{ margin-bottom: 0; font-size: 14px; line-height: 20px; }
     .swiper-slide-active .choose-card{ background: #17161a; color: #fff; padding: 50px 20px 30px 20px; min-height: 310px; }
-    .swiper-slide-active .choose-card h4{ color: #fff; }
+    .swiper-slide-active .choose-card h3{ color: #fff; }
     .swiper-slide-active .choose-card p{ color: rgba(255,255,255,0.85); }
     .chooseus-div{ position: relative; }
     .center-notch{ position: absolute; transform: translate(-50%, -50%); height: 30px; left: 50%; width: 50px; border-radius: 0px 0px 150px 150px; background-color: #fff; z-index: 3; top: 143px; }
@@ -866,8 +866,8 @@ require_once 'includes/head.php';
         min-height: 310px !important;
         box-shadow: 0 8px 40px rgba(0,0,0,0.25) !important;
     }
-    section.chooseus__div .swiper-slide-active .choose-card h4,
-    section.chooseus__div .swiper-slide-duplicate-active .choose-card h4 {
+    section.chooseus__div .swiper-slide-active .choose-card h3,
+    section.chooseus__div .swiper-slide-duplicate-active .choose-card h3 {
         color: #fff !important;
     }
     section.chooseus__div .swiper-slide-active .choose-card p,
@@ -915,6 +915,18 @@ require_once 'includes/head.php';
         height: 50px;
         width: 40px;
     }
+    /* ── facilitites-tagline: replaces h6 for heading-order compliance ── */
+    .facilitites-tagline {
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--color-brand-red, #dd0429);
+        margin: 0 0 6px;
+        line-height: 1.4;
+    }
+    /* ── WCAG AA contrast fix: #707070 on #ececec = 4.19:1 (fails). #595959 = 5.77:1 (passes) ── */
+    .facilitites-texts p { color: #595959; }
 </style>
 <section class="chooseus__div">
     <div class="container chooseus-div">
@@ -927,37 +939,37 @@ require_once 'includes/head.php';
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="choose-card">
-                    <div class="choose-heading"><h4>Focused Business <br> Approach</h4></div>
+                    <div class="choose-heading"><h3>Focused Business <br> Approach</h3></div>
                     <div class="choose-description"><p>With our focused approach to Mobile App Development, we are the best in business when it comes to App development for mobile, tablet &amp; web platforms.</p></div>
                 </div>
             </div>
             <div class="swiper-slide">
                 <div class="choose-card">
-                    <div class="choose-heading"><h4>Professional <br> Team</h4></div>
+                    <div class="choose-heading"><h3>Professional <br> Team</h3></div>
                     <div class="choose-description"><p>Our team is highly skilled in Native, Hybrid, and Web Application development on all major mobile, tablet, and web platforms including iOS, Android, Windows &amp; Web.</p></div>
                 </div>
             </div>
             <div class="swiper-slide">
                 <div class="choose-card">
-                    <div class="choose-heading"><h4>Flexible Payment <br> Terms</h4></div>
+                    <div class="choose-heading"><h3>Flexible Payment <br> Terms</h3></div>
                     <div class="choose-description"><p>Develop your application at the best price and pay with our flexible payment terms as your project progresses. Award-winning custom software development companies value your feedback.</p></div>
                 </div>
             </div>
             <div class="swiper-slide">
                 <div class="choose-card">
-                    <div class="choose-heading"><h4>Life time Bug <br> Free Warranty</h4></div>
+                    <div class="choose-heading"><h3>Life time Bug <br> Free Warranty</h3></div>
                     <div class="choose-description"><p>Enjoying a lifetime error-free guarantee, our customers keep their apps smooth and save time and money on fixing minor bugs. And we believe that a commitment to excellence at every stage.</p></div>
                 </div>
             </div>
             <div class="swiper-slide">
                 <div class="choose-card">
-                    <div class="choose-heading"><h4>Source Code <br> Ownership</h4></div>
+                    <div class="choose-heading"><h3>Source Code <br> Ownership</h3></div>
                     <div class="choose-description"><p>Upon development completion &amp; after product launch, we deliver complete source code with ownership without any additional fee and also give you the flexibility.</p></div>
                 </div>
             </div>
             <div class="swiper-slide">
                 <div class="choose-card">
-                    <div class="choose-heading"><h4>No 3rd Party <br> Involvement</h4></div>
+                    <div class="choose-heading"><h3>No 3rd Party <br> Involvement</h3></div>
                     <div class="choose-description"><p>Award-winning custom software development company proficient developers and the entire app development team handle all projects and customer service.</p></div>
                 </div>
             </div>
@@ -981,7 +993,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Transform Your Fitness Journey with Custom Mobile App Solutions Tailored for Success</h3>
                      <p>Transform your fitness journey into a powerful mobile solution with Fitness App Development. Our expert team brings you user-friendly apps crafted for personal trainers and several fitness and wellness brands.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/services/fitness-mobile-app-development">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/services/fitness-mobile-app-development">Explore Fitness App Development</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/fitness/2-custom-fitness-app.webp" alt="Custom Fitness App Development" width="600" height="450" loading="lazy" /></div>
                </div>
@@ -991,7 +1003,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Empowering Healthcare with Seamless Telemedicine Apps and Advanced Integrated Features</h3>
                      <p>These comprehensive telemedicine experiences, enhance the patient's care and convenience while ensuring effective communication between patients and healthcare providers.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/services/case-studies#work-showcase">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/services/case-studies#work-showcase">View Our Case Studies</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/showcase/telehome.webp" alt="Telemedicine App Development" width="600" height="450" loading="lazy" /></div>
                </div>
@@ -1001,7 +1013,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Revolutionizing Finances With Premium Financial &amp; Banking Solutions</h3>
                      <p>ArtisticWebServices got it covered for you. From blockchain technology and AI-driven analytics to personalized financial products, our expert team provides advanced solutions that foster growth and enhance customer experience.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/solutions/financial-and-banking">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/solutions/financial-and-banking">Explore Financial &amp; Banking Solutions</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/finance/06.webp" alt="Financial and Banking App Development" width="600" height="450" loading="lazy" /></div>
                </div>
@@ -1011,7 +1023,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Revolutionizing Healthcare: Seamless, Accessible Solutions from the Leading App Development Company</h3>
                      <p>Since 2018, we have been helping health sectors, with our innovative technologies we deliver the best telemedicine features while keeping patient comfort and care in mind with custom healthcare app development while simplifying patients care like never before.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/solutions/healthcare-app-development">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/solutions/healthcare-app-development">Explore Healthcare App Development</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/health/1-digital-health-m,anagement.webp" alt="Healthcare App Development" width="600" height="450" loading="lazy" /></div>
                </div>
@@ -1021,7 +1033,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Unlock the Future of Real Estate with Cutting-Edge App Solutions Tailored for You</h3>
                      <p>Achieve customer satisfaction, and let your business reach sky-high revenue with unique mobile solutions for multiple sectors including real estate. Collaborate with our top-notch real estate developers today.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/services/mobile-app-development">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/services/mobile-app-development">Explore Mobile App Development</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/realstate/admin-panel.webp" alt="Real Estate App Development" width="600" height="450" loading="lazy" /></div>
                </div>
@@ -1031,7 +1043,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Transform Connections and Empower Your Community with Next-Gen Social Networking Solutions</h3>
                      <p>Businesses are looking for innovation since the social networking landscape is evolving rapidly and companies are facing new exceptions daily while targeting their desired audiences effectively.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/services/social-networking-solution">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/services/social-networking-solution">Explore Social Networking Solutions</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/social/01.webp" alt="Social Networking App Development" width="600" height="450" loading="lazy" /></div>
                </div>
@@ -1041,7 +1053,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Explore New Horizons with Innovative Travel App Solutions Tailored for Your Journey</h3>
                      <p>ArtisticWebServices is a dedicated app development company, providing top-notch and user-focused travel apps that will change your perception towards the digital world.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/solutions/travel-app-development">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/solutions/travel-app-development">Explore Travel App Development</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/travel-app-development-company.webp" alt="Travel App Development" width="600" height="450" loading="lazy" /></div>
                </div>
@@ -1051,7 +1063,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Revolutionizing Healthcare with Smart Apps for a Healthier, Connected World</h3>
                      <p>Medical App is a cloud-based on-demand application for doctors, designed and developed by our mobile app developers. Do you want to create a software-based doctor-on-demand application or solution?</p>
-                     <div class="case_btn"><a href="<?= $B ?>/services/healthcare-medical-app">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/services/healthcare-medical-app">Explore Healthcare Medical Apps</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/Healthcare.webp" alt="Healthcare Medical App Development" width="600" height="450" loading="lazy" /></div>
                </div>
@@ -1061,7 +1073,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Score Big with Innovative Sports Collaboration Solutions for Seamless Teamwork</h3>
                      <p>Sports Drive (Mobile App &amp; Web Software) features collectively enhance the user experience, making sports apps more engaging and informative for fans.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/solutions/sports">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/solutions/sports">Explore Sports App Development</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/sports-main.webp" alt="Sports App Development" width="600" height="450" loading="lazy" /></div>
                </div>
@@ -1071,7 +1083,7 @@ require_once 'includes/head.php';
                   <div class="case-content">
                      <h3>Streamline Operations and Maximize Efficiency with Advanced Oil &amp; Gas Refinery Management Software</h3>
                      <p>Kick off a journey of transformation and efficiency with our next-gen refinery management software, crafted to meet the evolving needs of the oil and gas industry.</p>
-                     <div class="case_btn"><a href="<?= $B ?>/solutions/oil-and-gas-refinery-management-software">See More</a></div>
+                     <div class="case_btn"><a href="<?= $B ?>/solutions/oil-and-gas-refinery-management-software">Explore Oil &amp; Gas Software</a></div>
                   </div>
                   <div class="case-imgs"><img src="<?= $B ?>/assets/images/oilgas/main-image.webp" alt="Oil and Gas Refinery Management Software" width="600" height="450" loading="lazy" /></div>
                </div>

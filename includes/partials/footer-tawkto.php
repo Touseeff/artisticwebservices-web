@@ -46,12 +46,56 @@ Tawk_API.onLoad=function(){
         }
     } catch (e) { /* avoid breaking Tawk if DOM/CSS APIs differ */ }
 };
+
+/* ── Interaction-deferred loader ──────────────────────────────────
+   Tawk.to loads only after the first user gesture (mouse, key, touch,
+   scroll) or after 5 s — whichever comes first. This keeps it out of
+   the initial TBT window entirely on pages with no early interaction.
+   ──────────────────────────────────────────────────────────────── */
 (function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/69d1fa4e1772311c3585e1cd/1jle3jgku';
-s1.charset='UTF-8';
-s0.parentNode.insertBefore(s1,s0);
+    var tawkLoaded=false;
+    function loadTawk(){
+        if(tawkLoaded)return;
+        tawkLoaded=true;
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/69d1fa4e1772311c3585e1cd/1jle3jgku';
+        s1.charset='UTF-8';
+        s0.parentNode.insertBefore(s1,s0);
+    }
+    /* Load on first user interaction */
+    ['mouseover','keydown','touchstart','scroll','click'].forEach(function(e){
+        document.addEventListener(e,loadTawk,{once:true,passive:true});
+    });
+    /* Fallback: load unconditionally after 5 s */
+    setTimeout(loadTawk,5000);
+})();
+
+/* ── Accessibility: title attribute on Tawk.to iframe ─────────────
+   Tawk.to injects an untitled iframe, which fails WCAG 4.1.2 (frame-title).
+   A MutationObserver watches for the iframe and sets its title immediately.
+   ──────────────────────────────────────────────────────────────── */
+(function(){
+    function titleTawkFrames(){
+        // Tawk injects a chat-window iframe (src contains "tawk.to") AND a launcher
+        // bubble iframe whose src is "about:blank" — the old [src*="tawk.to"] selector
+        // missed the launcher, so frame-title (WCAG 4.1.2) kept failing. Title
+        // about:blank iframes too, but only once Tawk has genuinely loaded
+        // (showWidget exists only on the real API, not the stub) so we never
+        // mislabel an unrelated about:blank iframe.
+        var loaded = !!(window.Tawk_API && typeof window.Tawk_API.showWidget === 'function')
+                     || !!document.querySelector('iframe[src*="tawk.to"]');
+        document.querySelectorAll('iframe:not([title])').forEach(function(f){
+            var src = f.getAttribute('src') || '';
+            if (src.indexOf('tawk.to') !== -1 || (loaded && src === 'about:blank')) {
+                f.setAttribute('title','Live chat support widget');
+            }
+        });
+    }
+    var obs=new MutationObserver(titleTawkFrames);
+    obs.observe(document.body,{childList:true,subtree:true});
+    /* Also run immediately in case Tawk loaded before this script */
+    titleTawkFrames();
 })();
 </script>
 <!--End of Tawk.to Script-->

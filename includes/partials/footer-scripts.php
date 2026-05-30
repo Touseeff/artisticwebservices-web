@@ -23,16 +23,17 @@ if (!isset($load_countdown)) { $load_countdown = false; }
 <?php if (!empty($load_jarallax)): ?>
 <script src="<?= $B ?>/assets/vendors/jarallax/jarallax.min.js"></script>
 <?php endif; ?>
-<script src="<?= $B ?>/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
 <script src="<?= $B ?>/assets/vendors/jquery-appear/jquery.appear.min.js"></script>
-<script src="<?= $B ?>/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
-<script src="<?= $B ?>/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-<script src="<?= $B ?>/assets/vendors/jquery-validate/jquery.validate.min.js"></script>
-<script src="<?= $B ?>/assets/vendors/nouislider/nouislider.min.js"></script>
 <script src="<?= $B ?>/assets/vendors/odometer/odometer.min.js"></script>
 <script src="<?= $B ?>/assets/vendors/swiper/swiper.min.js"></script>
 <!-- tiny-slider JS removed: zero .thm-tiny__slider elements on any page (Sprint 2) -->
-<script src="<?= $B ?>/assets/vendors/wnumb/wNumb.min.js"></script>
+<!-- ajaxchimp removed: no .mc-form newsletter element exists on any page -->
+<!-- circle-progress removed: no .circle-progress element exists on any page -->
+<!-- magnific-popup removed: no .video-popup or .img-popup element exists on any page -->
+<!-- jquery-validate removed: no .contact-form-validated element exists on any page -->
+<!-- nouislider + wNumb removed: no #range-slider-price element exists on any page -->
+<!-- bootstrap-select removed: selectpicker() not called anywhere in mibooz.js -->
+<!-- jquery-ui removed: not referenced anywhere in mibooz.js -->
 <script src="<?= $B ?>/assets/vendors/wow/wow.js"></script>
 <?php if (!empty($load_isotope)): ?>
 <script src="<?= $B ?>/assets/vendors/isotope/isotope.js"></script>
@@ -42,14 +43,11 @@ if (!isset($load_countdown)) { $load_countdown = false; }
 <?php endif; ?>
 <!-- Owl Carousel JS removed: Sprint 3 — migrated to Swiper via owl-to-swiper-migration.js shim -->
 <!-- bxslider JS removed: .listing-details__gallery never rendered on any page (Sprint 2) -->
-<script src="<?= $B ?>/assets/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
-<script src="<?= $B ?>/assets/vendors/jquery-ui/jquery-ui.js"></script>
 <!-- Slick JS — loaded only on pages that use it (set $load_slick = true before including head.php) -->
 <?php if (!empty($load_slick)): ?>
 <script src="<?= $B ?>/assets/vendors/slick/slick.min.js"></script>
 <?php endif; ?>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" integrity="sha384-d3UHjPdzJkZuk5H3qKYMLRyWLAQBJbby2yr2Q58hXXtAGF8RSNO9jpLDlKKPv5v3" crossorigin="anonymous"></script>
-<script>$('.js-example-basic-multiple').select2();</script>
+<!-- select2 removed: no .js-example-basic-multiple element exists on any page -->
 <!-- Owl → Swiper migration shim (Sprint 3): intercepts .owlCarousel() calls and uses Swiper instead -->
 <!-- Must be loaded AFTER swiper.min.js (above) and BEFORE mibooz.js (below) -->
 <script src="<?= $B ?>/assets/js/owl-to-swiper-migration.js"></script>

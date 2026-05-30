@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'EdTech & eLearning App Development USA | LMS Solutions — ArtisticWebServices';
 $page_description = 'Transform education with custom eLearning apps from ArtisticWebServices. LMS platforms, virtual classrooms, gamified learning, and K-12 & higher ed solutions.';
@@ -43,13 +43,13 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                             <div id="moreContent" class="hidden">
                                 <p>We understand the importance of effectively ensuring compliance with educational standards. By seamlessly integrating data from various sources, such as student performance analytics and related resources, our education & learning software empowers educators to make the right decisions at the right time and implement active strategies for continuous improvement.</p>
                             </div>
-                            <a href="javascript:void(0);" id="readMoreBtn" class="action-btn btn">Read More</a>
+                            <a href="#" id="readMoreBtn" onclick="return false" class="action-btn btn">Read More</a>
                         </div>
                     </div>
                     
                     
                     <div class="col-xl-6 col-lg-6 d-flex flex-column justify-content-end">
-                        <img src="<?= $B ?>/assets/images/education/1.webp" class="img-fluid" alt="">
+                        <img src="<?= $B ?>/assets/images/education/1.webp" class="img-fluid" alt="Education app development services illustration">
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                             <img src="<?= $B ?>/assets/images/education/01.webp" class="img-fluid" alt="">
+                             <img src="<?= $B ?>/assets/images/education/01.webp" class="img-fluid" alt="Smart corporate training and skill development app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -108,7 +108,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                               <img src="<?= $B ?>/assets/images/education/education-02.webp" class="img-fluid" alt="">
+                               <img src="<?= $B ?>/assets/images/education/education-02.webp" class="img-fluid" alt="Education learning management system app screenshot">
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/education/3.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/education/3.webp" class="img-fluid" alt="Education compliance and safety app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -153,7 +153,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/education/4.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/education/4.webp" class="img-fluid" alt="Emergency preparedness education app screenshot">
                         </div>
                     </div>
                 </div>
@@ -165,7 +165,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/education/5.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/education/5.webp" class="img-fluid" alt="Streamlined educational operations app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -201,7 +201,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                               <img src="<?= $B ?>/assets/images/education/education-06.webp" class="img-fluid" alt="">
+                               <img src="<?= $B ?>/assets/images/education/education-06.webp" class="img-fluid" alt="Digital education collaboration and feedback app screenshot">
                         </div>
                     </div>
                 </div>
@@ -214,7 +214,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/education/7.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/education/7.webp" class="img-fluid" alt="Education accessibility features app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -239,7 +239,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         <div class="industry-counter-section">
             <div class="row mx-0">
                 <div class="col-lg-6">
-                    <img src="<?= $B ?>/assets/images/industries/counter-image.webp" class="img-fluid" width="80%" alt="">
+                    <img src="<?= $B ?>/assets/images/industries/counter-image.webp" class="img-fluid" width="80%" alt="LearnGet education app project showcase">
                 </div>
                 <div class="col-lg-6 counter-col-bg p-5 d-flex flex-column justify-content-center">
                     <h2>LearnGet</h2>

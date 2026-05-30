@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Healthcare App Development Company USA | HIPAA Compliant — ArtisticWebServices';
 $page_description = 'HIPAA-compliant healthcare app development from ArtisticWebServices. Telemedicine, EHR integration, patient portals, and health monitoring apps for USA healthcare providers.';
@@ -93,71 +93,71 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   }
                   }}'>
                   <div class="swiper-wrapper">
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/android.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/android.webp" alt="Android"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/angular.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/angular.webp" alt="Angular"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/appium.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/appium.webp" alt="Appium"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/aws.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/aws.webp" alt="AWS"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dc.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dc.webp" alt="DC"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dynamodb.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dynamodb.webp" alt="DynamoDB"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/firebase.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/firebase.webp" alt="Firebase"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/flutter.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/flutter.webp" alt="Flutter"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/gradle.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/gradle.webp" alt="Gradle"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/html5.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/html5.webp" alt="HTML5"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ionic.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ionic.webp" alt="Ionic"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ios.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ios.webp" alt="iOS"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/java.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/java.webp" alt="Java"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/jenkins.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/jenkins.webp" alt="Jenkins"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/kotlin.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/kotlin.webp" alt="Kotlin"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/linode.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/linode.webp" alt="Linode"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/magento.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/magento.webp" alt="Magento"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mongo.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mongo.webp" alt="MongoDB"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mssql.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mssql.webp" alt="MSSQL"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mysql.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mysql.webp" alt="MySQL"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/node.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/node.webp" alt="Node.js"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ocject.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ocject.webp" alt="Objective-C"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/php.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/php.webp" alt="PHP"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/rackspace.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/rackspace.webp" alt="Rackspace"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/react.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/react.webp" alt="React"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/redis.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/redis.webp" alt="Redis"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/selenium.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/selenium.webp" alt="Selenium"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/shopify.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/shopify.webp" alt="Shopify"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/swift.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/swift.webp" alt="Swift"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ts.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ts.webp" alt="TypeScript"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/vue.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/vue.webp" alt="Vue.js"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wordpress.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wordpress.webp" alt="WordPress"> </div>
                      <!-- /.swiper-slide -->
-                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wpf.webp" alt=""> </div>
+                     <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wpf.webp" alt="WPF"> </div>
                      <!-- /.swiper-slide -->
                   </div>
                </div>
@@ -169,7 +169,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="col-md-6">
                      <div class="healthcare-box">
                         <div class="helth-left">
-                           <img src="<?= $B ?>/assets/images/health/Healthcare-Mobile-App-Development.svg" alt="">
+                           <img src="<?= $B ?>/assets/images/health/Healthcare-Mobile-App-Development.svg" alt="Healthcare mobile app development icon">
                         </div>
                         <div class="helth-right">
                            <h4>Healthcare Mobile App Development</h4>
@@ -180,7 +180,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="col-md-6">
                      <div class="healthcare-box">
                         <div class="helth-left">
-                           <img src="<?= $B ?>/assets/images/health/Healthcare-Wearable-App-Development.svg" alt="">
+                           <img src="<?= $B ?>/assets/images/health/Healthcare-Wearable-App-Development.svg" alt="Healthcare wearable app development icon">
                         </div>
                         <div class="helth-right">
                            <h4>Healthcare wearable App Development</h4>
@@ -194,7 +194,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="col-md-6">
                      <div class="healthcare-box">
                         <div class="helth-left">
-                           <img src="<?= $B ?>/assets/images/health/Healthcare-Product-Development.svg" alt="">
+                           <img src="<?= $B ?>/assets/images/health/Healthcare-Product-Development.svg" alt="Healthcare product development icon">
                         </div>
                         <div class="helth-right">
                            <h4>Healthcare Product Development</h4>
@@ -205,7 +205,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="col-md-6">
                      <div class="healthcare-box">
                         <div class="helth-left">
-                           <img src="<?= $B ?>/assets/images/health/Medical-Device-Software-Development.svg" alt="">
+                           <img src="<?= $B ?>/assets/images/health/Medical-Device-Software-Development.svg" alt="Medical device software development icon">
                         </div>
                         <div class="helth-right">
                            <h4>Medical Device Software Development</h4>
@@ -219,7 +219,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="col-md-6">
                      <div class="healthcare-box">
                         <div class="helth-left">
-                           <img src="<?= $B ?>/assets/images/health/Medical-Imaging-Solution.svg" alt="">
+                           <img src="<?= $B ?>/assets/images/health/Medical-Imaging-Solution.svg" alt="Medical imaging solution icon">
                         </div>
                         <div class="helth-right">
                            <h4>Medical Imaging Solution</h4>
@@ -230,7 +230,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="col-md-6">
                      <div class="healthcare-box">
                         <div class="helth-left">
-                           <img src="<?= $B ?>/assets/images/health/Medical-App-Development.svg" alt="">
+                           <img src="<?= $B ?>/assets/images/health/Medical-App-Development.svg" alt="Medical app development icon">
                         </div>
                         <div class="helth-right">
                            <h4>Medical App Development</h4>
@@ -244,7 +244,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="col-md-6">
                      <div class="healthcare-box">
                         <div class="helth-left">
-                           <img src="<?= $B ?>/assets/images/health/Healthcare-CRM.svg" alt="">
+                           <img src="<?= $B ?>/assets/images/health/Healthcare-CRM.svg" alt="Healthcare CRM icon">
                         </div>
                         <div class="helth-right">
                            <h4>Healthcare CRM & Patient Data Management</h4>
@@ -255,7 +255,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="col-md-6">
                      <div class="healthcare-box">
                         <div class="helth-left">
-                           <img src="<?= $B ?>/assets/images/health/Condition-Management-App.svg" alt="">
+                           <img src="<?= $B ?>/assets/images/health/Condition-Management-App.svg" alt="Condition management app icon">
                         </div>
                         <div class="helth-right">
                            <h4>Diseases, Ailment &amp; Condition Management App</h4>
@@ -269,7 +269,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="col-md-6">
                      <div class="healthcare-box">
                         <div class="helth-left">
-                           <img src="<?= $B ?>/assets/images/health/Clinic-Management-App-Development.svg" alt="">
+                           <img src="<?= $B ?>/assets/images/health/Clinic-Management-App-Development.svg" alt="Clinic management app development icon">
                         </div>
                         <div class="helth-right">
                            <h4>Clinic Management App Development </h4>
@@ -280,7 +280,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                   <div class="col-md-6">
                      <div class="healthcare-box">
                         <div class="helth-left">
-                           <img src="<?= $B ?>/assets/images/health/Fitness-Nutrition-Management-App-Development.svg" alt="">
+                           <img src="<?= $B ?>/assets/images/health/Fitness-Nutrition-Management-App-Development.svg" alt="Fitness and nutrition management app development icon">
                         </div>
                         <div class="helth-right">
                            <h4>Fitness & Nutrition Management App Development</h4>

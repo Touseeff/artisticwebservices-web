@@ -32,7 +32,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                         <a href="<?= $B ?>/contact.php" class="btn btn-light rounded-2 color-primary">Discover More</a>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center banner-image-container">
-                        <img src="<?= $B ?>/assets/images/empower-your-software-architecture-with-next-gen-microservices.webp" class="img-fluid animated-img w-80" alt="">
+                        <img src="<?= $B ?>/assets/images/empower-your-software-architecture-with-next-gen-microservices.webp" class="img-fluid animated-img w-80" alt="Microservices architecture development illustration">
                     </div>
                 </div>
             </div>
@@ -512,71 +512,71 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
             }
         }}'>
       <div class="swiper-wrapper">
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/android.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/android.webp" alt="Android"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/angular.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/angular.webp" alt="Angular"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/appium.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/appium.webp" alt="Appium"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/aws.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/aws.webp" alt="AWS"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dc.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dc.webp" alt="DC"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dynamodb.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/dynamodb.webp" alt="DynamoDB"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/firebase.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/firebase.webp" alt="Firebase"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/flutter.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/flutter.webp" alt="Flutter"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/gradle.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/gradle.webp" alt="Gradle"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/html5.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/html5.webp" alt="HTML5"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ionic.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ionic.webp" alt="Ionic"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ios.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ios.webp" alt="iOS"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/java.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/java.webp" alt="Java"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/jenkins.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/jenkins.webp" alt="Jenkins"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/kotlin.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/kotlin.webp" alt="Kotlin"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/linode.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/linode.webp" alt="Linode"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/magento.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/magento.webp" alt="Magento"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mongo.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mongo.webp" alt="MongoDB"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mssql.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mssql.webp" alt="MSSQL"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mysql.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/mysql.webp" alt="MySQL"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/node.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/node.webp" alt="Node.js"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ocject.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ocject.webp" alt="Objective-C"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/php.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/php.webp" alt="PHP"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/rackspace.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/rackspace.webp" alt="Rackspace"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/react.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/react.webp" alt="React"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/redis.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/redis.webp" alt="Redis"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/selenium.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/selenium.webp" alt="Selenium"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/shopify.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/shopify.webp" alt="Shopify"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/swift.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/swift.webp" alt="Swift"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ts.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/ts.webp" alt="TypeScript"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/vue.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/vue.webp" alt="Vue.js"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wordpress.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wordpress.webp" alt="WordPress"> </div>
         <!-- /.swiper-slide -->
-        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wpf.webp" alt=""> </div>
+        <div class="swiper-slide"> <img src="<?= $B ?>/assets/images/brand/wpf.webp" alt="WPF"> </div>
         <!-- /.swiper-slide -->
       </div>
     </div>

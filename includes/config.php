@@ -27,9 +27,14 @@ define('SITE_LOGO_DARK', 'assets/images/resources/artisticwebservices-og.png');
 
 // ── Dynamic base URL: works on localhost subfolder AND production ─────────────
 if (!defined('SITE_BASE')) {
-    $__protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
-    $__host     = $_SERVER['HTTP_HOST'] ?? 'localhost';
-    $__script   = $_SERVER['SCRIPT_NAME'] ?? '/index.php';
+    $__protocol   = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+    $__raw_host   = $_SERVER['HTTP_HOST'] ?? 'localhost';
+    $__bare_host  = preg_replace('/:\d+$/', '', $__raw_host);
+    $__is_local   = in_array($__bare_host, ['localhost', '127.0.0.1', '::1'], true);
+    // On production, always use the canonical domain — prevents Host-header injection.
+    $__host       = $__is_local ? $__raw_host : (parse_url(SITE_URL, PHP_URL_HOST) ?? $__raw_host);
+    $__script     = $_SERVER['SCRIPT_NAME'] ?? '/index.php';
+    unset($__raw_host, $__bare_host, $__is_local);
 
     // Strip known sub-page folders to find the project root folder
     foreach (['/services/', '/solutions/', '/insights/'] as $__folder) {

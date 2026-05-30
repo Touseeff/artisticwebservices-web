@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Oil & Gas Refinery Management Software USA | Digital Oilfield Solutions — ArtisticWebServices';
 $page_description = 'ArtisticWebServices develops oil and gas refinery management software, digital oilfield solutions, and asset tracking apps to improve efficiency for USA energy companies.';
@@ -88,11 +88,11 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                             <div id="moreContent" class="hidden">
                                 <p>We understand the need and allow operators to streamline production workflows, manage inventory, and ensure regulatory compliance. By integrating data from various sources, such as equipment sensors and supply chain logistics, our refinery management software facilitates informed decision-making and proactive maintenance strategies. </p>
                             </div>
-                            <a href="javascript:void(0);" id="readMoreBtn" class="action-btn btn">Read More</a>
+                            <a href="#" id="readMoreBtn" onclick="return false" class="action-btn btn">Read More</a>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 d-flex flex-column justify-content-end">
-                        <img src="<?= $B ?>/assets/images/oilgas/main-image.webp" class="img-fluid" alt="">
+                        <img src="<?= $B ?>/assets/images/oilgas/main-image.webp" class="img-fluid" alt="Oil and gas refinery management software illustration">
                     </div>
                 </div>
             </div>
@@ -186,7 +186,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                             <img src="<?= $B ?>/assets/images/oilgas/oil-02.webp" class="img-fluid" alt="">
+                             <img src="<?= $B ?>/assets/images/oilgas/oil-02.webp" class="img-fluid" alt="Oil and gas real-time monitoring app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -227,7 +227,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/oilgas/oil-03.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/oilgas/oil-03.webp" class="img-fluid" alt="Oil and gas maintenance management app screenshot">
                         </div>
                     </div>
                 </div>
@@ -238,7 +238,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                             <img src="<?= $B ?>/assets/images/oilgas/oil-04.webp" class="img-fluid" alt="">
+                             <img src="<?= $B ?>/assets/images/oilgas/oil-04.webp" class="img-fluid" alt="Oil and gas user management and safety app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -274,7 +274,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                             <img src="<?= $B ?>/assets/images/oilgas/oil-05.webp" class="img-fluid" alt="">
+                             <img src="<?= $B ?>/assets/images/oilgas/oil-05.webp" class="img-fluid" alt="Oil and gas operational efficiency app screenshot">
                         </div>
                     </div>
                 </div>
@@ -285,7 +285,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                             <img src="<?= $B ?>/assets/images/oilgas/oil-06.webp" class="img-fluid" alt="">
+                             <img src="<?= $B ?>/assets/images/oilgas/oil-06.webp" class="img-fluid" alt="Oil and gas communication and collaboration app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -321,7 +321,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                             <img src="<?= $B ?>/assets/images/oilgas/oil-07.webp" class="img-fluid" alt="">
+                             <img src="<?= $B ?>/assets/images/oilgas/oil-07.webp" class="img-fluid" alt="Oil and gas environmental monitoring app screenshot">
                         </div>
                     </div>
                 </div>
@@ -332,7 +332,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                             <img src="<?= $B ?>/assets/images/oilgas/oil-08.webp" class="img-fluid" alt="">
+                             <img src="<?= $B ?>/assets/images/oilgas/oil-08.webp" class="img-fluid" alt="Oil and gas emergency response app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -368,7 +368,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/oilgas/oil-09.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/oilgas/oil-09.webp" class="img-fluid" alt="Oil and gas reporting and compliance app screenshot">
                         </div>
                     </div>
                 </div>
@@ -379,7 +379,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/oilgas/oil-10.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/oilgas/oil-10.webp" class="img-fluid" alt="Oil and gas data integration app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">

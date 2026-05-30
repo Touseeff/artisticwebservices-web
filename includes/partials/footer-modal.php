@@ -57,7 +57,7 @@ if (!isset($B)) {
                 </div>
                 <img
                     src="<?= $B ?>/assets/images/modal-support-lady.png"
-                    alt=""
+                    alt="ArtisticWebServices customer support representative"
                     class="aws-modal-lady-img"
                     loading="lazy"
                 />

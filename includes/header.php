@@ -132,8 +132,7 @@
     </div>
 </div>
 <!-- ── /Page Preloader ─────────────────────────────────── -->
-<link rel="stylesheet" href="<?= $B ?>/assets/css/style-01.css@v=1.1.css" />
-<link rel="stylesheet" href="<?= $B ?>/assets/css/mibooz-responsive.css@v=1.1.css" />
+<!-- style-01 and mibooz-responsive are loaded in head.php (blocking); removed duplicates from here -->
 <!-- Select2 CSS removed from here — already loaded correctly in head.php (Sprint 2 dedup fix) -->
 <!-- Font Awesome 6 loaded in head.php -->
 <style>
@@ -389,7 +388,7 @@
 </style>
 <nav id="awsSiteNav" class="navbar navbar-expand-lg py-2 fixed-top aws-site-nav" aria-label="Primary">
    <div class="container">
-      <a class="navbar-brand" href="<?= $B ?>/"><img src="<?= $B ?>/assets/images/navbar_logo.jpeg"
+      <a class="navbar-brand" href="<?= $B ?>/"><img src="<?= $B ?>/assets/images/navbar_logo_optimized.jpeg"
       alt="ArtisticWebServices" width="200" height="50" style="height:50px;width:auto;max-width:200px;object-fit:contain;" loading="eager" fetchpriority="high"></a>
 
       <!-- Mobile: Call Now + hamburger on same row as logo; desktop: hidden (desktop CTA is in collapse) -->
@@ -413,7 +412,7 @@
             </li>
             <li class="nav-item dropdown dropdown-hover position-static">
                <!-- aria-haspopup="true" and aria-expanded managed by keyboard JS below (WCAG 4.1.2) -->
-               <a class="nav-link dropdown-toggle" href="javascript:void(0)" onmouseenter="servicedrp()" onclick="mobileDrpToggle('servicedropdown', event)" role="button"
+               <a class="nav-link dropdown-toggle" href="#" onmouseenter="servicedrp()" onclick="mobileDrpToggle('servicedropdown', event);return false;" role="button"
                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-aws-dropdown="servicedropdown">
                Services
                </a>
@@ -484,7 +483,7 @@
                </div>
             </li>
             <li class="nav-item dropdown dropdown-hover position-static">
-               <a class="nav-link dropdown-toggle" href="javascript:void(0)" onmouseenter="solutiondrp()" onclick="mobileDrpToggle('solutiondropdown', event)" role="button"
+               <a class="nav-link dropdown-toggle" href="#" onmouseenter="solutiondrp()" onclick="mobileDrpToggle('solutiondropdown', event);return false;" role="button"
                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-aws-dropdown="solutiondropdown">
                Solutions
                </a>
@@ -552,7 +551,7 @@
       </div>
    </div>
 </nav>
-<div id="main-content" tabindex="-1" style="outline:none;"></div>
+<main id="main-content" tabindex="-1" style="outline:none;">
 <?php if (!empty($page_breadcrumbs)): ?>
 <div class="aws-breadcrumb-bar" aria-label="Breadcrumb navigation">
    <div class="container">

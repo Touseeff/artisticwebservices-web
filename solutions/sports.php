@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once __DIR__ . '/../includes/config.php';
 $page_title = 'Sports App Development USA | Sports Technology Solutions — ArtisticWebServices';
 $page_description = 'ArtisticWebServices builds cutting-edge sports apps with AI-driven analytics, athlete management, sports recruiting platforms, and fan engagement solutions for USA sports organizations.';
@@ -39,13 +39,13 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                             <div id="moreContent" class="hidden">
                                 <p>Sports Drive is your ultimate destination for all things sports! Designed for passionate fans and casual viewers alike, offering a comprehensive suite of features that keep you connected to the games you love. From real-time scores and live updates to in-depth player stats and exclusive highlights, Sports Drive ensures you never miss a moment of the action. Engage with fellow fans through interactive polls and discussions, and stay ahead of the game with personalized notifications tailored to your favorite teams and leagues. With a user-friendly interface and rich content, Sports Drive transforms the way you experience sports, making every match feel like a front-row seat. Join us and elevate your sports experience today! </p>
                             </div>
-                            <a href="javascript:void(0);" id="readMoreBtn" class="action-btn btn">Read More</a>
+                            <a href="#" id="readMoreBtn" onclick="return false" class="action-btn btn">Read More</a>
                         </div>
                     </div>
                 
                     
                     <div class="col-xl-6 col-lg-6 d-flex flex-column justify-content-end">
-                        <img src="<?= $B ?>/assets/images/sports-main.webp" class="img-fluid" alt="">
+                        <img src="<?= $B ?>/assets/images/sports-main.webp" class="img-fluid" alt="Sports app development for club and team management">
                     </div>
                 </div>
             </div>
@@ -196,7 +196,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                             <img src="<?= $B ?>/assets/images/sport/1.webp" class="img-fluid" alt="">
+                             <img src="<?= $B ?>/assets/images/sport/1.webp" class="img-fluid" alt="Sports club and team management app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -236,7 +236,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/sport/2.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/sport/2.webp" class="img-fluid" alt="Sports scheduling and performance tracking app screenshot">
                         </div>
                     </div>
                 </div>
@@ -247,7 +247,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/sport/3.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/sport/3.webp" class="img-fluid" alt="Sports payment and document management app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -287,7 +287,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/sport/4.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/sport/4.webp" class="img-fluid" alt="Sports tournament management app screenshot">
                         </div>
                     </div>
                 </div>
@@ -299,7 +299,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/sport/5.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/sport/5.webp" class="img-fluid" alt="Sports live scoring and leaderboard app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -338,7 +338,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                               <img src="<?= $B ?>/assets/images/sport/6.webp" class="img-fluid" alt="">
+                               <img src="<?= $B ?>/assets/images/sport/6.webp" class="img-fluid" alt="Sports tournament communication and feedback app screenshot">
                         </div>
                     </div>
                 </div>
@@ -349,7 +349,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/sport/7.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/sport/7.webp" class="img-fluid" alt="Sports analytics and community engagement app screenshot">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -387,7 +387,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
                     </div>
                      <div class="col-md-6">
                         <div class="wellness-img">
-                              <img src="<?= $B ?>/assets/images/sport/8.webp" class="img-fluid" alt="">
+                              <img src="<?= $B ?>/assets/images/sport/8.webp" class="img-fluid" alt="Sports customization and API integration app screenshot">
                         </div>
                     </div>
                 </div>
@@ -398,7 +398,7 @@ $B = defined('SITE_BASE') ? SITE_BASE : '';
         <div class="industry-counter-section">
             <div class="row mx-0">
                 <div class="col-lg-6">
-                    <img src="<?= $B ?>/assets/images/industries/counter-image.webp" class="img-fluid" width="80%" alt="">
+                    <img src="<?= $B ?>/assets/images/industries/counter-image.webp" class="img-fluid" width="80%" alt="SportsHire sports job app project showcase">
                 </div>
                 <div class="col-lg-6 counter-col-bg p-5 d-flex flex-column justify-content-center">
                     <h2>SportsHire</h2>
