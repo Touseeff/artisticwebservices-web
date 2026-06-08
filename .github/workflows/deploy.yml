@@ -42,6 +42,10 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          # Hostinger shared hosting requires explicit-TLS FTPS on port 21.
+          # Without these the action defaults to plain FTP and the connection is refused.
+          protocol: ftps
+          port: 21
           server-dir: /public_html/
           local-dir: ./
           exclude: |
